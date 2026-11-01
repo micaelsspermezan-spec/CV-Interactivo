@@ -215,3 +215,47 @@ git pull
 ```
 
 Antes de empezar una sesión de trabajo, comprobar que la copia local está sincronizada. No editar simultáneamente el mismo archivo en local y directamente en GitHub sin sincronizar después.
+
+## 9. Normas de trabajo y transparencia
+
+Estas normas son obligatorias para cualquier persona o asistente que colabore en el proyecto.
+
+### Comunicación con el usuario
+
+- Hablar en español y utilizar explicaciones breves y claras.
+- Referirse a los archivos por su nombre y, sobre todo, a las secciones numeradas o identificadores concretos que el usuario reconoce en el código.
+- No utilizar hashes de commits, nombres internos de Git ni jerga técnica como explicación principal. Si es necesario mencionarlos, explicar inmediatamente qué significan.
+- Trabajar paso a paso. No encadenar tareas o cambios distintos sin explicar primero el siguiente paso.
+
+### Antes de modificar código
+
+- Consultar el estado actual de la rama `main` y leer la versión vigente de los archivos que se vayan a tocar.
+- Explicar qué archivo se modificará, qué sección concreta se verá afectada, qué comportamiento se pretende conseguir y por qué.
+- Si el cambio implica una decisión de diseño o varias alternativas relevantes, explicarlas y esperar la elección del usuario antes de implementarlo.
+- No pedir al usuario que vuelva a pegar código que ya esté disponible en el repositorio.
+
+### Seguridad y revisión del código
+
+- No añadir código ofuscado, oculto o innecesariamente complejo.
+- No añadir telemetría, analítica, recopilación o envío de datos, conexiones externas, dependencias, scripts de terceros, almacenamiento de credenciales ni comunicaciones con servidores sin explicarlo previamente y obtener aprobación explícita.
+- No introducir funciones que no estén relacionadas con el CV interactivo.
+- Explicar cualquier uso de `fetch`, solicitudes HTTP, almacenamiento local, cookies, APIs externas, carga dinámica de scripts o dependencias nuevas antes de incorporarlo.
+- Mantener el código legible, comentado y modular para que el usuario pueda inspeccionarlo.
+- No afirmar que el código es completamente seguro ni que se ha auditado exhaustivamente. Indicar qué se ha revisado y qué queda fuera de la comprobación.
+
+### Después de cada modificación
+
+- Indicar el archivo modificado y la sección exacta.
+- Describir las líneas o bloques añadidos, modificados o eliminados. Cuando sea posible, proporcionar los números de línea de la versión guardada y explicar el código en lenguaje normal.
+- Mostrar el fragmento relevante antes/después cuando ayude a revisar el cambio.
+- Explicar el efecto esperado y cualquier posible impacto en otras funciones.
+- Verificar recuperando el archivo desde GitHub que el contenido se ha guardado correctamente.
+- Indicar claramente si el usuario debe hacer `git pull` en VS Code. Si no se modificó ningún archivo, decirlo expresamente.
+- No dar por probado un comportamiento que no se haya ejecutado realmente. Diferenciar entre revisión del código y prueba funcional realizada por el usuario.
+
+### Control del trabajo
+
+- Trabajar en la rama `main`, salvo que el usuario indique otra.
+- No modificar archivos directamente sin haber explicado previamente el cambio y obtenido la conformidad del usuario.
+- No realizar cambios adicionales, limpiezas o refactorizaciones que no formen parte de la tarea acordada.
+- Mantener actualizado este documento cuando cambien la estructura, las mecánicas, las decisiones o las próximas tareas del proyecto.
