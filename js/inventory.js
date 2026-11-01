@@ -278,7 +278,10 @@ function mostrarDetalleObjeto(objeto) {
 
             botonEquipamiento.textContent = "Desequipar";
 
-            botonEquipamiento.addEventListener("click", () => {
+            botonEquipamiento.addEventListener("click", evento => {
+
+                evento.stopPropagation();
+
                 desequiparObjeto();
             });
 
@@ -288,7 +291,10 @@ function mostrarDetalleObjeto(objeto) {
                 ? "Sustituir objeto equipado"
                 : "Equipar objeto";
 
-            botonEquipamiento.addEventListener("click", () => {
+            botonEquipamiento.addEventListener("click", evento => {
+
+                evento.stopPropagation();
+
                 equiparObjeto(objeto);
             });
         }
