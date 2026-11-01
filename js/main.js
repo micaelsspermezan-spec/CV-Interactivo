@@ -222,7 +222,7 @@ document.addEventListener("click", evento => {
         !inventario.classList.contains("oculta") &&
         !inventario.contains(elemento) &&
         !panelCV.contains(elemento) &&
-        !elemento.closest("#abrir-inventario, #contenedor-equipamiento")
+        !elemento.closest("#abrir-inventario, #contenedor-equipamiento, #acciones-objeto")
     ) {
         inventario.classList.add("oculta");
         deseleccionarObjeto();
