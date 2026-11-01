@@ -134,6 +134,7 @@ CV-Interactivo/
 ## 4. Mecánicas presentes en el código
 
 ### Navegación y paneles
+
 - Pantalla inicial con botón para entrar en la cabaña.
 - Botón para volver al menú principal.
 - Panel del currículum independiente.
@@ -142,12 +143,14 @@ CV-Interactivo/
 - La vuelta al menú limpia el mensaje temporal de escena y la selección, pero no reinicia los objetos recogidos ni el estado de los mecanismos.
 
 ### Inventario
+
 - Los objetos se almacenan en el array `objetosInventario`.
 - Se evita añadir dos veces un objeto con el mismo ID.
 - El inventario genera un botón por objeto y muestra el contador de objetos encontrados.
 - Al seleccionar un objeto se muestra su ficha y las acciones disponibles.
 
 ### Equipamiento
+
 - Existe una única ranura de equipamiento.
 - Si está vacía, pulsarla abre el inventario.
 - Si contiene un objeto, pulsarla abre el menú para sustituirlo.
@@ -155,6 +158,7 @@ CV-Interactivo/
 - El objeto equipado se conserva en memoria mientras la página no se recargue.
 
 ### Recogida y puzle
+
 - El póster se recoge como documento y desbloquea el botón para consultar el CV.
 - Se pueden recoger una llave de hierro y una llave de latón.
 - El cajón requiere una llave equipada.
