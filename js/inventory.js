@@ -255,11 +255,6 @@ function mostrarDetalleObjeto(objeto) {
                 "Pieza que puede formar parte de un mecanismo.";
             break;
 
-        case "pieza-cv":
-            acciones.textContent =
-                "Fragmento recuperado. Forma parte de mi currículum.";
-            break;
-
         default:
             acciones.textContent =
                 "No hay acciones disponibles.";
