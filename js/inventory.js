@@ -15,6 +15,52 @@ let objetoEquipado = null;
 
 
 /* ==========================================
+   DATOS DE LOS FRAGMENTOS DEL CURRÍCULUM
+   Añadir aquí los datos de cada nueva pieza.
+   ========================================== */
+
+const datosPiezasCV = {
+    "pieza-cv-1-3": {
+        datos: [
+            "Estudiante de Sistemas Microinformáticos y Redes, con interés en la informática, la programación y el desarrollo de videojuegos. Actualmente estoy ampliando mis conocimientos de Python y de los sistemas informáticos. También me interesan la biología y la ciencia en general.",
+            "2025–2027 · Técnico en Sistemas Microinformáticos y Redes · IES Maestre de Calatrava, Ciudad Real.",
+            "Educación Secundaria Obligatoria (ESO) · IES Juan de Ávila."
+        ]
+    }
+};
+
+
+function obtenerPiezasCVRecogidas() {
+
+    return objetosInventario.filter(
+        objeto => objeto.tipo === "pieza-cv"
+    );
+}
+
+
+function actualizarDescripcionCurriculum() {
+
+    const curriculum = objetosInventario.find(
+        objeto => objeto.id === "curriculum"
+    );
+
+    if (!curriculum) return;
+
+    const piezas = obtenerPiezasCVRecogidas();
+
+    if (piezas.length === 0) {
+        curriculum.descripcion =
+            "Un documento que contiene mi formación y experiencia.";
+    } else {
+        const nombrePieza = piezas.length === 1 ? "la pieza" : "las piezas";
+
+        curriculum.descripcion =
+            `Currículum recogido. Se ha añadido la información adicional de ${nombrePieza} que ya habías recuperado.`;
+    }
+}
+
+
+/* ==========================================
    2. AÑADIR OBJETOS
    ========================================== */
 
@@ -34,6 +80,9 @@ function añadirObjeto(id, nombre, descripcion, tipo) {
     };
 
     objetosInventario.push(nuevoObjeto);
+
+    // Mantener sincronizada la descripción del currículum.
+    actualizarDescripcionCurriculum();
 
     actualizarInventario();
 }
@@ -223,6 +272,18 @@ function mostrarDetalleObjeto(objeto) {
 
             if (objeto.id === "curriculum") {
 
+                // Mostrar qué piezas ya se han incorporado al documento.
+                const piezasRecogidas = obtenerPiezasCVRecogidas();
+
+                piezasRecogidas.forEach(pieza => {
+
+                    const elementoPieza = document.createElement("p");
+                    elementoPieza.classList.add("pieza-incorporada-cv");
+                    elementoPieza.textContent = pieza.nombre;
+
+                    acciones.appendChild(elementoPieza);
+                });
+
                 const botonConsultar = document.createElement("button");
 
                 botonConsultar.textContent = "Consultar documento";
@@ -254,6 +315,49 @@ function mostrarDetalleObjeto(objeto) {
             acciones.textContent =
                 "Pieza que puede formar parte de un mecanismo.";
             break;
+
+        case "pieza-cv": {
+
+            // El estado y los datos se muestran juntos en la ficha.
+            descripcion.textContent = "";
+
+            const curriculumRecogido = objetosInventario.some(
+                objeto => objeto.id === "curriculum"
+            );
+
+            const estado = document.createElement("p");
+            estado.classList.add("estado-pieza-cv");
+            estado.textContent = curriculumRecogido
+                ? "Estos datos ya se han añadido al currículum."
+                : "Estos datos podrán organizarse en un currículum cuando lo encuentres.";
+
+            acciones.appendChild(estado);
+
+            const informacion = datosPiezasCV[objeto.id];
+
+            if (informacion) {
+
+                const contenedorDatos = document.createElement("div");
+                contenedorDatos.classList.add("datos-pieza-cv");
+
+                informacion.datos.forEach(dato => {
+
+                    const parrafo = document.createElement("p");
+                    parrafo.classList.add("dato-pieza-cv");
+
+                    if (curriculumRecogido) {
+                        parrafo.classList.add("incorporado");
+                    }
+
+                    parrafo.textContent = dato;
+                    contenedorDatos.appendChild(parrafo);
+                });
+
+                acciones.appendChild(contenedorDatos);
+            }
+
+            break;
+        }
 
         default:
             acciones.textContent =
