@@ -110,6 +110,7 @@ document.getElementById("poster-cv").addEventListener("click", () => {
     añadirObjeto(
         "curriculum",
         "📜 Currículum",
+        "Documento",
         "Un documento que contiene mi formación y experiencia.",
         "documento"
     );
@@ -133,6 +134,7 @@ document.getElementById("llave-hierro").addEventListener("click", () => {
     añadirObjeto(
         "llave-hierro",
         "🗝️ Llave de hierro",
+        "Llave",
         "Una llave antigua y desgastada. No parece encajar en cualquier cerradura.",
         "llave"
     );
@@ -154,7 +156,8 @@ document.getElementById("llave-laton").addEventListener("click", () => {
     añadirObjeto(
         "llave-laton",
         "🗝️ Llave de latón",
-        "Una llave de latón con un aspecto cuidado. Quizá abra alguna cerradura de la cabaña.",
+        "Llave",
+        "Una estructura de latón con varias runas grabadas.",
         "llave"
     );
 
@@ -185,6 +188,7 @@ document.getElementById("pieza-cv-1-3").addEventListener("click", () => {
     añadirObjeto(
         "pieza-cv-1-3",
         "📄 Pieza de CV 1/3",
+        "Fragmento de currículum",
         "Información sobre mi perfil y formación.",
         "pieza-cv"
     );
