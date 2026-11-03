@@ -67,6 +67,10 @@ CV-Interactivo/
 │           │   ├── Título
 │           │   └── #cerrar-cv
 │           └── #contenido-cv
+│               ├── #datos-personales-cv
+│               ├── [data-pieza-cv="1"] · Perfil y formación
+│               ├── [data-pieza-cv="2"] · Experiencia e idiomas
+│               └── [data-pieza-cv="3"] · Competencias e intereses
 │
 ├── css/
 │   └── style.css
@@ -170,7 +174,8 @@ CV-Interactivo/
 
 - La escena es provisional y está construida con botones; todavía no hay una habitación ilustrada ni movimiento libre.
 - Los objetos y el progreso se guardan solo en memoria JavaScript: al recargar la página se reinicia el estado.
-- El panel del CV todavía contiene texto provisional; falta diseñar las secciones y la incorporación de fragmentos.
+- El panel del CV contiene la cabecera personal visible y tres fragmentos en un único documento.
+- La pieza 1 revela el bloque de perfil y formación. Los bloques de las piezas 2 y 3 permanecen invisibles, conservando su espacio en el documento.
 - Solo está implementado un mecanismo: el cajón con cerradura de latón.
 - No hay todavía sistema general de guardado, persistencia, audio, animaciones ni navegación avanzada.
 - `navigation.js` está vacío.
@@ -184,14 +189,16 @@ CV-Interactivo/
 - Actualizar este documento cuando se añadan secciones, objetos, mecánicas o módulos.
 - No introducir imágenes todavía: primero se completará la lógica y se sustituirán los botones provisionales en una fase visual posterior.
 - El currículum debe poder consultarse sin obligar al visitante a resolver todos los puzles.
-- Los fragmentos del CV serán coleccionables y podrán representar formación, experiencia, competencias, idiomas y proyectos.
+- El currículum se presenta como un único documento parcialmente vacío: la cabecera personal permanece visible y cada pieza revela su bloque en la posición correspondiente.
+- La numeración de las piezas no está limitada a tres; la primera versión incluye tres bloques: (1) perfil y formación, (2) experiencia e idiomas y (3) competencias digitales e intereses.
+- Los fragmentos conservan su espacio aunque todavía no se hayan desbloqueado, sin mostrar siluetas, bordes ni indicadores de contenido pendiente.
 
 ## 7. Próximas tareas
 
 1. Revisar el comportamiento del inventario al equipar, sustituir y desequipar objetos, asegurando que el panel no se cierre inesperadamente.
 2. Probar de nuevo el flujo completo: recoger ambas llaves, equipar la incorrecta, probar el cajón, sustituirla por la correcta, abrir el cajón y recoger la pieza.
-3. Definir el sistema de fragmentos del CV y cómo se integran en el panel independiente.
-4. Diseñar el contenido real del currículum.
+3. Implementar las piezas 2 y 3 y conectar sus futuras recogidas con los bloques correspondientes del CV.
+4. Revisar el diseño visual del documento y su adaptación a pantallas pequeñas.
 5. Incorporar persistencia del progreso cuando la estructura de juego esté más definida.
 6. Planificar la fase visual de la cabaña y los objetos.
 
