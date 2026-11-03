@@ -149,9 +149,12 @@ CV-Interactivo/
 ### Inventario
 
 - Los objetos se almacenan en el array `objetosInventario`.
+- Cada objeto distingue entre `tipo` (comportamiento interno), `categoria` (etiqueta visible), `descripcion` (texto breve) y `agotado` (estado que atenúa la descripción).
 - Se evita añadir dos veces un objeto con el mismo ID.
 - El inventario genera un botón por objeto y muestra el contador de objetos encontrados.
-- Al seleccionar un objeto se muestra su ficha y las acciones disponibles.
+- Al seleccionar un objeto se muestra su nombre, categoría y descripción breve, además de las acciones disponibles.
+- La categoría y la descripción se muestran en blanco; la descripción puede pasar a gris cuando el objeto se marca como agotado.
+- Cada objeto almacena por separado su tipo interno, categoría visible, descripción y estado de agotamiento.
 - Las fichas de las piezas del CV muestran sus datos y adaptan el mensaje y el color según se haya recogido o no el currículum.
 - La descripción del currículum se actualiza automáticamente cuando se recogen piezas, y enumera las piezas incorporadas.
 - Los datos de cada pieza se centralizan en el registro `datosPiezasCV` de `inventory.js`, preparado para añadir nuevas piezas.
