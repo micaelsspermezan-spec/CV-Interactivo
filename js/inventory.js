@@ -30,11 +30,17 @@ const datosPiezasCV = {
 };
 
 
+// Las piezas procesadas dejan el inventario, pero sus datos se conservan aquí.
+const piezasCVProcesadas = [];
+
+
 function obtenerPiezasCVRecogidas() {
 
-    return objetosInventario.filter(
+    const piezasEnInventario = objetosInventario.filter(
         objeto => objeto.tipo === "pieza-cv"
     );
+
+    return [...piezasEnInventario, ...piezasCVProcesadas];
 }
 
 
@@ -145,7 +151,37 @@ function seleccionarObjeto(objeto) {
 
     objetoSeleccionado = objeto;
 
+    const curriculumRecogido = objetosInventario.some(
+        elemento => elemento.id === "curriculum"
+    );
+
+    // Consultar una pieza después de recoger el CV la procesa.
+    if (objeto.tipo === "pieza-cv" && curriculumRecogido) {
+        procesarPiezaCV(objeto);
+        return;
+    }
+
     mostrarDetalleObjeto(objeto);
+}
+
+
+function procesarPiezaCV(objeto) {
+
+    const indice = objetosInventario.findIndex(
+        elemento => elemento.id === objeto.id
+    );
+
+    if (indice === -1) return;
+
+    // Conservar el objeto y sus datos antes de retirarlo del inventario.
+    if (!piezasCVProcesadas.some(pieza => pieza.id === objeto.id)) {
+        piezasCVProcesadas.push(objeto);
+    }
+
+    objetosInventario.splice(indice, 1);
+
+    actualizarDescripcionCurriculum();
+    actualizarInventario();
 }
 
 
