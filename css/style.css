@@ -252,6 +252,44 @@ button:focus-visible {
     min-height: inherit;
 }
 
+/* Perspectivas provisionales de las cuatro paredes. */
+.vista-pared {
+    min-height: 65vh;
+    padding: 70px 20px 75px;
+}
+
+#navegacion-perspectivas {
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    left: 15px;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+#navegacion-perspectivas button {
+    min-width: 46px;
+    min-height: 42px;
+    margin: 0;
+    padding: 8px 12px;
+
+    color: var(--dorado-claro);
+    border-color: var(--dorado);
+    font-size: 20px;
+}
+
+#indicador-perspectiva {
+    min-width: 125px;
+    color: var(--texto-secundario);
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
 .objeto-escena {
     border-color: var(--dorado);
     color: var(--dorado-claro);
@@ -701,6 +739,17 @@ button:focus-visible {
     #contenedor-equipamiento {
         right: 12px;
         bottom: 12px;
+    }
+
+    #navegacion-perspectivas {
+        right: 8px;
+        left: 8px;
+        gap: 10px;
+    }
+
+    #indicador-perspectiva {
+        min-width: 110px;
+        font-size: 12px;
     }
 }
 
