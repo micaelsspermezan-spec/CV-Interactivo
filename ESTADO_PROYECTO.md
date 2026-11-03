@@ -199,7 +199,7 @@ CV-Interactivo/
 
 ## 7. Próximas tareas
 
-1. Revisar el comportamiento del inventario al equipar, sustituir y desequipar objetos, asegurando que el panel no se cierre inesperadamente.
+1. Planificar la gestión de las piezas del CV una vez incorporadas: cuando el currículum esté recogido, consultar una pieza deberá marcarla como procesada y retirarla del inventario para liberar espacio, conservando permanentemente sus datos en el currículum. La información no se eliminará al retirar el objeto. El sistema deberá funcionar con cualquier número de piezas, no solo con las tres iniciales.
 2. Probar de nuevo el flujo completo: recoger ambas llaves, equipar la incorrecta, probar el cajón, sustituirla por la correcta, abrir el cajón y recoger la pieza.
 3. Implementar las piezas 2 y 3 y conectar sus futuras recogidas con los bloques correspondientes del CV.
 4. Revisar el diseño visual del documento y su adaptación a pantallas pequeñas.
