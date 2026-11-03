@@ -101,6 +101,15 @@
                 ← Volver
             </button>
 
+            <!-- Navegación provisional entre las cuatro paredes -->
+            <div id="navegacion-perspectivas" aria-label="Cambiar de perspectiva">
+                <button id="perspectiva-anterior" type="button" aria-label="Ver pared anterior">←</button>
+                <span id="indicador-perspectiva" aria-live="polite">Pared frontal</span>
+                <button id="perspectiva-siguiente" type="button" aria-label="Ver pared siguiente">→</button>
+            </div>
+
+            <!-- Perspectiva 1: conserva los objetos actuales -->
+            <div id="vista-pared-1" class="vista-pared">
             <!-- Objetos y zonas interactivas -->
             <div id="zonas-interactivas">
 
@@ -139,6 +148,12 @@
                 <p id="mensaje-escena" role="status" aria-live="polite"></p>
 
             </div>
+            </div>
+
+            <!-- Perspectivas provisionales sin objetos todavía -->
+            <div id="vista-pared-2" class="vista-pared oculta"></div>
+            <div id="vista-pared-3" class="vista-pared oculta"></div>
+            <div id="vista-pared-4" class="vista-pared oculta"></div>
 
         </section>
 
