@@ -185,7 +185,7 @@ document.getElementById("pieza-cv-1-3").addEventListener("click", () => {
     añadirObjeto(
         "pieza-cv-1-3",
         "📄 Pieza de CV 1/3",
-        "Primer fragmento del currículum. Contiene información sobre mi formación académica.",
+        "Información sobre mi perfil y formación.",
         "pieza-cv"
     );
 
