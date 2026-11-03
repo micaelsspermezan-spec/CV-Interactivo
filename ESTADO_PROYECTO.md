@@ -117,8 +117,9 @@ CV-Interactivo/
 │       ├── 6. Llave de hierro
 │       ├── 7. Llave de latón
 │       ├── 8. Cajón con cerradura de latón
-│       ├── 9. Pieza de currículum
-│       └── 10. Detección de clics exteriores
+│       ├── 9. Recogida de las piezas del currículum
+│       ├── 10. Desbloqueo de fragmentos del CV
+│       └── 11. Detección de clics exteriores
 │
 └── assets/
     └── (carpetas de recursos visuales previstas; confirmar contenido en local)
@@ -177,14 +178,15 @@ CV-Interactivo/
 - El cajón requiere una llave equipada.
 - La llave de hierro no abre el cajón; la llave de latón sí.
 - Al abrirlo aparece la pieza de CV 1/3 en la escena.
-- La pieza se puede recoger y añadir al inventario como tipo `pieza-cv`.
+- Las piezas de CV 2/3 y 3/3 están disponibles directamente en la escena de forma provisional; más adelante se esconderán detrás de mecanismos o puzles.
+- Las tres piezas se pueden recoger y añadir al inventario como tipo `pieza-cv`. Cada recogida revela el fragmento correspondiente del currículum.
 
 ## 5. Estado y límites actuales
 
 - La escena es provisional y está construida con botones; todavía no hay una habitación ilustrada ni movimiento libre.
 - Los objetos y el progreso se guardan solo en memoria JavaScript: al recargar la página se reinicia el estado.
 - El panel del CV contiene la cabecera personal visible y tres fragmentos en un único documento.
-- La pieza 1 revela el bloque de perfil y formación. Los bloques de las piezas 2 y 3 permanecen invisibles, conservando su espacio en el documento.
+- Cada pieza revela su bloque correspondiente: pieza 1 (perfil y formación), pieza 2 (experiencia e idiomas) y pieza 3 (competencias digitales e intereses).
 - En el inventario, cada pieza muestra sus datos en blanco si el currículum aún no se ha recogido y en gris si ya se han incorporado. El mensaje de estado cambia automáticamente según el orden de recogida.
 - Solo está implementado un mecanismo: el cajón con cerradura de latón.
 - No hay todavía sistema general de guardado, persistencia, audio, animaciones ni navegación avanzada.
@@ -207,7 +209,7 @@ CV-Interactivo/
 
 1. Probar la agrupación de piezas: recoger una pieza y comprobar que aparece individualmente; recoger una segunda y comprobar que aparece el grupo con contador, que se despliega y permite consultar piezas sin cerrarse.
 2. Probar de nuevo el flujo completo: recoger ambas llaves, equipar la incorrecta, probar el cajón, sustituirla por la correcta, abrir el cajón y recoger la pieza.
-3. Implementar las piezas 2 y 3 y conectar sus futuras recogidas con los bloques correspondientes del CV.
+3. Probar la recogida de las piezas 2 y 3, su incorporación al inventario y el desbloqueo de sus bloques del CV.
 4. Revisar el diseño visual del documento y su adaptación a pantallas pequeñas.
 5. Incorporar persistencia del progreso cuando la estructura de juego esté más definida.
 6. Planificar la fase visual de la cabaña y los objetos.
