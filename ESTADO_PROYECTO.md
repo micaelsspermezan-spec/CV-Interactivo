@@ -154,7 +154,7 @@ CV-Interactivo/
 - Se evita añadir dos veces un objeto con el mismo ID.
 - El inventario muestra los objetos recogidos y el contador de objetos encontrados.
 - La primera pieza del CV aparece como un objeto individual. Al recoger una segunda pieza, todas las piezas se agrupan bajo el elemento «Piezas de CV», con un reborde distintivo y un contador en superíndice.
-- El grupo despliega una lista de las piezas individuales. Consultar una pieza no cierra el grupo; seleccionar otro objeto o cerrar el inventario sí lo pliega.
+- El grupo despliega un submenú flotante anclado a su botón, superpuesto al inventario y sin alterar la distribución de los demás objetos. Los botones del inventario mantienen un tamaño uniforme. Consultar una pieza o pulsar el título, la categoría o la descripción de su ficha no cierra el submenú; pulsar otra zona del inventario lo pliega. Seleccionar otro objeto actualiza su ficha sin cerrar el inventario. Cerrar el inventario o pulsar fuera también pliega el submenú.
 - Al seleccionar un objeto se muestra su nombre, categoría y descripción breve, además de las acciones disponibles.
 - La categoría y la descripción se muestran en blanco; la descripción puede pasar a gris cuando el objeto se marca como agotado.
 - Cada objeto almacena por separado su tipo interno, categoría visible, descripción y estado de agotamiento.
@@ -207,7 +207,7 @@ CV-Interactivo/
 
 ## 7. Próximas tareas
 
-1. Probar la agrupación de piezas: recoger una pieza y comprobar que aparece individualmente; recoger una segunda y comprobar que aparece el grupo con contador, que se despliega y permite consultar piezas sin cerrarse.
+1. Probar la agrupación de piezas: recoger una pieza y comprobar que aparece individualmente; recoger una segunda y comprobar que aparece el grupo con contador, que el submenú flotante no desplaza los demás objetos y que las interacciones de selección y plegado funcionan correctamente.
 2. Probar de nuevo el flujo completo: recoger ambas llaves, equipar la incorrecta, probar el cajón, sustituirla por la correcta, abrir el cajón y recoger la pieza.
 3. Probar la recogida de las piezas 2 y 3, su incorporación al inventario y el desbloqueo de sus bloques del CV.
 4. Revisar el diseño visual del documento y su adaptación a pantallas pequeñas.
