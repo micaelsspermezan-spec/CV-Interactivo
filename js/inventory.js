@@ -64,7 +64,7 @@ function actualizarDescripcionCurriculum() {
    2. AÑADIR OBJETOS
    ========================================== */
 
-function añadirObjeto(id, nombre, descripcion, tipo) {
+function añadirObjeto(id, nombre, categoria, descripcion, tipo) {
 
     const yaExiste = objetosInventario.some(
         objeto => objeto.id === id
@@ -75,8 +75,10 @@ function añadirObjeto(id, nombre, descripcion, tipo) {
     const nuevoObjeto = {
         id,
         nombre,
+        categoria,
         descripcion,
-        tipo
+        tipo,
+        agotado: false
     };
 
     objetosInventario.push(nuevoObjeto);
@@ -126,6 +128,19 @@ function actualizarInventario() {
    4. SELECCIÓN DE OBJETOS
    ========================================== */
 
+function marcarObjetoAgotado(id) {
+
+    const objeto = objetosInventario.find(
+        elemento => elemento.id === id
+    );
+
+    if (!objeto) return;
+
+    objeto.agotado = true;
+    actualizarInventario();
+}
+
+
 function seleccionarObjeto(objeto) {
 
     objetoSeleccionado = objeto;
@@ -141,8 +156,11 @@ function deseleccionarObjeto() {
     document.getElementById("nombre-objeto").textContent =
         "Selecciona un objeto";
 
-    document.getElementById("descripcion-objeto").textContent =
-        "Aquí aparecerá la información del objeto.";
+    document.getElementById("categoria-objeto").textContent = "";
+
+    const descripcion = document.getElementById("descripcion-objeto");
+    descripcion.textContent = "Aquí aparecerá la información del objeto.";
+    descripcion.classList.remove("agotado");
 
     document.getElementById("acciones-objeto").innerHTML = "";
 }
@@ -258,11 +276,16 @@ document.getElementById("sustituir-equipamiento")
 function mostrarDetalleObjeto(objeto) {
 
     const nombre = document.getElementById("nombre-objeto");
+    const categoria = document.getElementById("categoria-objeto");
     const descripcion = document.getElementById("descripcion-objeto");
     const acciones = document.getElementById("acciones-objeto");
 
     nombre.textContent = objeto.nombre;
+    categoria.textContent = objeto.categoria;
     descripcion.textContent = objeto.descripcion;
+
+    // La descripción se atenúa cuando el objeto ya no tiene usos.
+    descripcion.classList.toggle("agotado", objeto.agotado);
 
     acciones.innerHTML = "";
 
@@ -299,21 +322,6 @@ function mostrarDetalleObjeto(objeto) {
                 acciones.appendChild(botonConsultar);
             }
 
-            break;
-
-        case "llave":
-            acciones.textContent =
-                "Esta llave puede abrir una cerradura.";
-            break;
-
-        case "herramienta":
-            acciones.textContent =
-                "Herramienta disponible para usar.";
-            break;
-
-        case "pieza":
-            acciones.textContent =
-                "Pieza que puede formar parte de un mecanismo.";
             break;
 
         case "pieza-cv": {
