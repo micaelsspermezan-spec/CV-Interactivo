@@ -240,10 +240,9 @@ function seleccionarObjeto(objeto) {
     if (objeto.tipo !== "pieza-cv" && menuPiezasCVAbierto) {
         menuPiezasCVAbierto = false;
         actualizarInventario();
-        return;
     }
 
-    // Consultar una pieza nunca la consume ni la retira del inventario.
+    // Consultar un objeto nunca lo retira del inventario.
     mostrarDetalleObjeto(objeto);
 }
 
@@ -520,16 +519,13 @@ function mostrarDetalleObjeto(objeto) {
 
 document.getElementById("inventario").addEventListener("click", evento => {
 
-    // La ficha básica mantiene abierto el submenú al consultar una pieza.
-    const dentroDeLaFicha =
-        evento.target.closest(
-            "#nombre-objeto, #categoria-objeto, #descripcion-objeto"
-        );
+    // Toda la ficha mantiene abierto el submenú, no solo sus textos.
+    const dentroDeLaFicha = evento.target.closest("#detalle-objeto");
 
-    // Los botones del grupo gestionan por sí mismos su apertura y selección.
-    const dentroDelGrupo =
-        evento.target.closest(".grupo-piezas-cv");
+    // Los botones del grupo y sus piezas gestionan sus propios clics.
+    const dentroDelGrupo = evento.target.closest(".grupo-piezas-cv");
 
+    // Pulsar una ranura de otro objeto pliega el grupo.
     if (
         menuPiezasCVAbierto &&
         !dentroDeLaFicha &&
