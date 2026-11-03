@@ -40,6 +40,7 @@ botonVolverMenu.addEventListener("click", () => {
 
     panelCV.classList.add("oculta");
     inventario.classList.add("oculta");
+    plegarGrupoPiezasCV();
 
     document.getElementById("menu-equipamiento")
         .classList.add("oculta");
@@ -95,6 +96,7 @@ document.getElementById("abrir-inventario").addEventListener("click", () => {
 
 document.getElementById("cerrar-inventario").addEventListener("click", () => {
 
+    plegarGrupoPiezasCV();
     deseleccionarObjeto();
 
     inventario.classList.add("oculta");
@@ -248,6 +250,7 @@ document.addEventListener("click", evento => {
         !elemento.closest("#abrir-inventario, #contenedor-equipamiento, #acciones-objeto")
     ) {
         inventario.classList.add("oculta");
+        plegarGrupoPiezasCV();
         deseleccionarObjeto();
     }
 
