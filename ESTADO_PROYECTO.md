@@ -205,14 +205,29 @@ CV-Interactivo/
 - La numeración de las piezas no está limitada a tres; la primera versión incluye tres bloques: (1) perfil y formación, (2) experiencia e idiomas y (3) competencias digitales e intereses.
 - Los fragmentos conservan su espacio aunque todavía no se hayan desbloqueado, sin mostrar siluetas, bordes ni indicadores de contenido pendiente.
 
-## 7. Próximas tareas
+## 7. Próximos objetivos
 
-1. Probar la agrupación de piezas: recoger una pieza y comprobar que aparece individualmente; recoger una segunda y comprobar que aparece el grupo con contador, que el submenú flotante no desplaza los demás objetos y que las interacciones de selección y plegado funcionan correctamente.
-2. Probar de nuevo el flujo completo: recoger ambas llaves, equipar la incorrecta, probar el cajón, sustituirla por la correcta, abrir el cajón y recoger la pieza.
-3. Probar la recogida de las piezas 2 y 3, su incorporación al inventario y el desbloqueo de sus bloques del CV.
-4. Revisar el diseño visual del documento y su adaptación a pantallas pequeñas.
-5. Incorporar persistencia del progreso cuando la estructura de juego esté más definida.
-6. Planificar la fase visual de la cabaña y los objetos.
+Los objetivos de esta sección describen funcionalidades y mejoras que todavía queremos desarrollar. Las comprobaciones y pruebas de funcionamiento se realizan durante el desarrollo y no se consideran objetivos independientes.
+
+### 7.1. Funcionalidades por desarrollar
+
+1. Ampliar el sistema de puzles y mecanismos. Las piezas 2 y 3 del currículum, que actualmente están disponibles directamente en la escena de forma provisional, deberán quedar ocultas tras mecanismos o interacciones.
+2. Desarrollar la navegación avanzada y completar la experiencia de exploración de la cabaña. El archivo `navigation.js` está reservado para esta parte y todavía no contiene lógica.
+3. Incorporar persistencia del progreso para conservar los objetos recogidos, las piezas recuperadas, el equipamiento y el estado de los mecanismos al recargar la página.
+
+### 7.2. Mejoras visuales
+
+1. Revisar y mejorar el diseño visual del documento del currículum, manteniendo su presentación como un único documento que se completa por fragmentos.
+2. Diseñar e incorporar la ambientación visual definitiva de la cabaña.
+3. Sustituir progresivamente los botones y elementos provisionales de la escena por ilustraciones y objetos visuales interactivos.
+4. Añadir, cuando corresponda, estados visuales, animaciones y efectos que den respuesta a las interacciones.
+5. Adaptar la presentación del currículum, la cabaña y sus interfaces a pantallas pequeñas.
+
+### 7.3. Mantenimiento
+
+1. Corregir errores que aparezcan durante el desarrollo y evitar regresiones en las funcionalidades existentes.
+2. Revisar y mejorar la organización y legibilidad del código cuando sea necesario, sin alterar comportamientos ya establecidos.
+
 
 ## 8. Flujo de trabajo con Git
 
