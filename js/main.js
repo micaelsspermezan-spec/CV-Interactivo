@@ -285,11 +285,19 @@ document.addEventListener("click", evento => {
 
 
     // Cerrar inventario al pulsar fuera.
+    // Se comprueba también la ruta original del evento por si el clic
+    // ha reconstruido la lista durante su propio procesamiento.
+    const rutaEvento = evento.composedPath();
+    const clicDentroInventario = rutaEvento.includes(inventario);
+    const clicEnControlInventario = elemento.closest(
+        "#abrir-inventario, #contenedor-equipamiento, #acciones-objeto"
+    );
+
     if (
         !inventario.classList.contains("oculta") &&
-        !inventario.contains(elemento) &&
+        !clicDentroInventario &&
         !panelCV.contains(elemento) &&
-        !elemento.closest("#abrir-inventario, #contenedor-equipamiento, #acciones-objeto")
+        !clicEnControlInventario
     ) {
         inventario.classList.add("oculta");
         plegarGrupoPiezasCV();
