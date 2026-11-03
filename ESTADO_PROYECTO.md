@@ -151,13 +151,15 @@ CV-Interactivo/
 - Los objetos se almacenan en el array `objetosInventario`.
 - Cada objeto distingue entre `tipo` (comportamiento interno), `categoria` (etiqueta visible), `descripcion` (texto breve) y `agotado` (estado que atenúa la descripción).
 - Se evita añadir dos veces un objeto con el mismo ID.
-- El inventario genera un botón por objeto y muestra el contador de objetos encontrados.
+- El inventario muestra los objetos recogidos y el contador de objetos encontrados.
+- La primera pieza del CV aparece como un objeto individual. Al recoger una segunda pieza, todas las piezas se agrupan bajo el elemento «Piezas de CV», con un reborde distintivo y un contador en superíndice.
+- El grupo despliega una lista de las piezas individuales. Consultar una pieza no cierra el grupo; seleccionar otro objeto o cerrar el inventario sí lo pliega.
 - Al seleccionar un objeto se muestra su nombre, categoría y descripción breve, además de las acciones disponibles.
 - La categoría y la descripción se muestran en blanco; la descripción puede pasar a gris cuando el objeto se marca como agotado.
 - Cada objeto almacena por separado su tipo interno, categoría visible, descripción y estado de agotamiento.
 - Las fichas de las piezas del CV muestran sus datos y adaptan el mensaje y el color según se haya recogido o no el currículum.
-- Cuando el currículum ya está recogido, consultar una pieza la procesa y la retira del inventario. La pieza y sus datos se conservan en memoria para que siga figurando como incorporada al currículum.
-- La descripción del currículum se actualiza automáticamente cuando se recogen o procesan piezas, y enumera las piezas incorporadas.
+- Las piezas del CV permanecen en el inventario y se pueden consultar tantas veces como se quiera, independientemente de cuándo se haya recogido el currículum.
+- La descripción del currículum se actualiza automáticamente al recoger piezas y enumera las piezas recuperadas.
 - Los datos de cada pieza se centralizan en el registro `datosPiezasCV` de `inventory.js`, preparado para añadir nuevas piezas.
 
 ### Equipamiento
@@ -203,7 +205,7 @@ CV-Interactivo/
 
 ## 7. Próximas tareas
 
-1. Probar el procesamiento de piezas: recoger el currículum, recoger una pieza y consultarla; comprobar que desaparece del inventario y sigue figurando como incorporada al CV.
+1. Probar la agrupación de piezas: recoger una pieza y comprobar que aparece individualmente; recoger una segunda y comprobar que aparece el grupo con contador, que se despliega y permite consultar piezas sin cerrarse.
 2. Probar de nuevo el flujo completo: recoger ambas llaves, equipar la incorrecta, probar el cajón, sustituirla por la correcta, abrir el cajón y recoger la pieza.
 3. Implementar las piezas 2 y 3 y conectar sus futuras recogidas con los bloques correspondientes del CV.
 4. Revisar el diseño visual del documento y su adaptación a pantallas pequeñas.
