@@ -337,6 +337,47 @@ button:focus-visible {
     border-color: var(--borde-dorado);
 }
 
+/* Grupo desplegable que reúne las piezas del currículum. */
+.grupo-piezas-cv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.boton-grupo-piezas-cv {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 5px;
+
+    border: 2px solid var(--dorado);
+    box-shadow: 0 0 9px rgba(197, 160, 75, 0.12);
+}
+
+.contador-piezas-cv {
+    position: relative;
+    top: -3px;
+
+    color: var(--cian-claro);
+    font-size: 0.7em;
+    line-height: 1;
+}
+
+.submenu-piezas-cv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-left: 12px;
+    padding-left: 10px;
+
+    border-left: 1px solid var(--borde-dorado);
+}
+
+.pieza-cv-agrupada {
+    margin: 4px 0;
+    border-color: var(--borde-cian);
+}
+
 #detalle-objeto {
     margin-top: 20px;
     padding: 18px;
