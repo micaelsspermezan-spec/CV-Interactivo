@@ -57,7 +57,9 @@ botonVolverMenu.addEventListener("click", () => {
 
 
 function volverVistaPrincipal() {
-    // Reservado para futuras vistas de navegación.
+    // Al entrar en la cabaña, comenzar siempre mirando la pared frontal.
+    inicializarNavegacion();
+    mostrarPerspectiva(0);
 }
 
 
