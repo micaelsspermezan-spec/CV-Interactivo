@@ -154,7 +154,7 @@ CV-Interactivo/
 - Se evita añadir dos veces un objeto con el mismo ID.
 - El inventario muestra los objetos recogidos y el contador de objetos encontrados.
 - La primera pieza del CV aparece como un objeto individual. Al recoger una segunda pieza, todas las piezas se agrupan bajo el elemento «Piezas de CV», con un reborde distintivo y un contador en superíndice.
-- El grupo despliega un submenú flotante anclado a su botón, superpuesto al inventario y sin alterar la distribución de los demás objetos. Los botones del inventario mantienen un tamaño uniforme. Consultar una pieza o pulsar el título, la categoría o la descripción de su ficha no cierra el submenú; pulsar otra zona del inventario lo pliega. Seleccionar otro objeto actualiza su ficha sin cerrar el inventario. Cerrar el inventario o pulsar fuera también pliega el submenú.
+- El grupo despliega un submenú flotante anclado a su botón, superpuesto al inventario y sin alterar la distribución de los demás objetos. Los botones del inventario mantienen un tamaño uniforme. Cualquier clic dentro de la ficha de objeto mantiene abierto el submenú; pulsar una zona vacía del inventario lo pliega. Seleccionar otro objeto pliega el submenú y actualiza su ficha sin cerrar el inventario. La detección de clic exterior respeta la ruta original del evento aunque se reconstruya la lista. Cerrar el inventario o pulsar fuera también pliega el submenú.
 - Al seleccionar un objeto se muestra su nombre, categoría y descripción breve, además de las acciones disponibles.
 - La categoría y la descripción se muestran en blanco; la descripción puede pasar a gris cuando el objeto se marca como agotado.
 - Cada objeto almacena por separado su tipo interno, categoría visible, descripción y estado de agotamiento.
