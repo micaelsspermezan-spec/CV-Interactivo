@@ -133,7 +133,7 @@ CV-Interactivo/
 - **style.css:** variables visuales, disposición, estados de visibilidad, paneles, botones, ranura de equipamiento y adaptación móvil.
 - **inventory.js:** datos del inventario en memoria, recogida, listado, selección, ficha, equipamiento y ranura.
 - **puzzles.js:** lógica de mecanismos y comprobación de objetos equipados. Actualmente gestiona el cajón de latón.
-- **navigation.js:** reservado para navegación avanzada; todavía no contiene lógica.
+- **navigation.js:** gestionará la navegación entre habitaciones y perspectivas (paredes), el cambio de vista mediante flechas y la apertura/cierre de vistas ampliadas para interactuar con objetos y mecanismos. Todavía no contiene lógica.
 - **main.js:** coordinación de eventos de interfaz, cambios entre menú y exploración, apertura/cierre de paneles y recogida de objetos de la escena.
 
 ## 4. Mecánicas presentes en el código
@@ -204,6 +204,10 @@ CV-Interactivo/
 - El currículum se presenta como un único documento parcialmente vacío: la cabecera personal permanece visible y cada pieza revela su bloque en la posición correspondiente.
 - La numeración de las piezas no está limitada a tres; la primera versión incluye tres bloques: (1) perfil y formación, (2) experiencia e idiomas y (3) competencias digitales e intereses.
 - Los fragmentos conservan su espacio aunque todavía no se hayan desbloqueado, sin mostrar siluetas, bordes ni indicadores de contenido pendiente.
+- La exploración se organizará como una aventura point-and-click por vistas: cada habitación tendrá varias perspectivas o paredes entre las que se cambiará mediante flechas en pantalla.
+- Cada perspectiva podrá contener zonas interactivas. Al pulsarlas, podrán llevar a otra habitación o abrir una vista ampliada dedicada a examinar o manipular un objeto o mecanismo.
+- Las vistas ampliadas serán inicialmente estáticas y funcionales, con controles sencillos para acciones como introducir llaves, accionar palancas, girar mecanismos o resolver combinaciones. No se priorizarán animaciones complejas en esta primera implementación.
+- `navigation.js` será el módulo encargado de gestionar las perspectivas, las habitaciones y las transiciones entre vistas. `puzzles.js` conservará la lógica y las condiciones de resolución de los mecanismos; `inventory.js` seguirá gestionando los objetos y el equipamiento.
 
 ## 7. Próximos objetivos
 
@@ -212,7 +216,7 @@ Los objetivos de esta sección describen funcionalidades y mejoras que todavía 
 ### 7.1. Funcionalidades por desarrollar
 
 1. Ampliar el sistema de puzles y mecanismos. Las piezas 2 y 3 del currículum, que actualmente están disponibles directamente en la escena de forma provisional, deberán quedar ocultas tras mecanismos o interacciones.
-2. Desarrollar la navegación avanzada y completar la experiencia de exploración de la cabaña. El archivo `navigation.js` está reservado para esta parte y todavía no contiene lógica.
+2. Implementar la navegación point-and-click por vistas. Cada habitación tendrá distintas perspectivas o paredes, con flechas para cambiar entre ellas; las zonas interactivas permitirán pasar a otra habitación o abrir una vista ampliada de un objeto o mecanismo. La primera versión utilizará vistas ampliadas estáticas con controles sencillos. Esta lógica se desarrollará principalmente en `navigation.js`, que todavía está vacío.
 3. Incorporar persistencia del progreso para conservar los objetos recogidos, las piezas recuperadas, el equipamiento y el estado de los mecanismos al recargar la página.
 
 ### 7.2. Mejoras visuales
