@@ -30,17 +30,15 @@ const datosPiezasCV = {
 };
 
 
-// Las piezas procesadas dejan el inventario, pero sus datos se conservan aquí.
-const piezasCVProcesadas = [];
+// Indica si el submenú de piezas del CV está desplegado.
+let menuPiezasCVAbierto = false;
 
 
 function obtenerPiezasCVRecogidas() {
 
-    const piezasEnInventario = objetosInventario.filter(
+    return objetosInventario.filter(
         objeto => objeto.tipo === "pieza-cv"
     );
-
-    return [...piezasEnInventario, ...piezasCVProcesadas];
 }
 
 
@@ -110,7 +108,77 @@ function actualizarInventario() {
 
     lista.innerHTML = "";
 
+    const piezasCV = obtenerPiezasCVRecogidas();
+    const agruparPiezas = piezasCV.length >= 2;
+    let grupoPiezasInsertado = false;
+
     objetosInventario.forEach(objeto => {
+
+        if (objeto.tipo === "pieza-cv" && agruparPiezas) {
+
+            // El grupo ocupa el lugar de la primera pieza en la lista.
+            if (grupoPiezasInsertado) return;
+
+            grupoPiezasInsertado = true;
+
+            const grupo = document.createElement("div");
+            grupo.classList.add("grupo-piezas-cv");
+
+            const botonGrupo = document.createElement("button");
+            botonGrupo.type = "button";
+            botonGrupo.classList.add(
+                "objeto-inventario",
+                "boton-grupo-piezas-cv"
+            );
+
+            const nombreGrupo = document.createElement("span");
+            nombreGrupo.textContent = "📄 Piezas de CV";
+
+            const contador = document.createElement("sup");
+            contador.classList.add("contador-piezas-cv");
+            contador.textContent = piezasCV.length;
+
+            botonGrupo.appendChild(nombreGrupo);
+            botonGrupo.appendChild(contador);
+
+            botonGrupo.addEventListener("click", evento => {
+                evento.stopPropagation();
+
+                menuPiezasCVAbierto = !menuPiezasCVAbierto;
+                actualizarInventario();
+            });
+
+            grupo.appendChild(botonGrupo);
+
+            const submenu = document.createElement("div");
+            submenu.classList.add("submenu-piezas-cv");
+
+            if (!menuPiezasCVAbierto) {
+                submenu.classList.add("oculta");
+            }
+
+            piezasCV.forEach(pieza => {
+
+                const botonPieza = document.createElement("button");
+                botonPieza.type = "button";
+                botonPieza.classList.add("objeto-inventario", "pieza-cv-agrupada");
+                botonPieza.textContent = pieza.nombre;
+
+                botonPieza.addEventListener("click", evento => {
+                    evento.stopPropagation();
+                    seleccionarObjeto(pieza);
+                });
+
+                submenu.appendChild(botonPieza);
+            });
+
+            grupo.appendChild(submenu);
+            lista.appendChild(grupo);
+
+            return;
+        }
+
+        if (objeto.tipo === "pieza-cv" && agruparPiezas) return;
 
         const elemento = document.createElement("button");
 
@@ -151,37 +219,20 @@ function seleccionarObjeto(objeto) {
 
     objetoSeleccionado = objeto;
 
-    const curriculumRecogido = objetosInventario.some(
-        elemento => elemento.id === "curriculum"
-    );
-
-    // Consultar una pieza después de recoger el CV la procesa.
-    if (objeto.tipo === "pieza-cv" && curriculumRecogido) {
-        procesarPiezaCV(objeto);
+    // Al elegir otro tipo de objeto, plegar el submenú de piezas.
+    if (objeto.tipo !== "pieza-cv" && menuPiezasCVAbierto) {
+        menuPiezasCVAbierto = false;
+        actualizarInventario();
         return;
     }
 
+    // Consultar una pieza nunca la consume ni la retira del inventario.
     mostrarDetalleObjeto(objeto);
 }
 
 
-function procesarPiezaCV(objeto) {
-
-    const indice = objetosInventario.findIndex(
-        elemento => elemento.id === objeto.id
-    );
-
-    if (indice === -1) return;
-
-    // Conservar el objeto y sus datos antes de retirarlo del inventario.
-    if (!piezasCVProcesadas.some(pieza => pieza.id === objeto.id)) {
-        piezasCVProcesadas.push(objeto);
-    }
-
-    objetosInventario.splice(indice, 1);
-
-    actualizarDescripcionCurriculum();
-    actualizarInventario();
+function plegarGrupoPiezasCV() {
+    menuPiezasCVAbierto = false;
 }
 
 
