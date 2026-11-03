@@ -519,12 +519,11 @@ function mostrarDetalleObjeto(objeto) {
 
 document.getElementById("inventario").addEventListener("click", evento => {
 
-    // Pulsar la descripción o los datos de una pieza pliega el submenú.
-    const dentroDeLaDescripcion = evento.target.closest(
-        "#descripcion-objeto, .estado-pieza-cv, .datos-pieza-cv"
-    );
+    // Cualquier clic dentro de la ficha pliega el submenú,
+    // sin impedir que se ejecute la acción pulsada.
+    const dentroDeLaFicha = evento.target.closest("#detalle-objeto");
 
-    if (menuPiezasCVAbierto && dentroDeLaDescripcion) {
+    if (menuPiezasCVAbierto && dentroDeLaFicha) {
         plegarGrupoPiezasCV();
 
         const submenu = document.querySelector(".submenu-piezas-cv");
@@ -535,9 +534,6 @@ document.getElementById("inventario").addEventListener("click", evento => {
 
         return;
     }
-
-    // Toda la ficha mantiene abierto el submenú, salvo su contenido descriptivo.
-    const dentroDeLaFicha = evento.target.closest("#detalle-objeto");
 
     // Los botones del grupo y sus piezas gestionan sus propios clics.
     const dentroDelGrupo = evento.target.closest(".grupo-piezas-cv");
