@@ -368,8 +368,7 @@ function mostrarDetalleObjeto(objeto) {
         }
 
         default:
-            acciones.textContent =
-                "No hay acciones disponibles.";
+            break;
     }
 
 
