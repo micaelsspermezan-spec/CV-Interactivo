@@ -368,11 +368,62 @@ button:focus-visible {
    ========================================== */
 
 #contenido-cv {
+    max-width: 900px;
+    margin: 0 auto;
     line-height: 1.6;
 }
 
+/* La cabecera personal siempre permanece visible. */
+#datos-personales-cv {
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--borde-dorado);
+}
+
+#datos-personales-cv h1 {
+    margin-bottom: 12px;
+    color: var(--dorado-claro);
+    font-size: clamp(22px, 3vw, 32px);
+}
+
+#datos-personales-cv p,
 #contenido-cv p {
     color: var(--texto-secundario);
+}
+
+/* visibility conserva el espacio del fragmento sin mostrar su contenido. */
+.fragmento-cv {
+    visibility: hidden;
+    margin-bottom: 28px;
+}
+
+.fragmento-cv.revelado {
+    visibility: visible;
+}
+
+.fragmento-cv h3 {
+    margin: 0 0 12px;
+    color: var(--cian-claro);
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.fragmento-cv h4 {
+    margin: 8px 0;
+    color: var(--dorado-claro);
+}
+
+.fragmento-cv article {
+    margin-bottom: 18px;
+}
+
+.fragmento-cv ul {
+    padding-left: 22px;
+    color: var(--texto-secundario);
+}
+
+.fragmento-cv li {
+    margin-bottom: 6px;
 }
 
 
