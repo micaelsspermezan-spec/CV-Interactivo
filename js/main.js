@@ -206,6 +206,48 @@ document.getElementById("pieza-cv-1-3").addEventListener("click", () => {
 });
 
 
+// Recoger la segunda pieza: experiencia laboral e idiomas.
+document.getElementById("pieza-cv-2-3").addEventListener("click", () => {
+
+    añadirObjeto(
+        "pieza-cv-2-3",
+        "📄 Pieza de CV 2/3",
+        "Fragmento de currículum",
+        "Información sobre mi experiencia laboral y mis competencias de idiomas.",
+        "pieza-cv"
+    );
+
+    document.getElementById("pieza-cv-2-3")
+        .classList.add("oculta");
+
+    desbloquearPiezaCV(2);
+
+    mensajeEscena.textContent =
+        "Has recuperado la segunda pieza del currículum.";
+});
+
+
+// Recoger la tercera pieza: competencias digitales e intereses.
+document.getElementById("pieza-cv-3-3").addEventListener("click", () => {
+
+    añadirObjeto(
+        "pieza-cv-3-3",
+        "📄 Pieza de CV 3/3",
+        "Fragmento de currículum",
+        "Información sobre mis competencias digitales y mis aficiones e intereses.",
+        "pieza-cv"
+    );
+
+    document.getElementById("pieza-cv-3-3")
+        .classList.add("oculta");
+
+    desbloquearPiezaCV(3);
+
+    mensajeEscena.textContent =
+        "Has recuperado la tercera pieza del currículum.";
+});
+
+
 /* ==========================================
    10. DESBLOQUEO DE FRAGMENTOS DEL CV
    ========================================== */
