@@ -520,10 +520,24 @@ function mostrarDetalleObjeto(objeto) {
 
 document.getElementById("inventario").addEventListener("click", evento => {
 
+    // La ficha básica mantiene abierto el submenú al consultar una pieza.
+    const dentroDeLaFicha =
+        evento.target.closest(
+            "#nombre-objeto, #categoria-objeto, #descripcion-objeto"
+        );
+
+    // Los botones del grupo gestionan por sí mismos su apertura y selección.
+    const dentroDelGrupo =
+        evento.target.closest(".grupo-piezas-cv");
+
     if (
-        !evento.target.closest(".objeto-inventario") &&
-        !evento.target.closest("#detalle-objeto")
+        menuPiezasCVAbierto &&
+        !dentroDeLaFicha &&
+        !dentroDelGrupo &&
+        !evento.target.closest(".objeto-inventario")
     ) {
-        deseleccionarObjeto();
+        plegarGrupoPiezasCV();
+        actualizarInventario();
     }
-});
+
+}, true);
