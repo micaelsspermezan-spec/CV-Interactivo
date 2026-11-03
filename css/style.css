@@ -362,6 +362,34 @@ button:focus-visible {
     gap: 5px;
 }
 
+/* Información de las piezas del currículum en el inventario. */
+#acciones-objeto .estado-pieza-cv {
+    flex-basis: 100%;
+    margin: 0 0 8px;
+    color: var(--texto-secundario);
+    line-height: 1.5;
+}
+
+#acciones-objeto .datos-pieza-cv {
+    flex-basis: 100%;
+}
+
+#acciones-objeto .dato-pieza-cv {
+    margin: 0 0 10px;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+#acciones-objeto .dato-pieza-cv.incorporado,
+#acciones-objeto .pieza-incorporada-cv {
+    color: var(--texto-secundario);
+}
+
+#acciones-objeto .pieza-incorporada-cv {
+    flex-basis: 100%;
+    margin: 0 0 6px;
+}
+
 
 /* ==========================================
    10. CONTENIDO DEL CURRÍCULUM
