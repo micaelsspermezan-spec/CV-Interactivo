@@ -230,6 +230,7 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 ### Comunicación con el usuario
 
 - Hablar en español y utilizar explicaciones breves y claras.
+- Cada vez que se modifique, añada o sustituya código, mostrar también en la conversación el fragmento exacto afectado para que el usuario pueda revisar visualmente el cambio.
 - Referirse a los archivos por su nombre y, sobre todo, a las secciones numeradas o identificadores concretos que el usuario reconoce en el código.
 - No utilizar hashes de commits, nombres internos de Git ni jerga técnica como explicación principal. Si es necesario mencionarlos, explicar inmediatamente qué significan.
 - Trabajar paso a paso. No encadenar tareas o cambios distintos sin explicar primero el siguiente paso.
