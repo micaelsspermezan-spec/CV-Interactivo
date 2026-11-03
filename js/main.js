@@ -192,13 +192,32 @@ document.getElementById("pieza-cv-1-3").addEventListener("click", () => {
     document.getElementById("pieza-cv-1-3")
         .classList.add("oculta");
 
+    // Revelar el fragmento correspondiente dentro del currículum.
+    desbloquearPiezaCV(1);
+
     mensajeEscena.textContent =
         "Has recuperado la primera pieza del currículum.";
 });
 
 
 /* ==========================================
-   10. DETECCIÓN DE CLICS EXTERIORES
+   10. DESBLOQUEO DE FRAGMENTOS DEL CV
+   ========================================== */
+
+function desbloquearPiezaCV(numeroPieza) {
+
+    const fragmento = document.querySelector(
+        `[data-pieza-cv="${numeroPieza}"]`
+    );
+
+    if (!fragmento) return;
+
+    fragmento.classList.add("revelado");
+}
+
+
+/* ==========================================
+   11. DETECCIÓN DE CLICS EXTERIORES
    ========================================== */
 
 document.addEventListener("click", evento => {
