@@ -152,6 +152,9 @@ CV-Interactivo/
 - Se evita añadir dos veces un objeto con el mismo ID.
 - El inventario genera un botón por objeto y muestra el contador de objetos encontrados.
 - Al seleccionar un objeto se muestra su ficha y las acciones disponibles.
+- Las fichas de las piezas del CV muestran sus datos y adaptan el mensaje y el color según se haya recogido o no el currículum.
+- La descripción del currículum se actualiza automáticamente cuando se recogen piezas, y enumera las piezas incorporadas.
+- Los datos de cada pieza se centralizan en el registro `datosPiezasCV` de `inventory.js`, preparado para añadir nuevas piezas.
 
 ### Equipamiento
 
@@ -176,6 +179,7 @@ CV-Interactivo/
 - Los objetos y el progreso se guardan solo en memoria JavaScript: al recargar la página se reinicia el estado.
 - El panel del CV contiene la cabecera personal visible y tres fragmentos en un único documento.
 - La pieza 1 revela el bloque de perfil y formación. Los bloques de las piezas 2 y 3 permanecen invisibles, conservando su espacio en el documento.
+- En el inventario, cada pieza muestra sus datos en blanco si el currículum aún no se ha recogido y en gris si ya se han incorporado. El mensaje de estado cambia automáticamente según el orden de recogida.
 - Solo está implementado un mecanismo: el cajón con cerradura de latón.
 - No hay todavía sistema general de guardado, persistencia, audio, animaciones ni navegación avanzada.
 - `navigation.js` está vacío.
