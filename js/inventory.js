@@ -26,6 +26,23 @@ const datosPiezasCV = {
             "2025–2027 · Técnico en Sistemas Microinformáticos y Redes · IES Maestre de Calatrava, Ciudad Real.",
             "Educación Secundaria Obligatoria (ESO) · IES Juan de Ávila."
         ]
+    },
+
+    "pieza-cv-2-3": {
+        datos: [
+            "Prácticas formativas de 100 horas en Inmobiliaria La Mayor, Ciudad Real, del 7 al 26 de mayo de 2026.",
+            "Realización de fotografías de inmuebles, creación de diseños y contenido visual con Canva y colaboración en la gestión de las redes sociales de la empresa.",
+            "Lenguas maternas: español y rumano. Inglés: nivel C1."
+        ]
+    },
+
+    "pieza-cv-3-3": {
+        datos: [
+            "Montaje y mantenimiento de equipos informáticos; instalación y configuración de sistemas operativos; configuración y administración de redes locales.",
+            "Administración de usuarios y permisos; configuración de servicios de red; seguridad informática y resolución de incidencias.",
+            "Programación básica con Python; ofimática y creación de contenido visual con Canva.",
+            "Aficiones e intereses: dibujo y diseño, programación y desarrollo de videojuegos, ciencia, tecnología y divulgación científica."
+        ]
     }
 };
 
