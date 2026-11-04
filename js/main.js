@@ -115,7 +115,7 @@ document.getElementById("poster-cv").addEventListener("click", () => {
         "curriculum",
         "📜 Currículum",
         "Documento",
-        "Un documento que contiene mi formación y experiencia.",
+        "Documento que contendría mi formación y experiencia.",
         "documento"
     );
 
@@ -139,7 +139,7 @@ document.getElementById("llave-hierro").addEventListener("click", () => {
         "llave-hierro",
         "🗝️ Llave de hierro",
         "Llave",
-        "Una llave antigua y desgastada. No parece encajar en cualquier cerradura.",
+        "Llave vieja y desgastada. Mayormente roída por el óxido.",
         "llave"
     );
 
@@ -162,7 +162,7 @@ document.getElementById("llave-laton").addEventListener("click", () => {
         "llave-laton",
         "🗝️ Llave de latón",
         "Llave",
-        "Una estructura de latón con varias runas grabadas.",
+        "Pequeña llave de latón. Ha sido cuidada con mucho mimo.",
         "llave"
     );
 
