@@ -156,21 +156,17 @@ document.getElementById("llave-hierro").addEventListener("click", () => {
    7. LLAVE DE LATÓN
    ========================================== */
 
-document.getElementById("llave-laton").addEventListener("click", () => {
-
+document.getElementById("llave-cobre").addEventListener("click", () => {
     añadirObjeto(
-        "llave-laton",
-        "🗝️ Llave de latón",
+        "llave-cobre",
+        "🗝️ Llave de cobre",
         "Llave",
-        "Pequeña llave de latón. Ha sido cuidada con mucho mimo.",
+        "Pequeña llave de cobre, guardada por el cuervo.",
         "llave"
     );
-
-    document.getElementById("llave-laton")
-        .classList.add("oculta");
-
-    if (obtenerObjetoEquipado()?.id !== "llave-laton") {
-        mensajeEscena.textContent = "Has encontrado una llave de latón.";
+    document.getElementById("llave-cobre").classList.add("oculta");
+    if (obtenerObjetoEquipado()?.id !== "llave-cobre") {
+        mensajeEscena.textContent = "Has encontrado una llave de cobre.";
     }
 });
 
@@ -179,10 +175,26 @@ document.getElementById("llave-laton").addEventListener("click", () => {
    8. CAJÓN CON CERRADURA DE LATÓN
    ========================================== */
 
-document.getElementById("cajon-laton").addEventListener("click", () => {
+document.getElementById("cofre-escritorio").addEventListener("click", interactuarConCofre);
 
-    interactuarConCajon();
+document.getElementById("saco-pienso").addEventListener("click", () => {
+    const objeto = añadirObjeto(
+        "saco-pienso",
+        "Saco de pienso",
+        "Alimento",
+        "Un pequeño saco de pienso para animales.",
+        "herramienta"
+    );
+    if (!objeto) return;
+    document.getElementById("saco-pienso").classList.add("oculta");
+    if (obtenerObjetoEquipado()?.id !== "saco-pienso") {
+        mensajeEscena.textContent = "Has recogido un saco de pienso.";
+    }
 });
+
+document.getElementById("cuervo-mansion").addEventListener("click", interactuarConCuervo);
+document.getElementById("cuenco-perro").addEventListener("click", interactuarConCuenco);
+document.getElementById("llave-cobre-suelta").addEventListener("click", recogerLlaveCobre);
 
 
 /* ==========================================
