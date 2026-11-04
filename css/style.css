@@ -1032,10 +1032,8 @@ button:focus-visible {
     transform: translateX(-50%);
     padding: 9px 9px 0;
     border: 5px solid #76552f;
-    border-bottom: 0;
-    border-radius: 85px 85px 0 0;
+    border-radius: 0;
     background: #30231c;
-    box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
 }
 
 .puerta-interior-hoja {
@@ -1043,10 +1041,8 @@ button:focus-visible {
     width: 100%;
     height: 100%;
     border: 3px solid #a47a45;
-    border-bottom: 0;
-    border-radius: 68px 68px 0 0;
+    border-radius: 0;
     background: linear-gradient(90deg, #38251d, #68472c 48%, #38251d);
-    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.5);
 }
 
 .puerta-panel {
@@ -1054,7 +1050,7 @@ button:focus-visible {
     left: 16%;
     width: 68%;
     border: 2px solid rgba(164, 122, 69, 0.65);
-    border-radius: 35px 35px 4px 4px;
+    border-radius: 0;
 }
 
 .puerta-panel-superior {
@@ -1076,7 +1072,6 @@ button:focus-visible {
     height: 9px;
     border-radius: 50%;
     background: var(--dorado-claro);
-    box-shadow: 0 0 7px rgba(226, 199, 121, 0.5);
 }
 
 /* Los botones conservan sus IDs para reutilizar la navegación existente. */
@@ -1097,21 +1092,20 @@ button:focus-visible {
 }
 
 .puerta-salida {
-    bottom: 12%;
+    bottom: 42%;
 }
 
 .puerta-regreso {
-    bottom: 17%;
+    bottom: 26%;
 }
 
-/* Miniaturas decorativas en los extremos de la pared de trofeos. */
+/* Miniaturas decorativas en las esquinas superiores de la pared de trofeos. */
 .mini-mansion,
 .mini-cabanita {
     position: absolute;
-    bottom: 9%;
-    width: 112px;
-    height: 82px;
-    opacity: 0.88;
+    top: 10%;
+    width: 128px;
+    height: 94px;
 }
 
 .mini-mansion {
@@ -1120,8 +1114,8 @@ button:focus-visible {
 
 .mini-cabanita {
     right: 3%;
-    width: 96px;
-    height: 70px;
+    width: 84px;
+    height: 62px;
 }
 
 .mini-mansion-cuerpo,
