@@ -338,9 +338,67 @@ button:focus-visible {
     position: absolute; left: 50%; top: 58%; width: 150px; height: 14px;
     transform: translateX(-50%); background: #68472c; border: 2px solid #a47a45;
 }
-.figura-caballo {
-    position: absolute; top: 34%; left: 50%; transform: translateX(-50%) scaleX(-1);
-    color: #c5a04b; font-size: 76px; line-height: 1;
+/* Slots interactivos del puzle de los caballos. */
+.slot-caballo {
+    position: absolute;
+    top: 31%;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 88px;
+    height: 92px;
+    margin: 0;
+    padding: 6px;
+
+    background: rgba(15, 19, 23, 0.55);
+    border: 3px solid;
+    border-radius: 8px;
+
+    pointer-events: auto;
+}
+
+#slot-caballo-izquierdo {
+    left: 37%;
+    transform: translateX(-50%);
+    border-color: var(--dorado);
+    box-shadow: inset 0 0 12px rgba(197, 160, 75, 0.12);
+}
+
+#slot-caballo-derecho {
+    left: 63%;
+    transform: translateX(-50%);
+    border-color: #b9c2c8;
+    box-shadow: inset 0 0 12px rgba(185, 194, 200, 0.12);
+}
+
+.slot-caballo:hover {
+    background: rgba(36, 67, 75, 0.75);
+}
+
+.slot-caballo.seleccionado {
+    outline: 3px solid var(--cian);
+    outline-offset: 5px;
+    box-shadow: 0 0 16px rgba(72, 207, 224, 0.45);
+}
+
+.icono-caballo {
+    display: block;
+    font-size: 62px;
+    line-height: 1;
+}
+
+.caballo-dorado {
+    color: #c5a04b;
+    transform: scaleX(-1);
+    text-shadow: 0 0 10px rgba(197, 160, 75, 0.35);
+}
+
+.caballo-plateado {
+    color: #c5cdd2;
+    text-shadow: 0 0 10px rgba(197, 205, 210, 0.35);
 }
 .silueta-trofeo {
     position: absolute; width: 86px; height: 100px;
@@ -395,12 +453,35 @@ button:focus-visible {
 .arte-buzon .arbol:first-child { left: 13%; }
 .arte-buzon .arbol:last-child { right: 13%; }
 .buzon-oxidado {
-    position: absolute; left: 50%; bottom: 29%; width: 75px; height: 52px;
-    transform: translateX(-50%); border: 3px solid #765044;
-    border-radius: 25px 25px 4px 4px; background: #554238;
+    position: absolute;
+    left: 50%;
+    bottom: 29%;
+    width: 75px;
+    height: 52px;
+    margin: 0;
+    padding: 0;
+    transform: translateX(-50%);
+
+    border: 3px solid #765044;
+    border-radius: 25px 25px 4px 4px;
+    background: #554238;
     box-shadow: 0 55px 0 -23px #60432c;
+
+    pointer-events: auto;
 }
-.buzon-oxidado span { position: absolute; top: 13px; left: 10px; width: 49px; border-top: 4px solid #241f1c; }
+
+.buzon-oxidado span {
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    width: 49px;
+    border-top: 4px solid #241f1c;
+}
+
+.buzon-oxidado.buzon-abierto {
+    border-color: var(--dorado);
+    background: #6b5740;
+}
 
 
 
