@@ -288,12 +288,12 @@ Los objetivos de esta sección describen funcionalidades y mejoras que todavía 
 
 ### 7.1. Funcionalidades por desarrollar
 
-0. Reorganizar la estructura HTML: mantener la interfaz general en `index.html`, mover las cuatro perspectivas de la cabañita y las cuatro del exterior a `escenas/cabana.html`, preparar la carga mediante `fetch` y ajustar la inicialización JavaScript para esperar a que la escena esté insertada. Actualizar el árbol del proyecto y documentar el uso de Live Server.
+1. Reorganizar la estructura HTML: mantener la interfaz general en `index.html`, mover las cuatro perspectivas de la cabañita y las cuatro del exterior a `escenas/cabana.html`, preparar la carga mediante `fetch` y ajustar la inicialización JavaScript para esperar a que la escena esté insertada. Actualizar el árbol del proyecto y documentar el uso de Live Server.
 
-1. Implementar los tres primeros puzles definidos en la sección 4: el cuervo (Pieza 1), los caballos (Pieza 2) y los trofeos (Pieza 3), junto con los objetos necesarios y sus interacciones.
-2. Conectar la zona exterior con la casa grande y desarrollar las perspectivas y zonas interactivas necesarias para los puzles. De momento, las interacciones se resolverán directamente desde las perspectivas existentes, sin vistas ampliadas.
-3. Incorporar un sistema de guardado persistente con tres ranuras independientes. Debe permitir guardar el progreso actual, cargar una partida guardada y empezar una nueva partida cuando se quiera.
-4. Añadir al menú principal un botón «Guardar» junto al acceso al menú principal durante la exploración. El botón «Entrar» cargará directamente si no existe ninguna partida guardada; si hay partidas guardadas, abrirá un pequeño menú para elegir una. El menú principal también incluirá «Nueva partida» para iniciar una partida desde cero.
+2. Implementar los tres primeros puzles definidos en la sección 4: el cuervo (Pieza 1), los caballos (Pieza 2) y los trofeos (Pieza 3), junto con los objetos necesarios y sus interacciones.
+3. Conectar la zona exterior con la casa grande y desarrollar las perspectivas y zonas interactivas necesarias para los puzles. De momento, las interacciones se resolverán directamente desde las perspectivas existentes, sin vistas ampliadas.
+4. Incorporar un sistema de guardado persistente con tres ranuras independientes. Debe permitir guardar el progreso actual, cargar una partida guardada y empezar una nueva partida cuando se quiera.
+5. Añadir al menú principal un botón «Guardar» junto al acceso al menú principal durante la exploración. El botón «Entrar» cargará directamente si no existe ninguna partida guardada; si hay partidas guardadas, abrirá un pequeño menú para elegir una. El menú principal también incluirá «Nueva partida» para iniciar una partida desde cero.
 
 ### 7.2. Mejoras visuales
 
