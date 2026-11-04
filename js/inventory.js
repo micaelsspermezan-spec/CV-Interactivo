@@ -333,6 +333,9 @@ function deseleccionarObjeto() {
 
 function equiparObjeto(objeto) {
 
+    // Un objeto agotado permanece en el inventario, pero ya no se puede equipar.
+    if (objeto.agotado) return;
+
     objetoEquipado = objeto;
 
     actualizarRanura();
@@ -534,7 +537,10 @@ function mostrarDetalleObjeto(objeto) {
 
 
     // Solo los objetos utilizables pueden equiparse.
-    if (["llave", "herramienta", "pieza"].includes(objeto.tipo)) {
+    if (
+        ["llave", "herramienta", "pieza"].includes(objeto.tipo) &&
+        !objeto.agotado
+    ) {
 
         const botonEquipamiento = document.createElement("button");
 
