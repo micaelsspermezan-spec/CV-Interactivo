@@ -137,6 +137,26 @@ CV-Interactivo/
 
 **Nota sobre la estructura:** en el `index.html` actual, los scripts se cargan al final del body en este orden: `inventory.js`, `puzzles.js`, `navigation.js` y `main.js`. La escena contiene cuatro vistas de pared y controles para recorrerlas.
 
+### Arquitectura de escenas acordada (pendiente de implementar)
+
+La aplicación se reorganizará para separar el contenido de las escenas del documento principal, sin convertir cada perspectiva en un archivo independiente.
+
+- `index.html` conservará la estructura general de la aplicación: menú, interfaz de exploración, cabecera, equipamiento, contenedor de escena, inventario y panel del currículum.
+- Se creará `escenas/cabana.html`, que contendrá tanto las cuatro perspectivas de la cabañita como las cuatro perspectivas de la zona exterior. La cabañita y el exterior seguirán siendo zonas diferenciadas dentro de la navegación.
+- Más adelante, cuando se empiece a desarrollar la casa grande, se creará `escenas/mansion.html`. Si esa escena crece mucho, se podrá dividir en más archivos, pero no se crearán archivos individuales para cada habitación o perspectiva sin una necesidad real.
+- La escena externa se insertará en el contenedor de `index.html` mediante `fetch`, sin recargar la aplicación.
+- Como los módulos JavaScript consultan elementos de la escena mediante sus IDs, la inicialización deberá esperar a que `cabana.html` se haya cargado e insertado antes de registrar los eventos que dependan de esos elementos. Revisar especialmente `main.js`, `navigation.js`, `inventory.js` y `puzzles.js` para conservar el orden y evitar referencias nulas.
+- El uso de `fetch` para cargar HTML externo requiere ejecutar el proyecto mediante un servidor web local. Durante el desarrollo se utilizará Live Server desde VS Code. Abrir `index.html` directamente con la dirección `file://` no permitirá cargar las escenas externas.
+- No se añadirán dependencias, paquetes ni servicios externos para esta reorganización.
+
+### Ejecución y entrega
+
+- La entrega deberá ser sencilla de abrir y revisar, sin exigir al profesor instalar Node.js, Python, paquetes ni dependencias.
+- Se preparará un archivo `LEEME.txt` con instrucciones claras de ejecución, contenido del proyecto y explicación breve de su funcionamiento.
+- Se valorará publicar una versión ejecutable mediante GitHub Pages, de modo que el profesor pueda abrirla desde un enlace, y acompañarla de una copia del código fuente.
+- La publicación y el formato definitivo de entrega se decidirán más adelante. No se configurarán automatizaciones ni servicios de publicación sin explicarlo y acordarlo previamente.
+
+
 ## 3. Responsabilidad de los módulos
 
 - **index.html:** estructura de las pantallas, escena, objetos interactivos, inventario y panel del CV.
@@ -206,7 +226,7 @@ Los siguientes puzles están diseñados, pero todavía no están implementados. 
 #### Puzle de los caballos — Pieza 2
 
 - En la pared izquierda de la cabañita hay un caballito dorado que mira hacia la derecha.
-- En el buzón oxidado del bosque derecho se encuentra un caballito plateado. El buzón se abre usando la llave de hierro que está sobre el escritorio.
+- En el buzón oxidado del bosque derecho se encuentra un caballito plateado. El buzón se abre usando la llave de hierro que está sobre el escritorio. La llave debe estar equipada; no basta con haberla recogido.
 - El caballito plateado se recoge y se coloca junto al dorado, de modo que ambos queden mirándose frente a frente.
 - Al completar la pareja se obtiene la Pieza 2 del currículum.
 
@@ -235,6 +255,7 @@ La información de los bloques que todavía no se hayan desbloqueado se represen
 - Solo está implementado un mecanismo: el cajón con cerradura de latón.
 - No hay todavía sistema general de guardado, persistencia, audio ni animaciones complejas.
 - `navigation.js` permite cambiar entre las cuatro paredes de la cabaña y las cuatro perspectivas exteriores. La transición a la casa grande, sus habitaciones y las vistas ampliadas todavía no están implementadas.
+- La reorganización para cargar las escenas desde archivos HTML externos está aprobada, pero todavía no se ha implementado. Actualmente las perspectivas siguen dentro de `index.html`.
 - La carpeta `assets` está prevista para recursos visuales; confirmar su contenido real en el equipo local.
 
 ## 6. Decisiones que debemos mantener
@@ -256,12 +277,18 @@ La información de los bloques que todavía no se hayan desbloqueado se represen
 - Cada perspectiva podrá contener zonas interactivas. Al pulsarlas, podrán llevar a otra habitación o activar interacciones sencillas directamente sobre la escena.
 - Por decisión actual, no se priorizarán vistas ampliadas: los primeros puzles se resolverán desde las perspectivas existentes mediante interacciones sencillas. Esta decisión podrá revisarse más adelante si la complejidad de algún mecanismo lo justifica.
 - `navigation.js` será el módulo encargado de gestionar las perspectivas, las habitaciones y las transiciones entre vistas. `puzzles.js` conservará la lógica y las condiciones de resolución de los mecanismos; `inventory.js` seguirá gestionando los objetos y el equipamiento.
+- El contenido de las escenas se externalizará siguiendo esta estructura: `index.html` para la interfaz general, `escenas/cabana.html` para cabañita y exterior, y `escenas/mansion.html` cuando se desarrolle la casa grande. No se dividirán las escenas por perspectiva salvo que el tamaño lo justifique.
+- Las escenas externas se cargarán con `fetch` dentro del contenedor de escena. La inicialización de los módulos que dependen de sus elementos deberá ejecutarse después de insertar el HTML.
+- El proyecto se ejecutará durante el desarrollo mediante un servidor local (Live Server); no se considerará válida la apertura directa con `file://` una vez externalizadas las escenas.
+- La entrega se preparará para que el profesor pueda probarla sin instalar dependencias: se estudiará GitHub Pages y se añadirá un `LEEME.txt` con instrucciones, además de conservar una copia del código fuente.
 
 ## 7. Próximos objetivos
 
 Los objetivos de esta sección describen funcionalidades y mejoras que todavía queremos desarrollar. Las comprobaciones y pruebas de funcionamiento se realizan durante el desarrollo y no se consideran objetivos independientes.
 
 ### 7.1. Funcionalidades por desarrollar
+
+0. Reorganizar la estructura HTML: mantener la interfaz general en `index.html`, mover las cuatro perspectivas de la cabañita y las cuatro del exterior a `escenas/cabana.html`, preparar la carga mediante `fetch` y ajustar la inicialización JavaScript para esperar a que la escena esté insertada. Actualizar el árbol del proyecto y documentar el uso de Live Server.
 
 1. Implementar los tres primeros puzles definidos en la sección 4: el cuervo (Pieza 1), los caballos (Pieza 2) y los trofeos (Pieza 3), junto con los objetos necesarios y sus interacciones.
 2. Conectar la zona exterior con la casa grande y desarrollar las perspectivas y zonas interactivas necesarias para los puzles. De momento, las interacciones se resolverán directamente desde las perspectivas existentes, sin vistas ampliadas.
