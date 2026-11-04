@@ -22,10 +22,19 @@ const zonasNavegacion = {
     exterior: {
         nombre: "Exterior",
         perspectivas: [
-            { id: "vista-exterior-frente", nombre: "Frente · Casa grande" },
+            { id: "vista-exterior-frente", nombre: "Frente · Mansión" },
             { id: "vista-exterior-derecha", nombre: "Bosque derecho" },
             { id: "vista-exterior-detras", nombre: "Detrás · Cabañita" },
             { id: "vista-exterior-izquierda", nombre: "Bosque izquierdo" }
+        ]
+    },
+    mansion: {
+        nombre: "Mansión",
+        perspectivas: [
+            { id: "vista-mansion-recibidor", nombre: "Recibidor" },
+            { id: "vista-mansion-derecha", nombre: "Bosque derecho" },
+            { id: "vista-mansion-detras", nombre: "Detrás" },
+            { id: "vista-mansion-izquierda", nombre: "Bosque izquierdo" }
         ]
     }
 };
@@ -101,6 +110,8 @@ function inicializarNavegacion() {
     const botonSiguiente = document.getElementById("perspectiva-siguiente");
     const puertaSalida = document.getElementById("puerta-salida-cabana");
     const puertaRegreso = document.getElementById("puerta-regreso-cabana");
+    const puertaEntradaMansion = document.getElementById("puerta-entrada-mansion");
+    const salidaMansion = document.getElementById("salir-mansion-exterior");
 
     // Evitar registrar los mismos eventos más de una vez.
     if (botonAnterior.dataset.navegacionLista === "true") return;
@@ -125,6 +136,8 @@ function inicializarNavegacion() {
     puertaRegreso.addEventListener("click", () => {
         cambiarZona("cabana", 0);
     });
+    puertaEntradaMansion.addEventListener("click", () => cambiarZona("mansion", 0));
+    salidaMansion.addEventListener("click", () => cambiarZona("exterior", 0));
 
     cambiarZona("cabana", 0);
 }
