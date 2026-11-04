@@ -405,3 +405,13 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - [x] Cargar la escena antes de ejecutar los módulos que dependen de sus elementos.
 - [x] Comprobar en navegador mediante Live Server la carga, la navegación entre perspectivas, la salida y el regreso, la apertura del cajón y el funcionamiento del inventario y las piezas del CV (confirmado por el usuario el 4 de noviembre de 2026).
 - [ ] Crear `escenas/mansion.html` al comenzar el diseño de la casa grande.
+
+
+## 6. Corrección de interacción contextual y puzle de caballos (4 de noviembre de 2026)
+
+- `#mensaje-escena` se encuentra fuera de las perspectivas individuales, pero dentro de `#escena`; se presenta como una capa común en la parte inferior y no intercepta clics.
+- Al cambiar de perspectiva o de zona se limpia el mensaje contextual y se cancela cualquier selección de caballo activa.
+- Pulsar de nuevo el mismo caballo lo deselecciona. Pulsar cualquier otro punto de `#escena` también cancela la selección, mientras que pulsar otro slot conserva la lógica de movimiento e intercambio.
+- El caballito dorado comienza en el slot izquierdo.
+- El buzón tiene prioridad de apilamiento y las referencias exteriores no interceptan eventos de puntero. Sigue siendo obligatorio tener equipada la llave de hierro.
+- No se ha modificado el sistema general de inventario ni el autoequipamiento.
