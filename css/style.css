@@ -1179,8 +1179,41 @@ button:focus-visible {
 #cofre-escritorio { position:absolute; top:45%; left:50%; transform:translateX(-50%); z-index:5; }
 #pieza-cv-1-3 { position:absolute; top:50%; left:50%; transform:translateX(-50%); z-index:6; }
 .arte-caballo .mesita-caballo { width:180px; height:20px; top:56%; }
-.saco-pienso { position:absolute; left:calc(50% - 110px); bottom:12%; width:48px; height:62px; border:3px solid #9b8250; border-radius:7px 7px 4px 4px; background:#9b8250; }
-.saco-pienso-interactivo { position:absolute; left:calc(50% - 145px); bottom:10%; z-index:5; }
+.arte-caballo .mesita-caballo::before,
+.arte-caballo .mesita-caballo::after {
+    content:"";
+    position:absolute;
+    top:100%;
+    width:10px;
+    height:72px;
+    background:#76552f;
+}
+.arte-caballo .mesita-caballo::before { left:12px; }
+.arte-caballo .mesita-caballo::after { right:12px; }
+.saco-pienso-interactivo {
+    position:absolute;
+    left:calc(50% - 145px);
+    bottom:10%;
+    z-index:5;
+    width:48px;
+    height:62px;
+    padding:0;
+    overflow:hidden;
+    font-size:0;
+    border:3px solid #9b8250;
+    border-radius:7px 7px 4px 4px;
+    background:#9b8250;
+}
+.saco-pienso-interactivo::before {
+    content:"";
+    position:absolute;
+    top:5px;
+    left:8px;
+    right:8px;
+    height:7px;
+    border-bottom:3px solid #59402b;
+    border-radius:50%;
+}
 
 .vista-mansion { background:linear-gradient(#20272a 0 58%, #263126 58% 100%); }
 .suelo-porche { position:absolute; left:15%; right:15%; bottom:8%; height:24%; border:5px solid #76552f; background:repeating-linear-gradient(0deg,#68472c 0 12px,#503521 12px 15px); }
