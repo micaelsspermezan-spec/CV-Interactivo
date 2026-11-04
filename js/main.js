@@ -146,8 +146,9 @@ document.getElementById("llave-hierro").addEventListener("click", () => {
     document.getElementById("llave-hierro")
         .classList.add("oculta");
 
-    mensajeEscena.textContent =
-        "Has encontrado una llave de hierro.";
+    if (obtenerObjetoEquipado()?.id !== "llave-hierro") {
+        mensajeEscena.textContent = "Has encontrado una llave de hierro.";
+    }
 });
 
 
@@ -168,8 +169,9 @@ document.getElementById("llave-laton").addEventListener("click", () => {
     document.getElementById("llave-laton")
         .classList.add("oculta");
 
-    mensajeEscena.textContent =
-        "Has encontrado una llave de latón.";
+    if (obtenerObjetoEquipado()?.id !== "llave-laton") {
+        mensajeEscena.textContent = "Has encontrado una llave de latón.";
+    }
 });
 
 
