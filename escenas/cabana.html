@@ -40,15 +40,15 @@
 
             <!-- Perspectivas provisionales sin objetos todavía -->
             <div id="vista-pared-2" class="vista-pared oculta">
-                <div class="arte-pared arte-caballo">
+                <div class="arte-pared arte-caballo" aria-hidden="true">
                     <div class="mesita-caballo"></div>
-
-                    <button id="slot-caballo-izquierdo" class="slot-caballo" type="button"
-                        aria-label="Posición izquierda del puzle de caballos"></button>
-
-                    <button id="slot-caballo-derecho" class="slot-caballo" type="button"
-                        aria-label="Posición derecha del puzle de caballos"></button>
                 </div>
+
+                <button id="slot-caballo-izquierdo" class="slot-caballo" type="button"
+                    aria-label="Posición izquierda del puzle de caballos"></button>
+
+                <button id="slot-caballo-derecho" class="slot-caballo" type="button"
+                    aria-label="Posición derecha del puzle de caballos"></button>
 
                 <button id="pieza-cv-2-3" class="objeto-escena oculta" type="button">
                     📄 Pieza de CV 2
@@ -108,6 +108,9 @@
                     <span class="arbol arbol-pocas-hojas"></span>
                 </div>
                 <div class="referencia-exterior"><h2>Bosque</h2></div>
+
+                <button id="caballo-plateado-suelto" class="caballo-suelto oculta" type="button"
+                    aria-label="Recoger caballito plateado">♞</button>
             </div>
 
             <!-- Mensajes contextuales compartidos por todas las perspectivas. -->
