@@ -60,7 +60,7 @@
                 ← Menú principal
             </button>
 
-            <h1>Cabaña</h1>
+            <h1 id="nombre-zona">Cabaña</h1>
 
             <button id="abrir-inventario">
                 Inventario
@@ -152,8 +152,38 @@
 
             <!-- Perspectivas provisionales sin objetos todavía -->
             <div id="vista-pared-2" class="vista-pared oculta"></div>
-            <div id="vista-pared-3" class="vista-pared oculta"></div>
+            <div id="vista-pared-3" class="vista-pared oculta">
+                <button id="puerta-salida-cabana" class="objeto-escena" type="button">
+                    🚪 Salir al exterior
+                </button>
+            </div>
             <div id="vista-pared-4" class="vista-pared oculta"></div>
+
+            <!-- Zona exterior: cuatro perspectivas independientes de la cabaña -->
+            <div id="vista-exterior-frente" class="vista-pared vista-exterior oculta">
+                <div class="referencia-exterior">
+                    <h2>Casa grande</h2>
+                    <p>La entrada todavía no está disponible.</p>
+                </div>
+            </div>
+
+            <div id="vista-exterior-izquierda" class="vista-pared vista-exterior oculta">
+                <div class="referencia-exterior">
+                    <h2>Bosque</h2>
+                </div>
+            </div>
+
+            <div id="vista-exterior-detras" class="vista-pared vista-exterior oculta">
+                <button id="puerta-regreso-cabana" class="objeto-escena" type="button">
+                    🚪 Volver a la cabañita
+                </button>
+            </div>
+
+            <div id="vista-exterior-derecha" class="vista-pared vista-exterior oculta">
+                <div class="referencia-exterior">
+                    <h2>Bosque</h2>
+                </div>
+            </div>
 
         </section>
 
