@@ -2,9 +2,19 @@
 async function cargarEscenaInicial() {
     const contenedor = document.getElementById('contenido-escena');
     try {
-        const respuesta = await fetch('escenas/cabana.html');
-        if (!respuesta.ok) throw new Error('No se pudo cargar la escena: ' + respuesta.status);
-        contenedor.innerHTML = await respuesta.text();
+        const [respuestaCabana, respuestaMansion] = await Promise.all([
+            fetch('escenas/cabana.html'),
+            fetch('escenas/mansion.html')
+        ]);
+        if (!respuestaCabana.ok || !respuestaMansion.ok) {
+            throw new Error('No se pudieron cargar las escenas: ' +
+                respuestaCabana.status + ' / ' + respuestaMansion.status);
+        }
+        const [htmlCabana, htmlMansion] = await Promise.all([
+            respuestaCabana.text(),
+            respuestaMansion.text()
+        ]);
+        contenedor.innerHTML = htmlCabana + htmlMansion;
         const scripts = ['js/inventory.js', 'js/puzzles.js', 'js/navigation.js', 'js/main.js'];
         for (const ruta of scripts) {
             await new Promise((resolve, reject) => {
