@@ -44,8 +44,10 @@ function interactuarConCajon() {
         return;
     }
 
-    // Abrir el cajón.
+    // Abrir el cajón y agotar la llave utilizada.
     cajonLatonAbierto = true;
+    marcarObjetoAgotado("llave-laton");
+    desequiparObjeto();
 
     mensaje.textContent =
         "¡CLAC! La llave gira y el cajón se abre. Hay algo dentro.";
@@ -65,8 +67,8 @@ function interactuarConCajon() {
 
 // Cada slot contiene el ID de un objeto de escenario o null si está vacío.
 const posicionesCaballos = {
-    izquierdo: null,
-    derecho: "caballo-dorado"
+    izquierdo: "caballo-dorado",
+    derecho: null
 };
 
 let slotCaballoSeleccionado = null;
@@ -225,15 +227,16 @@ function abrirBuzonOxidado() {
     buzonAbierto = true;
     botonBuzon.classList.add("buzon-abierto");
     botonBuzon.setAttribute("aria-label", "Buzón abierto");
-    mensaje.textContent = "La llave de hierro abre el buzón. Dentro hay un caballito plateado.";
 
-    añadirObjeto(
-        "caballo-plateado",
-        "♞ Caballito plateado",
-        "Objeto de mecanismo",
-        "Un pequeño caballito plateado.",
-        "herramienta"
-    );
+    // La llave se agota al abrir el buzón; el caballo queda en la escena.
+    marcarObjetoAgotado("llave-hierro");
+    desequiparObjeto();
+
+    document.getElementById("caballo-plateado-suelto")
+        .classList.remove("oculta");
+
+    mensaje.textContent =
+        "La llave de hierro abre el buzón. Un caballito plateado ha caído al suelo.";
 }
 
 
@@ -254,5 +257,27 @@ document.getElementById("slot-caballo-derecho")
 
 document.getElementById("buzon-oxidado")
     .addEventListener("click", abrirBuzonOxidado);
+
+
+// El caballo plateado se recoge con un clic independiente tras abrir el buzón.
+document.getElementById("caballo-plateado-suelto")
+    .addEventListener("click", () => {
+
+        const caballo = añadirObjeto(
+            "caballo-plateado",
+            "♞ Caballito plateado",
+            "Objeto de mecanismo",
+            "Un pequeño caballito plateado.",
+            "herramienta"
+        );
+
+        if (!caballo) return;
+
+        document.getElementById("caballo-plateado-suelto")
+            .classList.add("oculta");
+
+        document.getElementById("mensaje-escena").textContent =
+            "Has recogido el caballito plateado.";
+    });
 
 actualizarSlotsCaballos();
