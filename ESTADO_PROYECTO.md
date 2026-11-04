@@ -135,17 +135,17 @@ CV-Interactivo/
     └── (carpetas de recursos visuales previstas; confirmar contenido en local)
 ```
 
-**Nota sobre la estructura:** en el `index.html` actual, los scripts se cargan al final del body en este orden: `inventory.js`, `puzzles.js`, `navigation.js` y `main.js`. La escena contiene cuatro vistas de pared y controles para recorrerlas.
+**Nota sobre la estructura:** `index.html` conserva la interfaz general y carga `js/cargar-escena.js`. Este cargador inserta `escenas/cabana.html` en `#contenido-escena` y, después, carga secuencialmente `inventory.js`, `puzzles.js`, `navigation.js` y `main.js`. La escena externa contiene cuatro perspectivas de la cabañita y cuatro del exterior.
 
-### Arquitectura de escenas acordada (pendiente de implementar)
+### Arquitectura de escenas
 
-La aplicación se reorganizará para separar el contenido de las escenas del documento principal, sin convertir cada perspectiva en un archivo independiente.
+La aplicación separa el contenido de las escenas del documento principal, sin convertir cada perspectiva en un archivo independiente.
 
 - `index.html` conservará la estructura general de la aplicación: menú, interfaz de exploración, cabecera, equipamiento, contenedor de escena, inventario y panel del currículum.
-- Se creará `escenas/cabana.html`, que contendrá tanto las cuatro perspectivas de la cabañita como las cuatro perspectivas de la zona exterior. La cabañita y el exterior seguirán siendo zonas diferenciadas dentro de la navegación.
+- `escenas/cabana.html` contiene tanto las cuatro perspectivas de la cabañita como las cuatro perspectivas de la zona exterior. La cabañita y el exterior siguen siendo zonas diferenciadas dentro de la navegación.
 - Más adelante, cuando se empiece a desarrollar la casa grande, se creará `escenas/mansion.html`. Si esa escena crece mucho, se podrá dividir en más archivos, pero no se crearán archivos individuales para cada habitación o perspectiva sin una necesidad real.
-- La escena externa se insertará en el contenedor de `index.html` mediante `fetch`, sin recargar la aplicación.
-- Como los módulos JavaScript consultan elementos de la escena mediante sus IDs, la inicialización deberá esperar a que `cabana.html` se haya cargado e insertado antes de registrar los eventos que dependan de esos elementos. Revisar especialmente `main.js`, `navigation.js`, `inventory.js` y `puzzles.js` para conservar el orden y evitar referencias nulas.
+- La escena externa se inserta en el contenedor `#contenido-escena` de `index.html` mediante `fetch`, sin recargar la aplicación.
+- Como los módulos JavaScript consultan elementos de la escena mediante sus IDs, `js/cargar-escena.js` espera a que `cabana.html` se haya cargado e insertado antes de cargar secuencialmente `inventory.js`, `puzzles.js`, `navigation.js` y `main.js`.
 - El uso de `fetch` para cargar HTML externo requiere ejecutar el proyecto mediante un servidor web local. Durante el desarrollo se utilizará Live Server desde VS Code. Abrir `index.html` directamente con la dirección `file://` no permitirá cargar las escenas externas.
 - No se añadirán dependencias, paquetes ni servicios externos para esta reorganización.
 
@@ -159,7 +159,8 @@ La aplicación se reorganizará para separar el contenido de las escenas del doc
 
 ## 3. Responsabilidad de los módulos
 
-- **index.html:** estructura de las pantallas, escena, objetos interactivos, inventario y panel del CV.
+- **index.html:** estructura de las pantallas, interfaz general, contenedor de escena, inventario y panel del CV.
+- **escenas/cabana.html:** perspectivas de la cabañita y del exterior.
 - **style.css:** variables visuales, disposición, estados de visibilidad, paneles, botones, ranura de equipamiento y adaptación móvil.
 - **inventory.js:** datos del inventario en memoria, recogida, listado, selección, ficha, equipamiento y ranura.
 - **puzzles.js:** lógica de mecanismos y comprobación de objetos equipados. Actualmente gestiona el cajón de latón.
@@ -254,8 +255,8 @@ La información de los bloques que todavía no se hayan desbloqueado se represen
 - Los bloques del currículum aún no descubiertos deberán mostrar líneas negras simulando texto censurado; al recoger su pieza se mostrará el texto real.
 - Solo está implementado un mecanismo: el cajón con cerradura de latón.
 - No hay todavía sistema general de guardado, persistencia, audio ni animaciones complejas.
-- `navigation.js` permite cambiar entre las cuatro paredes de la cabaña y las cuatro perspectivas exteriores. La transición a la casa grande, sus habitaciones y las vistas ampliadas todavía no están implementadas.
-- La reorganización para cargar las escenas desde archivos HTML externos está aprobada, pero todavía no se ha implementado. Actualmente las perspectivas siguen dentro de `index.html`.
+- `navigation.js` permite cambiar entre las cuatro paredes de la cabaña y las cuatro perspectivas exteriores. La transición a la casa grande y sus habitaciones todavía no están implementadas.
+- La reorganización de escenas está implementada: las ocho perspectivas de la cabañita y el exterior se encuentran en `escenas/cabana.html` y se cargan dinámicamente desde `index.html`.
 - La carpeta `assets` está prevista para recursos visuales; confirmar su contenido real en el equipo local.
 
 ## 6. Decisiones que debemos mantener
@@ -288,7 +289,7 @@ Los objetivos de esta sección describen funcionalidades y mejoras que todavía 
 
 ### 7.1. Funcionalidades por desarrollar
 
-1. Reorganizar la estructura HTML: mantener la interfaz general en `index.html`, mover las cuatro perspectivas de la cabañita y las cuatro del exterior a `escenas/cabana.html`, preparar la carga mediante `fetch` y ajustar la inicialización JavaScript para esperar a que la escena esté insertada. Actualizar el árbol del proyecto y documentar el uso de Live Server.
+1. [x] Reorganizar la estructura HTML: mantener la interfaz general en `index.html`, mover las cuatro perspectivas de la cabañita y las cuatro del exterior a `escenas/cabana.html`, cargarlas mediante `fetch` y ejecutar los módulos después de insertar la escena. Actualizar el árbol del proyecto y documentar el uso de Live Server. La navegación y las interacciones principales se han comprobado en navegador mediante Live Server.
 
 2. Implementar los tres primeros puzles definidos en la sección 4: el cuervo (Pieza 1), los caballos (Pieza 2) y los trofeos (Pieza 3), junto con los objetos necesarios y sus interacciones.
 3. Conectar la zona exterior con la casa grande y desarrollar las perspectivas y zonas interactivas necesarias para los puzles. De momento, las interacciones se resolverán directamente desde las perspectivas existentes, sin vistas ampliadas.
@@ -391,5 +392,5 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - [x] Extraer las ocho perspectivas actuales a `escenas/cabana.html`.
 - [x] Mantener en `index.html` el contenedor de escena y los controles globales.
 - [x] Cargar la escena antes de ejecutar los módulos que dependen de sus elementos.
-- [ ] Probar en navegador mediante Live Server y comprobar navegación, recogida de objetos, inventario y panel CV.
+- [x] Comprobar en navegador mediante Live Server la carga, la navegación entre perspectivas, la salida y el regreso, la apertura del cajón y el funcionamiento del inventario y las piezas del CV (confirmado por el usuario el 4 de noviembre de 2026).
 - [ ] Crear `escenas/mansion.html` al comenzar el diseño de la casa grande.
