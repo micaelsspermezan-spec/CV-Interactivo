@@ -58,7 +58,9 @@ CV-Interactivo/
 │       │   │       ├── #llave-laton
 │       │   │       ├── #cajon-laton
 │       │   │       ├── #pieza-cv-1-3
-│       │   │       └── #mensaje-escena
+│       │   │       ├── #mensaje-escena
+│       │   │       ├── #slot-caballo-izquierdo y #slot-caballo-derecho (pared 2)
+│       │   │       └── #buzon-oxidado (exterior derecho)
 │       │   └── #inventario
 │       │       ├── #cabecera-inventario
 │       │       │   ├── Título
@@ -164,7 +166,7 @@ La aplicación separa el contenido de las escenas del documento principal, sin c
 - **escenas/cabana.html:** perspectivas de la cabañita y del exterior.
 - **style.css:** variables visuales, disposición, estados de visibilidad, paneles, botones, ranura de equipamiento y adaptación móvil.
 - **inventory.js:** datos del inventario en memoria, recogida, listado, selección, ficha, equipamiento y ranura.
-- **puzzles.js:** lógica de mecanismos y comprobación de objetos equipados. Actualmente gestiona el cajón de latón.
+- **puzzles.js:** lógica de mecanismos y comprobación de objetos equipados. Gestiona el cajón de latón y el puzle de los caballos, incluido el buzón y el intercambio de objetos de escenario en sus slots.
 - **navigation.js:** gestiona el cambio circular entre las cuatro perspectivas de la cabaña y las cuatro perspectivas de la zona exterior, además de las transiciones entre ambas. La gestión de la casa grande, sus habitaciones y las vistas ampliadas queda pendiente.
 - **main.js:** coordinación de eventos de interfaz, cambios entre menú y exploración, apertura/cierre de paneles y recogida de objetos de la escena.
 
