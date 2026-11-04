@@ -428,3 +428,12 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - En la vista exterior trasera, el botón «Volver a la cabañita» se coloca sobre la puerta dibujada de la cabaña. Se conserva el ID `#puerta-regreso-cabana`.
 - La pared derecha interior incorpora una miniatura CSS de la mansión en el extremo izquierdo y otra de la cabañita en el extremo derecho. Se mantienen libres las posiciones centrales reservadas para el puzle de los trofeos.
 - Todo el arte añadido está construido con HTML y CSS, sin imágenes, recursos externos ni dependencias. No se ha modificado ningún archivo JavaScript ni la posición o lógica del puzle de los caballos.
+
+### Ajustes de acabado visual de puertas y miniaturas (4 de noviembre de 2026)
+
+- La puerta interior de la pared trasera ahora tiene geometría rectangular: marco, hoja y paneles con esquinas rectas, sin sombras exteriores ni interiores.
+- Se eliminaron los resplandores del pomo y cualquier efecto de opacidad de las miniaturas decorativas.
+- La mini mansión y la minicabañita se sitúan en las esquinas superiores de la pared de trofeos. La mansión aumenta a 128 × 94 px y la cabañita se reduce a 84 × 62 px.
+- Los botones de salida y regreso se desplazan hacia la parte superior de sus respectivas puertas. Se conservan sus identificadores y la navegación existente.
+- Se mantiene sin cambios el hover de `#ranura-equipada`.
+- No se modifica HTML, JavaScript, navegación, inventario ni el puzle de los caballos.
