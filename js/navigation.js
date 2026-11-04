@@ -40,6 +40,14 @@ let perspectivaActual = 0;
 
 function mostrarPerspectiva(indice) {
 
+    // Los mensajes y selecciones pertenecen a la perspectiva que se está abandonando.
+    const mensaje = document.getElementById("mensaje-escena");
+    if (mensaje) mensaje.textContent = "";
+
+    if (typeof cancelarSeleccionCaballo === "function") {
+        cancelarSeleccionCaballo();
+    }
+
     const zona = zonasNavegacion[zonaActual];
 
     // El recorrido de cada zona es circular e independiente.
