@@ -374,3 +374,22 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - No modificar archivos directamente sin haber explicado previamente el cambio y obtenido la conformidad del usuario.
 - No realizar cambios adicionales, limpiezas o refactorizaciones que no formen parte de la tarea acordada.
 - Mantener actualizado este documento cuando cambien la estructura, las mecánicas, las decisiones o las próximas tareas del proyecto.
+
+## Reorganización de escenas (noviembre de 2026)
+
+- `index.html` conserva la estructura general: menú, interfaz de exploración, controles globales, inventario y panel del CV.
+- `escenas/cabana.html` contiene las cuatro perspectivas de la cabañita y las cuatro del exterior. No se separan en archivos individuales por ahora.
+- `js/cargar-escena.js` solicita `escenas/cabana.html` mediante `fetch`, inserta el contenido en `#contenido-escena` y después carga, en orden, `inventory.js`, `puzzles.js`, `navigation.js` y `main.js`. Así los módulos encuentran los elementos de la escena al registrar sus eventos.
+- `navigation.js` conserva los identificadores de las ocho perspectivas y la lógica de giro. `main.js` conserva la coordinación y los eventos actuales; el cargador asegura que se ejecute después de insertar la escena.
+- La carga mediante `fetch` requiere abrir el proyecto desde un servidor HTTP local (por ejemplo, Live Server en VS Code). No funcionará abriendo `index.html` directamente con `file://`.
+- La casa grande se añadirá más adelante en `escenas/mansion.html`. Si su tamaño lo justifica, se podrán dividir sus zonas en archivos adicionales.
+- Para la entrega al profesor se prevé incluir un `LEEME.txt` con instrucciones claras y valorar GitHub Pages para que pueda probar el proyecto desde un navegador. El proyecto seguirá sin dependencias externas ni instalaciones adicionales.
+- Si falla la carga, el cargador muestra un aviso que indica que debe utilizarse un servidor local y registra el error técnico en la consola.
+
+### Estado de la reorganización
+
+- [x] Extraer las ocho perspectivas actuales a `escenas/cabana.html`.
+- [x] Mantener en `index.html` el contenedor de escena y los controles globales.
+- [x] Cargar la escena antes de ejecutar los módulos que dependen de sus elementos.
+- [ ] Probar en navegador mediante Live Server y comprobar navegación, recogida de objetos, inventario y panel CV.
+- [ ] Crear `escenas/mansion.html` al comenzar el diseño de la casa grande.
