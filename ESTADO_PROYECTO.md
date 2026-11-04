@@ -420,3 +420,11 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Al abrir el buzón con la llave de hierro, esta queda marcada como agotada y desequipada; el caballito plateado aparece como objeto suelto en el suelo y solo pasa al inventario cuando se pulsa expresamente.
 - Al abrir el cajón con la llave de latón, esta también queda marcada como agotada y desequipada. Las llaves permanecen visibles en el inventario, atenuadas, y no se pueden reutilizar.
 - La lógica de selección, movimiento e intercambio de caballos se conserva sin cambios.
+
+## Mejora visual de puertas, edificios y equipamiento (4 de noviembre de 2026)
+
+- La ranura `#ranura-equipada` ahora tiene un estado hover con cambio de fondo, borde dorado claro y resplandor, manteniendo su tooltip.
+- La pared trasera interior incluye una puerta dibujada con CSS y el botón «Salir al exterior» superpuesto. Se conserva el ID `#puerta-salida-cabana`, por lo que continúa utilizando el evento de navegación existente.
+- En la vista exterior trasera, el botón «Volver a la cabañita» se coloca sobre la puerta dibujada de la cabaña. Se conserva el ID `#puerta-regreso-cabana`.
+- La pared derecha interior incorpora una miniatura CSS de la mansión en el extremo izquierdo y otra de la cabañita en el extremo derecho. Se mantienen libres las posiciones centrales reservadas para el puzle de los trofeos.
+- Todo el arte añadido está construido con HTML y CSS, sin imágenes, recursos externos ni dependencias. No se ha modificado ningún archivo JavaScript ni la posición o lógica del puzle de los caballos.
