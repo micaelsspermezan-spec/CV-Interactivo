@@ -862,6 +862,21 @@ button:focus-visible {
     font-size: 1rem;
 
     box-shadow: 0 0 12px rgba(197, 160, 75, 0.15);
+
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        box-shadow 0.2s,
+        color 0.2s;
+}
+
+#ranura-equipada:hover {
+    color: #ffffff;
+    background: #24434b;
+    border-color: var(--dorado-claro);
+    box-shadow:
+        0 0 15px rgba(197, 160, 75, 0.4),
+        0 0 9px rgba(72, 207, 224, 0.18);
 }
 
 #ranura-equipada::after {
@@ -1003,3 +1018,156 @@ button:focus-visible {
 /* ==========================================
    FIN DE LA HOJA DE ESTILOS
    ========================================== */
+/* ==========================================
+   PUERTAS Y EDIFICIOS DECORATIVOS DE LA CABAÑA
+   ========================================== */
+
+/* Puerta de salida en la pared trasera interior. */
+.puerta-interior-marco {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    width: 174px;
+    height: 49%;
+    transform: translateX(-50%);
+    padding: 9px 9px 0;
+    border: 5px solid #76552f;
+    border-bottom: 0;
+    border-radius: 85px 85px 0 0;
+    background: #30231c;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
+}
+
+.puerta-interior-hoja {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #a47a45;
+    border-bottom: 0;
+    border-radius: 68px 68px 0 0;
+    background: linear-gradient(90deg, #38251d, #68472c 48%, #38251d);
+    box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.puerta-panel {
+    position: absolute;
+    left: 16%;
+    width: 68%;
+    border: 2px solid rgba(164, 122, 69, 0.65);
+    border-radius: 35px 35px 4px 4px;
+}
+
+.puerta-panel-superior {
+    top: 17%;
+    height: 31%;
+}
+
+.puerta-panel-inferior {
+    top: 57%;
+    height: 27%;
+    border-radius: 4px;
+}
+
+.puerta-pomo {
+    position: absolute;
+    top: 55%;
+    right: 10%;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--dorado-claro);
+    box-shadow: 0 0 7px rgba(226, 199, 121, 0.5);
+}
+
+/* Los botones conservan sus IDs para reutilizar la navegación existente. */
+.puerta-interactiva {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    width: max-content;
+    max-width: 80%;
+    margin: 0;
+    padding: 7px 12px;
+    transform: translateX(-50%);
+    background: rgba(16, 17, 22, 0.88);
+    border-color: var(--dorado);
+    color: var(--dorado-claro);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.puerta-salida {
+    bottom: 12%;
+}
+
+.puerta-regreso {
+    bottom: 17%;
+}
+
+/* Miniaturas decorativas en los extremos de la pared de trofeos. */
+.mini-mansion,
+.mini-cabanita {
+    position: absolute;
+    bottom: 9%;
+    width: 112px;
+    height: 82px;
+    opacity: 0.88;
+}
+
+.mini-mansion {
+    left: 3%;
+}
+
+.mini-cabanita {
+    right: 3%;
+    width: 96px;
+    height: 70px;
+}
+
+.mini-mansion-cuerpo,
+.mini-cabanita-cuerpo {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 58%;
+    transform: translateX(-50%);
+    border: 3px solid #76552f;
+    background: linear-gradient(90deg, #382a22, #59402b, #382a22);
+}
+
+.mini-mansion-tejado,
+.mini-cabanita-tejado {
+    position: absolute;
+    left: 50%;
+    bottom: 48%;
+    width: 116%;
+    height: 42%;
+    transform: translateX(-50%);
+    border: 3px solid #76552f;
+    border-radius: 55% 55% 0 0;
+    background: linear-gradient(180deg, #493126, #2c211c);
+}
+
+.mini-cabanita-tejado {
+    bottom: 48%;
+    height: 40%;
+}
+
+.mini-mansion-puerta,
+.mini-cabanita-puerta {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 18%;
+    height: 39%;
+    transform: translateX(-50%);
+    border: 2px solid #a47a45;
+    border-bottom: 0;
+    background: #211a16;
+}
+
+.mini-cabanita-puerta {
+    width: 20%;
+    height: 42%;
+}
