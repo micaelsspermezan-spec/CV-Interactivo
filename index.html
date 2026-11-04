@@ -110,6 +110,11 @@
 
             <!-- Perspectiva 1: conserva los objetos actuales -->
             <div id="vista-pared-1" class="vista-pared">
+                <div class="arte-pared arte-escritorio" aria-hidden="true">
+                    <div class="ventana-cabana"></div>
+                    <div class="cofre-cabana"></div>
+                    <div class="escritorio-cabana"></div>
+                </div>
             <!-- Objetos y zonas interactivas -->
             <div id="zonas-interactivas">
 
@@ -151,16 +156,32 @@
             </div>
 
             <!-- Perspectivas provisionales sin objetos todavía -->
-            <div id="vista-pared-2" class="vista-pared oculta"></div>
+            <div id="vista-pared-2" class="vista-pared oculta">
+                <div class="arte-pared arte-caballo" aria-hidden="true">
+                    <div class="mesita-caballo"></div>
+                    <span class="figura-caballo">♞</span>
+                </div>
+            </div>
             <div id="vista-pared-3" class="vista-pared oculta">
                 <button id="puerta-salida-cabana" class="objeto-escena" type="button">
                     🚪 Salir al exterior
                 </button>
             </div>
-            <div id="vista-pared-4" class="vista-pared oculta"></div>
+            <div id="vista-pared-4" class="vista-pared oculta">
+                <div class="arte-pared arte-trofeos" aria-hidden="true">
+                    <span class="silueta-trofeo trofeo-izquierdo"></span>
+                    <span class="silueta-trofeo trofeo-central"></span>
+                    <span class="silueta-trofeo trofeo-derecho"></span>
+                </div>
+            </div>
 
             <!-- Zona exterior: cuatro perspectivas independientes de la cabaña -->
             <div id="vista-exterior-frente" class="vista-pared vista-exterior oculta">
+                <div class="arte-pared arte-casa-grande" aria-hidden="true">
+                    <div class="casa-grande-tejado"></div>
+                    <div class="casa-grande-cuerpo"></div>
+                    <div class="casa-grande-puerta"></div>
+                </div>
                 <div class="referencia-exterior">
                     <h2>Casa grande</h2>
                     <p>La entrada todavía no está disponible.</p>
@@ -168,21 +189,32 @@
             </div>
 
             <div id="vista-exterior-izquierda" class="vista-pared vista-exterior oculta">
-                <div class="referencia-exterior">
-                    <h2>Bosque</h2>
+                <div class="arte-pared arte-arboles" aria-hidden="true">
+                    <span class="arbol arbol-frondoso"></span>
+                    <span class="arbol arbol-calvo"></span>
+                    <span class="arbol arbol-pocas-hojas"></span>
                 </div>
+                <div class="referencia-exterior"><h2>Bosque</h2></div>
             </div>
 
             <div id="vista-exterior-detras" class="vista-pared vista-exterior oculta">
+                <div class="arte-pared arte-cabanita" aria-hidden="true">
+                    <div class="cabanita-tejado"></div>
+                    <div class="cabanita-cuerpo"></div>
+                    <div class="cabanita-puerta"></div>
+                </div>
                 <button id="puerta-regreso-cabana" class="objeto-escena" type="button">
                     🚪 Volver a la cabañita
                 </button>
             </div>
 
             <div id="vista-exterior-derecha" class="vista-pared vista-exterior oculta">
-                <div class="referencia-exterior">
-                    <h2>Bosque</h2>
+                <div class="arte-pared arte-buzon" aria-hidden="true">
+                    <span class="arbol arbol-frondoso"></span>
+                    <span class="buzon-oxidado"><span></span></span>
+                    <span class="arbol arbol-pocas-hojas"></span>
                 </div>
+                <div class="referencia-exterior"><h2>Bosque</h2></div>
             </div>
 
         </section>
