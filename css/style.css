@@ -1061,7 +1061,7 @@ button:focus-visible {
 .puerta-panel-inferior {
     top: 57%;
     height: 27%;
-    border-radius: 4px;
+    border-radius: 0;
 }
 
 .puerta-pomo {
