@@ -104,14 +104,15 @@ CV-Interactivo/
 │   │   ├── 2. Añadir objetos
 │   │   ├── 3. Actualizar inventario visual
 │   │   ├── 4. Selección de objetos
-│   │   ├── 5. Equipamiento
-│   │   ├── 6. Actualizar ranura y menú
+│   │   ├── 5. Equipamiento y autoequipamiento
+│   │   ├── 6. Retirada de objetos y actualización de ranura
 │   │   ├── 7. Abrir inventario desde equipamiento
 │   │   ├── 8. Ficha del objeto seleccionado
 │   │   └── 9. Deselección dentro del inventario
 │   │
 │   ├── puzzles.js
-│   │   └── 1. Cajón con cerradura de latón
+│   │   ├── 1. Cajón con cerradura de latón
+│   │   └── 2. Puzle de los caballos: buzón, slots y selección/intercambio
 │   │
 │   ├── navigation.js
 │   │   ├── 1. Configuración de las perspectivas
@@ -124,7 +125,7 @@ CV-Interactivo/
 │       ├── 3. Panel del currículum
 │       ├── 4. Inventario
 │       ├── 5. Póster del currículum
-│       ├── 6. Llave de hierro
+│       ├── 6. Llave de hierro y autoequipamiento
 │       ├── 7. Llave de latón
 │       ├── 8. Cajón con cerradura de latón
 │       ├── 9. Recogida de las piezas del currículum
@@ -200,15 +201,14 @@ La aplicación separa el contenido de las escenas del documento principal, sin c
 - Si está vacía, pulsarla abre el inventario.
 - Si contiene un objeto, pulsarla abre el menú para sustituirlo.
 - Las llaves, herramientas y piezas de mecanismo son los tipos equipables definidos actualmente.
-- Comportamiento acordado pendiente de implementación: cuando se recoge un objeto utilizable/equipable y la ranura de equipamiento está vacía, el objeto se equipa automáticamente.
-- Al equiparlo automáticamente se muestra en la zona de mensajes de la escena un aviso temporal, por ejemplo «Objeto equipado: Llave de hierro». El aviso desaparece por sí solo tras un breve intervalo y no debe interferir con los mensajes de otras interacciones.
+- Cuando se recoge un objeto equipable y la ranura está vacía, se equipa automáticamente.
+- El autoequipamiento muestra durante 2,5 segundos un mensaje en la escena con el nombre del objeto. El temporizador no borra mensajes posteriores de otras interacciones.
 - Si ya hay otro objeto equipado, recoger un objeto nuevo no lo sustituye automáticamente.
-- El objeto equipado se conserva en memoria mientras la página no se recargue.
+- Los objetos equipables pueden equiparse manualmente desde la ficha del inventario y el objeto equipado se conserva en memoria mientras la página no se recargue.
 
 ### Recogida y puzle
 
 - Los objetos normales se recogen y se almacenan en el inventario. Algunos podrán equiparse y utilizarse sobre elementos de la escena.
-- Comportamiento acordado pendiente de implementación: si se recoge un objeto equipable mientras la ranura está vacía, se equipa automáticamente y se muestra un mensaje temporal indicando qué objeto se ha equipado. Si la ranura ya contiene un objeto, no se sustituye automáticamente.
 - El póster se recoge como documento y desbloquea el botón para consultar el CV.
 - Se pueden recoger una llave de hierro y una llave de latón.
 - El cajón requiere una llave equipada.
@@ -219,7 +219,7 @@ La aplicación separa el contenido de las escenas del documento principal, sin c
 
 ### Puzles definidos para la primera versión
 
-Los siguientes puzles están diseñados, pero todavía no están implementados. Sus ubicaciones y objetos deben respetar la navegación por perspectivas ya existente; por ahora no se añadirán vistas ampliadas.
+El puzle de los caballos descrito a continuación ya está implementado en la pared izquierda de la cabañita. El puzle del cuervo y el de los trofeos siguen pendientes. Sus ubicaciones y objetos respetarán la navegación por perspectivas ya existente; por ahora no se añadirán vistas ampliadas.
 
 #### Puzle del cuervo — Pieza 1
 
@@ -229,16 +229,16 @@ Los siguientes puzles están diseñados, pero todavía no están implementados. 
 - El cuervo bajará a comer y dejará caer la llave de cobre.
 - La llave de cobre abre el cofre situado sobre el escritorio de la cabañita. Dentro estará la Pieza 1 del currículum.
 
-#### Puzle de los caballos — Pieza 2
+#### Puzle de los caballos — Pieza 2 (implementado)
 
-- En la pared izquierda de la cabañita hay dos slots de posición. El caballito dorado comienza colocado en uno de ellos y mira hacia la derecha. Es un objeto de escenario: no se puede recoger ni enviar al inventario.
-- El caballito dorado no ofrece pistas al pulsarlo; únicamente muestra una descripción breve, por ejemplo «Un caballito dorado».
-- En el buzón oxidado del bosque derecho se encuentra el caballito plateado. El buzón se abre usando la llave de hierro que está sobre el escritorio. La llave debe estar equipada; no basta con haberla recogido.
-- Al abrir el buzón, el caballito plateado se añade al inventario como un objeto normal. Se puede seleccionar y equipar como cualquier otro objeto utilizable.
-- Al usar el caballito plateado equipado sobre un slot vacío de la pared, se retira del inventario y pasa a convertirse en un objeto de escenario colocado en ese slot.
-- Los objetos de escenario colocados en los slots se pueden seleccionar. La selección se indica visualmente; al seleccionar después otro objeto de escenario, ambos intercambian sus posiciones. Si el segundo slot está vacío, el objeto seleccionado se desplaza a él. Pulsar de nuevo el mismo objeto no produce ningún efecto.
-- Esta mecánica de selección e intercambio de posiciones debe ser reutilizable para el futuro puzle de los trofeos.
-- La solución requiere que los dos caballos queden colocados uno junto al otro y mirándose frente a frente. Al completar la pareja se obtiene la Pieza 2 del currículum.
+- La pared izquierda de la cabañita tiene dos slots: el izquierdo con borde dorado y el derecho con borde plateado. El caballito dorado comienza en el slot izquierdo y mira hacia la derecha.
+- El caballito dorado es un objeto de escenario: no se recoge ni pasa al inventario. Al pulsarlo queda seleccionado con un contorno visible y muestra únicamente la descripción «Un caballito dorado».
+- El buzón oxidado de la perspectiva exterior derecha se abre únicamente si la llave de hierro está equipada. Al abrirlo, se añade el caballito plateado al inventario como objeto normal.
+- El caballito plateado se puede equipar desde el inventario. Al usarlo sobre un slot vacío de la pared, se retira del inventario y se convierte en objeto de escenario.
+- Los objetos de escenario se seleccionan con un contorno visible. Al seleccionar otro objeto de escenario, ambos intercambian posiciones; si el destino está vacío, el objeto seleccionado se desplaza a él. Volver a pulsar el mismo objeto no produce ningún efecto.
+- Pulsar fuera de los slots no cancela la selección ni interfiere con otras acciones de la escena.
+- La solución es el caballito dorado en el slot izquierdo y el plateado en el derecho, mirándose frente a frente. Al completarla aparece la Pieza 2 del currículum.
+- La lógica de selección e intercambio está planteada para reutilizarse en el puzle de los trofeos.
 
 #### Puzle de los trofeos — Pieza 3
 
@@ -262,7 +262,7 @@ La información de los bloques que todavía no se hayan desbloqueado se represen
 - Cada pieza revela su bloque correspondiente: pieza 1 (perfil y formación), pieza 2 (experiencia e idiomas) y pieza 3 (competencias digitales e intereses).
 - En el inventario, cada pieza muestra sus datos en blanco si el currículum aún no se ha recogido y en gris si ya se han incorporado. El mensaje de estado cambia automáticamente según el orden de recogida.
 - Los bloques del currículum aún no descubiertos deberán mostrar líneas negras simulando texto censurado; al recoger su pieza se mostrará el texto real.
-- Solo está implementado un mecanismo: el cajón con cerradura de latón.
+- Están implementados el cajón con cerradura de latón y la primera versión del puzle de los caballos (buzón, recogida/equipamiento del caballito plateado, slots e intercambio de posiciones). El cuervo y los trofeos siguen pendientes.
 - No hay todavía sistema general de guardado, persistencia, audio ni animaciones complejas.
 - `navigation.js` permite cambiar entre las cuatro paredes de la cabaña y las cuatro perspectivas exteriores. La transición a la casa grande y sus habitaciones todavía no están implementadas.
 - La reorganización de escenas está implementada: las ocho perspectivas de la cabañita y el exterior se encuentran en `escenas/cabana.html` y se cargan dinámicamente desde `index.html`.
@@ -300,7 +300,7 @@ Los objetivos de esta sección describen funcionalidades y mejoras que todavía 
 
 1. [x] Reorganizar la estructura HTML: mantener la interfaz general en `index.html`, mover las cuatro perspectivas de la cabañita y las cuatro del exterior a `escenas/cabana.html`, cargarlas mediante `fetch` y ejecutar los módulos después de insertar la escena. Actualizar el árbol del proyecto y documentar el uso de Live Server. La navegación y las interacciones principales se han comprobado en navegador mediante Live Server.
 
-2. Implementar los tres primeros puzles definidos en la sección 4: el cuervo (Pieza 1), los caballos (Pieza 2) y los trofeos (Pieza 3), junto con los objetos necesarios y sus interacciones.
+2. Implementar los puzles pendientes: el cuervo (Pieza 1) y los trofeos (Pieza 3), junto con los objetos necesarios y sus interacciones. El puzle de los caballos (Pieza 2) ya tiene una primera implementación.
 3. Conectar la zona exterior con la casa grande y desarrollar las perspectivas y zonas interactivas necesarias para los puzles. De momento, las interacciones se resolverán directamente desde las perspectivas existentes, sin vistas ampliadas.
 4. Incorporar un sistema de guardado persistente con tres ranuras independientes. Debe permitir guardar el progreso actual, cargar una partida guardada y empezar una nueva partida cuando se quiera.
 5. Añadir al menú principal un botón «Guardar» junto al acceso al menú principal durante la exploración. El botón «Entrar» cargará directamente si no existe ninguna partida guardada; si hay partidas guardadas, abrirá un pequeño menú para elegir una. El menú principal también incluirá «Nueva partida» para iniciar una partida desde cero.
