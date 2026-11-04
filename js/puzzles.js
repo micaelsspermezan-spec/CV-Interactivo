@@ -4,60 +4,93 @@
 
 
 /* ========================================
-   1. CAJÓN CON CERRADURA DE LATÓN
+   1. COFRE DEL ESCRITORIO
    ======================================== */
 
-let cajonLatonAbierto = false;
+let cofreEscritorioAbierto = false;
 
-function interactuarConCajon() {
-
+function interactuarConCofre() {
     const mensaje = document.getElementById("mensaje-escena");
-    const botonCajon = document.getElementById("cajon-laton");
+    const botonCofre = document.getElementById("cofre-escritorio");
 
-    if (cajonLatonAbierto) {
-        mensaje.textContent =
-            "El cajón ya está abierto. Parece que está vacío.";
-
+    if (cofreEscritorioAbierto) {
+        mensaje.textContent = "El cofre ya está abierto.";
         return;
     }
 
     const objeto = obtenerObjetoEquipado();
 
     if (!objeto) {
-        mensaje.textContent =
-            "El cajón está cerrado. Necesitas una llave.";
-
+        mensaje.textContent = "El cofre está cerrado. Necesitas una llave de cobre.";
+        return;
+    }
+    if (objeto.id !== "llave-cobre") {
+        mensaje.textContent = "Esa llave no sirve para este cofre.";
         return;
     }
 
-    if (objeto.tipo !== "llave") {
-        mensaje.textContent =
-            "Ese objeto no sirve para abrir esta cerradura.";
-
-        return;
-    }
-
-    if (objeto.id !== "llave-laton") {
-        mensaje.textContent =
-            "La llave no encaja. Necesitas una llave de latón.";
-
-        return;
-    }
-
-    // Abrir el cajón y agotar la llave utilizada.
-    cajonLatonAbierto = true;
-    marcarObjetoAgotado("llave-laton");
+    cofreEscritorioAbierto = true;
+    marcarObjetoAgotado("llave-cobre");
     desequiparObjeto();
+    mensaje.textContent = "¡CLAC! La llave de cobre gira y el cofre se abre. Dentro hay algo.";
+    botonCofre.textContent = "Cofre abierto";
+    document.getElementById("pieza-cv-1-3").classList.remove("oculta");
+}
 
-    mensaje.textContent =
-        "¡CLAC! La llave gira y el cajón se abre. Hay algo dentro.";
 
-    botonCajon.textContent =
-        "🗄️ Cajón de latón abierto";
+/* ========================================
+   2. PUZLE DEL CUERVO — PIEZA 1
+   ======================================== */
 
-    // Mostrar la recompensa en la escena.
-    document.getElementById("pieza-cv-1-3")
-        .classList.remove("oculta");
+let cuervoAlimentado = false;
+let llaveCobreEnSuelo = false;
+
+function interactuarConCuervo() {
+    const mensaje = document.getElementById("mensaje-escena");
+    mensaje.textContent = cuervoAlimentado
+        ? "El cuervo está ocupado comiendo."
+        : "El cuervo está demasiado alto para alcanzarlo.";
+}
+
+function interactuarConCuenco() {
+    const mensaje = document.getElementById("mensaje-escena");
+
+    if (cuervoAlimentado) {
+        mensaje.textContent = "El cuervo sigue comiendo junto al cuenco.";
+        return;
+    }
+
+    const equipado = obtenerObjetoEquipado();
+    if (!equipado || equipado.id !== "saco-pienso") {
+        mensaje.textContent = "El cuenco del perro está vacío.";
+        return;
+    }
+
+    cuervoAlimentado = true;
+    marcarObjetoAgotado("saco-pienso");
+    desequiparObjeto();
+    document.getElementById("cuervo-mansion").textContent = "Cuervo comiendo";
+    document.getElementById("llave-cobre-suelta").classList.remove("oculta");
+    llaveCobreEnSuelo = true;
+    mensaje.textContent = "El cuervo baja a comer. La llave de cobre cae del nido al suelo.";
+}
+
+function recogerLlaveCobre() {
+    if (!llaveCobreEnSuelo) return;
+
+    const objeto = añadirObjeto(
+        "llave-cobre",
+        "🗝️ Llave de cobre",
+        "Llave",
+        "Una llave de cobre que el cuervo guardaba en el pico.",
+        "llave"
+    );
+
+    if (!objeto) return;
+
+    llaveCobreEnSuelo = false;
+    document.getElementById("llave-cobre-suelta").classList.add("oculta");
+    document.getElementById("mensaje-escena").textContent = "Has recogido la llave de cobre.";
 }
 
 
