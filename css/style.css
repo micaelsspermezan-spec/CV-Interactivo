@@ -405,6 +405,12 @@ button:focus-visible {
     background: rgba(36, 67, 75, 0.9);
 }
 
+/* Las llaves agotadas permanecen en el inventario, pero atenuadas. */
+.objeto-inventario.agotado {
+    opacity: 0.5;
+    cursor: default;
+}
+
 .slot-caballo:hover {
     background: rgba(36, 67, 75, 0.75);
 }
