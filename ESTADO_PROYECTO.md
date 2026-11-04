@@ -415,3 +415,8 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - El caballito dorado comienza en el slot izquierdo.
 - El buzón tiene prioridad de apilamiento y las referencias exteriores no interceptan eventos de puntero. Sigue siendo obligatorio tener equipada la llave de hierro.
 - No se ha modificado el sistema general de inventario ni el autoequipamiento.
+
+- Corrección acordada el 4 de noviembre de 2026: los slots interactivos del puzle de caballos quedan fuera del contenedor decorativo `.arte-pared` para evitar que `pointer-events: none` bloquee sus clics. El caballito dorado comienza en el slot izquierdo.
+- Al abrir el buzón con la llave de hierro, esta queda marcada como agotada y desequipada; el caballito plateado aparece como objeto suelto en el suelo y solo pasa al inventario cuando se pulsa expresamente.
+- Al abrir el cajón con la llave de latón, esta también queda marcada como agotada y desequipada. Las llaves permanecen visibles en el inventario, atenuadas, y no se pueden reutilizar.
+- La lógica de selección, movimiento e intercambio de caballos se conserva sin cambios.
