@@ -156,23 +156,8 @@ document.getElementById("llave-hierro").addEventListener("click", () => {
    7. LLAVE DE LATÓN
    ========================================== */
 
-document.getElementById("llave-cobre").addEventListener("click", () => {
-    añadirObjeto(
-        "llave-cobre",
-        "🗝️ Llave de cobre",
-        "Llave",
-        "Pequeña llave de cobre, guardada por el cuervo.",
-        "llave"
-    );
-    document.getElementById("llave-cobre").classList.add("oculta");
-    if (obtenerObjetoEquipado()?.id !== "llave-cobre") {
-        mensajeEscena.textContent = "Has encontrado una llave de cobre.";
-    }
-});
-
-
 /* ==========================================
-   8. CAJÓN CON CERRADURA DE LATÓN
+   8. COFRE DEL ESCRITORIO
    ========================================== */
 
 document.getElementById("cofre-escritorio").addEventListener("click", interactuarConCofre);
