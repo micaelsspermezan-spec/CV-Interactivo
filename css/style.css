@@ -303,6 +303,7 @@ button:focus-visible {
 /* Referencias provisionales visibles en las perspectivas exteriores. */
 .referencia-exterior {
     position: absolute;
+    pointer-events: none;
     top: 50%;
     left: 50%;
     width: min(90%, 420px);
@@ -454,6 +455,7 @@ button:focus-visible {
 .arte-buzon .arbol:last-child { right: 13%; }
 .buzon-oxidado {
     position: absolute;
+    z-index: 5;
     left: 50%;
     bottom: 29%;
     width: 75px;
@@ -948,11 +950,18 @@ button:focus-visible {
    ======================================== */
 
 #mensaje-escena {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    left: 12px;
+    z-index: 4;
+
     min-height: 24px;
-    margin-top: 18px;
+    margin: 0;
     color: var(--dorado-claro);
     text-align: center;
     font-size: 0.95rem;
+    pointer-events: none;
 }
 
 /* ==========================================
