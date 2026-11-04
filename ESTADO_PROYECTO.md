@@ -48,8 +48,11 @@ CV-Interactivo/
 │       │   │   │   ├── #perspectiva-anterior
 │       │   │   │   ├── #indicador-perspectiva
 │       │   │   │   └── #perspectiva-siguiente
-│       │   │   ├── .vista-pared (1–4)
-│       │   │   └── #zonas-interactivas (pared 1)
+│       │   │   ├── .vista-pared (1–4, cabaña)
+│       │   │   ├── #zonas-interactivas (pared 1)
+│       │   │   └── .vista-exterior (4 perspectivas)
+│       │   │       ├── #puerta-salida-cabana
+│       │   │       └── #puerta-regreso-cabana
 │       │   │       ├── #poster-cv
 │       │   │       ├── #llave-hierro
 │       │   │       ├── #llave-laton
@@ -140,7 +143,7 @@ CV-Interactivo/
 - **style.css:** variables visuales, disposición, estados de visibilidad, paneles, botones, ranura de equipamiento y adaptación móvil.
 - **inventory.js:** datos del inventario en memoria, recogida, listado, selección, ficha, equipamiento y ranura.
 - **puzzles.js:** lógica de mecanismos y comprobación de objetos equipados. Actualmente gestiona el cajón de latón.
-- **navigation.js:** gestiona actualmente el cambio circular entre las cuatro perspectivas de la cabaña mediante las flechas. La gestión de habitaciones, transiciones entre zonas y vistas ampliadas queda pendiente.
+- **navigation.js:** gestiona el cambio circular entre las cuatro perspectivas de la cabaña y las cuatro perspectivas de la zona exterior, además de las transiciones entre ambas. La gestión de la casa grande, sus habitaciones y las vistas ampliadas queda pendiente.
 - **main.js:** coordinación de eventos de interfaz, cambios entre menú y exploración, apertura/cierre de paneles y recogida de objetos de la escena.
 
 ## 4. Mecánicas presentes en el código
@@ -190,14 +193,14 @@ CV-Interactivo/
 
 ## 5. Estado y límites actuales
 
-- La escena es provisional y está construida con botones. La cabaña ya permite recorrer cuatro perspectivas mediante flechas; todavía no hay habitaciones ilustradas ni movimiento libre.
+- La escena es provisional y está construida con botones. La cabaña y la zona exterior permiten recorrer sus respectivas cuatro perspectivas mediante flechas; todavía no hay habitaciones ilustradas ni movimiento libre.
 - Los objetos y el progreso se guardan solo en memoria JavaScript: al recargar la página se reinicia el estado.
 - El panel del CV contiene la cabecera personal visible y tres fragmentos en un único documento.
 - Cada pieza revela su bloque correspondiente: pieza 1 (perfil y formación), pieza 2 (experiencia e idiomas) y pieza 3 (competencias digitales e intereses).
 - En el inventario, cada pieza muestra sus datos en blanco si el currículum aún no se ha recogido y en gris si ya se han incorporado. El mensaje de estado cambia automáticamente según el orden de recogida.
 - Solo está implementado un mecanismo: el cajón con cerradura de latón.
 - No hay todavía sistema general de guardado, persistencia, audio ni animaciones complejas.
-- `navigation.js` permite cambiar entre las cuatro paredes de la cabaña, pero todavía no gestiona otras zonas, habitaciones ni vistas ampliadas.
+- `navigation.js` permite cambiar entre las cuatro paredes de la cabaña y las cuatro perspectivas exteriores. La transición a la casa grande, sus habitaciones y las vistas ampliadas todavía no están implementadas.
 - La carpeta `assets` está prevista para recursos visuales; confirmar su contenido real en el equipo local.
 
 ## 6. Decisiones que debemos mantener
@@ -212,8 +215,8 @@ CV-Interactivo/
 - La numeración de las piezas no está limitada a tres; la primera versión incluye tres bloques: (1) perfil y formación, (2) experiencia e idiomas y (3) competencias digitales e intereses.
 - Los fragmentos conservan su espacio aunque todavía no se hayan desbloqueado, sin mostrar siluetas, bordes ni indicadores de contenido pendiente.
 - La exploración se organizará como una aventura point-and-click por vistas: cada habitación tendrá varias perspectivas o paredes entre las que se cambiará mediante flechas en pantalla.
-- La primera zona es una cabañita independiente con cuatro paredes: frontal (escritorio y cajón), izquierda, trasera (puerta de salida) y derecha.
-- Al salir por la puerta trasera de la cabañita se llegará a una zona exterior abierta, no a un pasillo cerrado. Desde allí se podrá volver a la cabañita, avanzar hacia una casa grande situada enfrente o mirar hacia los laterales del bosque, donde podría haber objetos o elementos ambientales.
+- La primera zona es una cabañita independiente con cuatro paredes: frontal (escritorio y cajón), izquierda, trasera (puerta de salida) y derecha. La puerta trasera ya conecta con la zona exterior y permite regresar a la cabañita.
+- Al salir por la puerta trasera de la cabañita se llega a una zona exterior abierta, no a un pasillo cerrado. Esta zona cuenta con cuatro perspectivas: frente hacia la casa grande, laterales hacia el bosque y parte trasera hacia la cabañita. Ya se puede regresar a la cabañita; la conexión con la casa grande aún está pendiente.
 - La casa grande será la zona principal de exploración y contendrá distintas habitaciones. Su distribución y conexiones están pendientes de diseño.
 - La cabañita, el exterior y la casa grande son zonas distintas; las vistas exteriores no se consideran paredes adicionales de la cabañita.
 - Cada perspectiva podrá contener zonas interactivas. Al pulsarlas, podrán llevar a otra habitación o abrir una vista ampliada dedicada a examinar o manipular un objeto o mecanismo.
@@ -227,7 +230,7 @@ Los objetivos de esta sección describen funcionalidades y mejoras que todavía 
 ### 7.1. Funcionalidades por desarrollar
 
 1. Ampliar el sistema de puzles y mecanismos. Las piezas 2 y 3 del currículum, que actualmente están disponibles directamente en la escena de forma provisional, deberán quedar ocultas tras mecanismos o interacciones.
-2. Ampliar la navegación point-and-click desde la cabañita. La primera fase de cambio entre sus cuatro paredes ya está implementada con vistas provisionales y flechas. El siguiente paso será hacer interactiva la puerta trasera y conectar la cabañita con una zona exterior independiente; después se podrá conectar esa zona con la casa grande. Más adelante se añadirán zonas interactivas y vistas ampliadas para examinar y manipular objetos o mecanismos.
+2. Ampliar la navegación point-and-click. La cabañita ya está conectada con una zona exterior independiente, y ambas tienen cuatro perspectivas recorribles con flechas. El siguiente paso será conectar la zona exterior con la casa grande. Después se añadirán zonas interactivas y vistas ampliadas para examinar y manipular objetos o mecanismos.
 3. Incorporar persistencia del progreso para conservar los objetos recogidos, las piezas recuperadas, el equipamiento y el estado de los mecanismos al recargar la página.
 
 ### 7.2. Mejoras visuales
