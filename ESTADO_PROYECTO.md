@@ -200,10 +200,15 @@ La aplicación separa el contenido de las escenas del documento principal, sin c
 - Si está vacía, pulsarla abre el inventario.
 - Si contiene un objeto, pulsarla abre el menú para sustituirlo.
 - Las llaves, herramientas y piezas de mecanismo son los tipos equipables definidos actualmente.
+- Comportamiento acordado pendiente de implementación: cuando se recoge un objeto utilizable/equipable y la ranura de equipamiento está vacía, el objeto se equipa automáticamente.
+- Al equiparlo automáticamente se muestra en la zona de mensajes de la escena un aviso temporal, por ejemplo «Objeto equipado: Llave de hierro». El aviso desaparece por sí solo tras un breve intervalo y no debe interferir con los mensajes de otras interacciones.
+- Si ya hay otro objeto equipado, recoger un objeto nuevo no lo sustituye automáticamente.
 - El objeto equipado se conserva en memoria mientras la página no se recargue.
 
 ### Recogida y puzle
 
+- Los objetos normales se recogen y se almacenan en el inventario. Algunos podrán equiparse y utilizarse sobre elementos de la escena.
+- Comportamiento acordado pendiente de implementación: si se recoge un objeto equipable mientras la ranura está vacía, se equipa automáticamente y se muestra un mensaje temporal indicando qué objeto se ha equipado. Si la ranura ya contiene un objeto, no se sustituye automáticamente.
 - El póster se recoge como documento y desbloquea el botón para consultar el CV.
 - Se pueden recoger una llave de hierro y una llave de latón.
 - El cajón requiere una llave equipada.
@@ -226,10 +231,14 @@ Los siguientes puzles están diseñados, pero todavía no están implementados. 
 
 #### Puzle de los caballos — Pieza 2
 
-- En la pared izquierda de la cabañita hay un caballito dorado que mira hacia la derecha.
-- En el buzón oxidado del bosque derecho se encuentra un caballito plateado. El buzón se abre usando la llave de hierro que está sobre el escritorio. La llave debe estar equipada; no basta con haberla recogido.
-- El caballito plateado se recoge y se coloca junto al dorado, de modo que ambos queden mirándose frente a frente.
-- Al completar la pareja se obtiene la Pieza 2 del currículum.
+- En la pared izquierda de la cabañita hay dos slots de posición. El caballito dorado comienza colocado en uno de ellos y mira hacia la derecha. Es un objeto de escenario: no se puede recoger ni enviar al inventario.
+- El caballito dorado no ofrece pistas al pulsarlo; únicamente muestra una descripción breve, por ejemplo «Un caballito dorado».
+- En el buzón oxidado del bosque derecho se encuentra el caballito plateado. El buzón se abre usando la llave de hierro que está sobre el escritorio. La llave debe estar equipada; no basta con haberla recogido.
+- Al abrir el buzón, el caballito plateado se añade al inventario como un objeto normal. Se puede seleccionar y equipar como cualquier otro objeto utilizable.
+- Al usar el caballito plateado equipado sobre un slot vacío de la pared, se retira del inventario y pasa a convertirse en un objeto de escenario colocado en ese slot.
+- Los objetos de escenario colocados en los slots se pueden seleccionar. La selección se indica visualmente; al seleccionar después otro objeto de escenario, ambos intercambian sus posiciones. Si el segundo slot está vacío, el objeto seleccionado se desplaza a él. Pulsar de nuevo el mismo objeto no produce ningún efecto.
+- Esta mecánica de selección e intercambio de posiciones debe ser reutilizable para el futuro puzle de los trofeos.
+- La solución requiere que los dos caballos queden colocados uno junto al otro y mirándose frente a frente. Al completar la pareja se obtiene la Pieza 2 del currículum.
 
 #### Puzle de los trofeos — Pieza 3
 
