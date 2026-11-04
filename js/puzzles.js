@@ -67,8 +67,8 @@ function interactuarConCajon() {
 
 // Cada slot contiene el ID de un objeto de escenario o null si está vacío.
 const posicionesCaballos = {
-    izquierdo: "caballo-dorado",
-    derecho: null
+    izquierdo: null,
+    derecho: "caballo-dorado"
 };
 
 let slotCaballoSeleccionado = null;
