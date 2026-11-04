@@ -188,8 +188,41 @@ CV-Interactivo/
 - El cajón requiere una llave equipada.
 - La llave de hierro no abre el cajón; la llave de latón sí.
 - Al abrirlo aparece la pieza de CV 1/3 en la escena.
-- Las piezas de CV 2/3 y 3/3 están disponibles directamente en la escena de forma provisional; más adelante se esconderán detrás de mecanismos o puzles.
-- Las tres piezas se pueden recoger y añadir al inventario como tipo `pieza-cv`. Cada recogida revela el fragmento correspondiente del currículum.
+- Las piezas 2 y 3 siguen disponibles directamente en la escena de forma provisional; se retirarán de ahí cuando estén implementados sus puzles.
+- Las tres piezas se añaden al inventario como tipo `pieza-cv`. Cada recogida revela el fragmento correspondiente del currículum.
+
+### Puzles definidos para la primera versión
+
+Los siguientes puzles están diseñados, pero todavía no están implementados. Sus ubicaciones y objetos deben respetar la navegación por perspectivas ya existente; por ahora no se añadirán vistas ampliadas.
+
+#### Puzle del cuervo — Pieza 1
+
+- En el tejado del recibidor de la casa grande hay un cuervo en un nido que guarda una llave de cobre en el pico.
+- Pulsar el cuervo o el nido antes de resolver el puzle muestra que está demasiado alto para alcanzarlo.
+- El jugador deberá encontrar semillas, pienso u otra comida apropiada y colocarla en el cuenco del perro.
+- El cuervo bajará a comer y dejará caer la llave de cobre.
+- La llave de cobre abre el cofre situado sobre el escritorio de la cabañita. Dentro estará la Pieza 1 del currículum.
+
+#### Puzle de los caballos — Pieza 2
+
+- En la pared izquierda de la cabañita hay un caballito dorado que mira hacia la derecha.
+- En el buzón oxidado del bosque derecho se encuentra un caballito plateado. El buzón se abre usando la llave de hierro que está sobre el escritorio.
+- El caballito plateado se recoge y se coloca junto al dorado, de modo que ambos queden mirándose frente a frente.
+- Al completar la pareja se obtiene la Pieza 2 del currículum.
+
+#### Puzle de los trofeos — Pieza 3
+
+- La pared derecha de la cabañita tiene inicialmente tres posiciones para trofeos. El primer hueco desde la izquierda ya contiene un cráneo de ciervo, pero está mal colocado.
+- Los tres trofeos son una cabra con los cuernos cortados, un ciervo con cuernos medianos y un alce con cuernos grandes.
+- La solución se deduce observando los árboles del bosque izquierdo: los trofeos deben colocarse de izquierda a derecha en el orden inverso al de los árboles. Con la disposición inicial de tres árboles, el orden correcto de los trofeos es cabra, ciervo y alce.
+- El cráneo de alce está colocado encima de la puerta de la cabañita. El cráneo de cabra pertenece a un cadáver atrapado en un cepo del bosque derecho. El cráneo de ciervo es el que ya está en la pared de trofeos.
+- Los cráneos que ya forman parte de la pared no se recogen al pulsarlos. En su lugar, el cráneo pulsado queda seleccionado con un reborde y después se puede pulsar otra posición de la pared para cambiarlo de sitio. Los cráneos que se encuentren fuera de la pared sí se recogen al inventario y desde allí se podrán colocar.
+- Al completar el orden correcto se obtiene la Pieza 3 del currículum.
+- El mecanismo debe ser dinámico: no debe asumir que siempre habrá tres árboles o tres huecos. En futuras ampliaciones podrá haber cuatro o cinco árboles y el sistema deberá admitir el mismo número de posiciones y trofeos, manteniendo la regla del orden inverso.
+
+### Presentación del currículum pendiente de descubrir
+
+La información de los bloques que todavía no se hayan desbloqueado se representará mediante líneas negras colocadas donde iría el texto, simulando texto censurado. Al conseguir la pieza correspondiente, las líneas se sustituirán por el contenido real. Se mantiene la cabecera personal visible desde el principio.
 
 ## 5. Estado y límites actuales
 
