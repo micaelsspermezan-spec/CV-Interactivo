@@ -13,9 +13,9 @@ const zonasNavegacion = {
         nombre: "Cabaña",
         perspectivas: [
             { id: "vista-pared-1", nombre: "Pared frontal" },
-            { id: "vista-pared-2", nombre: "Pared izquierda" },
+            { id: "vista-pared-4", nombre: "Pared derecha" },
             { id: "vista-pared-3", nombre: "Pared trasera" },
-            { id: "vista-pared-4", nombre: "Pared derecha" }
+            { id: "vista-pared-2", nombre: "Pared izquierda" }
         ]
     },
 
@@ -23,9 +23,9 @@ const zonasNavegacion = {
         nombre: "Exterior",
         perspectivas: [
             { id: "vista-exterior-frente", nombre: "Frente · Casa grande" },
-            { id: "vista-exterior-izquierda", nombre: "Bosque izquierdo" },
+            { id: "vista-exterior-derecha", nombre: "Bosque derecho" },
             { id: "vista-exterior-detras", nombre: "Detrás · Cabañita" },
-            { id: "vista-exterior-derecha", nombre: "Bosque derecho" }
+            { id: "vista-exterior-izquierda", nombre: "Bosque izquierdo" }
         ]
     }
 };
@@ -115,7 +115,7 @@ function inicializarNavegacion() {
 
     // Volver a la cabañita mirando su puerta trasera.
     puertaRegreso.addEventListener("click", () => {
-        cambiarZona("cabana", 2);
+        cambiarZona("cabana", 0);
     });
 
     cambiarZona("cabana", 0);
