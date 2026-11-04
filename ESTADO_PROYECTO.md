@@ -198,6 +198,7 @@ CV-Interactivo/
 - El panel del CV contiene la cabecera personal visible y tres fragmentos en un único documento.
 - Cada pieza revela su bloque correspondiente: pieza 1 (perfil y formación), pieza 2 (experiencia e idiomas) y pieza 3 (competencias digitales e intereses).
 - En el inventario, cada pieza muestra sus datos en blanco si el currículum aún no se ha recogido y en gris si ya se han incorporado. El mensaje de estado cambia automáticamente según el orden de recogida.
+- Los bloques del currículum aún no descubiertos deberán mostrar líneas negras simulando texto censurado; al recoger su pieza se mostrará el texto real.
 - Solo está implementado un mecanismo: el cajón con cerradura de latón.
 - No hay todavía sistema general de guardado, persistencia, audio ni animaciones complejas.
 - `navigation.js` permite cambiar entre las cuatro paredes de la cabaña y las cuatro perspectivas exteriores. La transición a la casa grande, sus habitaciones y las vistas ampliadas todavía no están implementadas.
@@ -219,8 +220,8 @@ CV-Interactivo/
 - Al salir por la puerta trasera de la cabañita se llega a una zona exterior abierta, no a un pasillo cerrado. Esta zona cuenta con cuatro perspectivas: frente hacia la casa grande, laterales hacia el bosque y parte trasera hacia la cabañita. Ya se puede regresar a la cabañita; la conexión con la casa grande aún está pendiente.
 - La casa grande será la zona principal de exploración y contendrá distintas habitaciones. Su distribución y conexiones están pendientes de diseño.
 - La cabañita, el exterior y la casa grande son zonas distintas; las vistas exteriores no se consideran paredes adicionales de la cabañita. La flecha derecha avanza hacia la derecha y la izquierda hacia la izquierda; al regresar desde el exterior se entra mirando al escritorio. Las perspectivas cuentan con arte provisional CSS: escritorio, cofre y ventana; mesita con caballo; tres siluetas de trofeos con las laterales elevadas y la central más baja; puerta; casa grande; tres árboles con el central más pequeño y elevado; buzón oxidado y cobertizo. Estas composiciones son decorativas y no implementan todavía los puzles.
-- Cada perspectiva podrá contener zonas interactivas. Al pulsarlas, podrán llevar a otra habitación o abrir una vista ampliada dedicada a examinar o manipular un objeto o mecanismo.
-- Las vistas ampliadas serán inicialmente estáticas y funcionales, con controles sencillos para acciones como introducir llaves, accionar palancas, girar mecanismos o resolver combinaciones. No se priorizarán animaciones complejas en esta primera implementación.
+- Cada perspectiva podrá contener zonas interactivas. Al pulsarlas, podrán llevar a otra habitación o activar interacciones sencillas directamente sobre la escena.
+- Por decisión actual, no se priorizarán vistas ampliadas: los primeros puzles se resolverán desde las perspectivas existentes mediante interacciones sencillas. Esta decisión podrá revisarse más adelante si la complejidad de algún mecanismo lo justifica.
 - `navigation.js` será el módulo encargado de gestionar las perspectivas, las habitaciones y las transiciones entre vistas. `puzzles.js` conservará la lógica y las condiciones de resolución de los mecanismos; `inventory.js` seguirá gestionando los objetos y el equipamiento.
 
 ## 7. Próximos objetivos
@@ -229,9 +230,10 @@ Los objetivos de esta sección describen funcionalidades y mejoras que todavía 
 
 ### 7.1. Funcionalidades por desarrollar
 
-1. Ampliar el sistema de puzles y mecanismos. Las piezas 2 y 3 del currículum, que actualmente están disponibles directamente en la escena de forma provisional, deberán quedar ocultas tras mecanismos o interacciones.
-2. Ampliar la navegación point-and-click. La cabañita ya está conectada con una zona exterior independiente, y ambas tienen cuatro perspectivas recorribles con flechas. El siguiente paso será conectar la zona exterior con la casa grande. Después se añadirán zonas interactivas y vistas ampliadas para examinar y manipular objetos o mecanismos.
-3. Incorporar persistencia del progreso para conservar los objetos recogidos, las piezas recuperadas, el equipamiento y el estado de los mecanismos al recargar la página.
+1. Implementar los tres primeros puzles definidos en la sección 4: el cuervo (Pieza 1), los caballos (Pieza 2) y los trofeos (Pieza 3), junto con los objetos necesarios y sus interacciones.
+2. Conectar la zona exterior con la casa grande y desarrollar las perspectivas y zonas interactivas necesarias para los puzles. De momento, las interacciones se resolverán directamente desde las perspectivas existentes, sin vistas ampliadas.
+3. Incorporar un sistema de guardado persistente con tres ranuras independientes. Debe permitir guardar el progreso actual, cargar una partida guardada y empezar una nueva partida cuando se quiera.
+4. Añadir al menú principal un botón «Guardar» junto al acceso al menú principal durante la exploración. El botón «Entrar» cargará directamente si no existe ninguna partida guardada; si hay partidas guardadas, abrirá un pequeño menú para elegir una. El menú principal también incluirá «Nueva partida» para iniciar una partida desde cero.
 
 ### 7.2. Mejoras visuales
 
