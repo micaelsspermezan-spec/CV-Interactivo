@@ -444,3 +444,15 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Los bordes de los paneles de la puerta también usan un color opaco uniforme.
 - El bloque CSS de puertas y edificios decorativos se trasladó junto a «Arte provisional CSS de las perspectivas», en lugar de quedar al final de la hoja de estilos.
 - Se mantienen las posiciones, dimensiones y botones de navegación. No se modifica HTML ni JavaScript, ni el hover de la ranura equipada o el puzle de los caballos.
+
+
+## Mansión y puzle del cuervo — implementación inicial (4 de noviembre de 2026)
+
+- Se crea `escenas/mansion.html` con cuatro perspectivas exteriores: Recibidor, Bosque derecho, Detrás y Bosque izquierdo. El interior de la mansión no es accesible.
+- `js/cargar-escena.js` carga las escenas de la cabañita y la mansión en el contenedor compartido antes de iniciar los módulos.
+- `js/navigation.js` añade la zona Mansión. Se entra desde Frente · Mansión y se vuelve al exterior desde Detrás.
+- La vista frontal exterior muestra referencias del esqueleto de cabra a la izquierda y de la caseta de perro a la derecha.
+- El recibidor incluye el porche, tejadillo, nido/cuervo y cuenco del perro. El bosque izquierdo muestra el cadáver de cabra en un cepo; el derecho, una caseta vacía; detrás se ve la cabañita y el buzón.
+- El saco de pienso se coloca junto a la mesita de la pared izquierda de la cabañita. El cuervo deja caer una llave de cobre al recibir pienso en el cuenco; la llave se recoge del suelo y abre el cofre del escritorio, que contiene la Pieza 1 del CV.
+- Se renombran el antiguo cajón como «Cofre cerrado» y la llave de latón como «Llave de cobre». El cadáver/cráneo de cabra es por ahora decorativo; su interacción se reserva para el puzle de trofeos.
+- Pendiente de prueba manual de navegación, recogida del pienso, alimentación, recogida de la llave y apertura del cofre.
