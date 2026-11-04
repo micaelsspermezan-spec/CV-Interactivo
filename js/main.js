@@ -57,9 +57,9 @@ botonVolverMenu.addEventListener("click", () => {
 
 
 function volverVistaPrincipal() {
-    // Al entrar en la cabaña, comenzar siempre mirando la pared frontal.
+    // Al entrar en la exploración, comenzar en la pared frontal de la cabaña.
     inicializarNavegacion();
-    mostrarPerspectiva(0);
+    cambiarZona("cabana", 0);
 }
 
 
