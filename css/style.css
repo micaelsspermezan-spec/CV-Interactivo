@@ -300,6 +300,25 @@ button:focus-visible {
     color: var(--dorado-claro);
 }
 
+/* Referencias provisionales visibles en las perspectivas exteriores. */
+.referencia-exterior {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(90%, 420px);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.referencia-exterior h2 {
+    color: var(--dorado-claro);
+    letter-spacing: 2px;
+}
+
+.referencia-exterior p {
+    color: var(--texto-secundario);
+}
+
 
 /* ==========================================
    7. INVENTARIO Y PANEL DEL CURRÍCULUM
