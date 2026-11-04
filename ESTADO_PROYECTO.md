@@ -55,8 +55,8 @@ CV-Interactivo/
 │       │   │       └── #puerta-regreso-cabana
 │       │   │       ├── #poster-cv
 │       │   │       ├── #llave-hierro
-│       │   │       ├── #llave-laton
-│       │   │       ├── #cajon-laton
+│       │   │       ├── #llave-cobre-suelta (se genera en el recibidor)
+│       │   │       ├── #cofre-escritorio
 │       │   │       ├── #pieza-cv-1-3
 │       │   │       ├── #mensaje-escena
 │       │   │       ├── #slot-caballo-izquierdo y #slot-caballo-derecho (pared 2)
@@ -113,7 +113,7 @@ CV-Interactivo/
 │   │   └── 9. Deselección dentro del inventario
 │   │
 │   ├── puzzles.js
-│   │   ├── 1. Cajón con cerradura de latón
+│   │   ├── 1. Cofre del escritorio
 │   │   └── 2. Puzle de los caballos: buzón, slots y selección/intercambio
 │   │
 │   ├── navigation.js
@@ -128,8 +128,8 @@ CV-Interactivo/
 │       ├── 4. Inventario
 │       ├── 5. Póster del currículum
 │       ├── 6. Llave de hierro y autoequipamiento
-│       ├── 7. Llave de latón
-│       ├── 8. Cajón con cerradura de latón
+│       ├── 7. Llave de cobre (se obtiene del cuervo)
+│       ├── 8. Cofre del escritorio
 │       ├── 9. Recogida de las piezas del currículum
 │       ├── 10. Desbloqueo de fragmentos del CV
 │       └── 11. Detección de clics exteriores
@@ -166,7 +166,7 @@ La aplicación separa el contenido de las escenas del documento principal, sin c
 - **escenas/cabana.html:** perspectivas de la cabañita y del exterior.
 - **style.css:** variables visuales, disposición, estados de visibilidad, paneles, botones, ranura de equipamiento y adaptación móvil.
 - **inventory.js:** datos del inventario en memoria, recogida, listado, selección, ficha, equipamiento y ranura.
-- **puzzles.js:** lógica de mecanismos y comprobación de objetos equipados. Gestiona el cajón de latón y el puzle de los caballos, incluido el buzón y el intercambio de objetos de escenario en sus slots.
+- **puzzles.js:** lógica de mecanismos y comprobación de objetos equipados. Gestiona el cofre del escritorio, el puzle del cuervo, el buzón y el puzle de los caballos.
 - **navigation.js:** gestiona el cambio circular entre las cuatro perspectivas de la cabaña y las cuatro perspectivas de la zona exterior, además de las transiciones entre ambas. La gestión de la casa grande, sus habitaciones y las vistas ampliadas queda pendiente.
 - **main.js:** coordinación de eventos de interfaz, cambios entre menú y exploración, apertura/cierre de paneles y recogida de objetos de la escena.
 
@@ -212,16 +212,15 @@ La aplicación separa el contenido de las escenas del documento principal, sin c
 
 - Los objetos normales se recogen y se almacenan en el inventario. Algunos podrán equiparse y utilizarse sobre elementos de la escena.
 - El póster se recoge como documento y desbloquea el botón para consultar el CV.
-- Se pueden recoger una llave de hierro y una llave de latón.
-- El cajón requiere una llave equipada.
-- La llave de hierro no abre el cajón; la llave de latón sí.
+- Se puede recoger la llave de hierro en la cabañita. La llave de cobre aparece en el suelo del recibidor tras alimentar al cuervo.
+- El cofre del escritorio requiere la llave de cobre equipada.
 - Al abrirlo aparece la pieza de CV 1/3 en la escena.
 - Las piezas 2 y 3 siguen disponibles directamente en la escena de forma provisional; se retirarán de ahí cuando estén implementados sus puzles.
 - Las tres piezas se añaden al inventario como tipo `pieza-cv`. Cada recogida revela el fragmento correspondiente del currículum.
 
 ### Puzles definidos para la primera versión
 
-El puzle de los caballos descrito a continuación ya está implementado en la pared izquierda de la cabañita. El puzle del cuervo y el de los trofeos siguen pendientes. Sus ubicaciones y objetos respetarán la navegación por perspectivas ya existente; por ahora no se añadirán vistas ampliadas.
+El puzle de los caballos descrito a continuación ya está implementado en la pared izquierda de la cabañita. El puzle del cuervo ya está implementado en su primera versión; el puzle de los trofeos sigue pendiente. Sus ubicaciones y objetos respetarán la navegación por perspectivas ya existente; por ahora no se añadirán vistas ampliadas.
 
 #### Puzle del cuervo — Pieza 1
 
@@ -264,7 +263,7 @@ La información de los bloques que todavía no se hayan desbloqueado se represen
 - Cada pieza revela su bloque correspondiente: pieza 1 (perfil y formación), pieza 2 (experiencia e idiomas) y pieza 3 (competencias digitales e intereses).
 - En el inventario, cada pieza muestra sus datos en blanco si el currículum aún no se ha recogido y en gris si ya se han incorporado. El mensaje de estado cambia automáticamente según el orden de recogida.
 - Los bloques del currículum aún no descubiertos deberán mostrar líneas negras simulando texto censurado; al recoger su pieza se mostrará el texto real.
-- Están implementados el cajón con cerradura de latón y la primera versión del puzle de los caballos (buzón, recogida/equipamiento del caballito plateado, slots e intercambio de posiciones). El cuervo y los trofeos siguen pendientes.
+- Están implementados el cofre con llave de cobre, la primera versión del puzle del cuervo y el puzle de los caballos. El puzle de los trofeos sigue pendiente.
 - No hay todavía sistema general de guardado, persistencia, audio ni animaciones complejas.
 - `navigation.js` permite cambiar entre las cuatro paredes de la cabaña y las cuatro perspectivas exteriores. La transición a la casa grande y sus habitaciones todavía no están implementadas.
 - La reorganización de escenas está implementada: las ocho perspectivas de la cabañita y el exterior se encuentran en `escenas/cabana.html` y se cargan dinámicamente desde `index.html`.
@@ -282,7 +281,7 @@ La información de los bloques que todavía no se hayan desbloqueado se represen
 - La numeración de las piezas no está limitada a tres; la primera versión incluye tres bloques: (1) perfil y formación, (2) experiencia e idiomas y (3) competencias digitales e intereses.
 - Los fragmentos conservan su espacio aunque todavía no se hayan desbloqueado, sin mostrar siluetas, bordes ni indicadores de contenido pendiente.
 - La exploración se organizará como una aventura point-and-click por vistas: cada habitación tendrá varias perspectivas o paredes entre las que se cambiará mediante flechas en pantalla.
-- La primera zona es una cabañita independiente con cuatro paredes: frontal (escritorio y cajón), izquierda, trasera (puerta de salida) y derecha. La puerta trasera ya conecta con la zona exterior y permite regresar a la cabañita.
+- La primera zona es una cabañita independiente con cuatro paredes: frontal (escritorio y cofre), izquierda, trasera (puerta de salida) y derecha. La puerta trasera ya conecta con la zona exterior y permite regresar a la cabañita.
 - Al salir por la puerta trasera de la cabañita se llega a una zona exterior abierta, no a un pasillo cerrado. Esta zona cuenta con cuatro perspectivas: frente hacia la casa grande, laterales hacia el bosque y parte trasera hacia la cabañita. Ya se puede regresar a la cabañita; la conexión con la casa grande aún está pendiente.
 - La casa grande será la zona principal de exploración y contendrá distintas habitaciones. Su distribución y conexiones están pendientes de diseño.
 - La cabañita, el exterior y la casa grande son zonas distintas; las vistas exteriores no se consideran paredes adicionales de la cabañita. La flecha derecha avanza hacia la derecha y la izquierda hacia la izquierda; al regresar desde el exterior se entra mirando al escritorio. Las perspectivas cuentan con arte provisional CSS: escritorio, cofre y ventana; mesita con caballo; tres siluetas de trofeos con las laterales elevadas y la central más baja; puerta; casa grande; tres árboles con el central más pequeño y elevado; buzón oxidado y cobertizo. Estas composiciones son decorativas y no implementan todavía los puzles.
@@ -403,7 +402,7 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - [x] Extraer las ocho perspectivas actuales a `escenas/cabana.html`.
 - [x] Mantener en `index.html` el contenedor de escena y los controles globales.
 - [x] Cargar la escena antes de ejecutar los módulos que dependen de sus elementos.
-- [x] Comprobar en navegador mediante Live Server la carga, la navegación entre perspectivas, la salida y el regreso, la apertura del cajón y el funcionamiento del inventario y las piezas del CV (confirmado por el usuario el 4 de noviembre de 2026).
+- [x] Comprobar en navegador mediante Live Server la carga, la navegación entre perspectivas, la salida y el regreso, la apertura del cofre y el funcionamiento del inventario y las piezas del CV (confirmado por el usuario el 4 de noviembre de 2026).
 - [ ] Crear `escenas/mansion.html` al comenzar el diseño de la casa grande.
 
 
@@ -418,7 +417,7 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 
 - Corrección acordada el 4 de noviembre de 2026: los slots interactivos del puzle de caballos quedan fuera del contenedor decorativo `.arte-pared` para evitar que `pointer-events: none` bloquee sus clics. El caballito dorado comienza en el slot izquierdo.
 - Al abrir el buzón con la llave de hierro, esta queda marcada como agotada y desequipada; el caballito plateado aparece como objeto suelto en el suelo y solo pasa al inventario cuando se pulsa expresamente.
-- Al abrir el cajón con la llave de latón, esta también queda marcada como agotada y desequipada. Las llaves permanecen visibles en el inventario, atenuadas, y no se pueden reutilizar.
+- Al abrir el cofre con la llave de cobre, esta queda marcada como agotada y desequipada. Las llaves permanecen visibles en el inventario, atenuadas, y no se pueden reutilizar.
 - La lógica de selección, movimiento e intercambio de caballos se conserva sin cambios.
 
 ## Mejora visual de puertas, edificios y equipamiento (4 de noviembre de 2026)
