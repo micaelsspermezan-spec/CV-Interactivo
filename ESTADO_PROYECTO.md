@@ -193,7 +193,7 @@ CV-Interactivo/
 
 ## 5. Estado y límites actuales
 
-- La escena es provisional y está construida con botones. La cabaña y la zona exterior permiten recorrer sus respectivas cuatro perspectivas mediante flechas; todavía no hay habitaciones ilustradas ni movimiento libre.
+- La escena es provisional y está construida con botones y composiciones CSS sencillas. La cabaña y la zona exterior permiten recorrer sus cuatro perspectivas mediante flechas; todavía no hay habitaciones ilustradas ni movimiento libre.
 - Los objetos y el progreso se guardan solo en memoria JavaScript: al recargar la página se reinicia el estado.
 - El panel del CV contiene la cabecera personal visible y tres fragmentos en un único documento.
 - Cada pieza revela su bloque correspondiente: pieza 1 (perfil y formación), pieza 2 (experiencia e idiomas) y pieza 3 (competencias digitales e intereses).
@@ -218,7 +218,7 @@ CV-Interactivo/
 - La primera zona es una cabañita independiente con cuatro paredes: frontal (escritorio y cajón), izquierda, trasera (puerta de salida) y derecha. La puerta trasera ya conecta con la zona exterior y permite regresar a la cabañita.
 - Al salir por la puerta trasera de la cabañita se llega a una zona exterior abierta, no a un pasillo cerrado. Esta zona cuenta con cuatro perspectivas: frente hacia la casa grande, laterales hacia el bosque y parte trasera hacia la cabañita. Ya se puede regresar a la cabañita; la conexión con la casa grande aún está pendiente.
 - La casa grande será la zona principal de exploración y contendrá distintas habitaciones. Su distribución y conexiones están pendientes de diseño.
-- La cabañita, el exterior y la casa grande son zonas distintas; las vistas exteriores no se consideran paredes adicionales de la cabañita.
+- La cabañita, el exterior y la casa grande son zonas distintas; las vistas exteriores no se consideran paredes adicionales de la cabañita. La flecha derecha avanza hacia la derecha y la izquierda hacia la izquierda; al regresar desde el exterior se entra mirando al escritorio. Las perspectivas cuentan con arte provisional CSS: escritorio, cofre y ventana; mesita con caballo; tres siluetas de trofeos con las laterales elevadas y la central más baja; puerta; casa grande; tres árboles con el central más pequeño y elevado; buzón oxidado y cobertizo. Estas composiciones son decorativas y no implementan todavía los puzles.
 - Cada perspectiva podrá contener zonas interactivas. Al pulsarlas, podrán llevar a otra habitación o abrir una vista ampliada dedicada a examinar o manipular un objeto o mecanismo.
 - Las vistas ampliadas serán inicialmente estáticas y funcionales, con controles sencillos para acciones como introducir llaves, accionar palancas, girar mecanismos o resolver combinaciones. No se priorizarán animaciones complejas en esta primera implementación.
 - `navigation.js` será el módulo encargado de gestionar las perspectivas, las habitaciones y las transiciones entre vistas. `puzzles.js` conservará la lógica y las condiciones de resolución de los mecanismos; `inventory.js` seguirá gestionando los objetos y el equipamiento.
