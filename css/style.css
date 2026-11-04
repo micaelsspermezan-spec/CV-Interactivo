@@ -375,6 +375,36 @@ button:focus-visible {
     box-shadow: inset 0 0 12px rgba(185, 194, 200, 0.12);
 }
 
+/* Los slots quedan fuera del arte decorativo para recibir los clics. */
+.slot-caballo {
+    pointer-events: auto;
+}
+
+.slot-caballo .icono-caballo {
+    pointer-events: none;
+}
+
+.caballo-suelto {
+    position: absolute;
+    z-index: 6;
+    left: 50%;
+    bottom: 19%;
+    transform: translateX(-50%);
+    padding: 4px 12px;
+    border: 2px solid #b9c2c8;
+    border-radius: 8px;
+    background: rgba(15, 19, 23, 0.82);
+    color: #c5cdd2;
+    font-size: 58px;
+    line-height: 1;
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(197, 205, 210, 0.35);
+}
+
+.caballo-suelto:hover {
+    background: rgba(36, 67, 75, 0.9);
+}
+
 .slot-caballo:hover {
     background: rgba(36, 67, 75, 0.75);
 }
