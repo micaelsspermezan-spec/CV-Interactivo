@@ -65,13 +65,22 @@ function interactuarConCajon() {
 
 // Cada slot contiene el ID de un objeto de escenario o null si está vacío.
 const posicionesCaballos = {
-    izquierdo: null,
-    derecho: "caballo-dorado"
+    izquierdo: "caballo-dorado",
+    derecho: null
 };
 
 let slotCaballoSeleccionado = null;
 let buzonAbierto = false;
 let puzleCaballosResuelto = false;
+
+
+function cancelarSeleccionCaballo() {
+
+    if (slotCaballoSeleccionado === null) return;
+
+    slotCaballoSeleccionado = null;
+    actualizarSlotsCaballos();
+}
 
 
 function actualizarSlotsCaballos() {
@@ -142,7 +151,11 @@ function interactuarConSlotCaballo(posicion) {
     // Si ya hay un objeto de escenario seleccionado, moverlo o intercambiarlo.
     if (slotCaballoSeleccionado !== null) {
 
-        if (slotCaballoSeleccionado === posicion) return;
+        if (slotCaballoSeleccionado === posicion) {
+            cancelarSeleccionCaballo();
+            mensaje.textContent = "";
+            return;
+        }
 
         const origen = slotCaballoSeleccionado;
 
@@ -222,6 +235,14 @@ function abrirBuzonOxidado() {
         "herramienta"
     );
 }
+
+
+// Cualquier clic de la escena que no sea sobre un slot cancela la selección.
+const escenaCaballos = document.getElementById("escena");
+escenaCaballos.addEventListener("click", (evento) => {
+    if (evento.target.closest(".slot-caballo")) return;
+    cancelarSeleccionCaballo();
+});
 
 
 // Registrar las interacciones de la pared y del buzón.
