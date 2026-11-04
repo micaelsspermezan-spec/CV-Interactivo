@@ -318,6 +318,45 @@ button:focus-visible {
 .referencia-exterior p {
     color: var(--texto-secundario);
 }
+/* Arte provisional CSS de las perspectivas. */
+.arte-pared { position: absolute; inset: 0; pointer-events: none; }
+.ventana-cabana {
+    position: absolute; top: 19%; left: 50%; width: 92px; height: 78px;
+    transform: translateX(-50%); border: 7px solid #76552f;
+    background: linear-gradient(135deg, #263d48, #111b20);
+}
+.cofre-cabana {
+    position: absolute; top: 48%; left: 50%; width: 100px; height: 55px;
+    transform: translateX(-50%); border: 3px solid #9b713b;
+    border-radius: 8px; background: #4b3020;
+}
+.escritorio-cabana {
+    position: absolute; top: 61%; left: 50%; width: 230px; height: 18px;
+    transform: translateX(-50%); background: #68472c; border: 2px solid #a47a45;
+}
+.mesita-caballo {
+    position: absolute; left: 50%; top: 58%; width: 150px; height: 14px;
+    transform: translateX(-50%); background: #68472c; border: 2px solid #a47a45;
+}
+.figura-caballo {
+    position: absolute; top: 34%; left: 50%; transform: translateX(-50%) scaleX(-1);
+    color: #c5a04b; font-size: 76px; line-height: 1;
+}
+.silueta-trofeo {
+    position: absolute; width: 86px; height: 100px;
+    border: 3px solid rgba(10,12,14,.85); border-radius: 48%;
+    background: rgba(5,7,9,.48);
+}
+.silueta-trofeo::before, .silueta-trofeo::after {
+    content: ""; position: absolute; top: -20px; width: 25px; height: 35px;
+    border-top: 5px solid rgba(5,7,9,.8);
+}
+.silueta-trofeo::before { left: -12px; transform: rotate(-35deg); }
+.silueta-trofeo::after { right: -12px; transform: rotate(35deg); }
+.trofeo-izquierdo { left: 22%; top: 25%; }
+.trofeo-central { left: 50%; top: 43%; transform: translateX(-50%); }
+.trofeo-derecho { right: 22%; top: 25%; }
+
 
 
 /* ==========================================
