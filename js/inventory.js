@@ -85,13 +85,35 @@ function actualizarDescripcionCurriculum() {
    2. AÑADIR OBJETOS
    ========================================== */
 
+let temporizadorMensajeEquipado = null;
+
+
+function mostrarMensajeEquipado(objeto) {
+
+    const mensaje = document.getElementById("mensaje-escena");
+    const texto = `Objeto equipado: ${objeto.nombre}`;
+
+    clearTimeout(temporizadorMensajeEquipado);
+    mensaje.textContent = texto;
+
+    temporizadorMensajeEquipado = setTimeout(() => {
+
+        // No borrar un mensaje posterior de otra interacción.
+        if (mensaje.textContent === texto) {
+            mensaje.textContent = "";
+        }
+
+    }, 2500);
+}
+
+
 function añadirObjeto(id, nombre, categoria, descripcion, tipo) {
 
     const yaExiste = objetosInventario.some(
         objeto => objeto.id === id
     );
 
-    if (yaExiste) return;
+    if (yaExiste) return null;
 
     const nuevoObjeto = {
         id,
@@ -104,10 +126,46 @@ function añadirObjeto(id, nombre, categoria, descripcion, tipo) {
 
     objetosInventario.push(nuevoObjeto);
 
+    // Si la ranura está vacía, equipar automáticamente los objetos utilizables.
+    const tiposEquipables = ["llave", "herramienta", "pieza"];
+
+    if (!objetoEquipado && tiposEquipables.includes(tipo)) {
+        equiparObjeto(nuevoObjeto);
+        mostrarMensajeEquipado(nuevoObjeto);
+    }
+
     // Mantener sincronizada la descripción del currículum.
     actualizarDescripcionCurriculum();
 
     actualizarInventario();
+
+    return nuevoObjeto;
+}
+
+
+function retirarObjetoInventario(id) {
+
+    const indice = objetosInventario.findIndex(
+        objeto => objeto.id === id
+    );
+
+    if (indice === -1) return null;
+
+    const [objetoRetirado] = objetosInventario.splice(indice, 1);
+
+    if (objetoEquipado && objetoEquipado.id === id) {
+        objetoEquipado = null;
+        actualizarRanura();
+    }
+
+    if (objetoSeleccionado && objetoSeleccionado.id === id) {
+        deseleccionarObjeto();
+    }
+
+    actualizarDescripcionCurriculum();
+    actualizarInventario();
+
+    return objetoRetirado;
 }
 
 
