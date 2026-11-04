@@ -55,15 +55,34 @@
                 </button>
             </div>
             <div id="vista-pared-3" class="vista-pared oculta">
-                <button id="puerta-salida-cabana" class="objeto-escena" type="button">
-                    🚪 Salir al exterior
+                <div class="arte-pared arte-puerta-interior" aria-hidden="true">
+                    <div class="puerta-interior-marco">
+                        <div class="puerta-interior-hoja">
+                            <span class="puerta-panel puerta-panel-superior"></span>
+                            <span class="puerta-panel puerta-panel-inferior"></span>
+                            <span class="puerta-pomo"></span>
+                        </div>
+                    </div>
+                </div>
+                <button id="puerta-salida-cabana" class="objeto-escena puerta-interactiva puerta-salida" type="button">
+                    Salir al exterior
                 </button>
             </div>
             <div id="vista-pared-4" class="vista-pared oculta">
                 <div class="arte-pared arte-trofeos" aria-hidden="true">
+                    <div class="mini-mansion">
+                        <span class="mini-mansion-tejado"></span>
+                        <span class="mini-mansion-cuerpo"></span>
+                        <span class="mini-mansion-puerta"></span>
+                    </div>
                     <span class="silueta-trofeo trofeo-izquierdo"></span>
                     <span class="silueta-trofeo trofeo-central"></span>
                     <span class="silueta-trofeo trofeo-derecho"></span>
+                    <div class="mini-cabanita">
+                        <span class="mini-cabanita-tejado"></span>
+                        <span class="mini-cabanita-cuerpo"></span>
+                        <span class="mini-cabanita-puerta"></span>
+                    </div>
                 </div>
             </div>
 
@@ -95,8 +114,8 @@
                     <div class="cabanita-cuerpo"></div>
                     <div class="cabanita-puerta"></div>
                 </div>
-                <button id="puerta-regreso-cabana" class="objeto-escena" type="button">
-                    🚪 Volver a la cabañita
+                <button id="puerta-regreso-cabana" class="objeto-escena puerta-interactiva puerta-regreso" type="button">
+                    Volver a la cabañita
                 </button>
             </div>
 
