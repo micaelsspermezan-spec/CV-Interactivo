@@ -258,6 +258,11 @@ function actualizarInventario() {
         const elemento = document.createElement("button");
 
         elemento.classList.add("objeto-inventario");
+
+        if (objeto.agotado) {
+            elemento.classList.add("agotado");
+        }
+
         elemento.textContent = objeto.nombre;
 
         elemento.addEventListener("click", () => {
