@@ -125,7 +125,7 @@ document.getElementById("poster-cv").addEventListener("click", () => {
     botonVerCV.classList.remove("oculta");
 
     mensajeEscena.textContent =
-        "Has encontrado un documento misterioso.";
+        "Has encontrado un curriculum vacío.";
 });
 
 
