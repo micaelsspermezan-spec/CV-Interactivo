@@ -437,3 +437,10 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Los botones de salida y regreso se desplazan hacia la parte superior de sus respectivas puertas. Se conservan sus identificadores y la navegación existente.
 - Se mantiene sin cambios el hover de `#ranura-equipada`.
 - No se modifica HTML, JavaScript, navegación, inventario ni el puzle de los caballos.
+
+### Colores planos y organización del CSS art (4 de noviembre de 2026)
+
+- Se eliminaron los degradados de la puerta interior y de las miniaturas de la mansión y la cabañita; sus superficies usan ahora colores sólidos.
+- Los bordes de los paneles de la puerta también usan un color opaco uniforme.
+- El bloque CSS de puertas y edificios decorativos se trasladó junto a «Arte provisional CSS de las perspectivas», en lugar de quedar al final de la hoja de estilos.
+- Se mantienen las posiciones, dimensiones y botones de navegación. No se modifica HTML ni JavaScript, ni el hover de la ranura equipada o el puzle de los caballos.
