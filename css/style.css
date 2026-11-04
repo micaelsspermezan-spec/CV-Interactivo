@@ -387,7 +387,8 @@ button:focus-visible {
     color: #344d36; font-size: 112px;
 }
 .arbol-frondoso { left: 19%; }
-.arbol-calvo { left: 50%; bottom: 34% !important; transform: translateX(-50%) scale(.68); }
+.arbol-pocas-hojas { left: 50%; bottom: 34% !important; transform: translateX(-50%) scale(.68); }
+.arbol-calvo { right: 19%; }
 .arbol-calvo::after { content: "Y"; color: #60432c; font-size: 105px; left: 5px; top: -8px; }
 .arbol-pocas-hojas { right: 19%; }
 .arbol-pocas-hojas::after { color: #46533a; font-size: 75px; top: -4px; left: -2px; }
