@@ -357,6 +357,51 @@ button:focus-visible {
 .trofeo-central { left: 50%; top: 43%; transform: translateX(-50%); }
 .trofeo-derecho { right: 22%; top: 25%; }
 
+/* Construcciones y arbolado provisional del exterior. */
+.casa-grande-cuerpo, .cabanita-cuerpo {
+    position: absolute; left: 50%; bottom: 14%; transform: translateX(-50%);
+    width: 330px; height: 190px; border: 4px solid #76552f;
+    background: #59402b;
+}
+.casa-grande-tejado, .cabanita-tejado {
+    position: absolute; left: 50%; bottom: 39%; transform: translateX(-50%);
+    width: 390px; height: 75px; border: 4px solid #76552f;
+    background: #38251d; border-radius: 50% 50% 0 0;
+}
+.casa-grande-puerta, .cabanita-puerta {
+    position: absolute; left: 50%; bottom: 14%; transform: translateX(-50%);
+    width: 58px; height: 112px; border: 3px solid #9b713b; background: #211a16;
+}
+.cabanita-cuerpo { width: 210px; height: 125px; }
+.cabanita-tejado { width: 260px; height: 55px; bottom: 39%; }
+.cabanita-puerta { width: 42px; height: 78px; }
+.arte-arboles .arbol, .arte-buzon .arbol {
+    position: absolute; bottom: 17%; width: 72px; height: 170px;
+}
+.arbol::before {
+    content: ""; position: absolute; left: 27px; bottom: 0;
+    width: 18px; height: 85px; background: #60432c;
+}
+.arbol::after {
+    content: "♣"; position: absolute; left: -12px; top: -35px;
+    color: #344d36; font-size: 112px;
+}
+.arbol-frondoso { left: 19%; }
+.arbol-calvo { left: 50%; bottom: 34% !important; transform: translateX(-50%) scale(.68); }
+.arbol-calvo::after { content: "Y"; color: #60432c; font-size: 105px; left: 5px; top: -8px; }
+.arbol-pocas-hojas { right: 19%; }
+.arbol-pocas-hojas::after { color: #46533a; font-size: 75px; top: -4px; left: -2px; }
+.arte-buzon .arbol:first-child { left: 13%; }
+.arte-buzon .arbol:last-child { right: 13%; }
+.buzon-oxidado {
+    position: absolute; left: 50%; bottom: 29%; width: 75px; height: 52px;
+    transform: translateX(-50%); border: 3px solid #765044;
+    border-radius: 25px 25px 4px 4px; background: #554238;
+    box-shadow: 0 55px 0 -23px #60432c;
+}
+.buzon-oxidado span { position: absolute; top: 13px; left: 10px; width: 49px; border-top: 4px solid #241f1c; }
+
+
 
 
 /* ==========================================
