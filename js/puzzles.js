@@ -273,6 +273,186 @@ function abrirBuzonOxidado() {
 }
 
 
+/* ========================================
+   3. PUZLE DE LOS TROFEOS — PIEZA 3
+   ======================================== */
+
+// Los cráneos que ya están en la pared se mueven como los caballitos.
+const posicionesTrofeos = {
+    izquierdo: "craneo-ciervo",
+    central: null,
+    derecho: null
+};
+
+let slotTrofeoSeleccionado = null;
+let puzleTrofeosResuelto = false;
+
+
+function cancelarSeleccionTrofeo() {
+    if (slotTrofeoSeleccionado === null) return;
+
+    slotTrofeoSeleccionado = null;
+    actualizarSlotsTrofeos();
+}
+
+
+function actualizarSlotsTrofeos() {
+    document.querySelectorAll(".slot-trofeo").forEach(elemento => {
+        const posicion = elemento.dataset.posicion;
+        const objeto = posicionesTrofeos[posicion];
+
+        elemento.innerHTML = "";
+        elemento.classList.toggle(
+            "seleccionado",
+            slotTrofeoSeleccionado === posicion
+        );
+
+        if (!objeto) {
+            elemento.setAttribute("aria-label", "Posición vacía");
+            return;
+        }
+
+        const craneo = document.createElement("span");
+        craneo.classList.add("icono-craneo", objeto);
+        craneo.textContent = "💀";
+        elemento.setAttribute(
+            "aria-label",
+            `Cráneo de ${objeto.replace("craneo-", "")}`
+        );
+        elemento.appendChild(craneo);
+    });
+}
+
+
+function comprobarPuzleTrofeos() {
+    const ordenActual = [...document.querySelectorAll(".slot-trofeo")]
+        .map(elemento => posicionesTrofeos[elemento.dataset.posicion]);
+
+    if (
+        puzleTrofeosResuelto ||
+        ordenActual.length !== 3 ||
+        ordenActual[0] !== "craneo-cabra" ||
+        ordenActual[1] !== "craneo-ciervo" ||
+        ordenActual[2] !== "craneo-alce"
+    ) {
+        return;
+    }
+
+    puzleTrofeosResuelto = true;
+    document.getElementById("pieza-cv-3-3").classList.remove("oculta");
+    document.getElementById("mensaje-escena").textContent =
+        "Los tres trofeos ocupan su lugar. Has encontrado la Pieza 3 del currículum.";
+}
+
+
+function interactuarConSlotTrofeo(posicion) {
+    const objetoEnSlot = posicionesTrofeos[posicion];
+    const mensaje = document.getElementById("mensaje-escena");
+
+    if (slotTrofeoSeleccionado !== null) {
+        if (slotTrofeoSeleccionado === posicion) {
+            cancelarSeleccionTrofeo();
+            mensaje.textContent = "";
+            return;
+        }
+
+        const origen = slotTrofeoSeleccionado;
+        const objetoOrigen = posicionesTrofeos[origen];
+
+        posicionesTrofeos[origen] = objetoEnSlot;
+        posicionesTrofeos[posicion] = objetoOrigen;
+
+        slotTrofeoSeleccionado = null;
+        actualizarSlotsTrofeos();
+        comprobarPuzleTrofeos();
+        return;
+    }
+
+    if (objetoEnSlot !== null) {
+        slotTrofeoSeleccionado = posicion;
+        actualizarSlotsTrofeos();
+        mensaje.textContent =
+            `Un cráneo de ${objetoEnSlot.replace("craneo-", "")}.`;
+        return;
+    }
+
+    const equipado = obtenerObjetoEquipado();
+    if (
+        !equipado ||
+        !["craneo-cabra", "craneo-alce"].includes(equipado.id)
+    ) {
+        return;
+    }
+
+    const craneoRetirado = retirarObjetoInventario(equipado.id);
+    if (!craneoRetirado) return;
+
+    posicionesTrofeos[posicion] = equipado.id;
+    actualizarSlotsTrofeos();
+    comprobarPuzleTrofeos();
+
+    if (!puzleTrofeosResuelto) {
+        mensaje.textContent =
+            `Has colocado el cráneo de ${equipado.id.replace("craneo-", "")} en la pared.`;
+    }
+}
+
+
+function recogerCraneoTrofeo(id, nombre, descripcion, elemento) {
+    const objeto = añadirObjeto(
+        id,
+        nombre,
+        "Trofeo",
+        descripcion,
+        "herramienta"
+    );
+
+    if (!objeto) return;
+
+    elemento.classList.add("oculta");
+    document.getElementById("mensaje-escena").textContent =
+        `Has recogido ${nombre.toLowerCase()}.`;
+}
+
+
+// Recoger los dos cráneos que comienzan fuera de la pared.
+document.getElementById("craneo-cabra-suelto").addEventListener("click", evento => {
+    evento.stopPropagation();
+    recogerCraneoTrofeo(
+        "craneo-cabra",
+        "💀 Cráneo de cabra",
+        "Un cráneo de cabra con los cuernos cortados, recuperado de los restos atrapados en el cepo.",
+        evento.currentTarget
+    );
+});
+
+document.getElementById("craneo-alce-suelto").addEventListener("click", evento => {
+    evento.stopPropagation();
+    recogerCraneoTrofeo(
+        "craneo-alce",
+        "💀 Cráneo de alce",
+        "Un cráneo de alce con una gran cornamenta, encontrado sobre el tejado de la cabañita.",
+        evento.currentTarget
+    );
+});
+
+document.querySelectorAll(".slot-trofeo").forEach(elemento => {
+    elemento.addEventListener("click", () => {
+        interactuarConSlotTrofeo(elemento.dataset.posicion);
+    });
+});
+
+
+// Pulsar fuera de los slots cancela la selección, como en el puzle de caballos.
+const escenaTrofeos = document.getElementById("escena");
+escenaTrofeos.addEventListener("click", evento => {
+    if (evento.target.closest(".slot-trofeo")) return;
+    cancelarSeleccionTrofeo();
+});
+
+actualizarSlotsTrofeos();
+
+
 // Cualquier clic de la escena que no sea sobre un slot cancela la selección.
 const escenaCaballos = document.getElementById("escena");
 escenaCaballos.addEventListener("click", (evento) => {
