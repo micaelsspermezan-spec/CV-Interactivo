@@ -599,6 +599,16 @@ button:focus-visible {
     display: grid;
     place-items: center;
 }
+/* Pieza 3: aparece debajo del trofeo central al resolver el mecanismo. */
+.pieza-cv-trofeos {
+    position: absolute;
+    z-index: 12;
+    left: 50%;
+    top: calc(43% + 112px);
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
 .slot-trofeo:hover { background: rgba(36,67,75,.75); }
 .slot-trofeo.seleccionado {
     outline: 3px solid var(--cian);
@@ -641,8 +651,9 @@ button:focus-visible {
     bottom: calc(13% + 48px);
 }
 .craneo-alce-suelto {
-    left: calc(13% + 82px);
-    bottom: calc(13% + 145px);
+    left: calc(50% + 70px);
+    bottom: calc(39% + 12px);
+    z-index: 10;
 }
 
 /* Construcciones y arbolado provisional del exterior. */
@@ -1265,8 +1276,29 @@ button:focus-visible {
 .puerta-mansion { position:absolute; left:50%; bottom:32%; transform:translateX(-50%); width:190px; height:48%; border:8px solid #76552f; background:#493126; }
 .tejadillo-mansion { position:absolute; right:8%; bottom:69%; width:46%; height:13%; border:5px solid #76552f; background:#493126; transform:skewY(-4deg); }
 .nido-cuervo { position:absolute; right:14%; bottom:78%; width:76px; height:28px; border:5px solid #493126; border-radius:50%; background:#30231c; }
-.cuervo-css { position:absolute; left:23px; bottom:9px; color:#101214; font-size:32px; }
-.cuervo-interactivo { position:absolute; right:12%; bottom:76%; z-index:5; }
+.cuervo-interactivo {
+    position: absolute;
+    right: 14%;
+    bottom: 78%;
+    z-index: 8;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #101214;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    transition: right 1.2s ease-in-out, bottom 1.2s ease-in-out;
+}
+.cuervo-interactivo.cuervo-alimentado {
+    right: calc(9% + 34px);
+    bottom: 18%;
+}
+@media (prefers-reduced-motion: reduce) {
+    .cuervo-interactivo { transition: none; }
+}
 .cuenco-perro { position:absolute; right:9%; bottom:13%; z-index:5; min-width:110px; border:3px solid #8b6b43; border-radius:8px 8px 24px 24px; background:#493126; }
 .llave-cobre-suelta { position:absolute; left:57%; bottom:12%; z-index:7; font-size:30px; border:2px solid #b77b43; background:#30231c; }
 .cepo-cabra { position:absolute; left:48%; bottom:13%; width:150px; height:85px; border:9px solid #77716a; border-radius:50%; background:#4a3930; }
