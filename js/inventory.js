@@ -212,10 +212,9 @@ function actualizarInventario() {
     const progreso = document.getElementById("progreso");
 
     const piezasCV = obtenerPiezasCVRecogidas();
-    const totalPiezasCV = Object.keys(datosPiezasCV).length;
 
     progreso.textContent =
-        `Exploración: ${objetosInventario.length} objetos encontrados · Piezas de CV: ${piezasCV.length}/${totalPiezasCV}`;
+        `Exploración: ${objetosInventario.length} objetos encontrados`;
 
     lista.innerHTML = "";
     const agruparPiezas = piezasCV.length >= 2;
