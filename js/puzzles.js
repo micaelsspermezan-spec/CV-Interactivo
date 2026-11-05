@@ -278,11 +278,15 @@ function abrirBuzonOxidado() {
    ======================================== */
 
 // Los cráneos que ya están en la pared se mueven como los caballitos.
-const posicionesTrofeos = {
-    izquierdo: "craneo-ciervo",
-    central: null,
-    derecho: null
-};
+// Los slots se detectan en el HTML para poder ampliar el mecanismo más adelante.
+const slotsTrofeos = [...document.querySelectorAll(".slot-trofeo")];
+const ordenTrofeosCorrecto = ["craneo-cabra", "craneo-ciervo", "craneo-alce"];
+const posicionesTrofeos = Object.fromEntries(
+    slotsTrofeos.map((elemento, indice) => [
+        elemento.dataset.posicion,
+        indice === 0 ? "craneo-ciervo" : null
+    ])
+);
 
 let slotTrofeoSeleccionado = null;
 let puzleTrofeosResuelto = false;
@@ -297,7 +301,7 @@ function cancelarSeleccionTrofeo() {
 
 
 function actualizarSlotsTrofeos() {
-    document.querySelectorAll(".slot-trofeo").forEach(elemento => {
+    slotsTrofeos.forEach(elemento => {
         const posicion = elemento.dataset.posicion;
         const objeto = posicionesTrofeos[posicion];
 
@@ -325,15 +329,15 @@ function actualizarSlotsTrofeos() {
 
 
 function comprobarPuzleTrofeos() {
-    const ordenActual = [...document.querySelectorAll(".slot-trofeo")]
+    const ordenActual = slotsTrofeos
         .map(elemento => posicionesTrofeos[elemento.dataset.posicion]);
 
     if (
         puzleTrofeosResuelto ||
-        ordenActual.length !== 3 ||
-        ordenActual[0] !== "craneo-cabra" ||
-        ordenActual[1] !== "craneo-ciervo" ||
-        ordenActual[2] !== "craneo-alce"
+        ordenActual.length !== ordenTrofeosCorrecto.length ||
+        !ordenActual.every((craneo, indice) =>
+            craneo === ordenTrofeosCorrecto[indice]
+        )
     ) {
         return;
     }
