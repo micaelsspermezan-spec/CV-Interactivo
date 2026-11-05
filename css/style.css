@@ -585,20 +585,61 @@ button:focus-visible {
     color: #c5cdd2;
     text-shadow: 0 0 10px rgba(197, 205, 210, 0.35);
 }
-.silueta-trofeo {
-    position: absolute; width: 86px; height: 100px;
-    border: 3px solid rgba(10,12,14,.85); border-radius: 48%;
+.slot-trofeo {
+    position: absolute;
+    z-index: 8;
+    width: 86px;
+    height: 100px;
+    padding: 0;
+    border: 3px solid rgba(10,12,14,.85);
+    border-radius: 48%;
     background: rgba(5,7,9,.48);
+    color: #d0c4a7;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
 }
-.silueta-trofeo::before, .silueta-trofeo::after {
-    content: ""; position: absolute; top: -20px; width: 25px; height: 35px;
-    border-top: 5px solid rgba(5,7,9,.8);
+.slot-trofeo:hover { background: rgba(36,67,75,.75); }
+.slot-trofeo.seleccionado {
+    outline: 3px solid var(--cian);
+    outline-offset: 5px;
+    box-shadow: 0 0 16px rgba(72,207,224,.45);
 }
-.silueta-trofeo::before { left: -12px; transform: rotate(-35deg); }
-.silueta-trofeo::after { right: -12px; transform: rotate(35deg); }
+.icono-craneo {
+    display: block;
+    font-size: 48px;
+    line-height: 1;
+    filter: grayscale(1) sepia(.18);
+    pointer-events: none;
+}
+.icono-craneo.craneo-alce { transform: scale(1.12); }
 .trofeo-izquierdo { left: 22%; top: 25%; }
 .trofeo-central { left: 50%; top: 43%; transform: translateX(-50%); }
 .trofeo-derecho { right: 22%; top: 25%; }
+
+.craneo-recogible {
+    position: absolute;
+    z-index: 9;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 2px solid #9b8e72;
+    border-radius: 50%;
+    background: rgba(15,19,23,.88);
+    color: #d0c4a7;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+.craneo-recogible:hover { background: rgba(36,67,75,.9); }
+.craneo-cabra-suelto {
+    left: calc(48% + 82px);
+    bottom: calc(13% + 48px);
+}
+.craneo-alce-suelto {
+    left: calc(13% + 82px);
+    bottom: calc(13% + 145px);
+}
 
 /* Construcciones y arbolado provisional del exterior. */
 .casa-grande-cuerpo, .cabanita-cuerpo {
