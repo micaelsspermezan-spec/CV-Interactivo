@@ -85,7 +85,7 @@ function comprobarCurriculumCompleto() {
     // El aviso tiene su propio temporizador y no depende de los mensajes de escena.
     setTimeout(() => {
         aviso.classList.add("oculta");
-    }, 5000);
+    }, 4000);
 }
 
 
