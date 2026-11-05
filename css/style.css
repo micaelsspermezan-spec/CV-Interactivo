@@ -809,17 +809,84 @@ button:focus-visible {
     right: 14%;
     bottom: 78%;
     z-index: 8;
-    width: 42px;
-    height: 42px;
+    width: 58px;
+    height: 48px;
     padding: 0;
     border: 0;
     background: transparent;
-    color: #101214;
-    font-size: 32px;
-    line-height: 1;
     cursor: pointer;
     transition: right 1.2s ease-in-out, bottom 1.2s ease-in-out;
 }
+
+/* Silueta de cuervo construida con CSS para evitar depender de emojis. */
+.cuervo-cuerpo {
+    position: absolute;
+    left: 8px;
+    top: 17px;
+    width: 35px;
+    height: 24px;
+    border-radius: 55% 48% 48% 55%;
+    background: #101214;
+    transform: rotate(-8deg);
+}
+.cuervo-cuerpo::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 5px;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 13px solid #101214;
+    transform: rotate(-12deg);
+}
+.cuervo-cuerpo::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    width: 22px;
+    height: 13px;
+    border-radius: 50%;
+    background: #25292c;
+    transform: rotate(18deg);
+}
+.cuervo-cabeza {
+    position: absolute;
+    left: 32px;
+    top: 7px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #101214;
+}
+.cuervo-pico {
+    position: absolute;
+    left: 47px;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 11px solid #b88a43;
+}
+.cuervo-pata {
+    position: absolute;
+    top: 37px;
+    width: 2px;
+    height: 8px;
+    background: #b88a43;
+}
+.cuervo-pata::after {
+    content: "";
+    position: absolute;
+    left: -3px;
+    bottom: 0;
+    width: 8px;
+    border-top: 2px solid #b88a43;
+}
+.cuervo-pata-izquierda { left: 22px; }
+.cuervo-pata-derecha { left: 35px; }
+
 .cuervo-interactivo.cuervo-alimentado {
     right: calc(9% + 34px);
     bottom: 18%;
@@ -1345,3 +1412,53 @@ button:focus-visible {
 /* ==========================================
    FIN DE LA HOJA DE ESTILOS
    ========================================== */
+
+
+/* ========================================
+   AVISO DE FINALIZACIÓN DEL CURRÍCULUM
+   ======================================== */
+
+#mensaje-finalizacion {
+    position: fixed;
+    inset: 0;
+    z-index: 9;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(5, 8, 10, 0.72);
+    pointer-events: none;
+    animation: aparecer-mensaje-final 0.35s ease-out;
+}
+
+.contenido-mensaje-finalizacion {
+    width: min(100%, 620px);
+    padding: 34px 28px;
+    text-align: center;
+    background: linear-gradient(145deg, rgba(28, 37, 42, 0.98), rgba(15, 19, 23, 0.98));
+    border: 2px solid var(--dorado);
+    border-radius: 10px;
+    box-shadow: 0 0 35px rgba(197, 160, 75, 0.25), inset 0 0 22px rgba(72, 207, 224, 0.06);
+}
+
+.contenido-mensaje-finalizacion h2 {
+    margin-bottom: 12px;
+    color: var(--dorado-claro);
+    font-size: clamp(28px, 5vw, 44px);
+    letter-spacing: 1px;
+    text-shadow: 0 0 16px rgba(197, 160, 75, 0.25);
+}
+
+.contenido-mensaje-finalizacion p {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(17px, 3vw, 24px);
+}
+
+@keyframes aparecer-mensaje-final {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #mensaje-finalizacion { animation: none; }
+}
