@@ -430,7 +430,6 @@ document.getElementById("craneo-cabra-suelto").addEventListener("click", evento 
 });
 
 document.getElementById("craneo-alce-suelto").addEventListener("click", evento => {
-    evento.stopPropagation();
     recogerCraneoTrofeo(
         "craneo-alce",
         "💀 Cráneo de alce",
