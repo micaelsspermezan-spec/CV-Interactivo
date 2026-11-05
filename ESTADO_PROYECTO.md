@@ -186,7 +186,8 @@ La aplicación separa el contenido de las escenas del documento principal, sin c
 - Los objetos se almacenan en el array `objetosInventario`.
 - Cada objeto distingue entre `tipo` (comportamiento interno), `categoria` (etiqueta visible), `descripcion` (texto breve) y `agotado` (estado que atenúa la descripción).
 - Se evita añadir dos veces un objeto con el mismo ID.
-- El inventario muestra los objetos recogidos y el contador de objetos encontrados.
+- El inventario muestra los objetos recogidos, el contador general y el progreso de piezas del CV en formato recogidas/total. El total se calcula a partir de las entradas de `datosPiezasCV`.
+- Al recoger todas las piezas definidas en `datosPiezasCV`, aparece una felicitación centrada durante cinco segundos. El aviso se muestra una sola vez por partida, tiene un temporizador independiente de los mensajes de escena y no bloquea la interacción. El inventario y el equipamiento se mantienen por encima del aviso.
 - La primera pieza del CV aparece como un objeto individual. Al recoger una segunda pieza, todas las piezas se agrupan bajo el elemento «Piezas de CV», con un reborde distintivo y un contador en superíndice.
 - El grupo despliega un submenú flotante anclado a su botón, superpuesto al inventario y sin alterar la distribución de los demás objetos. Los botones del inventario mantienen un tamaño uniforme. Pulsar cualquier zona de la ficha de un objeto —incluidos título, categoría, descripción, espacios vacíos y botones de acción— pliega el submenú sin cerrar el inventario ni ocultar la ficha; la acción del elemento pulsado sigue ejecutándose normalmente. Pulsar una zona vacía del inventario también lo pliega. Seleccionar otro objeto pliega el submenú y actualiza su ficha sin cerrar el inventario. La detección de clic exterior respeta la ruta original del evento aunque se reconstruya la lista. Cerrar el inventario o pulsar fuera también pliega el submenú.
 - Al seleccionar un objeto se muestra su nombre, categoría y descripción breve, además de las acciones disponibles.
@@ -224,7 +225,7 @@ El puzle de los caballos está implementado en la pared izquierda de la cabañit
 
 #### Puzle del cuervo — Pieza 1
 
-- En el tejado del recibidor de la casa grande hay un cuervo en un nido que guarda una llave de cobre en el pico.
+- En el tejado del recibidor de la casa grande hay un cuervo dibujado con elementos CSS, en un nido y con una llave de cobre en el pico.
 - Pulsar el cuervo o el nido antes de resolver el puzle muestra que está demasiado alto para alcanzarlo.
 - El jugador deberá encontrar semillas, pienso u otra comida apropiada y colocarla en el cuenco del perro.
 - Al colocar el pienso, el cuervo baja animadamente desde el nido hasta el cuenco, donde se queda comiendo, y deja caer la llave de cobre.
