@@ -653,3 +653,6 @@ document.getElementById("inventario").addEventListener("click", evento => {
     }
 
 }, true);
+
+// Mostrar el contador inicial aunque todavía no se haya recogido ningún objeto.
+actualizarInventario();
