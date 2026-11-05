@@ -319,7 +319,11 @@ button:focus-visible {
 .referencia-exterior p {
     color: var(--texto-secundario);
 }
-/* ==========================================\n   ARTE DE ESCENARIOS: CABAÑITA Y EXTERIOR\n   ========================================== */\n\n/* Elementos decorativos generales de las perspectivas. */
+/* ==========================================
+   ARTE DE ESCENARIOS: CABAÑITA Y EXTERIOR
+   ========================================== */
+
+/* Elementos decorativos generales de las perspectivas. */
 .arte-pared { position: absolute; inset: 0; pointer-events: none; }
 .ventana-cabana {
     position: absolute; top: 19%; left: 50%; width: 92px; height: 78px;
@@ -469,7 +473,11 @@ button:focus-visible {
 
 .mini-cabanita-puerta { width: 20%; height: 42%; }
 
-/* ==========================================\n   OBJETOS INTERACTIVOS: CABALLOS Y TROFEOS\n   ========================================== */\n\n/* Slots interactivos del puzle de los caballos. */
+/* ==========================================
+   OBJETOS INTERACTIVOS: CABALLOS Y TROFEOS
+   ========================================== */
+
+/* Slots interactivos del puzle de los caballos. */
 .slot-caballo {
     position: absolute;
     top: 31%;
@@ -835,8 +843,6 @@ button:focus-visible {
 .arbol-fondo-izq { right:15%; }
 .arbol-fondo-der { right:4%; }
 .salida-mansion { position:absolute; left:50%; bottom:30%; transform:translateX(-50%); z-index:5; }
-.arte-casa-grande .casa-grande-cuerpo { width:420px; height:210px; }
-.arte-casa-grande .casa-grande-tejado { width:490px; }
 .esqueleto-cabra-exterior { position:absolute; left:9%; bottom:15%; width:105px; height:48px; border-bottom:8px solid #c4b99f; border-radius:50%; }
 .esqueleto-cabra-exterior::before { content:""; position:absolute; left:25px; bottom:20px; width:38px; height:28px; border-radius:50%; background:#c4b99f; }
 .caseta-perro-exterior { position:absolute; right:8%; bottom:14%; width:110px; height:85px; border:5px solid #76552f; background:#59402b; }
@@ -1335,4 +1341,7 @@ button:focus-visible {
     pointer-events: none;
 }
 
-/*\n\n/* ==========================================\n   FIN DE LA HOJA DE ESTILOS\n   ========================================== */\n
+
+/* ==========================================
+   FIN DE LA HOJA DE ESTILOS
+   ========================================== */
