@@ -227,7 +227,7 @@ El puzle de los caballos está implementado en la pared izquierda de la cabañit
 - En el tejado del recibidor de la casa grande hay un cuervo en un nido que guarda una llave de cobre en el pico.
 - Pulsar el cuervo o el nido antes de resolver el puzle muestra que está demasiado alto para alcanzarlo.
 - El jugador deberá encontrar semillas, pienso u otra comida apropiada y colocarla en el cuenco del perro.
-- El cuervo bajará a comer y dejará caer la llave de cobre.
+- Al colocar el pienso, el cuervo baja animadamente desde el nido hasta el cuenco, donde se queda comiendo, y deja caer la llave de cobre.
 - La llave de cobre abre el cofre situado sobre el escritorio de la cabañita. Dentro estará la Pieza 1 del currículum.
 
 #### Puzle de los caballos — Pieza 2 (implementado)
