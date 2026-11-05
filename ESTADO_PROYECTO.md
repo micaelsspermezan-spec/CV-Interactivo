@@ -455,3 +455,11 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - El saco de pienso se coloca junto a la mesita de la pared izquierda de la cabañita. El cuervo deja caer una llave de cobre al recibir pienso en el cuenco; la llave se recoge del suelo y abre el cofre del escritorio, que contiene la Pieza 1 del CV.
 - Se renombra el antiguo cajón como «Cofre cerrado». La llave de cobre ya no aparece en la cabañita: solo se obtiene cuando el cuervo la deja caer en el recibidor. El cadáver/cráneo de cabra es por ahora decorativo; su interacción se reserva para el puzle de trofeos.
 - Pendiente de prueba manual de navegación, recogida del pienso, alimentación, recogida de la llave y apertura del cofre.
+
+
+## Edificios CSS y organización de escenarios (5 de noviembre de 2026)
+
+- La mansión exterior y la cabañita trasera ahora tienen un contenedor propio para cada edificio. El techo, el cuerpo y la puerta se posicionan dentro de ese contenedor, por lo que conservan su alineación al cambiar las proporciones de la ventana.
+- Las miniaturas de la mansión y la cabañita siguen el mismo principio: cada miniatura es el marco de referencia de su techo, cuerpo y puerta, y sus dimensiones se adaptan de forma proporcional.
+- `css/style.css` reúne los estilos de arte y objetos del escenario antes de los estilos del inventario y del panel del currículum. Se distinguen los bloques de cabañita, miniaturas, edificios principales, entorno exterior y mansión/recibidor.
+- El cambio es exclusivamente HTML y CSS. No añade recursos, dependencias, conexiones externas ni modifica la lógica JavaScript, la navegación o los puzles.
