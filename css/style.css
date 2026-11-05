@@ -1425,33 +1425,33 @@ button:focus-visible {
     display: grid;
     place-items: center;
     padding: 24px;
-    background: rgba(5, 8, 10, 0.72);
+    background: rgba(5, 8, 10, 0.48);
     pointer-events: none;
     animation: aparecer-mensaje-final 0.35s ease-out;
 }
 
 .contenido-mensaje-finalizacion {
-    width: min(100%, 620px);
-    padding: 34px 28px;
+    width: min(100%, 460px);
+    padding: 24px 22px;
     text-align: center;
-    background: linear-gradient(145deg, rgba(28, 37, 42, 0.98), rgba(15, 19, 23, 0.98));
+    background: linear-gradient(145deg, rgba(28, 37, 42, 0.88), rgba(15, 19, 23, 0.88));
     border: 2px solid var(--dorado);
     border-radius: 10px;
-    box-shadow: 0 0 35px rgba(197, 160, 75, 0.25), inset 0 0 22px rgba(72, 207, 224, 0.06);
+    box-shadow: 0 0 25px rgba(197, 160, 75, 0.2), inset 0 0 16px rgba(72, 207, 224, 0.05);
 }
 
 .contenido-mensaje-finalizacion h2 {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     color: var(--dorado-claro);
-    font-size: clamp(28px, 5vw, 44px);
+    font-size: clamp(24px, 4vw, 34px);
     letter-spacing: 1px;
-    text-shadow: 0 0 16px rgba(197, 160, 75, 0.25);
+    text-shadow: 0 0 12px rgba(197, 160, 75, 0.2);
 }
 
 .contenido-mensaje-finalizacion p {
     margin: 0;
     color: #ffffff;
-    font-size: clamp(17px, 3vw, 24px);
+    font-size: clamp(15px, 2.5vw, 19px);
 }
 
 @keyframes aparecer-mensaje-final {
