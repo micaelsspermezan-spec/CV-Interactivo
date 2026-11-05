@@ -69,7 +69,9 @@ function interactuarConCuenco() {
     cuervoAlimentado = true;
     marcarObjetoAgotado("saco-pienso");
     desequiparObjeto();
-    document.getElementById("cuervo-mansion").textContent = "Cuervo comiendo";
+    const cuervo = document.getElementById("cuervo-mansion");
+    cuervo.classList.add("cuervo-alimentado");
+    cuervo.setAttribute("aria-label", "Cuervo comiendo");
     document.getElementById("llave-cobre-suelta").classList.remove("oculta");
     llaveCobreEnSuelo = true;
     mensaje.textContent = "El cuervo baja a comer. La llave de cobre cae del nido al suelo.";
