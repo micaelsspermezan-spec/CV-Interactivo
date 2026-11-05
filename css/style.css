@@ -1215,7 +1215,7 @@ button:focus-visible {
     border-radius:50%;
 }
 
-.vista-mansion { background:linear-gradient(#20272a 0 58%, #263126 58% 100%); }
+.vista-mansion { background:#20272a; }
 .suelo-porche { position:absolute; left:15%; right:15%; bottom:8%; height:24%; border:5px solid #76552f; background:repeating-linear-gradient(0deg,#68472c 0 12px,#503521 12px 15px); }
 .puerta-mansion { position:absolute; left:50%; bottom:32%; transform:translateX(-50%); width:190px; height:48%; border:8px solid #76552f; background:#493126; }
 .tejadillo-mansion { position:absolute; right:8%; bottom:69%; width:46%; height:13%; border:5px solid #76552f; background:#493126; transform:skewY(-4deg); }
