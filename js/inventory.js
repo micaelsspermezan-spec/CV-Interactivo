@@ -58,6 +58,36 @@ function obtenerPiezasCVRecogidas() {
     );
 }
 
+/* ==========================================
+   CONTADOR Y AVISO DE CURRÍCULUM COMPLETO
+   ========================================== */
+
+let mensajeFinalizacionMostrado = false;
+
+function comprobarCurriculumCompleto() {
+
+    const totalPiezas = Object.keys(datosPiezasCV).length;
+    const piezasRecogidas = obtenerPiezasCVRecogidas().length;
+
+    if (
+        totalPiezas === 0 ||
+        piezasRecogidas < totalPiezas ||
+        mensajeFinalizacionMostrado
+    ) {
+        return;
+    }
+
+    mensajeFinalizacionMostrado = true;
+
+    const aviso = document.getElementById("mensaje-finalizacion");
+    aviso.classList.remove("oculta");
+
+    // El aviso tiene su propio temporizador y no depende de los mensajes de escena.
+    setTimeout(() => {
+        aviso.classList.add("oculta");
+    }, 5000);
+}
+
 
 function actualizarDescripcionCurriculum() {
 
@@ -126,6 +156,9 @@ function añadirObjeto(id, nombre, categoria, descripcion, tipo) {
 
     objetosInventario.push(nuevoObjeto);
 
+    // Comprobar si se ha completado la colección de piezas del currículum.
+    comprobarCurriculumCompleto();
+
     // Si la ranura está vacía, equipar automáticamente los objetos utilizables.
     const tiposEquipables = ["llave", "herramienta", "pieza"];
 
@@ -178,12 +211,13 @@ function actualizarInventario() {
     const lista = document.getElementById("lista-objetos");
     const progreso = document.getElementById("progreso");
 
+    const piezasCV = obtenerPiezasCVRecogidas();
+    const totalPiezasCV = Object.keys(datosPiezasCV).length;
+
     progreso.textContent =
-        `Exploración: ${objetosInventario.length} objetos encontrados`;
+        `Exploración: ${objetosInventario.length} objetos encontrados · Piezas de CV: ${piezasCV.length}/${totalPiezasCV}`;
 
     lista.innerHTML = "";
-
-    const piezasCV = obtenerPiezasCVRecogidas();
     const agruparPiezas = piezasCV.length >= 2;
     let grupoPiezasInsertado = false;
 
