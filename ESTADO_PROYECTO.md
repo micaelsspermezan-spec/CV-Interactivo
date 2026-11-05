@@ -215,12 +215,12 @@ La aplicación separa el contenido de las escenas del documento principal, sin c
 - Se puede recoger la llave de hierro en la cabañita. La llave de cobre aparece en el suelo del recibidor tras alimentar al cuervo.
 - El cofre del escritorio requiere la llave de cobre equipada.
 - Al abrirlo aparece la pieza de CV 1/3 en la escena.
-- Las piezas 2 y 3 siguen disponibles directamente en la escena de forma provisional; se retirarán de ahí cuando estén implementados sus puzles.
+- La pieza 2 se desbloquea al resolver el puzle de los caballos y la pieza 3 al completar el orden correcto de los trofeos.
 - Las tres piezas se añaden al inventario como tipo `pieza-cv`. Cada recogida revela el fragmento correspondiente del currículum.
 
 ### Puzles definidos para la primera versión
 
-El puzle de los caballos descrito a continuación ya está implementado en la pared izquierda de la cabañita. El puzle del cuervo ya está implementado en su primera versión; el puzle de los trofeos sigue pendiente. Sus ubicaciones y objetos respetarán la navegación por perspectivas ya existente; por ahora no se añadirán vistas ampliadas.
+El puzle de los caballos está implementado en la pared izquierda de la cabañita. El puzle del cuervo está implementado en su primera versión y el puzle de los trofeos cuenta con una primera implementación. Sus ubicaciones y objetos respetarán la navegación por perspectivas ya existente; por ahora no se añadirán vistas ampliadas.
 
 #### Puzle del cuervo — Pieza 1
 
@@ -246,8 +246,8 @@ El puzle de los caballos descrito a continuación ya está implementado en la pa
 - La pared derecha de la cabañita tiene inicialmente tres posiciones para trofeos. El primer hueco desde la izquierda ya contiene un cráneo de ciervo, pero está mal colocado.
 - Los tres trofeos son una cabra con los cuernos cortados, un ciervo con cuernos medianos y un alce con cuernos grandes.
 - La solución se deduce observando los árboles del bosque izquierdo: los trofeos deben colocarse de izquierda a derecha en el orden inverso al de los árboles. Con la disposición inicial de tres árboles, el orden correcto de los trofeos es cabra, ciervo y alce.
-- El cráneo de alce está colocado encima de la puerta de la cabañita. El cráneo de cabra pertenece a un cadáver atrapado en un cepo del bosque derecho. El cráneo de ciervo es el que ya está en la pared de trofeos.
-- Los cráneos que ya forman parte de la pared no se recogen al pulsarlos. En su lugar, el cráneo pulsado queda seleccionado con un reborde y después se puede pulsar otra posición de la pared para cambiarlo de sitio. Los cráneos que se encuentren fuera de la pared sí se recogen al inventario y desde allí se podrán colocar.
+- El cráneo de alce está sobre el tejado de la cabañita y se recoge desde la perspectiva Detrás de la mansión. El cráneo de cabra está sobre los restos del cadáver atrapado en el cepo del bosque izquierdo. El cráneo de ciervo ya comienza en la pared de trofeos.
+- Los cráneos que ya forman parte de la pared no se recogen al pulsarlos. En su lugar, el cráneo pulsado queda seleccionado con un reborde y después se puede pulsar otra posición para moverlo o intercambiarlo. Los cráneos que se encuentran fuera de la pared se recogen al inventario y, al equiparlos, se pueden colocar en una posición vacía. Pulsar fuera de las posiciones cancela la selección.
 - Al completar el orden correcto se obtiene la Pieza 3 del currículum.
 - El mecanismo debe ser dinámico: no debe asumir que siempre habrá tres árboles o tres huecos. En futuras ampliaciones podrá haber cuatro o cinco árboles y el sistema deberá admitir el mismo número de posiciones y trofeos, manteniendo la regla del orden inverso.
 
@@ -263,7 +263,7 @@ La información de los bloques que todavía no se hayan desbloqueado se represen
 - Cada pieza revela su bloque correspondiente: pieza 1 (perfil y formación), pieza 2 (experiencia e idiomas) y pieza 3 (competencias digitales e intereses).
 - En el inventario, cada pieza muestra sus datos en blanco si el currículum aún no se ha recogido y en gris si ya se han incorporado. El mensaje de estado cambia automáticamente según el orden de recogida.
 - Los bloques del currículum aún no descubiertos deberán mostrar líneas negras simulando texto censurado; al recoger su pieza se mostrará el texto real.
-- Están implementados el cofre con llave de cobre, la primera versión del puzle del cuervo y el puzle de los caballos. El puzle de los trofeos sigue pendiente.
+- Están implementados el cofre con llave de cobre, la primera versión del puzle del cuervo, el puzle de los caballos y una primera versión del puzle de los trofeos.
 - No hay todavía sistema general de guardado, persistencia, audio ni animaciones complejas.
 - `navigation.js` permite cambiar entre las cuatro paredes de la cabaña y las cuatro perspectivas exteriores. La transición a la casa grande y sus habitaciones todavía no están implementadas.
 - La reorganización de escenas está implementada: las ocho perspectivas de la cabañita y el exterior se encuentran en `escenas/cabana.html` y se cargan dinámicamente desde `index.html`.
@@ -301,7 +301,7 @@ Los objetivos de esta sección describen funcionalidades y mejoras que todavía 
 
 1. [x] Reorganizar la estructura HTML: mantener la interfaz general en `index.html`, mover las cuatro perspectivas de la cabañita y las cuatro del exterior a `escenas/cabana.html`, cargarlas mediante `fetch` y ejecutar los módulos después de insertar la escena. Actualizar el árbol del proyecto y documentar el uso de Live Server. La navegación y las interacciones principales se han comprobado en navegador mediante Live Server.
 
-2. Implementar los puzles pendientes: el cuervo (Pieza 1) y los trofeos (Pieza 3), junto con los objetos necesarios y sus interacciones. El puzle de los caballos (Pieza 2) ya tiene una primera implementación.
+2. Completar y probar manualmente los puzles implementados: cuervo (Pieza 1), caballos (Pieza 2) y trofeos (Pieza 3).
 3. Conectar la zona exterior con la casa grande y desarrollar las perspectivas y zonas interactivas necesarias para los puzles. De momento, las interacciones se resolverán directamente desde las perspectivas existentes, sin vistas ampliadas.
 4. Incorporar un sistema de guardado persistente con tres ranuras independientes. Debe permitir guardar el progreso actual, cargar una partida guardada y empezar una nueva partida cuando se quiera.
 5. Añadir al menú principal un botón «Guardar» junto al acceso al menú principal durante la exploración. El botón «Entrar» cargará directamente si no existe ninguna partida guardada; si hay partidas guardadas, abrirá un pequeño menú para elegir una. El menú principal también incluirá «Nueva partida» para iniciar una partida desde cero.
