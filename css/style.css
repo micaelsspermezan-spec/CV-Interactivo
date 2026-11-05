@@ -344,7 +344,7 @@ button:focus-visible {
     transform: translateX(-50%); background: #68472c; border: 2px solid #a47a45;
 }
 /* ==========================================
-   PUERTAS Y EDIFICIOS DECORATIVOS DE LA CABAÑA
+   ARTE DE LA CABAÑITA: PUERTA Y MINIATURAS
    ========================================== */
 
 /* Puerta de salida en la pared trasera interior. */
@@ -659,7 +659,7 @@ button:focus-visible {
     transform: translateX(-50%);
 }
 
-.edificio-casa-grande { width: clamp(280px, 54%, 490px); aspect-ratio: 1.72; }
+.edificio-casa-grande { width: clamp(210px, 54%, 490px); aspect-ratio: 1.72; }
 .edificio-cabanita { width: clamp(170px, 29%, 260px); aspect-ratio: 1.62; }
 
 .casa-grande-cuerpo,
@@ -752,7 +752,7 @@ button:focus-visible {
 
 
 /* ==========================================
-   ARTE Y OBJETOS DE LA MANSIÓN
+   ARTE DE LA CABAÑITA Y OBJETOS DE LA MANSIÓN
    ========================================== */
 
 .arte-escritorio .cofre-cabana { top:43%; width:126px; height:72px; border-radius:5px; background:#4b3020; }
