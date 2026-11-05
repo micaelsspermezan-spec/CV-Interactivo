@@ -417,7 +417,6 @@ function recogerCraneoTrofeo(id, nombre, descripcion, elemento) {
 
 // Recoger los dos cráneos que comienzan fuera de la pared.
 document.getElementById("craneo-cabra-suelto").addEventListener("click", evento => {
-    evento.stopPropagation();
     recogerCraneoTrofeo(
         "craneo-cabra",
         "💀 Cráneo de cabra",
