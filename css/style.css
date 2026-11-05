@@ -319,7 +319,7 @@ button:focus-visible {
 .referencia-exterior p {
     color: var(--texto-secundario);
 }
-/* Arte provisional CSS de las perspectivas. */
+/* ==========================================\n   ARTE DE ESCENARIOS: CABAÑITA Y EXTERIOR\n   ========================================== */\n\n/* Elementos decorativos generales de las perspectivas. */
 .arte-pared { position: absolute; inset: 0; pointer-events: none; }
 .ventana-cabana {
     position: absolute; top: 19%; left: 50%; width: 92px; height: 78px;
@@ -421,32 +421,22 @@ button:focus-visible {
 }
 
 /* Miniaturas decorativas en las esquinas superiores de la pared de trofeos. */
+/* Cada miniatura es el marco de referencia de sus tres piezas. */
 .mini-mansion,
 .mini-cabanita {
     position: absolute;
     top: 10%;
-    width: 128px;
-    height: 94px;
+    height: auto;
+    aspect-ratio: 128 / 94;
 }
 
-.mini-mansion {
-    left: 3%;
-}
-
-.mini-cabanita {
-    right: 3%;
-    width: 84px;
-    height: 62px;
-}
+.mini-mansion { left: 3%; width: clamp(88px, 10vw, 128px); }
+.mini-cabanita { right: 3%; width: clamp(58px, 6.6vw, 84px); aspect-ratio: 84 / 62; }
 
 .mini-mansion-cuerpo,
 .mini-cabanita-cuerpo {
     position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 100%;
-    height: 58%;
-    transform: translateX(-50%);
+    inset: 42% 0 0;
     border: 3px solid #76552f;
     background: #59402b;
 }
@@ -454,19 +444,14 @@ button:focus-visible {
 .mini-mansion-tejado,
 .mini-cabanita-tejado {
     position: absolute;
+    top: 0;
     left: 50%;
-    bottom: 48%;
     width: 116%;
-    height: 42%;
+    height: 46%;
     transform: translateX(-50%);
     border: 3px solid #76552f;
     border-radius: 55% 55% 0 0;
     background: #493126;
-}
-
-.mini-cabanita-tejado {
-    bottom: 48%;
-    height: 40%;
 }
 
 .mini-mansion-puerta,
@@ -482,12 +467,9 @@ button:focus-visible {
     background: #211a16;
 }
 
-.mini-cabanita-puerta {
-    width: 20%;
-    height: 42%;
-}
+.mini-cabanita-puerta { width: 20%; height: 42%; }
 
-/* Slots interactivos del puzle de los caballos. */
+/* ==========================================\n   OBJETOS INTERACTIVOS: CABALLOS Y TROFEOS\n   ========================================== */\n\n/* Slots interactivos del puzle de los caballos. */
 .slot-caballo {
     position: absolute;
     top: 31%;
@@ -656,24 +638,57 @@ button:focus-visible {
     z-index: 10;
 }
 
-/* Construcciones y arbolado provisional del exterior. */
-.casa-grande-cuerpo, .cabanita-cuerpo {
-    position: absolute; left: 50%; bottom: 14%; transform: translateX(-50%);
-    width: 330px; height: 190px; border: 4px solid #76552f;
+/* ==========================================
+   EDIFICIOS PRINCIPALES: MANSIÓN Y CABAÑITA
+   Techo, cuerpo y puerta comparten este marco.
+   ========================================== */
+.edificio-casa-grande,
+.edificio-cabanita {
+    position: absolute;
+    left: 50%;
+    bottom: 14%;
+    height: auto;
+    transform: translateX(-50%);
+}
+
+.edificio-casa-grande { width: clamp(280px, 54%, 490px); aspect-ratio: 1.72; }
+.edificio-cabanita { width: clamp(170px, 29%, 260px); aspect-ratio: 1.62; }
+
+.casa-grande-cuerpo,
+.cabanita-cuerpo {
+    position: absolute;
+    inset: 28% 0 0;
+    border: 4px solid #76552f;
     background: #59402b;
 }
-.casa-grande-tejado, .cabanita-tejado {
-    position: absolute; left: 50%; bottom: 39%; transform: translateX(-50%);
-    width: 390px; height: 75px; border: 4px solid #76552f;
-    background: #38251d; border-radius: 50% 50% 0 0;
+
+.casa-grande-tejado,
+.cabanita-tejado {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 116%;
+    height: 34%;
+    transform: translateX(-50%);
+    border: 4px solid #76552f;
+    background: #38251d;
+    border-radius: 50% 50% 0 0;
 }
-.casa-grande-puerta, .cabanita-puerta {
-    position: absolute; left: 50%; bottom: 14%; transform: translateX(-50%);
-    width: 58px; height: 112px; border: 3px solid #9b713b; background: #211a16;
+
+.casa-grande-puerta,
+.cabanita-puerta {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 14%;
+    height: 57%;
+    transform: translateX(-50%);
+    border: 3px solid #9b713b;
+    background: #211a16;
 }
-.cabanita-cuerpo { width: 210px; height: 125px; }
-.cabanita-tejado { width: 260px; height: 55px; bottom: 39%; }
-.cabanita-puerta { width: 42px; height: 78px; }
+
+.cabanita-cuerpo { inset: 31% 0 0; }
+.cabanita-puerta { width: 20%; height: 62%; }
 .arte-arboles .arbol, .arte-buzon .arbol {
     position: absolute; bottom: 17%; width: 72px; height: 170px;
 }
@@ -727,6 +742,107 @@ button:focus-visible {
 
 
 
+
+/* ==========================================
+   ARTE Y OBJETOS DE LA MANSIÓN
+   ========================================== */
+
+.arte-escritorio .cofre-cabana { top:43%; width:126px; height:72px; border-radius:5px; background:#4b3020; }
+.arte-escritorio .escritorio-cabana { top:61%; width:330px; height:24px; }
+.poster-pared-cabana { position:absolute; top:13%; left:68%; width:74px; height:96px; border:4px solid #76552f; background:#302820; }
+#poster-cv { position:absolute; top:14%; left:68%; z-index:4; }
+#llave-hierro { position:absolute; top:57%; left:25%; z-index:4; }
+#cofre-escritorio { position:absolute; top:45%; left:50%; transform:translateX(-50%); z-index:5; }
+#pieza-cv-1-3 { position:absolute; top:50%; left:50%; transform:translateX(-50%); z-index:6; }
+.arte-caballo .mesita-caballo { width:180px; height:20px; top:56%; }
+.arte-caballo .mesita-caballo::before,
+.arte-caballo .mesita-caballo::after {
+    content:"";
+    position:absolute;
+    top:100%;
+    width:10px;
+    height:72px;
+    background:#76552f;
+}
+.arte-caballo .mesita-caballo::before { left:12px; }
+.arte-caballo .mesita-caballo::after { right:12px; }
+.saco-pienso-interactivo {
+    position:absolute;
+    left:calc(50% - 145px);
+    bottom:10%;
+    z-index:5;
+    width:48px;
+    height:62px;
+    padding:0;
+    overflow:hidden;
+    font-size:0;
+    border:3px solid #9b8250;
+    border-radius:7px 7px 4px 4px;
+    background:#9b8250;
+}
+.saco-pienso-interactivo::before {
+    content:"";
+    position:absolute;
+    top:5px;
+    left:8px;
+    right:8px;
+    height:7px;
+    border-bottom:3px solid #59402b;
+    border-radius:50%;
+}
+
+.vista-mansion { background:#20272a; }
+.suelo-porche { position:absolute; left:15%; right:15%; bottom:8%; height:24%; border:5px solid #76552f; background:repeating-linear-gradient(0deg,#68472c 0 12px,#503521 12px 15px); }
+.puerta-mansion { position:absolute; left:50%; bottom:32%; transform:translateX(-50%); width:190px; height:48%; border:8px solid #76552f; background:#493126; }
+.tejadillo-mansion { position:absolute; right:8%; bottom:69%; width:46%; height:13%; border:5px solid #76552f; background:#493126; transform:skewY(-4deg); }
+.nido-cuervo { position:absolute; right:14%; bottom:78%; width:76px; height:28px; border:5px solid #493126; border-radius:50%; background:#30231c; }
+.cuervo-interactivo {
+    position: absolute;
+    right: 14%;
+    bottom: 78%;
+    z-index: 8;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #101214;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    transition: right 1.2s ease-in-out, bottom 1.2s ease-in-out;
+}
+.cuervo-interactivo.cuervo-alimentado {
+    right: calc(9% + 34px);
+    bottom: 18%;
+}
+@media (prefers-reduced-motion: reduce) {
+    .cuervo-interactivo { transition: none; }
+}
+.cuenco-perro { position:absolute; right:9%; bottom:13%; z-index:5; min-width:110px; border:3px solid #8b6b43; border-radius:8px 8px 24px 24px; background:#493126; }
+.llave-cobre-suelta { position:absolute; left:57%; bottom:12%; z-index:7; font-size:30px; border:2px solid #b77b43; background:#30231c; }
+.cepo-cabra { position:absolute; left:48%; bottom:13%; width:150px; height:85px; border:9px solid #77716a; border-radius:50%; background:#4a3930; }
+.restos-cabra { position:absolute; left:38%; bottom:30%; width:60px; height:45px; border-radius:50%; background:#b6a78c; }
+
+.arte-caseta-mansion .caseta-perro { position:absolute; right:25%; bottom:15%; width:190px; height:150px; border:7px solid #76552f; background:#59402b; }
+.entrada-caseta { position:absolute; left:25%; bottom:0; width:50%; height:65%; border:5px solid #30231c; border-radius:50% 50% 0 0; background:#171b19; }
+.cabanita-mansion-fondo { position:absolute; left:13%; bottom:13%; width:190px; height:115px; border:5px solid #76552f; background:#59402b; }
+.cabanita-mansion-fondo::before { content:""; position:absolute; left:-15px; top:-55px; width:210px; height:55px; background:#493126; border:5px solid #76552f; }
+.cabanita-mansion-fondo span { position:absolute; left:42%; bottom:0; width:32px; height:65px; background:#30231c; }
+.buzon-mansion-fondo { position:absolute; left:37%; bottom:22%; width:42px; height:34px; border:3px solid #765044; background:#554238; }
+.arbol-fondo { position:absolute; bottom:12%; width:28px; height:190px; background:#493126; }
+.arbol-fondo::before { content:""; position:absolute; left:-45px; top:-50px; width:118px; height:105px; border-radius:50%; background:#354333; }
+.arbol-fondo-izq { right:15%; }
+.arbol-fondo-der { right:4%; }
+.salida-mansion { position:absolute; left:50%; bottom:30%; transform:translateX(-50%); z-index:5; }
+.arte-casa-grande .casa-grande-cuerpo { width:420px; height:210px; }
+.arte-casa-grande .casa-grande-tejado { width:490px; }
+.esqueleto-cabra-exterior { position:absolute; left:9%; bottom:15%; width:105px; height:48px; border-bottom:8px solid #c4b99f; border-radius:50%; }
+.esqueleto-cabra-exterior::before { content:""; position:absolute; left:25px; bottom:20px; width:38px; height:28px; border-radius:50%; background:#c4b99f; }
+.caseta-perro-exterior { position:absolute; right:8%; bottom:14%; width:110px; height:85px; border:5px solid #76552f; background:#59402b; }
+.caseta-perro-exterior::before { content:""; position:absolute; left:25%; bottom:0; width:50%; height:60%; background:#202321; border:3px solid #30231c; }
+.entrada-mansion { position:absolute; left:50%; bottom:30%; transform:translateX(-50%); z-index:6; }
+@media (max-width:650px) { .puerta-mansion { width:130px; } .suelo-porche { left:5%; right:5%; } .cuenco-perro { right:3%; } .tejadillo-mansion { right:3%; width:55%; } }
 
 /* ==========================================
    7. INVENTARIO Y PANEL DEL CURRÍCULUM
@@ -1219,107 +1335,4 @@ button:focus-visible {
     pointer-events: none;
 }
 
-/* ==========================================
-   FIN DE LA HOJA DE ESTILOS
-   ========================================== */
-
-/* ==========================================
-   MANSIÓN, RECIBIDOR Y OBJETOS DEL PUZLE DEL CUERVO
-   ========================================== */
-
-.arte-escritorio .cofre-cabana { top:43%; width:126px; height:72px; border-radius:5px; background:#4b3020; }
-.arte-escritorio .escritorio-cabana { top:61%; width:330px; height:24px; }
-.poster-pared-cabana { position:absolute; top:13%; left:68%; width:74px; height:96px; border:4px solid #76552f; background:#302820; }
-#poster-cv { position:absolute; top:14%; left:68%; z-index:4; }
-#llave-hierro { position:absolute; top:57%; left:25%; z-index:4; }
-#cofre-escritorio { position:absolute; top:45%; left:50%; transform:translateX(-50%); z-index:5; }
-#pieza-cv-1-3 { position:absolute; top:50%; left:50%; transform:translateX(-50%); z-index:6; }
-.arte-caballo .mesita-caballo { width:180px; height:20px; top:56%; }
-.arte-caballo .mesita-caballo::before,
-.arte-caballo .mesita-caballo::after {
-    content:"";
-    position:absolute;
-    top:100%;
-    width:10px;
-    height:72px;
-    background:#76552f;
-}
-.arte-caballo .mesita-caballo::before { left:12px; }
-.arte-caballo .mesita-caballo::after { right:12px; }
-.saco-pienso-interactivo {
-    position:absolute;
-    left:calc(50% - 145px);
-    bottom:10%;
-    z-index:5;
-    width:48px;
-    height:62px;
-    padding:0;
-    overflow:hidden;
-    font-size:0;
-    border:3px solid #9b8250;
-    border-radius:7px 7px 4px 4px;
-    background:#9b8250;
-}
-.saco-pienso-interactivo::before {
-    content:"";
-    position:absolute;
-    top:5px;
-    left:8px;
-    right:8px;
-    height:7px;
-    border-bottom:3px solid #59402b;
-    border-radius:50%;
-}
-
-.vista-mansion { background:#20272a; }
-.suelo-porche { position:absolute; left:15%; right:15%; bottom:8%; height:24%; border:5px solid #76552f; background:repeating-linear-gradient(0deg,#68472c 0 12px,#503521 12px 15px); }
-.puerta-mansion { position:absolute; left:50%; bottom:32%; transform:translateX(-50%); width:190px; height:48%; border:8px solid #76552f; background:#493126; }
-.tejadillo-mansion { position:absolute; right:8%; bottom:69%; width:46%; height:13%; border:5px solid #76552f; background:#493126; transform:skewY(-4deg); }
-.nido-cuervo { position:absolute; right:14%; bottom:78%; width:76px; height:28px; border:5px solid #493126; border-radius:50%; background:#30231c; }
-.cuervo-interactivo {
-    position: absolute;
-    right: 14%;
-    bottom: 78%;
-    z-index: 8;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: #101214;
-    font-size: 32px;
-    line-height: 1;
-    cursor: pointer;
-    transition: right 1.2s ease-in-out, bottom 1.2s ease-in-out;
-}
-.cuervo-interactivo.cuervo-alimentado {
-    right: calc(9% + 34px);
-    bottom: 18%;
-}
-@media (prefers-reduced-motion: reduce) {
-    .cuervo-interactivo { transition: none; }
-}
-.cuenco-perro { position:absolute; right:9%; bottom:13%; z-index:5; min-width:110px; border:3px solid #8b6b43; border-radius:8px 8px 24px 24px; background:#493126; }
-.llave-cobre-suelta { position:absolute; left:57%; bottom:12%; z-index:7; font-size:30px; border:2px solid #b77b43; background:#30231c; }
-.cepo-cabra { position:absolute; left:48%; bottom:13%; width:150px; height:85px; border:9px solid #77716a; border-radius:50%; background:#4a3930; }
-.restos-cabra { position:absolute; left:38%; bottom:30%; width:60px; height:45px; border-radius:50%; background:#b6a78c; }
-
-.arte-caseta-mansion .caseta-perro { position:absolute; right:25%; bottom:15%; width:190px; height:150px; border:7px solid #76552f; background:#59402b; }
-.entrada-caseta { position:absolute; left:25%; bottom:0; width:50%; height:65%; border:5px solid #30231c; border-radius:50% 50% 0 0; background:#171b19; }
-.cabanita-mansion-fondo { position:absolute; left:13%; bottom:13%; width:190px; height:115px; border:5px solid #76552f; background:#59402b; }
-.cabanita-mansion-fondo::before { content:""; position:absolute; left:-15px; top:-55px; width:210px; height:55px; background:#493126; border:5px solid #76552f; }
-.cabanita-mansion-fondo span { position:absolute; left:42%; bottom:0; width:32px; height:65px; background:#30231c; }
-.buzon-mansion-fondo { position:absolute; left:37%; bottom:22%; width:42px; height:34px; border:3px solid #765044; background:#554238; }
-.arbol-fondo { position:absolute; bottom:12%; width:28px; height:190px; background:#493126; }
-.arbol-fondo::before { content:""; position:absolute; left:-45px; top:-50px; width:118px; height:105px; border-radius:50%; background:#354333; }
-.arbol-fondo-izq { right:15%; }
-.arbol-fondo-der { right:4%; }
-.salida-mansion { position:absolute; left:50%; bottom:30%; transform:translateX(-50%); z-index:5; }
-.arte-casa-grande .casa-grande-cuerpo { width:420px; height:210px; }
-.arte-casa-grande .casa-grande-tejado { width:490px; }
-.esqueleto-cabra-exterior { position:absolute; left:9%; bottom:15%; width:105px; height:48px; border-bottom:8px solid #c4b99f; border-radius:50%; }
-.esqueleto-cabra-exterior::before { content:""; position:absolute; left:25px; bottom:20px; width:38px; height:28px; border-radius:50%; background:#c4b99f; }
-.caseta-perro-exterior { position:absolute; right:8%; bottom:14%; width:110px; height:85px; border:5px solid #76552f; background:#59402b; }
-.caseta-perro-exterior::before { content:""; position:absolute; left:25%; bottom:0; width:50%; height:60%; background:#202321; border:3px solid #30231c; }
-.entrada-mansion { position:absolute; left:50%; bottom:30%; transform:translateX(-50%); z-index:6; }
-@media (max-width:650px) { .puerta-mansion { width:130px; } .suelo-porche { left:5%; right:5%; } .cuenco-perro { right:3%; } .tejadillo-mansion { right:3%; width:55%; } }
+/*\n\n/* ==========================================\n   FIN DE LA HOJA DE ESTILOS\n   ========================================== */\n
