@@ -137,7 +137,7 @@ function inicializarNavegacion() {
         cambiarZona("cabana", 0);
     });
     puertaEntradaMansion.addEventListener("click", () => cambiarZona("mansion", 0));
-    salidaMansion.addEventListener("click", () => cambiarZona("exterior", 0));
+    salidaMansion.addEventListener("click", () => cambiarZona("exterior", 2));
 
     cambiarZona("cabana", 0);
 }
