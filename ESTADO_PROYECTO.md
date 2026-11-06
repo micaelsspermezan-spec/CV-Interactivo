@@ -542,3 +542,11 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - El diseño no incluye encabezado ni texto literal; conserva el aspecto de fragmentos de documento y mantiene el contenido real del CV dentro del inventario y del panel correspondiente.
 - La Pieza 2, que aparece al resolver el puzle de los caballos, queda centrada en la perspectiva de la pared 2.
 - Se mantienen los IDs, eventos de recogida y lógica de los puzles. No se modifica JavaScript.
+
+
+## Ampliación de las zonas interactivas de puertas y edificios (6 de noviembre de 2026)
+
+- La salida de la pared trasera de la cabañita ahora ocupa toda la puerta dibujada, desde el marco hasta la base.
+- En Frente · Mansión, la zona para entrar al recibidor cubre la mansión completa y excluye la caseta del perro. En la vista exterior trasera, la cabañita completa permite regresar a la cabañita.
+- En el recibidor de la mansión, la cabañita se centra horizontalmente y el buzón cuadrado se desplaza a su izquierda. La zona de regreso cubre la propia cabañita.
+- Los botones conservan sus identificadores y eventos de navegación. Las zonas nuevas son transparentes y no modifican el arte decorativo ni la lógica JavaScript.
