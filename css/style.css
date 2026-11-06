@@ -1775,17 +1775,21 @@ button:focus-visible {
     background: #c58b68;
 }
 
-/* Emblema de dos caballos enfrentados sobre la puerta de la mansión. */
+/* Emblema grabado en la hoja de la puerta del recibidor. */
 .emblema-caballos-mansion {
     position: absolute;
-    z-index: 4;
-    top: 43%;
+    top: 17%;
     left: 50%;
-    width: 22%;
-    height: 11%;
+    width: 72%;
+    height: 24%;
     transform: translateX(-50%);
     overflow: visible;
-    fill: #080706;
+    fill: #4b2b20;
+    stroke: #76503b;
+    stroke-width: 1.2;
+    paint-order: stroke;
+    opacity: 0.88;
+    filter: drop-shadow(0 1px 0 rgba(213, 160, 117, 0.4));
     pointer-events: none;
 }
 
