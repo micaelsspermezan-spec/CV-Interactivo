@@ -1365,6 +1365,28 @@ button:focus-visible {
     z-index:7;
 }
 
+/* Al pasar el puntero, se aclara el elemento dibujado bajo cada zona de clic.
+   El botón invisible no muestra ningún fondo ni resplandor propio. */
+.zona-clic-transparente:hover {
+    background:transparent;
+    color:transparent;
+    box-shadow:none;
+}
+
+.puerta-interior-marco,
+.edificio-casa-grande,
+.edificio-cabanita,
+.cabanita-mansion-fondo {
+    transition:filter 0.18s ease;
+}
+
+#vista-pared-3:has(#puerta-salida-cabana:hover) .puerta-interior-marco,
+#vista-exterior-frente:has(#puerta-entrada-mansion:hover) .edificio-casa-grande,
+#vista-exterior-detras:has(#puerta-regreso-cabana:hover) .edificio-cabanita,
+#vista-mansion-detras:has(#salir-mansion-exterior:hover) .cabanita-mansion-fondo {
+    filter:brightness(1.2);
+}
+
 @media (max-width:650px) { .cuenco-perro { right:8%; } }
 
 /* ==========================================
