@@ -534,3 +534,11 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Se corrige la orientación del pico del cuervo. Al darle pienso, el cuervo se desplaza mediante transición hasta el cuenco; la llave decorativa desaparece y la llave recogible cae animada desde el nido hasta el suelo.
 - Se agrupan por separado árboles y caseta en el bosque derecho de la mansión; la cabañita y los árboles del fondo en la vista trasera; y los edificios/elementos asociados en las vistas exterior frontal y trasera de la cabaña.
 - Se conservan los IDs de los elementos interactivos, inventario y navegación. No se añaden recursos ni dependencias externas.
+
+
+## Aspecto de las piezas del currículum en la escena (6 de noviembre de 2026)
+
+- Las piezas 1 y 2 usan la clase visual compartida `.pieza-cv-escena`: pequeños rectángulos de papel claro con contorno oscuro y líneas de distintas longitudes que simulan texto.
+- El diseño no incluye encabezado ni texto literal; conserva el aspecto de fragmentos de documento y mantiene el contenido real del CV dentro del inventario y del panel correspondiente.
+- La Pieza 2, que aparece al resolver el puzle de los caballos, queda centrada en la perspectiva de la pared 2.
+- Se mantienen los IDs, eventos de recogida y lógica de los puzles. No se modifica JavaScript.
