@@ -479,3 +479,10 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - La llave de cobre del recibidor de la mansión utiliza la misma silueta CSS que la llave de hierro, en tono cobrizo rojizo.
 - La puerta de la pared trasera de la cabañita se amplía y llega hasta el borde inferior de la escena; el botón de salida queda junto a su parte baja.
 - Se mantienen los IDs y la lógica de interacción existentes.
+
+
+## Viñeta de iluminación y rediseño del saco de pienso (6 de noviembre de 2026)
+
+- Se aplica un degradado radial oscuro en los bordes de las cuatro perspectivas interiores de la cabañita y del recibidor de la mansión. El centro permanece más claro y la capa decorativa no intercepta clics.
+- El saco de pienso se redibuja con CSS: silueta de saco, cierre superior, etiqueta «PIENSO» y contorno negro. Conserva el ID `#saco-pienso`, su posición y su comportamiento interactivo.
+- Cambios exclusivamente visuales en CSS; no se modifica JavaScript, HTML, navegación ni lógica de inventario/puzles.
