@@ -542,25 +542,30 @@ button:focus-visible {
    10. CONTENIDO DEL CURRÍCULUM
    ========================================== */
 
-/* El currículum se presenta como una hoja editorial dentro del panel oscuro. */
+/* El currículum tiene aspecto de pergamino envejecido, integrado en la estética del juego. */
 #contenido-cv {
     width: min(100%, 1040px);
     margin: 0 auto;
     padding: clamp(24px, 5vw, 58px);
-    color: #302b25;
-    background: #eee8d9;
-    border: 1px solid #c9bda6;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+    color: #332719;
+    background-color: #d2bb8e;
+    background-image:
+        radial-gradient(ellipse at 12% 16%, rgba(112, 76, 37, 0.13), transparent 34%),
+        radial-gradient(ellipse at 88% 78%, rgba(120, 83, 43, 0.12), transparent 38%),
+        repeating-linear-gradient(0deg, rgba(91, 65, 35, 0.025) 0, rgba(91, 65, 35, 0.025) 1px, transparent 1px, transparent 4px),
+        linear-gradient(135deg, #dfcca3 0%, #cfb486 48%, #d9c397 100%);
+    border: 1px solid #92764d;
+    box-shadow: inset 0 0 32px rgba(91, 61, 29, 0.13), 0 12px 35px rgba(0, 0, 0, 0.28);
     line-height: 1.65;
 }
 
-#contenido-cv p { color: #625b50; }
+#contenido-cv p { color: #594a35; }
 
 /* La identidad personal permanece visible desde el principio. */
 #datos-personales-cv {
     padding-bottom: 28px;
     margin-bottom: 30px;
-    border-bottom: 2px solid #b99b62;
+    border-bottom: 2px solid #9c7b49;
 }
 
 .cv-identidad-superior {
@@ -580,15 +585,15 @@ button:focus-visible {
     text-transform: uppercase;
 }
 
-#datos-personales-cv .cv-sello { color: #47747a; }
+#datos-personales-cv .cv-sello { color: #3f625d; }
 #datos-personales-cv .cv-ubicacion {
-    color: #766b5c;
+    color: #725d3e;
     letter-spacing: 1px;
 }
 
 #datos-personales-cv h1 {
     margin: 0 0 7px;
-    color: #302b25;
+    color: #332719;
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(27px, 4vw, 43px);
     font-weight: normal;
@@ -598,7 +603,7 @@ button:focus-visible {
 
 #datos-personales-cv .cv-titular {
     margin: 0 0 22px;
-    color: #47747a;
+    color: #3f625d;
     font-size: clamp(15px, 2vw, 19px);
     font-weight: bold;
 }
@@ -608,7 +613,7 @@ button:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px 24px;
     padding-top: 17px;
-    border-top: 1px solid #d2c8b5;
+    border-top: 1px solid #b69a6d;
 }
 
 #datos-personales-cv .cv-contacto-item {
@@ -616,14 +621,14 @@ button:focus-visible {
     flex-wrap: wrap;
     gap: 5px 10px;
     margin: 0;
-    color: #514a40;
+    color: #51412d;
     font-size: 13px;
     overflow-wrap: anywhere;
 }
 
 .cv-contacto-item span {
     min-width: 74px;
-    color: #8b7040;
+    color: #80613a;
     font-size: 11px;
     font-weight: bold;
     letter-spacing: 0.8px;
@@ -635,7 +640,7 @@ button:focus-visible {
     visibility: hidden;
     margin-bottom: 30px;
     padding-bottom: 28px;
-    border-bottom: 1px solid #d2c8b5;
+    border-bottom: 1px solid #b69a6d;
 }
 
 .fragmento-cv.revelado { visibility: visible; }
@@ -650,7 +655,7 @@ button:focus-visible {
 .cv-seccion-cabecera:first-child { margin-top: 0; }
 
 .cv-numero-seccion {
-    color: #a48750;
+    color: #927344;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 14px;
     letter-spacing: 1px;
@@ -658,7 +663,7 @@ button:focus-visible {
 
 .fragmento-cv h3 {
     margin: 0;
-    color: #315c62;
+    color: #355b55;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 21px;
     font-weight: normal;
@@ -666,13 +671,13 @@ button:focus-visible {
 
 .fragmento-cv h4 {
     margin: 5px 0;
-    color: #40372d;
+    color: #40311f;
     font-size: 16px;
 }
 
 .fragmento-cv p,
 .fragmento-cv li {
-    color: #625b50;
+    color: #594a35;
     font-size: 14px;
 }
 
@@ -681,7 +686,7 @@ button:focus-visible {
 .cv-hito {
     margin: 0 0 20px 4px;
     padding: 0 0 0 18px;
-    border-left: 2px solid #c4aa76;
+    border-left: 2px solid #a98b5b;
 }
 
 .cv-hito h4 { margin-top: 3px; }
@@ -710,17 +715,17 @@ button:focus-visible {
     gap: 2px;
     margin: 0;
     padding: 12px;
-    background: #e5dece;
-    border-top: 2px solid #b99b62;
+    background: rgba(151, 117, 67, 0.13);
+    border-top: 2px solid #9c7b49;
 }
 
 .cv-datos-idiomas strong { color: #40372d; font-size: 14px; }
-.cv-datos-idiomas span { color: #766b5c; font-size: 12px; }
+.cv-datos-idiomas span { color: #725d3e; font-size: 12px; }
 
 .cv-grupo-competencias { margin: 0 0 20px; }
 .cv-grupo-competencias h4 {
     margin-bottom: 10px;
-    color: #76613d;
+    color: #71552f;
     font-size: 14px;
 }
 
@@ -729,18 +734,18 @@ button:focus-visible {
 .cv-etiquetas span {
     display: inline-block;
     padding: 6px 10px;
-    color: #40575a;
-    background: #e1e7e2;
-    border: 1px solid #c4d0c8;
+    color: #3d5148;
+    background: rgba(116, 137, 111, 0.16);
+    border: 1px solid #a9ae91;
     border-radius: 3px;
     font-size: 12px;
     line-height: 1.4;
 }
 
 .cv-etiquetas-intereses span {
-    color: #665438;
-    background: #e9e1d1;
-    border-color: #d5c7aa;
+    color: #604a2d;
+    background: rgba(160, 125, 73, 0.15);
+    border-color: #bda47a;
 }
 
 
