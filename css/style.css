@@ -227,10 +227,7 @@ button:focus-visible {
 
     overflow: hidden;
 
-    background:
-        radial-gradient(circle at center,
-            #252a2c,
-            #191b20 70%);
+    background: #080923;
 
     border: 1px solid var(--borde-dorado);
     border-radius: 5px;
@@ -1113,141 +1110,151 @@ button:focus-visible {
         rgba(0,0,0,.58) 100%);
 }
 
-/* Las vistas exteriores de la mansión dejan ver el mismo fondo ambiental
-   de #escena que ya utilizan las cuatro perspectivas exteriores de la cabaña. */
+/* Las perspectivas exteriores comparten un cielo ultramarino casi negro. */
 .vista-mansion { background: transparent; }
-.suelo-porche { position:absolute; left:15%; right:15%; bottom:8%; height:24%; border:5px solid #76552f; background:repeating-linear-gradient(0deg,#68472c 0 12px,#503521 12px 15px); }
-.puerta-mansion { position:absolute; left:50%; bottom:32%; transform:translateX(-50%); width:190px; height:48%; border:8px solid #76552f; background:#493126; }
-.tejadillo-mansion { position:absolute; right:8%; bottom:69%; width:46%; height:13%; border:5px solid #76552f; background:#493126; transform:skewY(-4deg); }
-.nido-cuervo { position:absolute; right:14%; bottom:78%; width:76px; height:28px; border:5px solid #493126; border-radius:50%; background:#30231c; }
-.cuervo-interactivo {
-    position: absolute;
-    right: 14%;
-    bottom: 78%;
-    z-index: 8;
-    width: 58px;
-    height: 48px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    transition: right 1.2s ease-in-out, bottom 1.2s ease-in-out;
-}
 
-/* Silueta de cuervo construida con CSS para evitar depender de emojis. */
-.cuervo-cuerpo {
+/* Fachada frontal del recibidor, construida íntegramente con CSS. */
+.arte-recibidor-mansion {
+    overflow: hidden;
+    background:
+        linear-gradient(to bottom, transparent 0 18%, #b77d5b 18% 88%, transparent 88%);
+}
+.arte-recibidor-mansion::before {
+    content: "";
     position: absolute;
-    left: 8px;
-    top: 17px;
-    width: 35px;
-    height: 24px;
-    border-radius: 55% 48% 48% 55%;
-    background: #101214;
-    transform: rotate(-8deg);
+    left: 5%;
+    right: 5%;
+    top: 8%;
+    height: 82%;
+    background: #b77d5b;
+    clip-path: polygon(0 34%, 44% 0, 100% 30%, 100% 100%, 0 100%);
+}
+.arte-recibidor-mansion::after {
+    content: "";
+    position: absolute;
+    left: 11%;
+    right: 11%;
+    top: 8%;
+    height: 83%;
+    pointer-events: none;
+    background:
+        linear-gradient(#8a5b43,#8a5b43) 0 19% / 15% 5px no-repeat,
+        linear-gradient(#8a5b43,#8a5b43) 35% 28% / 14% 5px no-repeat,
+        linear-gradient(#8a5b43,#8a5b43) 53% 39% / 16% 5px no-repeat,
+        linear-gradient(#8a5b43,#8a5b43) 86% 27% / 15% 5px no-repeat,
+        linear-gradient(#8a5b43,#8a5b43) 6% 77% / 15% 5px no-repeat,
+        linear-gradient(#8a5b43,#8a5b43) 78% 76% / 17% 5px no-repeat;
+    opacity: .9;
+}
+.suelo-porche {
+    position:absolute; z-index:1; left:5%; right:5%; bottom:9%; height:9%;
+    background:#b77d5b; border-top:12px solid #8a5b43;
+    box-shadow:0 34px 0 -10px #8a5b43;
+}
+.puerta-mansion {
+    position:absolute; z-index:2; left:50%; bottom:14%; transform:translateX(-50%);
+    width:13%; min-width:118px; max-width:220px; height:40%;
+    border:8px solid #8a5b43; outline:4px solid #b77d5b;
+    background:#8a5b43;
+    box-shadow:inset 0 0 0 4px #b77d5b;
+}
+.puerta-mansion::after {
+    content:""; position:absolute; right:7%; top:48%; width:10px; height:10px;
+    border-radius:50%; background:#c58b68;
+}
+.tejadillo-mansion {
+    position:absolute; z-index:3; left:11%; top:8%; width:78%; height:25%;
+    background:#8a5b43;
+    clip-path:polygon(0 72%, 48% 0, 100% 64%, 99% 82%, 48% 17%, 2% 90%);
+}
+.nido-cuervo {
+    position:absolute; z-index:5; right:17%; top:19%; width:82px; height:28px;
+    border:0; border-radius:50%;
+    background:
+        repeating-linear-gradient(12deg, transparent 0 5px, #765044 5px 9px),
+        #8a5b43;
+    box-shadow:0 7px 0 #765044, 0 12px 0 -4px #765044;
+}
+.ventana-mansion {
+    position:absolute; z-index:2; top:51%; width:13%; height:25%;
+    min-width:105px; max-width:190px;
+    border:12px solid #8a5b43;
+    background:
+        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%),
+        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%),
+        #080923;
+}
+.ventana-mansion-izq-ext { left:-1%; }
+.ventana-mansion-izq { left:19%; }
+.ventana-mansion-der { right:19%; }
+.ventana-mansion-der-ext { right:-1%; }
+
+.cuervo-interactivo {
+    position:absolute; right:20%; top:13%; bottom:auto; z-index:8;
+    width:58px; height:48px; padding:0; border:0;
+    background:transparent; cursor:pointer;
+    transition:right 1.2s ease-in-out, top 1.2s ease-in-out;
+}
+.cuervo-cuerpo {
+    position:absolute; left:8px; top:17px; width:35px; height:24px;
+    border-radius:55% 48% 48% 55%; background:#050609; transform:rotate(-8deg);
 }
 .cuervo-cuerpo::before {
-    content: "";
-    position: absolute;
-    left: -8px;
-    top: 5px;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-right: 13px solid #101214;
-    transform: rotate(-12deg);
+    content:""; position:absolute; left:-8px; top:5px;
+    border-top:7px solid transparent; border-bottom:7px solid transparent;
+    border-right:13px solid #050609; transform:rotate(-12deg);
 }
 .cuervo-cuerpo::after {
-    content: "";
-    position: absolute;
-    left: 10px;
-    top: 4px;
-    width: 22px;
-    height: 13px;
-    border-radius: 50%;
-    background: #25292c;
-    transform: rotate(18deg);
+    content:""; position:absolute; left:10px; top:4px; width:22px; height:13px;
+    border-radius:50%; background:#050609; transform:rotate(18deg);
 }
 .cuervo-cabeza {
-    position: absolute;
-    left: 32px;
-    top: 7px;
-    width: 19px;
-    height: 19px;
-    border-radius: 50%;
-    background: #101214;
+    position:absolute; left:32px; top:7px; width:19px; height:19px;
+    border-radius:50%; background:#050609;
+}
+.cuervo-cabeza::after {
+    content:""; position:absolute; right:6px; top:5px; width:4px; height:4px;
+    border-radius:50%; background:#fff;
 }
 .cuervo-pico {
-    position: absolute;
-    left: 47px;
-    top: 15px;
-    width: 0;
-    height: 0;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    border-left: 11px solid #b88a43;
+    position:absolute; left:0; top:17px; width:0; height:0;
+    border-top:5px solid transparent; border-bottom:5px solid transparent;
+    border-right:11px solid #f39a00;
 }
-.cuervo-pata {
-    position: absolute;
-    top: 37px;
-    width: 2px;
-    height: 8px;
-    background: #b88a43;
-}
-.cuervo-pata::after {
-    content: "";
-    position: absolute;
-    left: -3px;
-    bottom: 0;
-    width: 8px;
-    border-top: 2px solid #b88a43;
-}
-.cuervo-pata-izquierda { left: 22px; }
-.cuervo-pata-derecha { left: 35px; }
-
+.cuervo-pata { display:none; }
 .cuervo-interactivo.cuervo-alimentado {
-    right: calc(9% + 34px);
-    bottom: 18%;
+    right:calc(9% + 34px); top:auto; bottom:18%;
 }
 @media (prefers-reduced-motion: reduce) {
-    .cuervo-interactivo { transition: none; }
+    .cuervo-interactivo { transition:none; }
 }
-.cuenco-perro { position:absolute; right:9%; bottom:13%; z-index:5; min-width:110px; border:3px solid #8b6b43; border-radius:8px 8px 24px 24px; background:#493126; }
-/* Llave de cobre: misma silueta que la de hierro, con acabado rojizo. */
+.cuenco-perro {
+    position:absolute; right:29%; bottom:5%; z-index:5;
+    width:108px; min-width:0; height:48px; padding:0;
+    overflow:hidden; border:0; border-radius:45% 45% 50% 50%;
+    background:#a90020; color:transparent; font-size:0;
+}
+.cuenco-perro::before {
+    content:""; position:absolute; left:13%; right:13%; top:18%; height:35%;
+    border-radius:50%; background:#d0002b;
+    box-shadow:inset 0 -5px 0 rgba(70,0,12,.25);
+}
 .llave-cobre-suelta {
-    position: absolute;
-    left: 57%;
-    bottom: 12%;
-    z-index: 7;
-    width: 54px;
-    height: 30px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: transparent;
-    font-size: 0;
+    position:absolute; left:71%; top:12%; bottom:auto; z-index:9;
+    width:54px; height:30px; padding:0; border:0;
+    background:transparent; color:transparent; font-size:0;
 }
 .llave-cobre-suelta::before {
-    content: "";
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    width: 17px;
-    height: 17px;
-    border: 5px solid #a94f32;
-    border-radius: 50%;
+    content:""; position:absolute; left:2px; top:2px; width:17px; height:17px;
+    border:5px solid #ff704b; border-radius:50%;
 }
 .llave-cobre-suelta::after {
-    content: "";
-    position: absolute;
-    left: 22px;
-    top: 12px;
-    width: 30px;
-    height: 6px;
-    background: #a94f32;
-    box-shadow: 17px 5px 0 -1px #a94f32, 23px 0 0 -1px #a94f32;
+    content:""; position:absolute; left:0; top:8px; width:30px; height:5px;
+    background:#ff704b;
+    box-shadow:17px 5px 0 -1px #ff704b, 23px 0 0 -1px #ff704b;
 }
 .cepo-cabra { position:absolute; left:48%; bottom:13%; width:150px; height:85px; border:9px solid #77716a; border-radius:50%; background:#4a3930; }
 .restos-cabra { position:absolute; left:38%; bottom:30%; width:60px; height:45px; border-radius:50%; background:#b6a78c; }
-
 .arte-caseta-mansion .caseta-perro { position:absolute; right:25%; bottom:15%; width:190px; height:150px; border:7px solid #76552f; background:#59402b; }
 .entrada-caseta { position:absolute; left:25%; bottom:0; width:50%; height:65%; border:5px solid #30231c; border-radius:50% 50% 0 0; background:#171b19; }
 .cabanita-mansion-fondo { position:absolute; left:13%; bottom:13%; width:190px; height:115px; border:5px solid #76552f; background:#59402b; }
@@ -1264,7 +1271,11 @@ button:focus-visible {
 .caseta-perro-exterior { position:absolute; right:8%; bottom:14%; width:110px; height:85px; border:5px solid #76552f; background:#59402b; }
 .caseta-perro-exterior::before { content:""; position:absolute; left:25%; bottom:0; width:50%; height:60%; background:#202321; border:3px solid #30231c; }
 .entrada-mansion { position:absolute; left:50%; bottom:30%; transform:translateX(-50%); z-index:6; }
-@media (max-width:650px) { .puerta-mansion { width:130px; } .suelo-porche { left:5%; right:5%; } .cuenco-perro { right:3%; } .tejadillo-mansion { right:3%; width:55%; } }
+@media (max-width:650px) {
+    .puerta-mansion { width:130px; }
+    .suelo-porche { left:5%; right:5%; }
+    .cuenco-perro { right:8%; }
+}
 
 /* ==========================================
    7. INVENTARIO Y PANEL DEL CURRÍCULUM
