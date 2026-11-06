@@ -1775,22 +1775,35 @@ button:focus-visible {
     background: #c58b68;
 }
 
-/* Emblema grabado en la hoja de la puerta del recibidor. */
+/* Emblema grabado en la hoja de la puerta con la misma silueta ♞
+   de los caballitos del puzle, orientados uno hacia el otro. */
 .emblema-caballos-mansion {
     position: absolute;
     top: 17%;
     left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8%;
     width: 72%;
     height: 24%;
     transform: translateX(-50%);
-    overflow: visible;
-    fill: #4b2b20;
-    stroke: #76503b;
-    stroke-width: 1.2;
-    paint-order: stroke;
+    color: #4b2b20;
     opacity: 0.88;
     filter: drop-shadow(0 1px 0 rgba(213, 160, 117, 0.4));
     pointer-events: none;
+}
+
+.emblema-caballo {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 3.2vw, 39px);
+    line-height: 1;
+    text-shadow: 0 1px 0 #76503b;
+}
+
+.emblema-caballo-izquierdo {
+    transform: scaleX(-1);
 }
 
 /* Rediseño de la cabañita exterior: fachada a dos aguas y detalles de madera. */
@@ -2386,6 +2399,12 @@ button:focus-visible {
     color: var(--dorado-claro);
     text-align: center;
     font-size: 0.95rem;
+    text-shadow:
+        -1px -1px 1px #080807,
+         1px -1px 1px #080807,
+        -1px  1px 1px #080807,
+         1px  1px 1px #080807,
+         0 0 3px rgba(0, 0, 0, 0.9);
     pointer-events: none;
 }
 
