@@ -895,8 +895,14 @@ button:focus-visible {
     place-items: center;
     padding: 24px;
     background: rgba(5, 8, 10, 0.48);
+    opacity: 1;
     pointer-events: none;
     animation: aparecer-mensaje-final 0.35s ease-out;
+    transition: opacity 0.45s ease;
+}
+
+#mensaje-finalizacion.desvaneciendo {
+    opacity: 0;
 }
 
 .contenido-mensaje-finalizacion {
@@ -929,7 +935,10 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    #mensaje-finalizacion { animation: none; }
+    #mensaje-finalizacion {
+        animation: none;
+        transition: none;
+    }
 }
 
 
@@ -1764,6 +1773,20 @@ button:focus-visible {
     aspect-ratio: 1;
     border-radius: 50%;
     background: #c58b68;
+}
+
+/* Emblema de dos caballos enfrentados sobre la puerta de la mansión. */
+.emblema-caballos-mansion {
+    position: absolute;
+    z-index: 4;
+    top: 43%;
+    left: 50%;
+    width: 22%;
+    height: 11%;
+    transform: translateX(-50%);
+    overflow: visible;
+    fill: #080706;
+    pointer-events: none;
 }
 
 /* Rediseño de la cabañita exterior: fachada a dos aguas y detalles de madera. */
