@@ -82,10 +82,17 @@ function comprobarCurriculumCompleto() {
     const aviso = document.getElementById("mensaje-finalizacion");
     aviso.classList.remove("oculta");
 
-    // El aviso tiene su propio temporizador y no depende de los mensajes de escena.
+    // Se muestra un poco menos de tiempo y después se desvanece gradualmente.
+    aviso.classList.remove("desvaneciendo");
+
     setTimeout(() => {
-        aviso.classList.add("oculta");
-    }, 4000);
+        aviso.classList.add("desvaneciendo");
+
+        setTimeout(() => {
+            aviso.classList.add("oculta");
+            aviso.classList.remove("desvaneciendo");
+        }, 450);
+    }, 2550);
 }
 
 
