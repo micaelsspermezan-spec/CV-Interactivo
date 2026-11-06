@@ -1496,8 +1496,17 @@ button:focus-visible {
     transform: translateX(-50%);
 }
 
-.edificio-casa-grande { width: clamp(210px, 54%, 490px); aspect-ratio: 1.72; }
-.edificio-cabanita { width: clamp(170px, 29%, 260px); aspect-ratio: 1.62; }
+.edificio-casa-grande {
+    width: clamp(210px, 54%, 490px);
+    aspect-ratio: 1.72;
+    container-type: inline-size;
+}
+
+.edificio-cabanita {
+    width: clamp(170px, 29%, 260px);
+    aspect-ratio: 1.62;
+    container-type: inline-size;
+}
 
 .casa-grande-cuerpo,
 .cabanita-cuerpo {
@@ -1852,9 +1861,7 @@ button:focus-visible {
 .contenedor-mansion-exterior,.contenedor-cabanita-exterior { position:absolute; inset:0; z-index:2; }
 .contenedor-mansion-exterior { container-type:inline-size; }
 .contenedor-cabanita-exterior { container-type:inline-size; }
-.edificio-casa-grande,.edificio-cabanita { container-type:inline-size; }
-.edificio-casa-grande { width:clamp(210px,54%,490px); }
-.edificio-cabanita { width:clamp(170px,29%,260px); }
+/* Los edificios actúan como contenedores para sus elementos internos. */
 
 /* Edificios pequeños y elementos asociados mantienen proporción interna. */
 .arte-caseta-mansion,.arte-detras-mansion { overflow:hidden; }
@@ -1937,14 +1944,15 @@ button:focus-visible {
     filter:brightness(1.2);
 }
 
-@media (max-width:650px) { .cuenco-perro { right:8%; } }
-
-
 /* ==========================================
    13. ADAPTACIÓN A PANTALLAS PEQUEÑAS
    ========================================== */
 
 @media (max-width: 650px) {
+
+    .cuenco-perro {
+        right: 8%;
+    }
 
     .pantalla {
         padding: 15px;
