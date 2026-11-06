@@ -517,3 +517,11 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Se deshacen los últimos cambios de inclinación de astas y aumento de tamaño del cráneo de alce.
 - El alce recupera las proporciones iniciales de su primera versión CSS, anteriores a los ajustes solicitados después. Se conserva el tamaño ampliado del ciervo introducido en el primer ajuste.
 - No se modifican los modelos de cabra, la estructura de los slots ni la lógica del puzle.
+
+
+## Rediseño del recibidor de la mansión y fondo exterior (6 de noviembre de 2026)
+
+- El recibidor adopta una fachada CSS inspirada en la referencia del usuario: tejado a dos aguas, pared de madera marrón, cuatro ventanas de cuatro cristales, puerta central, detalles de juntas, nido y cuenco del perro.
+- El cielo ultramarino casi negro (#080923) sustituye el fondo gris de `#escena`, por lo que se comparte entre las cuatro perspectivas exteriores de la cabaña y las cuatro de la mansión.
+- El cuervo y la llave de cobre permanecen como elementos interactivos independientes del decorado. Se conservan sus IDs y la lógica del puzle; el cuervo mantiene su desplazamiento al alimentarlo y la llave sigue apareciendo en el escenario.
+- No se modifican navegación, inventario ni lógica JavaScript. El cambio se limita a `css/style.css`, `escenas/mansion.html` y esta documentación.
