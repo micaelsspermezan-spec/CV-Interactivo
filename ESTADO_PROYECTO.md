@@ -511,3 +511,9 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Se corrige la inclinación de las astas del alce para que queden reflejadas simétricamente hacia los lados exteriores, sin que ambas parezcan torcidas en la misma dirección.
 - Se agranda de forma más evidente la silueta del cráneo de alce respecto al cráneo de ciervo, aumentando también ligeramente sus rasgos faciales.
 - Se mantienen intactos el modelo de cabra, el tamaño del ciervo, los slots y la lógica de interacción.
+
+## Reversión de los últimos ajustes de proporciones de cráneos (6 de noviembre de 2026)
+
+- Se deshacen los últimos cambios de inclinación de astas y aumento de tamaño del cráneo de alce.
+- El alce recupera las proporciones iniciales de su primera versión CSS, anteriores a los ajustes solicitados después. Se conserva el tamaño ampliado del ciervo introducido en el primer ajuste.
+- No se modifican los modelos de cabra, la estructura de los slots ni la lógica del puzle.
