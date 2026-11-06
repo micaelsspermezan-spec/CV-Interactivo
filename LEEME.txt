@@ -1,11 +1,10 @@
 CV INTERACTIVO — MICAEL SAMUEL
 =================================
 
-¿QUÉ ES?
---------
-Un currículum interactivo presentado como una pequeña aventura de exploración.
-Puedes recorrer la cabaña, sus alrededores y la mansión, encontrar objetos,
-resolver mecanismos y descubrir las distintas partes del currículum.
+Este es mi currículum vitae, hecho en formato de una pequeña aventura point and click.
+
+El objetivo es restaurar todas las piezas del CV a través de unos pocos puzles repartidos por las distintas pantallas.
+
 
 CÓMO ABRIRLO
 ------------
