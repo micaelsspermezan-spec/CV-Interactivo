@@ -1,589 +1,193 @@
 # CV-Interactivo — Estado del proyecto
 
-> Documento de referencia del proyecto. Actualizarlo cuando cambien la estructura, las mecánicas o las decisiones técnicas.
+> **Documento principal vigente.** Esta es la referencia actual para conocer la estructura, el funcionamiento, las decisiones y las tareas pendientes del proyecto. Trabajar siempre con este archivo salvo que aquí se indique expresamente otro documento.
 
-## 1. Descripción
+Si el historial de cambios crece hasta dificultar la consulta del estado actual, se trasladarán las entradas antiguas a \`HISTORIAL_PROYECTO.md\`. Este documento seguirá siendo el punto de entrada y señalará claramente dónde está el historial. No se crearán versiones numeradas como \`ESTADO_PROYECTO1.md\`, \`ESTADO_PROYECTO2.md\`, etc., para evitar dudas sobre cuál está vigente.
 
-CV interactivo de Micael Samuel, desarrollado como una experiencia de exploración tipo escape room / point-and-click. El visitante explora una cabaña, recoge objetos, resuelve pequeños mecanismos y descubre fragmentos de información del currículum.
+## 1. Descripción y tecnologías
 
-La ambientación prevista combina una cabaña oscura y misteriosa, madera, elementos de latón y acentos cian. La inspiración general incluye experiencias interactivas como Bruno Simon y Surgeon Simulator. La escena actual utiliza botones y elementos CSS provisionales; la integración de ilustraciones y recursos visuales queda para una fase posterior.
+CV interactivo desarrollado como una aventura de exploración point-and-click. El visitante recorre una cabañita, sus exteriores y la zona exterior de una mansión; recoge objetos, resuelve mecanismos y desbloquea partes del currículum.
 
-El proyecto se desarrolla en HTML, CSS y JavaScript vanilla desde Visual Studio Code en Windows.
+El proyecto utiliza HTML, CSS y JavaScript vanilla. Los escenarios y sus elementos visuales se construyen principalmente con HTML y CSS. No se utilizan bibliotecas, dependencias, imágenes ni servicios externos para las escenas actuales.
 
-## 2. Estructura actual del repositorio
+El trabajo se realiza desde Visual Studio Code y el repositorio oficial es \`micaelsspermezan-spec/CV-Interactivo\`. La rama de trabajo habitual es \`main\`.
 
-La siguiente estructura refleja el código presente en la rama `main` en la fecha de esta documentación. Se detallan principalmente las secciones internas, no solo los archivos.
+## 2. Estado actual del proyecto
 
-```text
+### Escenarios y navegación
+
+- **Cabañita:** cuatro paredes interiores. La frontal contiene el escritorio, el cofre y elementos del CV; la izquierda contiene el puzle de los caballos; la trasera tiene la puerta de salida; la derecha contiene el puzle de los trofeos.
+- **Exterior de la cabañita:** cuatro perspectivas conectadas entre sí. Desde la vista frontal se accede a la zona exterior de la mansión.
+- **Mansión:** cuatro perspectivas exteriores: Recibidor, Bosque izquierdo, Bosque derecho y Detrás. El interior de la mansión no es accesible en esta versión.
+- La navegación se realiza mediante flechas entre perspectivas y zonas de clic sobre puertas y edificios. Las zonas de clic conservan sus identificadores y están separadas del arte decorativo.
+
+### Objetos, inventario y mecanismos
+
+- El inventario almacena los objetos recogidos durante la partida. Los objetos agotados permanecen visibles, pero atenuados y sin posibilidad de volver a equiparse.
+- Existe una única ranura de equipamiento. Los objetos utilizables pueden equiparse desde su ficha; si la ranura está vacía, algunos objetos se equipan automáticamente al recogerlos.
+- El puzle del cuervo permite obtener la llave de cobre al colocar pienso en el cuenco del perro. La llave abre el cofre del escritorio y permite conseguir la Pieza 1 del CV.
+- El puzle de los caballos requiere abrir el buzón con la llave de hierro, recoger y colocar el caballito plateado y dejar los dos caballos mirándose frente a frente. Al resolverlo aparece la Pieza 2.
+- El puzle de los trofeos consiste en ordenar los cráneos de cabra, ciervo y alce según la pista de los árboles del bosque izquierdo. Al resolverlo aparece la Pieza 3. La versión actual utiliza tres posiciones y tres trofeos.
+- Las piezas del CV se agrupan en el inventario y pueden consultarse. El panel del currículum mantiene visible su cabecera personal y revela los tres fragmentos al conseguir las piezas correspondientes.
+- Al recoger todas las piezas disponibles aparece un aviso de finalización compacto y ligeramente translúcido durante cuatro segundos. Se muestra una sola vez por partida y no bloquea la interacción.
+
+### Límites conocidos y alcance de esta versión
+
+- El inventario, los objetos y el progreso se mantienen en memoria JavaScript. Recargar la página reinicia la partida; no hay guardado persistente.
+- No se desarrollará el interior de la mansión ni se añadirán más objetos o puzles para cerrar esta versión.
+- Hay animaciones CSS puntuales, como el desplazamiento del cuervo y la caída de la llave. No existe un sistema general de audio ni de animación compleja.
+- La adaptación a pantallas pequeñas tiene reglas CSS básicas; deberá revisarse durante las pruebas finales.
+- El estado descrito corresponde al código de la rama \`main\`. No se debe asumir que una copia local de VS Code está sincronizada con GitHub.
+
+## 3. Estructura del repositorio
+
+\`\`\`text
 CV-Interactivo/
-│
 ├── index.html
-│   ├── head
-│   │   ├── Metadatos y viewport
-│   │   ├── Título: CV - Micael Samuel
-│   │   └── Enlace a css/style.css
-│   │
-│   └── body
-│       ├── #wip
-│       ├── #inicio
-│       │   └── .contenido-inicio
-│       │       ├── .etiqueta-seccion
-│       │       ├── Título y texto introductorio
-│       │       ├── #entrar
-│       │       └── #ver-cv
-│       │
-│       ├── #exploracion
-│       │   ├── .cabecera-exploracion
-│       │   │   ├── #volver-menu
-│       │   │   ├── Título de la cabaña
-│       │   │   └── #abrir-inventario
-│       │   ├── #contenedor-equipamiento
-│       │   │   ├── #ranura-equipada
-│       │   │   │   └── #icono-ranura
-│       │   │   └── #menu-equipamiento
-│       │   │       └── #sustituir-equipamiento
-│       │   ├── #escena
-│       │   │   ├── #volver
-│       │   │   ├── #navegacion-perspectivas
-│       │   │   │   ├── #perspectiva-anterior
-│       │   │   │   ├── #indicador-perspectiva
-│       │   │   │   └── #perspectiva-siguiente
-│       │   │   ├── .vista-pared (1–4, cabaña)
-│       │   │   ├── #zonas-interactivas (pared 1)
-│       │   │   └── .vista-exterior (4 perspectivas)
-│       │   │       ├── #puerta-salida-cabana
-│       │   │       └── #puerta-regreso-cabana
-│       │   │       ├── #poster-cv
-│       │   │       ├── #llave-hierro
-│       │   │       ├── #llave-cobre-suelta (se genera en el recibidor)
-│       │   │       ├── #cofre-escritorio
-│       │   │       ├── #pieza-cv-1-3
-│       │   │       ├── #mensaje-escena
-│       │   │       ├── #slot-caballo-izquierdo y #slot-caballo-derecho (pared 2)
-│       │   │       └── #buzon-oxidado (exterior derecho)
-│       │   └── #inventario
-│       │       ├── #cabecera-inventario
-│       │       │   ├── Título
-│       │       │   └── #cerrar-inventario
-│       │       ├── #progreso
-│       │       ├── #lista-objetos
-│       │       └── #detalle-objeto
-│       │           ├── #nombre-objeto
-│       │           ├── #descripcion-objeto
-│       │           └── #acciones-objeto
-│       │
-│       └── #panel-cv
-│           ├── #cabecera-cv
-│           │   ├── Título
-│           │   └── #cerrar-cv
-│           └── #contenido-cv
-│               ├── #datos-personales-cv
-│               ├── [data-pieza-cv="1"] · Perfil y formación
-│               ├── [data-pieza-cv="2"] · Experiencia e idiomas
-│               └── [data-pieza-cv="3"] · Competencias e intereses
-│
+│   └── Interfaz general: menú, exploración, controles, inventario y panel del CV.
+├── escenas/
+│   ├── cabana.html
+│   │   └── Cuatro paredes interiores y cuatro perspectivas del exterior de la cabañita.
+│   └── mansion.html
+│       └── Cuatro perspectivas exteriores de la mansión.
 ├── css/
 │   └── style.css
-│       ├── 1. Variables y configuración general
-│       ├── 2. Pantallas y visibilidad
-│       ├── 3. Menú principal
-│       ├── 4. Botones y elementos interactivos
-│       ├── 5. Cabecera y navegación
-│       ├── 6. Escena principal
-│       ├── 7. Inventario y panel del currículum
-│       ├── 8. Cabeceras de los paneles
-│       ├── 9. Contenido del inventario
-│       ├── 10. Contenido del currículum
-│       ├── 11. Etiqueta WIP
-│       ├── 12. Ranura de equipamiento
-│       ├── 12.1. Menú de equipamiento
-│       ├── 13. Adaptación a pantallas pequeñas
-│       └── Mensajes de interacción de la escena
-│
+│       ├── Variables, pantallas, menú, botones, cabecera y escena.
+│       ├── Inventario, currículum, equipamiento y avisos.
+│       ├── Objetos interactivos, caballos, trofeos y piezas del CV.
+│       ├── Paredes interiores y elementos propios de la cabañita.
+│       ├── Edificios, árboles, exteriores y mansión.
+│       └── Adaptación a pantallas pequeñas y mensajes de escena.
 ├── js/
+│   ├── cargar-escena.js
+│   │   └── Carga el HTML de la escena y después los módulos JavaScript.
 │   ├── inventory.js
-│   │   ├── 1. Datos del inventario
-│   │   ├── 2. Añadir objetos
-│   │   ├── 3. Actualizar inventario visual
-│   │   ├── 4. Selección de objetos
-│   │   ├── 5. Equipamiento y autoequipamiento
-│   │   ├── 6. Retirada de objetos y actualización de ranura
-│   │   ├── 7. Abrir inventario desde equipamiento
-│   │   ├── 8. Ficha del objeto seleccionado
-│   │   └── 9. Deselección dentro del inventario
-│   │
+│   │   └── Datos del inventario, recogida, fichas, selección y equipamiento.
 │   ├── puzzles.js
-│   │   ├── 1. Cofre del escritorio
-│   │   └── 2. Puzle de los caballos: buzón, slots y selección/intercambio
-│   │
+│   │   └── Lógica del cofre, cuervo, buzón, caballos y trofeos.
 │   ├── navigation.js
-│   │   ├── 1. Configuración de las perspectivas
-│   │   ├── 2. Mostrar una perspectiva
-│   │   └── 3. Inicializar los controles
-│   │
+│   │   └── Perspectivas, cambios de zona y navegación entre escenarios.
 │   └── main.js
-│       ├── 1. Referencias HTML
-│       ├── 2. Navegación
-│       ├── 3. Panel del currículum
-│       ├── 4. Inventario
-│       ├── 5. Póster del currículum
-│       ├── 6. Llave de hierro y autoequipamiento
-│       ├── 7. Llave de cobre (se obtiene del cuervo)
-│       ├── 8. Cofre del escritorio
-│       ├── 9. Recogida de las piezas del currículum
-│       ├── 10. Desbloqueo de fragmentos del CV
-│       └── 11. Detección de clics exteriores
-│
-└── assets/
-    └── (carpetas de recursos visuales previstas; confirmar contenido en local)
-```
+│       └── Coordinación de la interfaz, eventos generales y elementos de escena.
+└── ESTADO_PROYECTO.md
+    └── Documento principal de referencia, normas, estado e historial.
+\`\`\`
 
-**Nota sobre la estructura:** `index.html` conserva la interfaz general y carga `js/cargar-escena.js`. Este cargador inserta `escenas/cabana.html` en `#contenido-escena` y, después, carga secuencialmente `inventory.js`, `puzzles.js`, `navigation.js` y `main.js`. La escena externa contiene cuatro perspectivas de la cabañita y cuatro del exterior.
+### Responsabilidad de los archivos
 
-### Arquitectura de escenas
+- \`index.html\` conserva la estructura general de la aplicación y los paneles globales.
+- \`escenas/cabana.html\` y \`escenas/mansion.html\` contienen el marcado de sus respectivas perspectivas.
+- \`css/style.css\` concentra los estilos de interfaz y el arte de los escenarios. Mantiene bloques temáticos para que las reglas relacionadas estén juntas.
+- \`inventory.js\` administra los objetos, sus datos, la selección, las fichas y el equipamiento.
+- \`puzzles.js\` contiene las condiciones y las interacciones de los mecanismos.
+- \`navigation.js\` administra las perspectivas y las transiciones entre las tres zonas.
+- \`main.js\` conecta los eventos de la interfaz y coordina las interacciones generales.
+- \`cargar-escena.js\` inserta el HTML externo antes de cargar los módulos que necesitan consultar sus elementos.
 
-La aplicación separa el contenido de las escenas del documento principal, sin convertir cada perspectiva en un archivo independiente.
+## 4. Carga y ejecución
 
-- `index.html` conservará la estructura general de la aplicación: menú, interfaz de exploración, cabecera, equipamiento, contenedor de escena, inventario y panel del currículum.
-- `escenas/cabana.html` contiene tanto las cuatro perspectivas de la cabañita como las cuatro perspectivas de la zona exterior. La cabañita y el exterior siguen siendo zonas diferenciadas dentro de la navegación.
-- `escenas/mansion.html` contiene las cuatro perspectivas exteriores de la mansión. El interior no forma parte de esta versión y no se desarrollará.
-- La escena externa se inserta en el contenedor `#contenido-escena` de `index.html` mediante `fetch`, sin recargar la aplicación.
-- Como los módulos JavaScript consultan elementos de la escena mediante sus IDs, `js/cargar-escena.js` espera a que `cabana.html` se haya cargado e insertado antes de cargar secuencialmente `inventory.js`, `puzzles.js`, `navigation.js` y `main.js`.
-- El uso de `fetch` para cargar HTML externo requiere ejecutar el proyecto mediante un servidor web local. Durante el desarrollo se utilizará Live Server desde VS Code. Abrir `index.html` directamente con la dirección `file://` no permitirá cargar las escenas externas.
-- No se añadirán dependencias, paquetes ni servicios externos para esta reorganización.
+Las escenas HTML se insertan en el contenedor \`#contenido-escena\` mediante \`fetch\`. Después de insertar el marcado, el cargador incorpora secuencialmente los módulos JavaScript para que sus identificadores y elementos ya existan al registrar los eventos.
 
-### Ejecución y entrega
+Por este motivo, el proyecto debe abrirse mediante un servidor HTTP local, por ejemplo **Live Server** en VS Code. Abrir \`index.html\` directamente con \`file://\` no permite cargar correctamente las escenas externas.
 
-- La entrega deberá ser sencilla de abrir y revisar, sin exigir al profesor instalar Node.js, Python, paquetes ni dependencias.
-- Se preparará un archivo `LEEME.txt` con instrucciones claras de ejecución, contenido del proyecto y explicación breve de su funcionamiento.
-- Se valorará publicar una versión ejecutable mediante GitHub Pages, de modo que el profesor pueda abrirla desde un enlace, y acompañarla de una copia del código fuente.
-- La publicación y el formato definitivo de entrega se decidirán más adelante. No se configurarán automatizaciones ni servicios de publicación sin explicarlo y acordarlo previamente.
+La entrega deberá incluir instrucciones claras en un archivo \`LEEME.txt\`, una copia completa del código fuente y, si se considera conveniente, una versión publicada mediante GitHub Pages. No se instalarán dependencias ni se configurarán servicios externos sin explicarlo y acordarlo antes.
 
+## 5. Decisiones que se deben mantener
 
-## 3. Responsabilidad de los módulos
-
-- **index.html:** estructura de las pantallas, interfaz general, contenedor de escena, inventario y panel del CV.
-- **escenas/cabana.html:** perspectivas de la cabañita y del exterior.
-- **style.css:** variables visuales, disposición, estados de visibilidad, paneles, botones, ranura de equipamiento y adaptación móvil.
-- **inventory.js:** datos del inventario en memoria, recogida, listado, selección, ficha, equipamiento y ranura.
-- **puzzles.js:** lógica de mecanismos y comprobación de objetos equipados. Gestiona el cofre del escritorio, el puzle del cuervo, el buzón y el puzle de los caballos.
-- **navigation.js:** gestiona el cambio entre las perspectivas de la cabañita, el exterior y las cuatro perspectivas exteriores de la mansión.
-- **main.js:** coordinación de eventos de interfaz, cambios entre menú y exploración, apertura/cierre de paneles y recogida de objetos de la escena.
-
-## 4. Mecánicas presentes en el código
-
-### Navegación y paneles
-
-- Pantalla inicial con botón para entrar en la cabaña.
-- Botón para volver al menú principal.
-- Panel del currículum independiente.
-- Inventario que puede abrirse y cerrarse.
-- Detección de clics exteriores para cerrar paneles.
-- La vuelta al menú limpia el mensaje temporal de escena y la selección, pero no reinicia los objetos recogidos ni el estado de los mecanismos.
-
-### Inventario
-
-- Los objetos se almacenan en el array `objetosInventario`.
-- Cada objeto distingue entre `tipo` (comportamiento interno), `categoria` (etiqueta visible), `descripcion` (texto breve) y `agotado` (estado que atenúa la descripción).
-- Se evita añadir dos veces un objeto con el mismo ID.
-- El inventario muestra los objetos recogidos y el contador general. El número de piezas existentes se calcula a partir de `datosPiezasCV` y se compara internamente con las piezas recogidas para detectar cuándo se completa el currículum; este progreso no se muestra en el inventario.
-- Al recoger todas las piezas definidas en `datosPiezasCV`, aparece una felicitación centrada durante cuatro segundos. El aviso es más compacto y ligeramente translúcido, se muestra una sola vez por partida, tiene un temporizador independiente de los mensajes de escena y no bloquea la interacción. El inventario y el equipamiento se mantienen por encima del aviso.
-- La primera pieza del CV aparece como un objeto individual. Al recoger una segunda pieza, todas las piezas se agrupan bajo el elemento «Piezas de CV», con un reborde distintivo y un contador en superíndice.
-- El grupo despliega un submenú flotante anclado a su botón, superpuesto al inventario y sin alterar la distribución de los demás objetos. Los botones del inventario mantienen un tamaño uniforme. Pulsar cualquier zona de la ficha de un objeto —incluidos título, categoría, descripción, espacios vacíos y botones de acción— pliega el submenú sin cerrar el inventario ni ocultar la ficha; la acción del elemento pulsado sigue ejecutándose normalmente. Pulsar una zona vacía del inventario también lo pliega. Seleccionar otro objeto pliega el submenú y actualiza su ficha sin cerrar el inventario. La detección de clic exterior respeta la ruta original del evento aunque se reconstruya la lista. Cerrar el inventario o pulsar fuera también pliega el submenú.
-- Al seleccionar un objeto se muestra su nombre, categoría y descripción breve, además de las acciones disponibles.
-- La categoría y la descripción se muestran en blanco; la descripción puede pasar a gris cuando el objeto se marca como agotado.
-- Cada objeto almacena por separado su tipo interno, categoría visible, descripción y estado de agotamiento.
-- Las fichas de las piezas del CV muestran sus datos y adaptan el mensaje y el color según se haya recogido o no el currículum.
-- Las piezas del CV permanecen en el inventario y se pueden consultar tantas veces como se quiera, independientemente de cuándo se haya recogido el currículum.
-- La descripción del currículum se actualiza automáticamente al recoger piezas y enumera las piezas recuperadas.
-- Los datos de cada pieza se centralizan en el registro `datosPiezasCV` de `inventory.js`, preparado para añadir nuevas piezas.
-
-### Equipamiento
-
-- Existe una única ranura de equipamiento.
-- Si está vacía, pulsarla abre el inventario.
-- Si contiene un objeto, pulsarla abre el menú para sustituirlo.
-- Las llaves, herramientas y piezas de mecanismo son los tipos equipables definidos actualmente.
-- Cuando se recoge un objeto equipable y la ranura está vacía, se equipa automáticamente.
-- El autoequipamiento muestra durante 2,5 segundos un mensaje en la escena con el nombre del objeto. El temporizador no borra mensajes posteriores de otras interacciones.
-- Si ya hay otro objeto equipado, recoger un objeto nuevo no lo sustituye automáticamente.
-- Los objetos equipables pueden equiparse manualmente desde la ficha del inventario y el objeto equipado se conserva en memoria mientras la página no se recargue.
-
-### Recogida y puzle
-
-- Los objetos normales se recogen y se almacenan en el inventario. Algunos podrán equiparse y utilizarse sobre elementos de la escena.
-- El póster se recoge como documento y desbloquea el botón para consultar el CV.
-- Se puede recoger la llave de hierro en la cabañita. La llave de cobre aparece en el suelo del recibidor tras alimentar al cuervo.
-- El cofre del escritorio requiere la llave de cobre equipada.
-- Al abrirlo aparece la pieza de CV 1/3 en la escena.
-- La pieza 2 se desbloquea al resolver el puzle de los caballos y la pieza 3 al completar el orden correcto de los trofeos.
-- Las tres piezas se añaden al inventario como tipo `pieza-cv`. Cada recogida revela el fragmento correspondiente del currículum.
-
-### Puzles definidos para la primera versión
-
-El puzle de los caballos está implementado en la pared izquierda de la cabañita. El puzle del cuervo está implementado en su primera versión y el puzle de los trofeos cuenta con una primera implementación. Sus ubicaciones y objetos respetarán la navegación por perspectivas ya existente; por ahora no se añadirán vistas ampliadas.
-
-#### Puzle del cuervo — Pieza 1
-
-- En el tejado del recibidor de la casa grande hay un cuervo dibujado con elementos CSS, en un nido y con una llave de cobre en el pico.
-- Pulsar el cuervo o el nido antes de resolver el puzle muestra que está demasiado alto para alcanzarlo.
-- El jugador deberá encontrar semillas, pienso u otra comida apropiada y colocarla en el cuenco del perro.
-- Al colocar el pienso, el cuervo baja animadamente desde el nido hasta el cuenco, donde se queda comiendo, y deja caer la llave de cobre.
-- La llave de cobre abre el cofre situado sobre el escritorio de la cabañita. Dentro estará la Pieza 1 del currículum.
-
-#### Puzle de los caballos — Pieza 2 (implementado)
-
-- La pared izquierda de la cabañita tiene dos slots: el izquierdo con borde dorado y el derecho con borde plateado. El caballito dorado comienza en el slot izquierdo y mira hacia la derecha.
-- El caballito dorado es un objeto de escenario: no se recoge ni pasa al inventario. Al pulsarlo queda seleccionado con un contorno visible y muestra únicamente la descripción «Un caballito dorado».
-- El buzón oxidado de la perspectiva exterior derecha se abre únicamente si la llave de hierro está equipada. Al abrirlo, se añade el caballito plateado al inventario como objeto normal.
-- El caballito plateado se puede equipar desde el inventario. Al usarlo sobre un slot vacío de la pared, se retira del inventario y se convierte en objeto de escenario.
-- Los objetos de escenario se seleccionan con un contorno visible. Al seleccionar otro objeto de escenario, ambos intercambian posiciones; si el destino está vacío, el objeto seleccionado se desplaza a él. Volver a pulsar el mismo objeto no produce ningún efecto.
-- Pulsar fuera de los slots no cancela la selección ni interfiere con otras acciones de la escena.
-- La solución es el caballito dorado en el slot izquierdo y el plateado en el derecho, mirándose frente a frente. Al completarla aparece la Pieza 2 del currículum.
-- La lógica de selección e intercambio está planteada para reutilizarse en el puzle de los trofeos.
-
-#### Puzle de los trofeos — Pieza 3
-
-- La pared derecha de la cabañita tiene inicialmente tres posiciones para trofeos. El primer hueco desde la izquierda ya contiene un cráneo de ciervo, pero está mal colocado.
-- Los tres trofeos son una cabra con los cuernos cortados, un ciervo con cuernos medianos y un alce con cuernos grandes.
-- La solución se deduce observando los árboles del bosque izquierdo: los trofeos deben colocarse de izquierda a derecha en el orden inverso al de los árboles. Con la disposición inicial de tres árboles, el orden correcto de los trofeos es cabra, ciervo y alce.
-- El cráneo de alce está sobre el tejado de la cabañita y se recoge desde la perspectiva trasera del exterior de la cabañita. El cráneo de cabra está sobre los restos del cadáver atrapado en el cepo del bosque izquierdo. El cráneo de ciervo ya comienza en la pared de trofeos.
-- Los cráneos que ya forman parte de la pared no se recogen al pulsarlos. En su lugar, el cráneo pulsado queda seleccionado con un reborde y después se puede pulsar otra posición para moverlo o intercambiarlo. Los cráneos que se encuentran fuera de la pared se recogen al inventario y, al equiparlos, se pueden colocar en una posición vacía. Pulsar fuera de las posiciones cancela la selección.
-- Al completar el orden correcto se obtiene la Pieza 3 del currículum.
-- El mecanismo debe ser dinámico: no debe asumir que siempre habrá tres árboles o tres huecos. En futuras ampliaciones podrá haber cuatro o cinco árboles y el sistema deberá admitir el mismo número de posiciones y trofeos, manteniendo la regla del orden inverso.
-
-### Presentación del currículum pendiente de descubrir
-
-La información de los bloques que todavía no se hayan desbloqueado se representará mediante líneas negras colocadas donde iría el texto, simulando texto censurado. Al conseguir la pieza correspondiente, las líneas se sustituirán por el contenido real. Se mantiene la cabecera personal visible desde el principio.
-
-## 5. Estado y límites actuales
-
-- La escena es provisional y está construida con botones y composiciones CSS sencillas. La cabaña y la zona exterior permiten recorrer sus cuatro perspectivas mediante flechas; todavía no hay habitaciones ilustradas ni movimiento libre.
-- Los objetos y el progreso se guardan solo en memoria JavaScript: al recargar la página se reinicia el estado.
-- El panel del CV contiene la cabecera personal visible y tres fragmentos en un único documento.
-- Cada pieza revela su bloque correspondiente: pieza 1 (perfil y formación), pieza 2 (experiencia e idiomas) y pieza 3 (competencias digitales e intereses).
-- En el inventario, cada pieza muestra sus datos en blanco si el currículum aún no se ha recogido y en gris si ya se han incorporado. El mensaje de estado cambia automáticamente según el orden de recogida.
-- Los bloques del currículum aún no descubiertos deberán mostrar líneas negras simulando texto censurado; al recoger su pieza se mostrará el texto real.
-- Están implementados el cofre con llave de cobre, la primera versión del puzle del cuervo, el puzle de los caballos y una primera versión del puzle de los trofeos.
-- No hay todavía sistema general de guardado, persistencia, audio ni animaciones complejas.
-- `navigation.js` permite recorrer las cuatro paredes de la cabañita, las cuatro perspectivas del exterior y las cuatro perspectivas exteriores de la mansión.
-- La reorganización de escenas está implementada: las ocho perspectivas de la cabañita y el exterior se encuentran en `escenas/cabana.html` y se cargan dinámicamente desde `index.html`.
-- La carpeta `assets` está prevista para recursos visuales; confirmar su contenido real en el equipo local.
-
-## 6. Decisiones que debemos mantener
-
-- Mantener los archivos y nombres actuales salvo que exista una razón clara para cambiarlos.
-- Mantener el código modular y comentado, con secciones numeradas.
-- El árbol del proyecto debe describir las secciones internas de los archivos, no limitarse a enumerar nombres.
-- Actualizar este documento cuando se añadan secciones, objetos, mecánicas o módulos.
-- La lógica jugable de esta versión está prácticamente cerrada. La siguiente fase de trabajo se centra en renovar el aspecto visual y sustituir o perfeccionar los elementos provisionales.
+- Trabajar en la rama \`main\`, salvo indicación expresa en contrario.
+- Mantener la separación entre interfaz general, escenas, estilos, inventario, puzles y navegación.
+- No dividir cada perspectiva en un archivo independiente salvo que el tamaño del proyecto lo justifique.
+- Mantener la mansión como zona exterior explorable; su interior queda fuera del alcance de esta entrega.
+- No incorporar guardado persistente, nuevos puzles ni nuevos objetos como requisito de cierre.
+- Mantener los identificadores de los elementos interactivos cuando se rediseñe su aspecto, salvo que se revise también su lógica y se acuerde el cambio.
+- Priorizar HTML y CSS comprensibles, con estilos agrupados por función y comentarios útiles.
 - El currículum debe poder consultarse sin obligar al visitante a resolver todos los puzles.
-- El currículum se presenta como un único documento parcialmente vacío: la cabecera personal permanece visible y cada pieza revela su bloque en la posición correspondiente.
-- La numeración de las piezas no está limitada a tres; la primera versión incluye tres bloques: (1) perfil y formación, (2) experiencia e idiomas y (3) competencias digitales e intereses.
-- Los fragmentos conservan su espacio aunque todavía no se hayan desbloqueado, sin mostrar siluetas, bordes ni indicadores de contenido pendiente.
-- La exploración se organizará como una aventura point-and-click por vistas: cada habitación tendrá varias perspectivas o paredes entre las que se cambiará mediante flechas en pantalla.
-- La primera zona es una cabañita independiente con cuatro paredes: frontal (escritorio y cofre), izquierda, trasera (puerta de salida) y derecha. La puerta trasera ya conecta con la zona exterior y permite regresar a la cabañita.
-- Al salir por la puerta trasera de la cabañita se llega a una zona exterior abierta, no a un pasillo cerrado. Esta zona cuenta con cuatro perspectivas: frente hacia la casa grande, laterales hacia el bosque y parte trasera hacia la cabañita. Desde el frente se accede a la zona exterior de la mansión.
-- La mansión cuenta en esta versión con cuatro perspectivas exteriores. No se podrá acceder a su interior.
-- La cabañita, el exterior y la mansión son zonas distintas; las vistas exteriores no se consideran paredes adicionales de la cabañita. La navegación conecta las tres zonas. Las perspectivas utilizan actualmente composiciones CSS provisionales y objetos interactivos; la renovación visual queda como objetivo actual.
-- Cada perspectiva podrá contener zonas interactivas. Al pulsarlas, podrán llevar a otra habitación o activar interacciones sencillas directamente sobre la escena.
-- Por decisión actual, no se priorizarán vistas ampliadas: los primeros puzles se resolverán desde las perspectivas existentes mediante interacciones sencillas. Esta decisión podrá revisarse más adelante si la complejidad de algún mecanismo lo justifica.
-- `navigation.js` será el módulo encargado de gestionar las perspectivas, las habitaciones y las transiciones entre vistas. `puzzles.js` conservará la lógica y las condiciones de resolución de los mecanismos; `inventory.js` seguirá gestionando los objetos y el equipamiento.
-- El contenido de las escenas se organiza así: `index.html` para la interfaz general, `escenas/cabana.html` para cabañita y exterior, y `escenas/mansion.html` para las cuatro perspectivas exteriores de la mansión. No se dividirán las escenas por perspectiva salvo que el tamaño lo justifique.
-- Las escenas externas se cargarán con `fetch` dentro del contenedor de escena. La inicialización de los módulos que dependen de sus elementos deberá ejecutarse después de insertar el HTML.
-- El proyecto se ejecutará durante el desarrollo mediante un servidor local (Live Server); no se considerará válida la apertura directa con `file://` una vez externalizadas las escenas.
-- La entrega se preparará para que el profesor pueda probarla sin instalar dependencias: se estudiará GitHub Pages y se añadirá un `LEEME.txt` con instrucciones, además de conservar una copia del código fuente.
+- Las piezas del CV revelan sus fragmentos correspondientes y permanecen disponibles para consulta en el inventario.
 
-## 7. Objetivos del proyecto
+## 6. Objetivos pendientes
 
-Esta sección separa lo necesario para cerrar y entregar la versión actual de las posibles ampliaciones futuras. La parte jugable se considera prácticamente terminada: los puzles están implementados y el usuario indica que son resolubles y no presentan bugs conocidos. Las perspectivas y los objetos previstos para esta versión están incorporados.
+### Cierre de la versión actual
 
-### 7.1. Objetivos actuales — cierre de la versión
+1. Continuar puliendo el aspecto visual de escenarios, objetos e interfaz.
+2. Revisar la legibilidad y organización de CSS, JavaScript y HTML sin cambiar comportamientos establecidos.
+3. Comprobar en navegador las cuatro paredes, las ocho perspectivas exteriores, las transiciones, los objetos, los puzles, el inventario y el currículum.
+4. Revisar la adaptación a móviles y pantallas pequeñas.
+5. Preparar \`LEEME.txt\`, la copia del código fuente y valorar GitHub Pages para facilitar la revisión del profesor.
 
-1. **Mensaje de finalización:** mostrar un mensaje grande, destacado y claramente visible cuando se hayan recogido todas las piezas de CV disponibles en esta versión. El aviso debe aparecer al completar la colección.
-2. **Renovación visual:** mejorar la identidad y el acabado visual del proyecto, revisar la presentación del documento CV y sustituir o perfeccionar los elementos provisionales de las escenas y sus interfaces.
-3. **Preparación de la entrega:** crear un archivo `LEEME.txt` con instrucciones claras; comprobar que el proyecto se ejecuta correctamente desde un servidor local; preparar una copia completa del código fuente y valorar GitHub Pages para facilitar la revisión por parte del profesor.
+No se considera necesario implementar guardado persistente ni ampliar el contenido jugable para entregar esta versión.
 
-No se considera necesario implementar un sistema de guardado. El progreso puede reiniciarse al recargar la página. Tampoco se desarrollará el interior de la mansión ni se añadirán más objetos o puzles para cerrar esta versión.
+### Posibles ampliaciones futuras
 
-### 7.2. Objetivos a futuro — ampliaciones opcionales
+Solo si se decide ampliar el proyecto después de la entrega: nuevas piezas del CV y puzles, nuevas zonas, más perspectivas, nuevas mecánicas, mejoras de audio y animación o guardado persistente.
 
-Estas ideas no son requisitos para entregar la versión actual y solo se abordarán si se decide ampliar el proyecto:
+## 7. Normas de trabajo y transparencia
 
-1. Añadir nuevas piezas de CV y nuevos puzles.
-2. Incorporar otras zonas, escenarios o perspectivas explorables.
-3. Diseñar nuevas mecánicas y objetos interactivos.
-4. Ampliar las animaciones, los efectos y los detalles ambientales.
-5. Valorar un sistema de guardado persistente si una futura ampliación lo necesita.
-6. Profundizar en la adaptación a móviles y pantallas pequeñas, si la renovación visual lo requiere.
+### Antes de modificar código
 
-### 7.3. Mantenimiento
+- Consultar el estado actual de \`main\` y leer la versión vigente de todos los archivos que se vayan a tocar.
+- Explicar qué archivo y sección se modificarán, qué cambio se propone y qué efecto se espera.
+- Esperar la aprobación del usuario antes de modificar código. Si hay alternativas de diseño relevantes, explicarlas primero.
+- No pedir código que ya esté disponible en el repositorio.
 
-1. Corregir cualquier error que aparezca durante las pruebas finales y evitar regresiones en las funcionalidades existentes.
-2. Revisar la organización y legibilidad del código cuando sea necesario, sin alterar comportamientos ya establecidos.
+### Seguridad y calidad
 
-## 8. Flujo de trabajo con Git
+- No añadir código oculto, ofuscado o innecesariamente complejo.
+- No introducir telemetría, analítica, recopilación o envío de datos, conexiones externas, dependencias, scripts de terceros ni servicios sin explicarlo y obtener aprobación explícita.
+- Explicar previamente cualquier uso nuevo de \`fetch\`, solicitudes HTTP, almacenamiento local, cookies, APIs externas o carga dinámica de scripts.
+- Mantener el código legible, modular y comentado. No afirmar que se ha auditado exhaustivamente ni que es completamente seguro.
 
-El repositorio remoto es privado y usa la rama principal `main`.
+### Después de cada modificación
 
-Después de modificar archivos en local:
+- Indicar los archivos y las secciones modificadas, explicar el efecto y mostrar el fragmento exacto afectado cuando ayude a revisar el cambio.
+- Verificar recuperando desde GitHub el contenido guardado en la rama \`main\`.
+- Diferenciar claramente una revisión del código de una prueba funcional realizada en navegador.
+- Indicar si hace falta ejecutar \`git pull\` en VS Code. No asumir que la copia local y GitHub están sincronizados.
+- No encadenar cambios adicionales que no se hayan acordado.
 
-```bash
+### Flujo básico de Git
+
+Para publicar cambios realizados en local:
+
+\`\`\`bash
 git status
 git add .
 git commit -m "Descripción breve del cambio"
 git push
-```
+\`\`\`
 
-Para obtener cambios que ya estén en GitHub:
+Para traer a VS Code cambios ya guardados en GitHub:
 
-```bash
+\`\`\`bash
 git pull
-```
+\`\`\`
 
-Antes de empezar una sesión de trabajo, comprobar que la copia local está sincronizada. No editar simultáneamente el mismo archivo en local y directamente en GitHub sin sincronizar después.
+No editar simultáneamente el mismo archivo en local y directamente en GitHub sin sincronizar después.
 
-## 9. Normas de trabajo y transparencia
+## 8. Historial de cambios
 
-Estas normas son obligatorias para cualquier persona o asistente que colabore en el proyecto.
+El historial se agrupa por fecha. Cada fecha debe tener un único encabezado; las distintas tareas realizadas ese día se documentan como apartados dentro de ese bloque.
 
-### Comunicación con el usuario
+### 4 de noviembre de 2026
 
-- Hablar en español y utilizar explicaciones breves y claras.
-- Cada vez que se modifique, añada o sustituya código, mostrar también en la conversación el fragmento exacto afectado para que el usuario pueda revisar visualmente el cambio.
-- Referirse a los archivos por su nombre y, sobre todo, a las secciones numeradas o identificadores concretos que el usuario reconoce en el código.
-- No utilizar hashes de commits, nombres internos de Git ni jerga técnica como explicación principal. Si es necesario mencionarlos, explicar inmediatamente qué significan.
-- Trabajar paso a paso. No encadenar tareas o cambios distintos sin explicar primero el siguiente paso.
+- **Interacción y puzle de los caballos:** se corrigió la selección contextual. Pulsar el mismo caballo permite deseleccionarlo y pulsar fuera de los slots cancela la selección. Los mensajes se limpian al cambiar de perspectiva o zona. Se corrigió la prioridad de capas del buzón y se mantuvo la llave de hierro como requisito.
+- **Llaves y objetos agotados:** al abrir el buzón o el cofre, la llave correspondiente queda agotada y desequipada; permanece visible, atenuada y no puede reutilizarse. El caballito plateado aparece en el suelo y se recoge con un clic independiente.
+- **Puertas, miniaturas y equipamiento:** se dibujaron con CSS la puerta de salida de la cabañita y las miniaturas de la mansión y la cabañita en la pared de trofeos. Se ajustaron sus posiciones y proporciones, se eliminaron degradados y se mantuvieron los IDs y eventos existentes.
+- **Mansión y puzle del cuervo:** se incorporó \`escenas/mansion.html\` con cuatro perspectivas exteriores. Se conectó la navegación entre cabañita, exterior y mansión. El recibidor contiene el nido y el cuervo; el bosque izquierdo, los restos de cabra y el cepo; el derecho, la caseta; y la vista trasera, la cabañita y el buzón. Se estableció la secuencia de alimentar al cuervo, recoger la llave de cobre y abrir el cofre para conseguir la Pieza 1.
 
-### Antes de modificar código
+### 5 de noviembre de 2026
 
-- Consultar el estado actual de la rama `main` y leer la versión vigente de los archivos que se vayan a tocar.
-- Explicar qué archivo se modificará, qué sección concreta se verá afectada, qué comportamiento se pretende conseguir y por qué.
-- Si el cambio implica una decisión de diseño o varias alternativas relevantes, explicarlas y esperar la elección del usuario antes de implementarlo.
-- No pedir al usuario que vuelva a pegar código que ya esté disponible en el repositorio.
+- **Proporciones de edificios:** la mansión exterior y la cabañita trasera se organizaron en contenedores propios para que techo, cuerpo y puerta mantengan sus proporciones al cambiar el tamaño de la escena. Las miniaturas siguen el mismo principio.
+- **Organización CSS:** se agruparon los estilos de edificios y elementos asociados. El cambio fue de estructura y presentación del código, sin modificar la lógica JavaScript ni la navegación.
 
-### Seguridad y revisión del código
+### 6 de noviembre de 2026
 
-- No añadir código ofuscado, oculto o innecesariamente complejo.
-- No añadir telemetría, analítica, recopilación o envío de datos, conexiones externas, dependencias, scripts de terceros, almacenamiento de credenciales ni comunicaciones con servidores sin explicarlo previamente y obtener aprobación explícita.
-- No introducir funciones que no estén relacionadas con el CV interactivo.
-- Explicar cualquier uso de `fetch`, solicitudes HTTP, almacenamiento local, cookies, APIs externas, carga dinámica de scripts o dependencias nuevas antes de incorporarlo.
-- Mantener el código legible, comentado y modular para que el usuario pueda inspeccionarlo.
-- No afirmar que el código es completamente seguro ni que se ha auditado exhaustivamente. Indicar qué se ha revisado y qué queda fuera de la comprobación.
-
-### Después de cada modificación
-
-- Indicar el archivo modificado y la sección exacta.
-- Describir las líneas o bloques añadidos, modificados o eliminados. Cuando sea posible, proporcionar los números de línea de la versión guardada y explicar el código en lenguaje normal.
-- Mostrar el fragmento relevante antes/después cuando ayude a revisar el cambio.
-- Explicar el efecto esperado y cualquier posible impacto en otras funciones.
-- Verificar recuperando el archivo desde GitHub que el contenido se ha guardado correctamente.
-- Indicar claramente si el usuario debe hacer `git pull` en VS Code. Si no se modificó ningún archivo, decirlo expresamente.
-- No dar por probado un comportamiento que no se haya ejecutado realmente. Diferenciar entre revisión del código y prueba funcional realizada por el usuario.
-
-### Control del trabajo
-
-- Trabajar en la rama `main`, salvo que el usuario indique otra.
-- No modificar archivos directamente sin haber explicado previamente el cambio y obtenido la conformidad del usuario.
-- No realizar cambios adicionales, limpiezas o refactorizaciones que no formen parte de la tarea acordada.
-- Mantener actualizado este documento cuando cambien la estructura, las mecánicas, las decisiones o las próximas tareas del proyecto.
-
-## Reorganización de escenas (noviembre de 2026)
-
-- `index.html` conserva la estructura general: menú, interfaz de exploración, controles globales, inventario y panel del CV.
-- `escenas/cabana.html` contiene las cuatro perspectivas de la cabañita y las cuatro del exterior. No se separan en archivos individuales por ahora.
-- `js/cargar-escena.js` solicita `escenas/cabana.html` mediante `fetch`, inserta el contenido en `#contenido-escena` y después carga, en orden, `inventory.js`, `puzzles.js`, `navigation.js` y `main.js`. Así los módulos encuentran los elementos de la escena al registrar sus eventos.
-- `navigation.js` conserva los identificadores de las ocho perspectivas y la lógica de giro. `main.js` conserva la coordinación y los eventos actuales; el cargador asegura que se ejecute después de insertar la escena.
-- La carga mediante `fetch` requiere abrir el proyecto desde un servidor HTTP local (por ejemplo, Live Server en VS Code). No funcionará abriendo `index.html` directamente con `file://`.
-- `escenas/mansion.html` contiene las cuatro perspectivas exteriores de la mansión. El interior queda expresamente fuera del alcance de esta versión.
-- Para la entrega al profesor se prevé incluir un `LEEME.txt` con instrucciones claras y valorar GitHub Pages para que pueda probar el proyecto desde un navegador. El proyecto seguirá sin dependencias externas ni instalaciones adicionales.
-- Si falla la carga, el cargador muestra un aviso que indica que debe utilizarse un servidor local y registra el error técnico en la consola.
-
-### Estado de la reorganización
-
-- [x] Extraer las ocho perspectivas actuales a `escenas/cabana.html`.
-- [x] Mantener en `index.html` el contenedor de escena y los controles globales.
-- [x] Cargar la escena antes de ejecutar los módulos que dependen de sus elementos.
-- [x] Comprobar en navegador mediante Live Server la carga, la navegación entre perspectivas, la salida y el regreso, la apertura del cofre y el funcionamiento del inventario y las piezas del CV (confirmado por el usuario el 4 de noviembre de 2026).
-- [x] Crear `escenas/mansion.html` con las cuatro perspectivas exteriores de la mansión; no se desarrollará un interior en esta versión.
-
-
-## 6. Corrección de interacción contextual y puzle de caballos (4 de noviembre de 2026)
-
-- `#mensaje-escena` se encuentra fuera de las perspectivas individuales, pero dentro de `#escena`; se presenta como una capa común en la parte inferior y no intercepta clics.
-- Al cambiar de perspectiva o de zona se limpia el mensaje contextual y se cancela cualquier selección de caballo activa.
-- Pulsar de nuevo el mismo caballo lo deselecciona. Pulsar cualquier otro punto de `#escena` también cancela la selección, mientras que pulsar otro slot conserva la lógica de movimiento e intercambio.
-- El caballito dorado comienza en el slot izquierdo.
-- El buzón tiene prioridad de apilamiento y las referencias exteriores no interceptan eventos de puntero. Sigue siendo obligatorio tener equipada la llave de hierro.
-- El sistema general de inventario conserva su funcionamiento; los objetos agotados se atenúan y ya no ofrecen la acción de equipar.
-
-- Corrección acordada el 4 de noviembre de 2026: los slots interactivos del puzle de caballos quedan fuera del contenedor decorativo `.arte-pared` para evitar que `pointer-events: none` bloquee sus clics. El caballito dorado comienza en el slot izquierdo.
-- Al abrir el buzón con la llave de hierro, esta queda marcada como agotada y desequipada; el caballito plateado aparece como objeto suelto en el suelo y solo pasa al inventario cuando se pulsa expresamente.
-- Al abrir el cofre con la llave de cobre, esta queda marcada como agotada y desequipada. Las llaves permanecen visibles en el inventario, atenuadas, y no se pueden reutilizar.
-- La lógica de selección, movimiento e intercambio de caballos se conserva sin cambios.
-
-## Mejora visual de puertas, edificios y equipamiento (4 de noviembre de 2026)
-
-- La ranura `#ranura-equipada` ahora tiene un estado hover con cambio de fondo, borde dorado claro y resplandor, manteniendo su tooltip.
-- La pared trasera interior incluye una puerta dibujada con CSS y el botón «Salir al exterior» superpuesto. Se conserva el ID `#puerta-salida-cabana`, por lo que continúa utilizando el evento de navegación existente.
-- En la vista exterior trasera, el botón «Volver a la cabañita» se coloca sobre la puerta dibujada de la cabaña. Se conserva el ID `#puerta-regreso-cabana`.
-- La pared derecha interior incorpora una miniatura CSS de la mansión en el extremo izquierdo y otra de la cabañita en el extremo derecho. Se mantienen libres las posiciones centrales reservadas para el puzle de los trofeos.
-- Todo el arte añadido está construido con HTML y CSS, sin imágenes, recursos externos ni dependencias. No se ha modificado ningún archivo JavaScript ni la posición o lógica del puzle de los caballos.
-
-### Ajustes de acabado visual de puertas y miniaturas (4 de noviembre de 2026)
-
-- La puerta interior de la pared trasera ahora tiene geometría rectangular: marco, hoja y paneles con esquinas rectas, sin sombras exteriores ni interiores.
-- Se eliminaron los resplandores del pomo y cualquier efecto de opacidad de las miniaturas decorativas.
-- La mini mansión y la minicabañita se sitúan en las esquinas superiores de la pared de trofeos. La mansión aumenta a 128 × 94 px y la cabañita se reduce a 84 × 62 px.
-- Los botones de salida y regreso se desplazan hacia la parte superior de sus respectivas puertas. Se conservan sus identificadores y la navegación existente.
-- Se mantiene sin cambios el hover de `#ranura-equipada`.
-- No se modifica HTML, JavaScript, navegación, inventario ni el puzle de los caballos.
-
-### Colores planos y organización del CSS art (4 de noviembre de 2026)
-
-- Se eliminaron los degradados de la puerta interior y de las miniaturas de la mansión y la cabañita; sus superficies usan ahora colores sólidos.
-- Los bordes de los paneles de la puerta también usan un color opaco uniforme.
-- El bloque CSS de puertas y edificios decorativos se trasladó junto a «Arte provisional CSS de las perspectivas», en lugar de quedar al final de la hoja de estilos.
-- Se mantienen las posiciones, dimensiones y botones de navegación. No se modifica HTML ni JavaScript, ni el hover de la ranura equipada o el puzle de los caballos.
-
-
-## Mansión y puzle del cuervo — implementación inicial (4 de noviembre de 2026)
-
-- Se crea `escenas/mansion.html` con cuatro perspectivas exteriores: Recibidor, Bosque derecho, Detrás y Bosque izquierdo. El interior de la mansión no es accesible.
-- `js/cargar-escena.js` carga las escenas de la cabañita y la mansión en el contenedor compartido antes de iniciar los módulos.
-- `js/navigation.js` añade la zona Mansión. Se entra desde Frente · Mansión y se vuelve al exterior desde Detrás.
-- La vista frontal exterior muestra referencias del esqueleto de cabra a la izquierda y de la caseta de perro a la derecha.
-- El recibidor incluye el porche, tejadillo, nido/cuervo y cuenco del perro. El bosque izquierdo muestra el cadáver de cabra en un cepo; el derecho, una caseta vacía; detrás se ve la cabañita y el buzón.
-- El saco de pienso se coloca junto a la mesita de la pared izquierda de la cabañita. El cuervo deja caer una llave de cobre al recibir pienso en el cuenco; la llave se recoge del suelo y abre el cofre del escritorio, que contiene la Pieza 1 del CV.
-- Se renombra el antiguo cajón como «Cofre cerrado». La llave de cobre ya no aparece en la cabañita: solo se obtiene cuando el cuervo la deja caer en el recibidor. El cadáver/cráneo de cabra es por ahora decorativo; su interacción se reserva para el puzle de trofeos.
-- Pendiente de prueba manual de navegación, recogida del pienso, alimentación, recogida de la llave y apertura del cofre.
-
-
-## Edificios CSS y organización de escenarios (5 de noviembre de 2026)
-
-- La mansión exterior y la cabañita trasera ahora tienen un contenedor propio para cada edificio. El techo, el cuerpo y la puerta se posicionan dentro de ese contenedor, por lo que conservan su alineación al cambiar las proporciones de la ventana.
-- Las miniaturas de la mansión y la cabañita siguen el mismo principio: cada miniatura es el marco de referencia de su techo, cuerpo y puerta, y sus dimensiones se adaptan de forma proporcional.
-- `css/style.css` reúne los estilos de arte y objetos del escenario antes de los estilos del inventario y del panel del currículum. Se distinguen los bloques de cabañita, miniaturas, edificios principales, entorno exterior y mansión/recibidor.
-- El cambio es exclusivamente HTML y CSS. No añade recursos, dependencias, conexiones externas ni modifica la lógica JavaScript, la navegación o los puzles.
-
-## Acabado visual de las paredes interiores (6 de noviembre de 2026)
-
-- Las tres paredes interiores distintas de la pared frontal adoptan el mismo tono de madera marrón plana (#b77d5b) y el marco de contorno negro usado en la vista del escritorio.
-- Se añaden unas pocas juntas decorativas negras, discretas y no interactivas, mediante CSS. Los elementos existentes de cada pared —saco de pienso y slots de caballos, puerta de salida y slots de trofeos— conservan su HTML, identificadores, posición y comportamiento.
-- El cambio es exclusivamente visual y no modifica JavaScript, navegación ni puzles. Los objetos y decoraciones específicas se ajustarán posteriormente a partir de las referencias visuales del usuario.
-
-## Ajustes visuales de la cabaña y aislamiento de escenas (6 de noviembre de 2026)
-
-- El fondo de madera común se limita explícitamente a las paredes interiores 2, 3 y 4 de la cabañita. Las perspectivas exteriores de la cabaña y las vistas de la mansión conservan sus fondos propios.
-- La mesa de la pared izquierda reutiliza la clase CSS del escritorio de la pared frontal. Los slots de los caballos se sitúan sobre el tablero.
-- La llave de cobre del recibidor de la mansión utiliza la misma silueta CSS que la llave de hierro, en tono cobrizo rojizo.
-- La puerta de la pared trasera de la cabañita se amplía y llega hasta el borde inferior de la escena; el botón de salida queda junto a su parte baja.
-- Se mantienen los IDs y la lógica de interacción existentes.
-
-
-## Viñeta de iluminación y rediseño del saco de pienso (6 de noviembre de 2026)
-
-- Se aplica un degradado radial oscuro en los bordes de las cuatro perspectivas interiores de la cabañita y del recibidor de la mansión. El centro permanece más claro y la capa decorativa no intercepta clics.
-- El saco de pienso se redibuja con CSS: silueta de saco, cierre superior, etiqueta «PIENSO» y contorno negro. Conserva el ID `#saco-pienso`, su posición y su comportamiento interactivo.
-- Cambios exclusivamente visuales en CSS; no se modifica JavaScript, HTML, navegación ni lógica de inventario/puzles.
-
-## Fondo y viñeta de las perspectivas exteriores de la mansión (6 de noviembre de 2026)
-
-- Las cuatro perspectivas exteriores de la mansión reutilizan el fondo ambiental general de `#escena`, igual que las cuatro perspectivas exteriores de la cabaña. Se elimina el fondo gris sólido específico que tenía la mansión.
-- La viñeta radial oscura de los bordes se extiende a las cuatro vistas de la mansión: Recibidor, Bosque izquierdo, Bosque derecho y Detrás. El centro queda más claro y la capa no bloquea clics.
-- Se conservan las composiciones, objetos, posiciones e interacciones particulares de cada perspectiva. No se modifica HTML ni JavaScript.
-
-## Rediseño CSS de los cráneos de trofeo (6 de noviembre de 2026)
-
-- Se sustituyen los emojis de los tres trofeos por cráneos dibujados con HTML y CSS: silueta de hueso marfil, ojos y nariz negros, y cornamentas color carne/beige diferenciadas para cabra, ciervo y alce.
-- Los cráneos de cabra y alce que se recogen en el exterior usan el mismo dibujo que aparece después en los slots de la pared.
-- Los óvalos marrones con borde negro de la pared siguen siendo los slots/sujeta-trofeos existentes y no forman parte del dibujo de los cráneos.
-- Se conservan los IDs, posiciones, botones, accesibilidad, recogida, inventario y lógica del puzle. No se añaden imágenes, recursos externos ni dependencias.
-
-## Ajuste de proporciones de los cráneos (6 de noviembre de 2026)
-
-- Se amplía la silueta del cráneo de ciervo y se aumenta ligeramente su cornamenta.
-- Se agranda moderadamente el cráneo de alce y se abren sus astas hacia los lados mediante una inclinación hacia fuera, para darles más amplitud visual.
-- No cambian los cráneos de cabra, los slots/sujeta-trofeos ni la lógica de interacción.
-
-## Corrección de simetría y tamaño del cráneo de alce (6 de noviembre de 2026)
-
-- Se corrige la inclinación de las astas del alce para que queden reflejadas simétricamente hacia los lados exteriores, sin que ambas parezcan torcidas en la misma dirección.
-- Se agranda de forma más evidente la silueta del cráneo de alce respecto al cráneo de ciervo, aumentando también ligeramente sus rasgos faciales.
-- Se mantienen intactos el modelo de cabra, el tamaño del ciervo, los slots y la lógica de interacción.
-
-## Reversión de los últimos ajustes de proporciones de cráneos (6 de noviembre de 2026)
-
-- Se deshacen los últimos cambios de inclinación de astas y aumento de tamaño del cráneo de alce.
-- El alce recupera las proporciones iniciales de su primera versión CSS, anteriores a los ajustes solicitados después. Se conserva el tamaño ampliado del ciervo introducido en el primer ajuste.
-- No se modifican los modelos de cabra, la estructura de los slots ni la lógica del puzle.
-
-
-## Rediseño del recibidor de la mansión y fondo exterior (6 de noviembre de 2026)
-
-- El recibidor adopta una fachada CSS inspirada en la referencia del usuario: tejado a dos aguas, pared de madera marrón, cuatro ventanas de cuatro cristales, puerta central, detalles de juntas, nido y cuenco del perro.
-- El cielo ultramarino casi negro (#080923) sustituye el fondo gris de `#escena`, por lo que se comparte entre las cuatro perspectivas exteriores de la cabaña y las cuatro de la mansión.
-- El cuervo y la llave de cobre permanecen como elementos interactivos independientes del decorado. Se conservan sus IDs y la lógica del puzle; el cuervo mantiene su desplazamiento al alimentarlo y la llave sigue apareciendo en el escenario.
-- No se modifican navegación, inventario ni lógica JavaScript. El cambio se limita a `css/style.css`, `escenas/mansion.html` y esta documentación.
-
-
-## Correcciones estructurales y animación del cuervo (6 de noviembre de 2026)
-
-- La fachada del recibidor se agrupa en `.fachada-mansion`, con proporciones internas controladas para que puertas y ventanas no cambien de relación al redimensionar el navegador. Se incorporan dos pilares y se corrige la silueta del tejado.
-- El nido se superpone al tejado y contiene una llave decorativa visible antes de alimentar al cuervo.
-- Se corrige la orientación del pico del cuervo. Al darle pienso, el cuervo se desplaza mediante transición hasta el cuenco; la llave decorativa desaparece y la llave recogible cae animada desde el nido hasta el suelo.
-- Se agrupan por separado árboles y caseta en el bosque derecho de la mansión; la cabañita y los árboles del fondo en la vista trasera; y los edificios/elementos asociados en las vistas exterior frontal y trasera de la cabaña.
-- Se conservan los IDs de los elementos interactivos, inventario y navegación. No se añaden recursos ni dependencias externas.
-
-
-## Aspecto de las piezas del currículum en la escena (6 de noviembre de 2026)
-
-- Las piezas 1 y 2 usan la clase visual compartida `.pieza-cv-escena`: pequeños rectángulos de papel claro con contorno oscuro y líneas de distintas longitudes que simulan texto.
-- El diseño no incluye encabezado ni texto literal; conserva el aspecto de fragmentos de documento y mantiene el contenido real del CV dentro del inventario y del panel correspondiente.
-- La Pieza 2, que aparece al resolver el puzle de los caballos, queda centrada en la perspectiva de la pared 2.
-- Se mantienen los IDs, eventos de recogida y lógica de los puzles. No se modifica JavaScript.
-
-
-## Ampliación de las zonas interactivas de puertas y edificios (6 de noviembre de 2026)
-
-- La salida de la pared trasera de la cabañita ahora ocupa toda la puerta dibujada, desde el marco hasta la base.
-- En Frente · Mansión, la zona para entrar al recibidor cubre la mansión completa y excluye la caseta del perro. En la vista exterior trasera, la cabañita completa permite regresar a la cabañita.
-- En el recibidor de la mansión, la cabañita se centra horizontalmente y el buzón cuadrado se desplaza a su izquierda. La zona de regreso cubre la propia cabañita.
-- Los botones conservan sus identificadores y eventos de navegación. Las zonas nuevas son transparentes y no modifican el arte decorativo ni la lógica JavaScript.
-
-
-## Realce al pasar el puntero sobre puertas y edificios (6 de noviembre de 2026)
-
-- Las zonas transparentes de salida y regreso mantienen el clic, pero ya no muestran el fondo azul marino ni la sombra general de los botones al pasar el puntero.
-- En su lugar, se aclara ligeramente el elemento CSS real que hay debajo: la puerta interior, la mansión exterior, la cabañita exterior o la cabañita del recibidor.
-- El efecto utiliza una transición breve de brillo y no cambia dimensiones, posiciones, identificadores ni comportamiento de navegación.
-- El ajuste se limita a CSS; no modifica HTML ni JavaScript.
-
-
-## Modelos CSS de árboles reutilizables (6 de noviembre de 2026)
-
-- Se definen cuatro modelos independientes: `.arbol-generico`, `.arbol-calvo`, `.arbol-mediano` y `.arbol-frondoso`. Cada árbol tiene un contenedor propio con dimensiones explícitas; el genérico utiliza tronco rectangular y copa de pino formada por tres triángulos verdes.
-- Los modelos especiales se reservan para la vista Exterior · Bosque izquierdo: el calvo tiene tronco y ramas desnudas; el mediano y el frondoso combinan círculos y tréboles verdes, con distinta abundancia de copa.
-- Los árboles genéricos sustituyen los decorativos anteriores y aparecen en las cuatro vistas exteriores de la cabañita y en las tres vistas de bosque/fondo de la mansión. No se añaden al recibidor de la mansión ni a las cuatro paredes interiores de la cabañita.
-- En Exterior · Bosque izquierdo se mantienen los tres árboles especiales del puzle y se añaden árboles genéricos a los laterales y al fondo. Los árboles no son interactivos y no cambian la lógica de navegación ni de los puzles.
-- Todo el diseño está construido con HTML y CSS, sin imágenes, recursos externos ni dependencias.
-
-## Primera reorganización de la hoja de estilos (6 de noviembre de 2026)
-
-- Se adelantan los bloques de inventario, panel del currículum, etiqueta WIP, equipamiento y aviso de finalización para situarlos justo después de los estilos generales de interfaz y escena.
-- Se conserva el contenido de las reglas y sus valores; esta primera pasada es de organización, no de rediseño visual.
-- Los estilos de adaptación a pantallas pequeñas permanecen al final para mantener juntas las reglas responsivas.
-
-## Segunda reorganización de la hoja de estilos (6 de noviembre de 2026)
-
-- Se agrupan al principio los estilos de los objetos interactivos de la escena: puzle de caballos, slots de trofeos y cráneos, piezas del CV, póster, llave, cofre y saco de pienso.
-- La regla de objetos agotados del inventario se coloca junto al resto de estilos del inventario, en lugar de permanecer mezclada con los objetos de escena.
-- A continuación quedan agrupados los estilos de paredes interiores y elementos propios de la cabañita; después, los edificios, árboles y elementos exteriores de la mansión.
-- Se conservan los valores CSS, identificadores y reglas de interacción. El cambio es de organización y no pretende modificar el aspecto visual.
-
-## Limpieza de reglas interiores de la cabañita (6 de noviembre de 2026)
-
-- Se eliminaron del escritorio de la pared izquierda las propiedades `top` y `width`, ya heredadas de la regla general; se conserva `left: 50%` porque sí es una diferencia necesaria.
-- Se retiró la regla duplicada `.slot-caballo { pointer-events: auto; }`; la propiedad permanece en la regla principal de los slots.
-- Se eliminó `border-radius: 0` del panel inferior de la puerta, porque ya lo hereda de `.puerta-panel`.
-- No se cambiaron posiciones efectivas, dimensiones, colores ni comportamientos.
+- **Paredes interiores:** las paredes interiores 2, 3 y 4 adoptaron madera marrón plana, marco negro y juntas decorativas. La mesa de la pared izquierda reutiliza el estilo del escritorio. La puerta trasera se amplió hasta la base de la escena.
+- **Elementos de la cabañita y recibidor:** la llave de cobre reutiliza la silueta CSS de la llave de hierro con color cobrizo. Se añadió una viñeta oscura a las perspectivas interiores y al recibidor. El saco de pienso se redibujó con CSS y contorno negro.
+- **Exteriores de la mansión:** las cuatro perspectivas reutilizan el fondo ultramarino casi negro y la viñeta de iluminación, manteniendo sus objetos e interacciones.
+- **Cráneos de trofeo:** los emojis se sustituyeron por cráneos dibujados con HTML y CSS, con hueso marfil, rasgos negros y cornamentas diferenciadas. Se ajustaron las proporciones del ciervo y del alce; una corrección posterior del alce se revirtió por no resultar satisfactoria.
+- **Recibidor y cuervo:** se rediseñó la fachada con tejado a dos aguas, ventanas de cuatro cristales, puerta central, pilares, nido y cuenco. Se corrigió la orientación del pico. Al alimentar al cuervo, este se desplaza al cuenco, desaparece la llave decorativa y cae una llave recogible desde el nido.
+- **Piezas del CV y zonas de clic:** las piezas visibles en escena adoptaron aspecto de pequeños papeles con líneas simuladas. Se ampliaron las zonas transparentes de puertas y edificios para facilitar la navegación y se añadió un realce de brillo sobre el edificio correspondiente al pasar el puntero.
+- **Árboles:** se organizaron cuatro modelos CSS independientes: genérico, calvo, mediano y frondoso. Los tres modelos especiales se reservan para el bosque izquierdo; los árboles genéricos decoran las vistas exteriores previstas.
+- **Reorganización y limpieza de CSS:** se agruparon los estilos generales, inventario, objetos interactivos, paredes interiores, edificios, árboles y exteriores. Se mantuvo la adaptación a pantallas pequeñas al final. Después se eliminaron declaraciones repetidas del escritorio de la pared izquierda, de los slots de caballos y del panel inferior de la puerta.
+- **Limpieza de edificios y estilos móviles:** las dimensiones y el tipo de contenedor de la mansión y la cabañita se consolidaron en sus reglas principales. El desplazamiento móvil del cuenco del perro se integró en el bloque general de adaptación a pantallas pequeñas. Se conservaron los valores efectivos y el comportamiento visual.
+- **Documento de estado:** se reorganizó este archivo para que refleje el código actual, reúna los cambios por fecha y mantenga un único documento principal de referencia.
