@@ -505,3 +505,9 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Se amplía la silueta del cráneo de ciervo y se aumenta ligeramente su cornamenta.
 - Se agranda moderadamente el cráneo de alce y se abren sus astas hacia los lados mediante una inclinación hacia fuera, para darles más amplitud visual.
 - No cambian los cráneos de cabra, los slots/sujeta-trofeos ni la lógica de interacción.
+
+## Corrección de simetría y tamaño del cráneo de alce (6 de noviembre de 2026)
+
+- Se corrige la inclinación de las astas del alce para que queden reflejadas simétricamente hacia los lados exteriores, sin que ambas parezcan torcidas en la misma dirección.
+- Se agranda de forma más evidente la silueta del cráneo de alce respecto al cráneo de ciervo, aumentando también ligeramente sus rasgos faciales.
+- Se mantienen intactos el modelo de cabra, el tamaño del ciervo, los slots y la lógica de interacción.
