@@ -2409,6 +2409,123 @@ button:focus-visible {
 }
 
 
+
+/* Brillo cálido de los objetos interactivos: sustituye el hover azul global
+   por una luz que sigue la silueta de cada elemento. */
+#poster-cv,
+#llave-hierro,
+#cofre-escritorio,
+.saco-pienso-interactivo,
+.slot-caballo,
+.buzon-oxidado,
+.cuervo-interactivo,
+.cuenco-perro,
+.llave-cobre-suelta {
+    transition: filter .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+#poster-cv:hover {
+    background: #e0c99a;
+    box-shadow: none;
+    filter: drop-shadow(0 0 3px rgba(255, 232, 178, .95))
+            drop-shadow(0 0 9px rgba(255, 196, 92, .7));
+}
+
+#llave-hierro:hover,
+.llave-cobre-suelta:hover {
+    background: transparent;
+    color: transparent;
+    box-shadow: none;
+    filter: drop-shadow(0 0 3px rgba(255, 232, 178, .95))
+            drop-shadow(0 0 8px rgba(255, 196, 92, .75));
+}
+
+#cofre-escritorio:hover {
+    background: #69442f;
+    color: transparent;
+    box-shadow: none;
+    filter: drop-shadow(0 0 3px rgba(255, 232, 178, .9))
+            drop-shadow(0 0 10px rgba(255, 196, 92, .65));
+}
+
+.saco-pienso-interactivo:hover {
+    background: #b99a62;
+    box-shadow: none;
+    filter: drop-shadow(2px 3px 0 #17100d)
+            drop-shadow(0 0 3px rgba(255, 232, 178, .95))
+            drop-shadow(0 0 9px rgba(255, 196, 92, .7));
+}
+
+.slot-caballo:hover {
+    background: rgba(15, 19, 23, .55);
+    box-shadow: none;
+    filter: drop-shadow(0 0 3px rgba(255, 232, 178, .9))
+            drop-shadow(0 0 9px rgba(255, 196, 92, .65));
+}
+
+.buzon-oxidado:hover {
+    background: #554238;
+    box-shadow: none;
+    filter: drop-shadow(0 0 3px rgba(255, 232, 178, .95))
+            drop-shadow(0 0 9px rgba(255, 196, 92, .7));
+}
+
+.buzon-oxidado.buzon-abierto:hover {
+    background: #6b5740;
+}
+
+.cuervo-interactivo:hover {
+    background: transparent;
+    box-shadow: none;
+    filter: drop-shadow(0 0 3px rgba(255, 232, 178, .95))
+            drop-shadow(0 0 9px rgba(255, 196, 92, .75));
+}
+
+.cuenco-perro:hover {
+    background: #a90020;
+    box-shadow: none;
+    filter: drop-shadow(0 0 3px rgba(255, 232, 178, .95))
+            drop-shadow(0 0 9px rgba(255, 196, 92, .7));
+}
+
+/* El buzón de la cabaña y su réplica en la vista trasera de la mansión
+   comparten un poste de madera fijo, alineado con el suelo. */
+.arte-buzon::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: calc(50% - 7px);
+    bottom: 0;
+    width: 14px;
+    height: 29%;
+    border: 2px solid #302116;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #4a3020 0 25%, #76502f 25% 72%, #4a3020 72% 100%);
+    pointer-events: none;
+}
+
+.buzon-oxidado {
+    box-shadow: none;
+}
+
+.buzon-mansion-fondo {
+    box-shadow: none;
+}
+
+.arte-detras-mansion::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: calc(50% - 140px);
+    bottom: 0;
+    width: 12px;
+    height: 22%;
+    border: 2px solid #302116;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #4a3020 0 25%, #76502f 25% 72%, #4a3020 72% 100%);
+    pointer-events: none;
+}
+
 /* ==========================================
    FIN DE LA HOJA DE ESTILOS
    ========================================== */
