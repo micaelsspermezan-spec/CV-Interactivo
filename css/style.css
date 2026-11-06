@@ -1113,169 +1113,159 @@ button:focus-visible {
 /* Las perspectivas exteriores comparten un cielo ultramarino casi negro. */
 .vista-mansion { background: transparent; }
 
-/* Fachada frontal del recibidor, construida íntegramente con CSS. */
-.arte-recibidor-mansion {
-    overflow: hidden;
-    background:
-        linear-gradient(to bottom, transparent 0 18%, #b77d5b 18% 88%, transparent 88%);
+/* Recibidor: fachada independiente con proporción estable. */
+.arte-recibidor-mansion { overflow:visible; }
+.fachada-mansion {
+    position:absolute; left:50%; top:7%; width:min(92%, 1160px); height:86%;
+    aspect-ratio: 1.92; transform:translateX(-50%);
+    container-type:inline-size;
 }
-.arte-recibidor-mansion::before {
-    content: "";
-    position: absolute;
-    left: 5%;
-    right: 5%;
-    top: 8%;
-    height: 82%;
-    background: #b77d5b;
-    clip-path: polygon(0 34%, 44% 0, 100% 30%, 100% 100%, 0 100%);
+.fachada-cuerpo {
+    position:absolute; inset:15% 0 5%;
+    background:#b77d5b;
+    clip-path:polygon(0 13%,50% 0,100% 13%,100% 100%,0 100%);
 }
-.arte-recibidor-mansion::after {
-    content: "";
-    position: absolute;
-    left: 11%;
-    right: 11%;
-    top: 8%;
-    height: 83%;
-    pointer-events: none;
+.fachada-cuerpo::after {
+    content:""; position:absolute; inset:0;
     background:
-        linear-gradient(#8a5b43,#8a5b43) 0 19% / 15% 5px no-repeat,
-        linear-gradient(#8a5b43,#8a5b43) 35% 28% / 14% 5px no-repeat,
-        linear-gradient(#8a5b43,#8a5b43) 53% 39% / 16% 5px no-repeat,
-        linear-gradient(#8a5b43,#8a5b43) 86% 27% / 15% 5px no-repeat,
-        linear-gradient(#8a5b43,#8a5b43) 6% 77% / 15% 5px no-repeat,
-        linear-gradient(#8a5b43,#8a5b43) 78% 76% / 17% 5px no-repeat;
-    opacity: .9;
+      linear-gradient(#8a5b43,#8a5b43) 3% 12%/15% 4px no-repeat,
+      linear-gradient(#8a5b43,#8a5b43) 34% 21%/15% 4px no-repeat,
+      linear-gradient(#8a5b43,#8a5b43) 57% 33%/16% 4px no-repeat,
+      linear-gradient(#8a5b43,#8a5b43) 84% 20%/13% 4px no-repeat,
+      linear-gradient(#8a5b43,#8a5b43) 7% 79%/17% 4px no-repeat,
+      linear-gradient(#8a5b43,#8a5b43) 76% 77%/18% 4px no-repeat;
 }
 .suelo-porche {
-    position:absolute; z-index:1; left:5%; right:5%; bottom:9%; height:9%;
-    background:#b77d5b; border-top:12px solid #8a5b43;
-    box-shadow:0 34px 0 -10px #8a5b43;
+    position:absolute; z-index:2; left:4%; right:4%; bottom:5%; height:10%;
+    background:#b77d5b; border-top:clamp(6px,1cqw,12px) solid #8a5b43;
+    box-shadow:0 2.2cqw 0 -0.65cqw #8a5b43;
 }
 .puerta-mansion {
-    position:absolute; z-index:2; left:50%; bottom:14%; transform:translateX(-50%);
-    width:13%; min-width:118px; max-width:220px; height:40%;
-    border:8px solid #8a5b43; outline:4px solid #b77d5b;
-    background:#8a5b43;
-    box-shadow:inset 0 0 0 4px #b77d5b;
+    position:absolute; z-index:3; left:50%; bottom:10%; transform:translateX(-50%);
+    width:13%; height:41%; min-width:0; max-width:none; aspect-ratio:1/2.15;
+    border:clamp(4px,.65cqw,8px) solid #8a5b43; outline:clamp(2px,.32cqw,4px) solid #b77d5b;
+    background:#8a5b43; box-shadow:inset 0 0 0 clamp(2px,.32cqw,4px) #b77d5b;
 }
-.puerta-mansion::after {
-    content:""; position:absolute; right:7%; top:48%; width:10px; height:10px;
-    border-radius:50%; background:#c58b68;
-}
+.puerta-mansion::after { content:""; position:absolute; right:7%; top:48%; width:5%; aspect-ratio:1; border-radius:50%; background:#c58b68; }
 .tejadillo-mansion {
-    position:absolute; z-index:3; left:11%; top:8%; width:78%; height:25%;
+    position:absolute; z-index:5; left:8%; top:0; width:84%; height:30%;
     background:#8a5b43;
-    clip-path:polygon(0 72%, 48% 0, 100% 64%, 99% 82%, 48% 17%, 2% 90%);
-}
-.nido-cuervo {
-    position:absolute; z-index:5; right:17%; top:19%; width:82px; height:28px;
-    border:0; border-radius:50%;
-    background:
-        repeating-linear-gradient(12deg, transparent 0 5px, #765044 5px 9px),
-        #8a5b43;
-    box-shadow:0 7px 0 #765044, 0 12px 0 -4px #765044;
+    clip-path:polygon(0 72%,50% 0,100% 72%,99% 88%,50% 17%,1% 88%);
 }
 .ventana-mansion {
-    position:absolute; z-index:2; top:51%; width:13%; height:25%;
-    min-width:105px; max-width:190px;
-    border:12px solid #8a5b43;
+    position:absolute; z-index:3; top:49%; width:13%; height:27%;
+    border:clamp(6px,.95cqw,12px) solid #8a5b43;
     background:
-        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%),
-        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%),
-        #080923;
+      linear-gradient(90deg,transparent 46%,#8a5b43 46% 54%,transparent 54%),
+      linear-gradient(0deg,transparent 46%,#8a5b43 46% 54%,transparent 54%),#080923;
 }
 .ventana-mansion-izq-ext { left:-1%; }
 .ventana-mansion-izq { left:19%; }
 .ventana-mansion-der { right:19%; }
 .ventana-mansion-der-ext { right:-1%; }
+.pilar-mansion {
+    position:absolute; z-index:4; top:20%; bottom:5%; width:2.1%;
+    background:#8a5b43;
+}
+.pilar-mansion-izq { left:18%; }
+.pilar-mansion-der { right:18%; }
 
+.nido-cuervo {
+    position:absolute; z-index:9; right:16%; top:10%; width:82px; height:30px;
+    border:0; border-radius:50%;
+    background:repeating-linear-gradient(12deg,transparent 0 5px,#765044 5px 9px),#8a5b43;
+    box-shadow:0 7px 0 #765044,0 12px 0 -4px #765044;
+}
+.llave-cobre-decorativa {
+    position:absolute; left:-30px; top:-29px; width:34px; height:17px;
+    border:0; border-radius:0;
+}
+.llave-cobre-decorativa::before {
+    content:""; position:absolute; left:15px; top:0; width:12px; height:12px;
+    border:4px solid #ff704b; border-radius:50%;
+}
+.llave-cobre-decorativa::after {
+    content:""; position:absolute; left:0; top:5px; width:22px; height:4px;
+    background:#ff704b; box-shadow:13px 4px 0 -1px #ff704b;
+}
 .cuervo-interactivo {
-    position:absolute; right:20%; top:13%; bottom:auto; z-index:8;
-    width:58px; height:48px; padding:0; border:0;
+    position:absolute; right:19%; top:9%; bottom:auto; z-index:12;
+    width:58px; height:48px; min-width:0; padding:0; margin:0; border:0;
     background:transparent; cursor:pointer;
-    transition:right 1.2s ease-in-out, top 1.2s ease-in-out;
+    transition:right 1.2s ease-in-out,top 1.2s ease-in-out;
 }
-.cuervo-cuerpo {
-    position:absolute; left:8px; top:17px; width:35px; height:24px;
-    border-radius:55% 48% 48% 55%; background:#050609; transform:rotate(-8deg);
-}
-.cuervo-cuerpo::before {
-    content:""; position:absolute; left:-8px; top:5px;
-    border-top:7px solid transparent; border-bottom:7px solid transparent;
-    border-right:13px solid #050609; transform:rotate(-12deg);
-}
-.cuervo-cuerpo::after {
-    content:""; position:absolute; left:10px; top:4px; width:22px; height:13px;
-    border-radius:50%; background:#050609; transform:rotate(18deg);
-}
-.cuervo-cabeza {
-    position:absolute; left:32px; top:7px; width:19px; height:19px;
-    border-radius:50%; background:#050609;
-}
-.cuervo-cabeza::after {
-    content:""; position:absolute; right:6px; top:5px; width:4px; height:4px;
-    border-radius:50%; background:#fff;
-}
+.cuervo-cuerpo { position:absolute; left:8px; top:17px; width:35px; height:24px; border-radius:55% 48% 48% 55%; background:#050609; transform:rotate(-8deg); }
+.cuervo-cuerpo::before { content:""; position:absolute; left:-8px; top:5px; border-top:7px solid transparent; border-bottom:7px solid transparent; border-right:13px solid #050609; transform:rotate(-12deg); }
+.cuervo-cuerpo::after { content:""; position:absolute; left:10px; top:4px; width:22px; height:13px; border-radius:50%; background:#050609; transform:rotate(18deg); }
+.cuervo-cabeza { position:absolute; left:32px; top:7px; width:19px; height:19px; border-radius:50%; background:#050609; }
+.cuervo-cabeza::after { content:""; position:absolute; right:6px; top:5px; width:4px; height:4px; border-radius:50%; background:#fff; }
 .cuervo-pico {
-    position:absolute; left:0; top:17px; width:0; height:0;
+    position:absolute; left:48px; top:13px; width:0; height:0;
     border-top:5px solid transparent; border-bottom:5px solid transparent;
-    border-right:11px solid #f39a00;
+    border-left:11px solid #f39a00; border-right:0;
 }
 .cuervo-pata { display:none; }
-.cuervo-interactivo.cuervo-alimentado {
-    right:calc(9% + 34px); top:auto; bottom:18%;
-}
-@media (prefers-reduced-motion: reduce) {
-    .cuervo-interactivo { transition:none; }
-}
+.cuervo-interactivo.cuervo-alimentado { right:calc(29% + 25px); top:72%; bottom:auto; }
+@media (prefers-reduced-motion:reduce) { .cuervo-interactivo { transition:none; } }
+
 .cuenco-perro {
-    position:absolute; right:29%; bottom:5%; z-index:5;
-    width:108px; min-width:0; height:48px; padding:0;
-    overflow:hidden; border:0; border-radius:45% 45% 50% 50%;
+    position:absolute; right:29%; bottom:5%; z-index:5; width:108px; min-width:0; height:48px;
+    padding:0; margin:0; overflow:hidden; border:0; border-radius:45% 45% 50% 50%;
     background:#a90020; color:transparent; font-size:0;
 }
-.cuenco-perro::before {
-    content:""; position:absolute; left:13%; right:13%; top:18%; height:35%;
-    border-radius:50%; background:#d0002b;
-    box-shadow:inset 0 -5px 0 rgba(70,0,12,.25);
-}
+.cuenco-perro::before { content:""; position:absolute; left:13%; right:13%; top:18%; height:35%; border-radius:50%; background:#d0002b; box-shadow:inset 0 -5px 0 rgba(70,0,12,.25); }
 .llave-cobre-suelta {
-    position:absolute; left:71%; top:12%; bottom:auto; z-index:9;
-    width:54px; height:30px; padding:0; border:0;
+    position:absolute; z-index:13; right:calc(29% + 12px); top:14%; bottom:auto;
+    width:54px; height:30px; min-width:0; padding:0; margin:0; border:0;
     background:transparent; color:transparent; font-size:0;
+    transition:top .85s cubic-bezier(.2,.7,.3,1);
 }
-.llave-cobre-suelta::before {
-    content:""; position:absolute; left:2px; top:2px; width:17px; height:17px;
-    border:5px solid #ff704b; border-radius:50%;
-}
-.llave-cobre-suelta::after {
-    content:""; position:absolute; left:0; top:8px; width:30px; height:5px;
-    background:#ff704b;
-    box-shadow:17px 5px 0 -1px #ff704b, 23px 0 0 -1px #ff704b;
-}
+.llave-cobre-suelta::before { content:""; position:absolute; left:2px; top:2px; width:17px; height:17px; border:5px solid #ff704b; border-radius:50%; }
+.llave-cobre-suelta::after { content:""; position:absolute; left:0; top:8px; width:30px; height:5px; background:#ff704b; box-shadow:17px 5px 0 -1px #ff704b,23px 0 0 -1px #ff704b; }
+.llave-cobre-suelta.llave-cayendo { top:79%; }
+
 .cepo-cabra { position:absolute; left:48%; bottom:13%; width:150px; height:85px; border:9px solid #77716a; border-radius:50%; background:#4a3930; }
 .restos-cabra { position:absolute; left:38%; bottom:30%; width:60px; height:45px; border-radius:50%; background:#b6a78c; }
+
+/* Bosque derecho: árboles agrupados y separados de la caseta. */
+.contenedor-arboles-mansion { position:absolute; inset:0; z-index:1; }
+.arbol-mansion { position:absolute; bottom:16%; width:110px; height:220px; }
+.arbol-mansion::before { content:""; position:absolute; left:44px; bottom:0; width:22px; height:105px; background:#60432c; }
+.arbol-mansion::after { content:""; position:absolute; left:0; top:0; width:110px; height:125px; background:#344d36; clip-path:polygon(50% 0,94% 30%,77% 30%,100% 58%,70% 55%,88% 86%,12% 86%,30% 55%,0 58%,23% 30%,6% 30%); }
+.arbol-mansion-esbelto { left:13%; transform:scale(.78); transform-origin:bottom center; }
+.arbol-mansion-frondoso { right:10%; }
+.contenedor-caseta-mansion { position:absolute; z-index:2; inset:0; }
 .arte-caseta-mansion .caseta-perro { position:absolute; right:25%; bottom:15%; width:190px; height:150px; border:7px solid #76552f; background:#59402b; }
 .entrada-caseta { position:absolute; left:25%; bottom:0; width:50%; height:65%; border:5px solid #30231c; border-radius:50% 50% 0 0; background:#171b19; }
+
+.contenedor-cabanita-mansion { position:absolute; left:0; bottom:0; width:62%; height:100%; }
 .cabanita-mansion-fondo { position:absolute; left:13%; bottom:13%; width:190px; height:115px; border:5px solid #76552f; background:#59402b; }
 .cabanita-mansion-fondo::before { content:""; position:absolute; left:-15px; top:-55px; width:210px; height:55px; background:#493126; border:5px solid #76552f; }
 .cabanita-mansion-fondo span { position:absolute; left:42%; bottom:0; width:32px; height:65px; background:#30231c; }
 .buzon-mansion-fondo { position:absolute; left:37%; bottom:22%; width:42px; height:34px; border:3px solid #765044; background:#554238; }
+.contenedor-arboles-detras { position:absolute; right:0; bottom:0; width:38%; height:100%; }
 .arbol-fondo { position:absolute; bottom:12%; width:28px; height:190px; background:#493126; }
-.arbol-fondo::before { content:""; position:absolute; left:-45px; top:-50px; width:118px; height:105px; border-radius:50%; background:#354333; }
-.arbol-fondo-izq { right:15%; }
+.arbol-fondo::before { content:""; position:absolute; left:-45px; top:-50px; width:118px; height:105px; clip-path:polygon(50% 0,95% 45%,78% 45%,100% 90%,0 90%,22% 45%,5% 45%); background:#354333; }
+.arbol-fondo-izq { right:55%; }
 .arbol-fondo-der { right:4%; }
+
+/* Contenedores de los edificios en las perspectivas de la cabaña. */
+.contenedor-mansion-exterior,.contenedor-cabanita-exterior { position:absolute; inset:0; }
+.contenedor-mansion-exterior { container-type:inline-size; }
+.contenedor-cabanita-exterior { container-type:inline-size; }
+.edificio-casa-grande,.edificio-cabanita { container-type:inline-size; }
+.edificio-casa-grande { width:clamp(210px,54%,490px); }
+.edificio-cabanita { width:clamp(170px,29%,260px); }
+
+/* Edificios pequeños y elementos asociados mantienen proporción interna. */
+.arte-caseta-mansion,.arte-detras-mansion { overflow:hidden; }
 .salida-mansion { position:absolute; left:50%; bottom:30%; transform:translateX(-50%); z-index:5; }
 .esqueleto-cabra-exterior { position:absolute; left:9%; bottom:15%; width:105px; height:48px; border-bottom:8px solid #c4b99f; border-radius:50%; }
 .esqueleto-cabra-exterior::before { content:""; position:absolute; left:25px; bottom:20px; width:38px; height:28px; border-radius:50%; background:#c4b99f; }
 .caseta-perro-exterior { position:absolute; right:8%; bottom:14%; width:110px; height:85px; border:5px solid #76552f; background:#59402b; }
 .caseta-perro-exterior::before { content:""; position:absolute; left:25%; bottom:0; width:50%; height:60%; background:#202321; border:3px solid #30231c; }
 .entrada-mansion { position:absolute; left:50%; bottom:30%; transform:translateX(-50%); z-index:6; }
-@media (max-width:650px) {
-    .puerta-mansion { width:130px; }
-    .suelo-porche { left:5%; right:5%; }
-    .cuenco-perro { right:8%; }
-}
+@media (max-width:650px) { .cuenco-perro { right:8%; } }
 
 /* ==========================================
    7. INVENTARIO Y PANEL DEL CURRÍCULUM
