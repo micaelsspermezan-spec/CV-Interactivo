@@ -471,3 +471,11 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Las tres paredes interiores distintas de la pared frontal adoptan el mismo tono de madera marrón plana (#b77d5b) y el marco de contorno negro usado en la vista del escritorio.
 - Se añaden unas pocas juntas decorativas negras, discretas y no interactivas, mediante CSS. Los elementos existentes de cada pared —saco de pienso y slots de caballos, puerta de salida y slots de trofeos— conservan su HTML, identificadores, posición y comportamiento.
 - El cambio es exclusivamente visual y no modifica JavaScript, navegación ni puzles. Los objetos y decoraciones específicas se ajustarán posteriormente a partir de las referencias visuales del usuario.
+
+## Ajustes visuales de la cabaña y aislamiento de escenas (6 de noviembre de 2026)
+
+- El fondo de madera común se limita explícitamente a las paredes interiores 2, 3 y 4 de la cabañita. Las perspectivas exteriores de la cabaña y las vistas de la mansión conservan sus fondos propios.
+- La mesa de la pared izquierda reutiliza la clase CSS del escritorio de la pared frontal. Los slots de los caballos se sitúan sobre el tablero.
+- La llave de cobre del recibidor de la mansión utiliza la misma silueta CSS que la llave de hierro, en tono cobrizo rojizo.
+- La puerta de la pared trasera de la cabañita se amplía y llega hasta el borde inferior de la escena; el botón de salida queda junto a su parte baja.
+- Se mantienen los IDs y la lógica de interacción existentes.
