@@ -486,3 +486,9 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Se aplica un degradado radial oscuro en los bordes de las cuatro perspectivas interiores de la cabañita y del recibidor de la mansión. El centro permanece más claro y la capa decorativa no intercepta clics.
 - El saco de pienso se redibuja con CSS: silueta de saco, cierre superior, etiqueta «PIENSO» y contorno negro. Conserva el ID `#saco-pienso`, su posición y su comportamiento interactivo.
 - Cambios exclusivamente visuales en CSS; no se modifica JavaScript, HTML, navegación ni lógica de inventario/puzles.
+
+## Fondo y viñeta de las perspectivas exteriores de la mansión (6 de noviembre de 2026)
+
+- Las cuatro perspectivas exteriores de la mansión reutilizan el fondo ambiental general de `#escena`, igual que las cuatro perspectivas exteriores de la cabaña. Se elimina el fondo gris sólido específico que tenía la mansión.
+- La viñeta radial oscura de los bordes se extiende a las cuatro vistas de la mansión: Recibidor, Bosque izquierdo, Bosque derecho y Detrás. El centro queda más claro y la capa no bloquea clics.
+- Se conservan las composiciones, objetos, posiciones e interacciones particulares de cada perspectiva. No se modifica HTML ni JavaScript.
