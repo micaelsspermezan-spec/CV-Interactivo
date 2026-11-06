@@ -573,3 +573,10 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Se adelantan los bloques de inventario, panel del currículum, etiqueta WIP, equipamiento y aviso de finalización para situarlos justo después de los estilos generales de interfaz y escena.
 - Se conserva el contenido de las reglas y sus valores; esta primera pasada es de organización, no de rediseño visual.
 - Los estilos de adaptación a pantallas pequeñas permanecen al final para mantener juntas las reglas responsivas.
+
+## Segunda reorganización de la hoja de estilos (6 de noviembre de 2026)
+
+- Se agrupan al principio los estilos de los objetos interactivos de la escena: puzle de caballos, slots de trofeos y cráneos, piezas del CV, póster, llave, cofre y saco de pienso.
+- La regla de objetos agotados del inventario se coloca junto al resto de estilos del inventario, en lugar de permanecer mezclada con los objetos de escena.
+- A continuación quedan agrupados los estilos de paredes interiores y elementos propios de la cabañita; después, los edificios, árboles y elementos exteriores de la mansión.
+- Se conservan los valores CSS, identificadores y reglas de interacción. El cambio es de organización y no pretende modificar el aspecto visual.
