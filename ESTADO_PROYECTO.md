@@ -580,3 +580,10 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - La regla de objetos agotados del inventario se coloca junto al resto de estilos del inventario, en lugar de permanecer mezclada con los objetos de escena.
 - A continuación quedan agrupados los estilos de paredes interiores y elementos propios de la cabañita; después, los edificios, árboles y elementos exteriores de la mansión.
 - Se conservan los valores CSS, identificadores y reglas de interacción. El cambio es de organización y no pretende modificar el aspecto visual.
+
+## Limpieza de reglas interiores de la cabañita (6 de noviembre de 2026)
+
+- Se eliminaron del escritorio de la pared izquierda las propiedades `top` y `width`, ya heredadas de la regla general; se conserva `left: 50%` porque sí es una diferencia necesaria.
+- Se retiró la regla duplicada `.slot-caballo { pointer-events: auto; }`; la propiedad permanece en la regla principal de los slots.
+- Se eliminó `border-radius: 0` del panel inferior de la puerta, porque ya lo hereda de `.puerta-panel`.
+- No se cambiaron posiciones efectivas, dimensiones, colores ni comportamientos.
