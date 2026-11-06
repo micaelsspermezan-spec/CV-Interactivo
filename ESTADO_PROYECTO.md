@@ -550,3 +550,11 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - En Frente · Mansión, la zona para entrar al recibidor cubre la mansión completa y excluye la caseta del perro. En la vista exterior trasera, la cabañita completa permite regresar a la cabañita.
 - En el recibidor de la mansión, la cabañita se centra horizontalmente y el buzón cuadrado se desplaza a su izquierda. La zona de regreso cubre la propia cabañita.
 - Los botones conservan sus identificadores y eventos de navegación. Las zonas nuevas son transparentes y no modifican el arte decorativo ni la lógica JavaScript.
+
+
+## Realce al pasar el puntero sobre puertas y edificios (6 de noviembre de 2026)
+
+- Las zonas transparentes de salida y regreso mantienen el clic, pero ya no muestran el fondo azul marino ni la sombra general de los botones al pasar el puntero.
+- En su lugar, se aclara ligeramente el elemento CSS real que hay debajo: la puerta interior, la mansión exterior, la cabañita exterior o la cabañita del recibidor.
+- El efecto utiliza una transición breve de brillo y no cambia dimensiones, posiciones, identificadores ni comportamiento de navegación.
+- El ajuste se limita a CSS; no modifica HTML ni JavaScript.
