@@ -525,3 +525,12 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - El cielo ultramarino casi negro (#080923) sustituye el fondo gris de `#escena`, por lo que se comparte entre las cuatro perspectivas exteriores de la cabaña y las cuatro de la mansión.
 - El cuervo y la llave de cobre permanecen como elementos interactivos independientes del decorado. Se conservan sus IDs y la lógica del puzle; el cuervo mantiene su desplazamiento al alimentarlo y la llave sigue apareciendo en el escenario.
 - No se modifican navegación, inventario ni lógica JavaScript. El cambio se limita a `css/style.css`, `escenas/mansion.html` y esta documentación.
+
+
+## Correcciones estructurales y animación del cuervo (6 de noviembre de 2026)
+
+- La fachada del recibidor se agrupa en `.fachada-mansion`, con proporciones internas controladas para que puertas y ventanas no cambien de relación al redimensionar el navegador. Se incorporan dos pilares y se corrige la silueta del tejado.
+- El nido se superpone al tejado y contiene una llave decorativa visible antes de alimentar al cuervo.
+- Se corrige la orientación del pico del cuervo. Al darle pienso, el cuervo se desplaza mediante transición hasta el cuenco; la llave decorativa desaparece y la llave recogible cae animada desde el nido hasta el suelo.
+- Se agrupan por separado árboles y caseta en el bosque derecho de la mansión; la cabañita y los árboles del fondo en la vista trasera; y los edificios/elementos asociados en las vistas exterior frontal y trasera de la cabaña.
+- Se conservan los IDs de los elementos interactivos, inventario y navegación. No se añaden recursos ni dependencias externas.
