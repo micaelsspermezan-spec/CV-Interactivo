@@ -1,0 +1,60 @@
+CV INTERACTIVO — MICAEL SAMUEL
+=================================
+
+¿QUÉ ES?
+--------
+Un currículum interactivo presentado como una pequeña aventura de exploración.
+Puedes recorrer la cabaña, sus alrededores y la mansión, encontrar objetos,
+resolver mecanismos y descubrir las distintas partes del currículum.
+
+CÓMO ABRIRLO
+------------
+La forma recomendada para la entrega es mediante el enlace web de GitHub Pages.
+Cuando la publicación esté activada, bastará con abrir ese enlace en un navegador
+actual. No será necesario instalar Visual Studio Code, Live Server ni ningún
+programa adicional.
+
+La publicación en GitHub Pages está pendiente de configuración. Hasta que se
+facilite el enlace definitivo, el proyecto también puede ejecutarse desde una
+copia descargada usando un servidor web local. No se debe abrir index.html
+directamente como archivo, porque el navegador bloquea la carga de las escenas.
+
+CONTROLES
+---------
+- Usa los botones de flecha para cambiar de perspectiva.
+- Pulsa los objetos y elementos interactivos para examinarlos o recogerlos.
+- Abre el inventario para consultar los objetos encontrados y gestionar el
+  objeto equipado.
+- En los mecanismos de caballos y trofeos, selecciona una pieza y después
+  pulsa la posición donde quieras colocarla.
+- Usa los botones de las puertas para desplazarte entre las zonas.
+
+OBJETIVO
+-------
+Explora los escenarios, resuelve los tres mecanismos y encuentra las tres piezas
+del currículum. También puedes consultar el currículum desde el botón que aparece
+al encontrar el documento.
+
+SEGURIDAD Y PRIVACIDAD
+----------------------
+Este proyecto es una página web estática compuesta por HTML, CSS y JavaScript.
+No requiere descargar ni ejecutar instaladores, aplicaciones o archivos .exe.
+El navegador carga los archivos del propio proyecto para mostrar las escenas
+y gestionar las interacciones.
+
+El código fuente está disponible en el repositorio de GitHub para su consulta.
+No se han añadido dependencias externas ni servicios de terceros para el
+funcionamiento del juego. Como con cualquier contenido web, esto no constituye
+una garantía absoluta de seguridad: se recomienda acceder mediante el enlace
+oficial del repositorio o de GitHub Pages.
+
+ESTADO DE LA PARTIDA
+--------------------
+El progreso se mantiene mientras la página permanece abierta, pero no se guarda
+de forma permanente. Si se recarga la página o se cierra el navegador, la partida
+comienza de nuevo.
+
+PROYECTO
+--------
+Repositorio: https://github.com/micaelsspermezan-spec/CV-Interactivo
+Rama principal: main
