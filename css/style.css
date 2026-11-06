@@ -542,63 +542,205 @@ button:focus-visible {
    10. CONTENIDO DEL CURRÍCULUM
    ========================================== */
 
+/* El currículum se presenta como una hoja editorial dentro del panel oscuro. */
 #contenido-cv {
-    max-width: 900px;
+    width: min(100%, 1040px);
     margin: 0 auto;
-    line-height: 1.6;
+    padding: clamp(24px, 5vw, 58px);
+    color: #302b25;
+    background: #eee8d9;
+    border: 1px solid #c9bda6;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+    line-height: 1.65;
 }
 
-/* La cabecera personal siempre permanece visible. */
+#contenido-cv p { color: #625b50; }
+
+/* La identidad personal permanece visible desde el principio. */
 #datos-personales-cv {
-    padding-bottom: 18px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--borde-dorado);
+    padding-bottom: 28px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #b99b62;
 }
 
-#datos-personales-cv h1 {
-    margin-bottom: 12px;
-    color: var(--dorado-claro);
-    font-size: clamp(22px, 3vw, 32px);
-}
-
-#datos-personales-cv p,
-#contenido-cv p {
-    color: var(--texto-secundario);
-}
-
-/* visibility conserva el espacio del fragmento sin mostrar su contenido. */
-.fragmento-cv {
-    visibility: hidden;
-    margin-bottom: 28px;
-}
-
-.fragmento-cv.revelado {
-    visibility: visible;
-}
-
-.fragmento-cv h3 {
-    margin: 0 0 12px;
-    color: var(--cian-claro);
-    font-size: 18px;
-    letter-spacing: 1px;
-}
-
-.fragmento-cv h4 {
-    margin: 8px 0;
-    color: var(--dorado-claro);
-}
-
-.fragmento-cv article {
+.cv-identidad-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 18px;
 }
 
-.fragmento-cv ul {
-    padding-left: 22px;
-    color: var(--texto-secundario);
+.cv-sello,
+.cv-ubicacion {
+    margin: 0;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
+#datos-personales-cv .cv-sello { color: #47747a; }
+#datos-personales-cv .cv-ubicacion {
+    color: #766b5c;
+    letter-spacing: 1px;
+}
+
+#datos-personales-cv h1 {
+    margin: 0 0 7px;
+    color: #302b25;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 4vw, 43px);
+    font-weight: normal;
+    line-height: 1.15;
+    letter-spacing: -0.7px;
+}
+
+#datos-personales-cv .cv-titular {
+    margin: 0 0 22px;
+    color: #47747a;
+    font-size: clamp(15px, 2vw, 19px);
+    font-weight: bold;
+}
+
+.cv-contacto {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 24px;
+    padding-top: 17px;
+    border-top: 1px solid #d2c8b5;
+}
+
+#datos-personales-cv .cv-contacto-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 10px;
+    margin: 0;
+    color: #514a40;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.cv-contacto-item span {
+    min-width: 74px;
+    color: #8b7040;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* visibility conserva el desbloqueo progresivo de las tres piezas. */
+.fragmento-cv {
+    visibility: hidden;
+    margin-bottom: 30px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #d2c8b5;
+}
+
+.fragmento-cv.revelado { visibility: visible; }
+
+.cv-seccion-cabecera {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 26px 0 12px;
+}
+
+.cv-seccion-cabecera:first-child { margin-top: 0; }
+
+.cv-numero-seccion {
+    color: #a48750;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.fragmento-cv h3 {
+    margin: 0;
+    color: #315c62;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.fragmento-cv h4 {
+    margin: 5px 0;
+    color: #40372d;
+    font-size: 16px;
+}
+
+.fragmento-cv p,
 .fragmento-cv li {
-    margin-bottom: 6px;
+    color: #625b50;
+    font-size: 14px;
+}
+
+.cv-perfil { max-width: 850px; margin-bottom: 12px; }
+
+.cv-hito {
+    margin: 0 0 20px 4px;
+    padding: 0 0 0 18px;
+    border-left: 2px solid #c4aa76;
+}
+
+.cv-hito h4 { margin-top: 3px; }
+.cv-hito p { margin: 4px 0; }
+
+.cv-hito .cv-fecha,
+.cv-contexto {
+    color: #8b7040;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+}
+
+.fragmento-cv ul { padding-left: 20px; color: #625b50; }
+.fragmento-cv li { margin-bottom: 5px; }
+
+.cv-datos-idiomas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.cv-datos-idiomas p {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+    padding: 12px;
+    background: #e5dece;
+    border-top: 2px solid #b99b62;
+}
+
+.cv-datos-idiomas strong { color: #40372d; font-size: 14px; }
+.cv-datos-idiomas span { color: #766b5c; font-size: 12px; }
+
+.cv-grupo-competencias { margin: 0 0 20px; }
+.cv-grupo-competencias h4 {
+    margin-bottom: 10px;
+    color: #76613d;
+    font-size: 14px;
+}
+
+.cv-etiquetas { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.cv-etiquetas span {
+    display: inline-block;
+    padding: 6px 10px;
+    color: #40575a;
+    background: #e1e7e2;
+    border: 1px solid #c4d0c8;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.cv-etiquetas-intereses span {
+    color: #665438;
+    background: #e9e1d1;
+    border-color: #d5c7aa;
 }
 
 
@@ -2119,6 +2261,22 @@ button:focus-visible {
    ========================================== */
 
 @media (max-width: 650px) {
+    #contenido-cv { padding: 22px 17px; }
+
+    .cv-identidad-superior {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .cv-contacto,
+    .cv-datos-idiomas {
+        grid-template-columns: 1fr;
+    }
+
+    #datos-personales-cv h1 { overflow-wrap: anywhere; }
+
+
 
     .cuenco-perro {
         right: 8%;
