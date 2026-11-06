@@ -101,12 +101,12 @@ function actualizarDescripcionCurriculum() {
 
     if (piezas.length === 0) {
         curriculum.descripcion =
-            "Un documento que contiene mi formación y experiencia.";
+            "Documento que contendría mi formación y experiencia. El tiempo lo ha deteriorado gravemente";
     } else {
         const nombrePieza = piezas.length === 1 ? "la pieza" : "las piezas";
 
         curriculum.descripcion =
-            `Currículum recogido. Se ha añadido la información adicional de ${nombrePieza} que ya habías recuperado.`;
+            `Documento que contiene mi formación y experiencia. Se le ha añadido información adicional de ${nombrePieza} que ya habías recuperado.`;
     }
 }
 

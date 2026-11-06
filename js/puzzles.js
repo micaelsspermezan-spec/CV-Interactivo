@@ -14,25 +14,25 @@ function interactuarConCofre() {
     const botonCofre = document.getElementById("cofre-escritorio");
 
     if (cofreEscritorioAbierto) {
-        mensaje.textContent = "El cofre ya está abierto.";
+        mensaje.textContent = "Está ya abierto.";
         return;
     }
 
     const objeto = obtenerObjetoEquipado();
 
     if (!objeto) {
-        mensaje.textContent = "El cofre está cerrado. Necesitas una llave de cobre.";
+        mensaje.textContent = "Está cerrado con candado. Necesitas equipar una llave adecuada";
         return;
     }
     if (objeto.id !== "llave-cobre") {
-        mensaje.textContent = "Esa llave no sirve para este cofre.";
+        mensaje.textContent = "Esa llave no encaja en la cerradura";
         return;
     }
 
     cofreEscritorioAbierto = true;
     marcarObjetoAgotado("llave-cobre");
     desequiparObjeto();
-    mensaje.textContent = "¡CLAC! La llave de cobre gira y el cofre se abre. Dentro hay algo.";
+    mensaje.textContent = "¡CLAC! Al girae la llave se abre el cofre. Dentro hay algo.";
     botonCofre.textContent = "Cofre abierto";
     document.getElementById("pieza-cv-1-3").classList.remove("oculta");
 }
@@ -49,20 +49,20 @@ function interactuarConCuervo() {
     const mensaje = document.getElementById("mensaje-escena");
     mensaje.textContent = cuervoAlimentado
         ? "El cuervo está ocupado comiendo."
-        : "El cuervo está demasiado alto para alcanzarlo.";
+        : "Está demasiado alto para alcanzarlo.";
 }
 
 function interactuarConCuenco() {
     const mensaje = document.getElementById("mensaje-escena");
 
     if (cuervoAlimentado) {
-        mensaje.textContent = "El cuervo sigue comiendo junto al cuenco.";
+        mensaje.textContent = "El cuervo está ocupado comiendo.";
         return;
     }
 
     const equipado = obtenerObjetoEquipado();
     if (!equipado || equipado.id !== "saco-pienso") {
-        mensaje.textContent = "El cuenco del perro está vacío.";
+        mensaje.textContent = "Cuenco de perro vacío.";
         return;
     }
 
@@ -79,7 +79,7 @@ function interactuarConCuenco() {
     llave.classList.remove("oculta");
     requestAnimationFrame(() => llave.classList.add("llave-cayendo"));
     llaveCobreEnSuelo = true;
-    mensaje.textContent = "El cuervo baja a comer. La llave de cobre cae del nido al suelo.";
+    mensaje.textContent = "Atraido por la comida, el cuervo deja caer algo al suelo";
 }
 
 function recogerLlaveCobre() {
@@ -89,7 +89,7 @@ function recogerLlaveCobre() {
         "llave-cobre",
         "🗝️ Llave de cobre",
         "Llave",
-        "Una llave de cobre que el cuervo guardaba en el pico.",
+        "Pequeña llave de cobre. Ha sido cuidada con mucho mimo y emite cierta calidez",
         "llave"
     );
 
@@ -241,7 +241,7 @@ function interactuarConSlotCaballo(posicion) {
         comprobarPuzleCaballos();
 
         if (!puzleCaballosResuelto) {
-            mensaje.textContent = "Has colocado el caballito plateado en la pared.";
+            mensaje.textContent = "Has colocado el caballito plateado en una ranura";
         }
     }
 }
@@ -253,14 +253,14 @@ function abrirBuzonOxidado() {
     const botonBuzon = document.getElementById("buzon-oxidado");
 
     if (buzonAbierto) {
-        mensaje.textContent = "El buzón ya está abierto.";
+        mensaje.textContent = "El buzón esta ya abierto.";
         return;
     }
 
     const equipado = obtenerObjetoEquipado();
 
     if (!equipado || equipado.id !== "llave-hierro") {
-        mensaje.textContent = "El buzón está cerrado. Necesitas la llave de hierro equipada.";
+        mensaje.textContent = "Buzón oxidado cerrado con llave. Necesitas equiparte una llave adecuada";
         return;
     }
 
@@ -276,7 +276,7 @@ function abrirBuzonOxidado() {
         .classList.remove("oculta");
 
     mensaje.textContent =
-        "La llave de hierro abre el buzón. Un caballito plateado ha caído al suelo.";
+        "El buzón se abre a duras penas. Contiene una figura plateada.";
 }
 
 
@@ -352,7 +352,7 @@ function comprobarPuzleTrofeos() {
     puzleTrofeosResuelto = true;
     document.getElementById("pieza-cv-3-3").classList.remove("oculta");
     document.getElementById("mensaje-escena").textContent =
-        "Los tres trofeos ocupan su lugar. Has encontrado la Pieza 3 del currículum.";
+        "Todos los trofeos ocupan su lugar. Dejan caer la Pieza 3 del currículum.";
 }
 
 
@@ -383,7 +383,7 @@ function interactuarConSlotTrofeo(posicion) {
         slotTrofeoSeleccionado = posicion;
         actualizarSlotsTrofeos();
         mensaje.textContent =
-            `Un cráneo de ${objetoEnSlot.replace("craneo-", "")}.`;
+            `Una cabeza de ${objetoEnSlot.replace("craneo-", "")}.`;
         return;
     }
 
@@ -404,7 +404,7 @@ function interactuarConSlotTrofeo(posicion) {
 
     if (!puzleTrofeosResuelto) {
         mensaje.textContent =
-            `Has colocado el cráneo de ${equipado.id.replace("craneo-", "")} en la pared.`;
+            `Has colocado el cráneo de ${equipado.id.replace("craneo-", "")} en la peana.`;
     }
 }
 
@@ -431,7 +431,7 @@ document.getElementById("craneo-cabra-suelto").addEventListener("click", evento 
     recogerCraneoTrofeo(
         "craneo-cabra",
         "💀 Cráneo de cabra",
-        "Un cráneo de cabra con los cuernos cortados, recuperado de los restos atrapados en el cepo.",
+        "Un cráneo de cabra con los cuernos cortados",
         evento.currentTarget
     );
 });
@@ -440,7 +440,7 @@ document.getElementById("craneo-alce-suelto").addEventListener("click", evento =
     recogerCraneoTrofeo(
         "craneo-alce",
         "💀 Cráneo de alce",
-        "Un cráneo de alce con una gran cornamenta, encontrado sobre el tejado de la cabañita.",
+        "Trofeo de caza con una gran cornamenta",
         evento.currentTarget
     );
 });
@@ -489,7 +489,7 @@ document.getElementById("caballo-plateado-suelto")
             "caballo-plateado",
             "♞ Caballito plateado",
             "Objeto de mecanismo",
-            "Un pequeño caballito plateado.",
+            "Pequeña figura de plata de un caballo.",
             "herramienta"
         );
 
@@ -499,7 +499,7 @@ document.getElementById("caballo-plateado-suelto")
             .classList.add("oculta");
 
         document.getElementById("mensaje-escena").textContent =
-            "Has recogido el caballito plateado.";
+            "Has recogido un caballito plateado.";
     });
 
 actualizarSlotsCaballos();

@@ -153,10 +153,6 @@ document.getElementById("llave-hierro").addEventListener("click", () => {
 
 
 /* ==========================================
-   7. LLAVE DE LATÓN
-   ========================================== */
-
-/* ==========================================
    8. COFRE DEL ESCRITORIO
    ========================================== */
 
@@ -167,13 +163,13 @@ document.getElementById("saco-pienso").addEventListener("click", () => {
         "saco-pienso",
         "Saco de pienso",
         "Alimento",
-        "Un pequeño saco de pienso para animales.",
+        "Pequeño saco de pienso para perros.",
         "herramienta"
     );
     if (!objeto) return;
     document.getElementById("saco-pienso").classList.add("oculta");
     if (obtenerObjetoEquipado()?.id !== "saco-pienso") {
-        mensajeEscena.textContent = "Has recogido un saco de pienso.";
+        mensajeEscena.textContent = "Has recogido pienso para perros.";
     }
 });
 
