@@ -558,3 +558,12 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - En su lugar, se aclara ligeramente el elemento CSS real que hay debajo: la puerta interior, la mansión exterior, la cabañita exterior o la cabañita del recibidor.
 - El efecto utiliza una transición breve de brillo y no cambia dimensiones, posiciones, identificadores ni comportamiento de navegación.
 - El ajuste se limita a CSS; no modifica HTML ni JavaScript.
+
+
+## Modelos CSS de árboles reutilizables (6 de noviembre de 2026)
+
+- Se definen cuatro modelos independientes: `.arbol-generico`, `.arbol-calvo`, `.arbol-mediano` y `.arbol-frondoso`. Cada árbol tiene un contenedor propio con dimensiones explícitas; el genérico utiliza tronco rectangular y copa de pino formada por tres triángulos verdes.
+- Los modelos especiales se reservan para la vista Exterior · Bosque izquierdo: el calvo tiene tronco y ramas desnudas; el mediano y el frondoso combinan círculos y tréboles verdes, con distinta abundancia de copa.
+- Los árboles genéricos sustituyen los decorativos anteriores y aparecen en las cuatro vistas exteriores de la cabañita y en las tres vistas de bosque/fondo de la mansión. No se añaden al recibidor de la mansión ni a las cuatro paredes interiores de la cabañita.
+- En Exterior · Bosque izquierdo se mantienen los tres árboles especiales del puzle y se añaden árboles genéricos a los laterales y al fondo. Los árboles no son interactivos y no cambian la lógica de navegación ni de los puzles.
+- Todo el diseño está construido con HTML y CSS, sin imágenes, recursos externos ni dependencias.
