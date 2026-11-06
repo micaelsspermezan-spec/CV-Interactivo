@@ -326,6 +326,28 @@ button:focus-visible {
 /* Elementos decorativos generales de las perspectivas. */
 .arte-pared { position: absolute; inset: 0; pointer-events: none; }
 
+/* Las otras tres paredes interiores comparten la madera y el marco de la pared frontal. */
+.vista-pared:not(#vista-pared-1) {
+    background: #b77d5b;
+}
+
+.vista-pared:not(#vista-pared-1)::before {
+    content: "";
+    position: absolute;
+    inset: 0 15%;
+    z-index: 0;
+    border-right: 3px solid #17100d;
+    border-left: 3px solid #17100d;
+    border-bottom: 3px solid #17100d;
+    pointer-events: none;
+    background:
+        linear-gradient(#17100d, #17100d) 7% 17% / 17% 3px no-repeat,
+        linear-gradient(#17100d, #17100d) 73% 24% / 15% 3px no-repeat,
+        linear-gradient(#17100d, #17100d) 13% 48% / 12% 3px no-repeat,
+        linear-gradient(#17100d, #17100d) 78% 61% / 16% 3px no-repeat,
+        linear-gradient(#17100d, #17100d) 25% 79% / 19% 3px no-repeat;
+}
+
 /* Pared frontal de madera: superficies planas y juntas dibujadas con bordes. */
 .arte-escritorio {
     overflow: hidden;
