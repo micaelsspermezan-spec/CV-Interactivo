@@ -833,9 +833,7 @@ button:focus-visible {
 }
 
 /* Los slots quedan fuera del arte decorativo para recibir los clics. */
-.slot-caballo {
-    pointer-events: auto;
-}
+
 
 .slot-caballo .icono-caballo {
     pointer-events: none;
@@ -1352,9 +1350,7 @@ button:focus-visible {
 }
 /* La pared izquierda reutiliza exactamente el escritorio de la pared frontal. */
 .arte-caballo .escritorio-cabana {
-    top: 72%;
     left: 50%;
-    width: 55%;
 }
 /* ==========================================
    ARTE DE LA CABAÑITA: PUERTA Y MINIATURAS
@@ -1401,7 +1397,6 @@ button:focus-visible {
 .puerta-panel-inferior {
     top: 57%;
     height: 27%;
-    border-radius: 0;
 }
 
 .puerta-pomo {
