@@ -465,3 +465,9 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Las miniaturas de la mansión y la cabañita siguen el mismo principio: cada miniatura es el marco de referencia de su techo, cuerpo y puerta, y sus dimensiones se adaptan de forma proporcional.
 - `css/style.css` reúne los estilos de arte y objetos del escenario antes de los estilos del inventario y del panel del currículum. Se distinguen los bloques de cabañita, miniaturas, edificios principales, entorno exterior y mansión/recibidor.
 - El cambio es exclusivamente HTML y CSS. No añade recursos, dependencias, conexiones externas ni modifica la lógica JavaScript, la navegación o los puzles.
+
+## Acabado visual de las paredes interiores (6 de noviembre de 2026)
+
+- Las tres paredes interiores distintas de la pared frontal adoptan el mismo tono de madera marrón plana (#b77d5b) y el marco de contorno negro usado en la vista del escritorio.
+- Se añaden unas pocas juntas decorativas negras, discretas y no interactivas, mediante CSS. Los elementos existentes de cada pared —saco de pienso y slots de caballos, puerta de salida y slots de trofeos— conservan su HTML, identificadores, posición y comportamiento.
+- El cambio es exclusivamente visual y no modifica JavaScript, navegación ni puzles. Los objetos y decoraciones específicas se ajustarán posteriormente a partir de las referencias visuales del usuario.
