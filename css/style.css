@@ -768,19 +768,30 @@ button:focus-visible {
     clip-path: polygon(42% 100%, 28% 67%, 0 45%, 13% 23%, 43% 42%, 57% 0, 78% 4%, 72% 53%, 100% 82%, 88% 100%);
 }
 .craneo-ciervo .craneo-asta {
-    width: 49%;
-    height: 53%;
+    width: 54%;
+    height: 57%;
     clip-path: polygon(42% 100%, 27% 75%, 7% 70%, 0 54%, 19% 54%, 4% 31%, 15% 19%, 32% 48%, 36% 0, 49% 0, 51% 50%, 72% 24%, 85% 31%, 66% 61%, 100% 56%, 100% 73%, 60% 82%, 54% 100%);
 }
+.craneo-ciervo .craneo-hueso { left: 28%; width: 44%; top: 31%; height: 59%; }
+.craneo-ciervo .craneo-ojo { top: 51%; }
+.craneo-ciervo .craneo-nariz { top: 79%; }
 .craneo-alce .craneo-asta {
     top: 0;
-    width: 62%;
-    height: 62%;
+    width: 70%;
+    height: 70%;
     clip-path: polygon(42% 100%, 28% 82%, 10% 78%, 0 60%, 15% 54%, 0 38%, 8% 23%, 25% 43%, 23% 12%, 37% 0, 47% 10%, 43% 43%, 62% 21%, 76% 27%, 61% 51%, 91% 43%, 100% 57%, 82% 73%, 100% 83%, 91% 98%, 58% 86%, 53% 100%);
 }
-.craneo-alce .craneo-hueso { left: 34%; width: 32%; top: 39%; height: 49%; }
-.craneo-alce .craneo-ojo { top: 56%; }
-.craneo-alce .craneo-nariz { top: 78%; }
+.craneo-alce .craneo-asta-izq {
+    transform: rotate(-14deg);
+    transform-origin: 70% 90%;
+}
+.craneo-alce .craneo-asta-der {
+    transform: scaleX(-1) rotate(-14deg);
+    transform-origin: 30% 90%;
+}
+.craneo-alce .craneo-hueso { left: 31%; width: 38%; top: 36%; height: 53%; }
+.craneo-alce .craneo-ojo { top: 55%; width: 17%; height: 24%; }
+.craneo-alce .craneo-nariz { top: 80%; width: 13%; height: 14%; }
 .trofeo-izquierdo { left: 22%; top: 25%; }
 .trofeo-central { left: 50%; top: 43%; transform: translateX(-50%); }
 .trofeo-derecho { right: 22%; top: 25%; }
