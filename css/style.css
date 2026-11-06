@@ -1549,20 +1549,6 @@ button:focus-visible {
     border: 4px solid #17100d;
     background: #b77d5b;
 }
-.cabanita-cuerpo::before {
-    content: "";
-    position: absolute;
-    inset: 17% 0 auto;
-    height: 29%;
-    background:
-        linear-gradient(90deg, transparent 47%, #17100d 47% 53%, transparent 53%),
-        linear-gradient(0deg, transparent 47%, #17100d 47% 53%, transparent 53%),
-        linear-gradient(#080923 0 0) 10% 50% / 23% 100% no-repeat,
-        linear-gradient(#080923 0 0) 90% 50% / 23% 100% no-repeat;
-    border-top: 3px solid #8a5b43;
-    border-bottom: 3px solid #8a5b43;
-    box-shadow: 0 0 0 3px #17100d;
-}
 .cabanita-cuerpo::after {
     content: "";
     position: absolute;
