@@ -72,7 +72,12 @@ function interactuarConCuenco() {
     const cuervo = document.getElementById("cuervo-mansion");
     cuervo.classList.add("cuervo-alimentado");
     cuervo.setAttribute("aria-label", "Cuervo comiendo");
-    document.getElementById("llave-cobre-suelta").classList.remove("oculta");
+
+    // La llave deja el nido y cae hasta el suelo, donde puede recogerse.
+    document.querySelector(".llave-cobre-decorativa")?.classList.add("oculta");
+    const llave = document.getElementById("llave-cobre-suelta");
+    llave.classList.remove("oculta");
+    llave.classList.add("llave-cayendo");
     llaveCobreEnSuelo = true;
     mensaje.textContent = "El cuervo baja a comer. La llave de cobre cae del nido al suelo.";
 }
