@@ -1547,26 +1547,19 @@ button:focus-visible {
     position: absolute;
     z-index: 2;
     inset: 19% 0 0;
-    isolation: isolate;
     border: 4px solid #17100d;
     background: #b77d5b;
     clip-path: polygon(0 27%, 50% 0, 100% 27%, 100% 100%, 0 100%);
 }
-.casa-grande-cuerpo::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 17%;
-    border-top: 4px solid #8a5b43;
-    box-shadow: 0 5px 0 #17100d;
-}
+
+/* Las ventanas viven dentro de la fachada para que el recorte del tejado
+   no las oculte ni las deje fuera de su capa de dibujo. */
 .ventana-casa-grande {
     position: absolute;
-    z-index: 4;
-    top: 39%;
+    z-index: 1;
+    top: 25%;
     width: 13%;
-    height: 23%;
+    height: 28%;
     box-sizing: border-box;
     border: 5px solid #8a5b43;
     background: #080923;
