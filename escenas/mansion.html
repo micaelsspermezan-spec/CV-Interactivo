@@ -1,14 +1,19 @@
 <!-- Perspectivas exteriores de la mansión; el interior aún no es accesible. -->
 <div id="vista-mansion-recibidor" class="vista-pared vista-mansion oculta">
  <div class="arte-pared arte-recibidor-mansion" aria-hidden="true">
-  <div class="suelo-porche"></div>
-  <div class="tejadillo-mansion"></div>
-  <div class="ventana-mansion ventana-mansion-izq-ext"></div>
-  <div class="ventana-mansion ventana-mansion-izq"></div>
-  <div class="ventana-mansion ventana-mansion-der"></div>
-  <div class="ventana-mansion ventana-mansion-der-ext"></div>
-  <div class="puerta-mansion"></div>
-  <div class="nido-cuervo"></div>
+  <div class="fachada-mansion">
+   <div class="fachada-cuerpo"></div>
+   <div class="suelo-porche"></div>
+   <div class="ventana-mansion ventana-mansion-izq-ext"></div>
+   <div class="ventana-mansion ventana-mansion-izq"></div>
+   <div class="ventana-mansion ventana-mansion-der"></div>
+   <div class="ventana-mansion ventana-mansion-der-ext"></div>
+   <div class="puerta-mansion"></div>
+   <div class="pilar-mansion pilar-mansion-izq"></div>
+   <div class="pilar-mansion pilar-mansion-der"></div>
+   <div class="tejadillo-mansion"></div>
+  </div>
+  <div class="nido-cuervo"><span class="llave-cobre-decorativa"></span></div>
  </div>
  <button id="cuervo-mansion" class="objeto-escena cuervo-interactivo" type="button" aria-label="Cuervo">
   <span class="cuervo-cuerpo"></span>
@@ -30,15 +35,25 @@
 </div>
 <div id="vista-mansion-derecha" class="vista-pared vista-mansion oculta">
  <div class="arte-pared arte-caseta-mansion" aria-hidden="true">
-  <div class="caseta-perro"><span class="entrada-caseta"></span></div>
-  <span class="arbol arbol-pocas-hojas"></span><span class="arbol arbol-frondoso"></span>
+  <div class="contenedor-arboles-mansion">
+   <span class="arbol-mansion arbol-mansion-frondoso"></span>
+   <span class="arbol-mansion arbol-mansion-esbelto"></span>
+  </div>
+  <div class="contenedor-caseta-mansion">
+   <div class="caseta-perro"><span class="entrada-caseta"></span></div>
+  </div>
  </div>
  <div class="referencia-exterior"><h2>Bosque derecho</h2><p>Una caseta de perro vacía.</p></div>
 </div>
 <div id="vista-mansion-detras" class="vista-pared vista-mansion oculta">
  <div class="arte-pared arte-detras-mansion" aria-hidden="true">
-  <div class="cabanita-mansion-fondo"><span></span></div><div class="buzon-mansion-fondo"></div>
-  <div class="arbol-fondo arbol-fondo-izq"></div><div class="arbol-fondo arbol-fondo-der"></div>
+  <div class="contenedor-cabanita-mansion">
+   <div class="cabanita-mansion-fondo"><span></span></div>
+   <div class="buzon-mansion-fondo"></div>
+  </div>
+  <div class="contenedor-arboles-detras">
+   <div class="arbol-fondo arbol-fondo-izq"></div><div class="arbol-fondo arbol-fondo-der"></div>
+  </div>
  </div>
 
  <button id="salir-mansion-exterior" class="objeto-escena puerta-interactiva salida-mansion" type="button">Volver al exterior</button>
