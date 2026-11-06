@@ -1498,8 +1498,8 @@ button:focus-visible {
 }
 
 .edificio-casa-grande {
-    width: clamp(210px, 54%, 490px);
-    aspect-ratio: 1.72;
+    width: clamp(200px, 48%, 450px);
+    aspect-ratio: 1.85;
     container-type: inline-size;
 }
 
@@ -1540,6 +1540,82 @@ button:focus-visible {
     transform: translateX(-50%);
     border: 3px solid #9b713b;
     background: #211a16;
+}
+
+/* Fachada exterior de la mansión: versión reducida del recibidor. */
+.casa-grande-cuerpo {
+    z-index: 2;
+    inset: 20% 0 0;
+    isolation: isolate;
+    border: 4px solid #17100d;
+    background:
+        linear-gradient(#8a5b43, #8a5b43) 4% 31% / 15% 34% no-repeat,
+        linear-gradient(#080923, #080923) 5% 34% / 13% 28% no-repeat,
+        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 5% 34% / 13% 28% no-repeat,
+        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 5% 34% / 13% 28% no-repeat,
+        linear-gradient(#8a5b43, #8a5b43) 24% 31% / 15% 34% no-repeat,
+        linear-gradient(#080923, #080923) 25% 34% / 13% 28% no-repeat,
+        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 25% 34% / 13% 28% no-repeat,
+        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 25% 34% / 13% 28% no-repeat,
+        linear-gradient(#8a5b43, #8a5b43) 61% 31% / 15% 34% no-repeat,
+        linear-gradient(#080923, #080923) 62% 34% / 13% 28% no-repeat,
+        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 62% 34% / 13% 28% no-repeat,
+        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 62% 34% / 13% 28% no-repeat,
+        linear-gradient(#8a5b43, #8a5b43) 81% 31% / 15% 34% no-repeat,
+        linear-gradient(#080923, #080923) 82% 34% / 13% 28% no-repeat,
+        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 82% 34% / 13% 28% no-repeat,
+        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 82% 34% / 13% 28% no-repeat,
+        linear-gradient(#8a5b43, #8a5b43) 17% 25% / 2.5% 72% no-repeat,
+        linear-gradient(#8a5b43, #8a5b43) 80.5% 25% / 2.5% 72% no-repeat,
+        #b77d5b;
+    clip-path: polygon(0 18%, 50% 0, 100% 18%, 100% 100%, 0 100%);
+    box-shadow: 0 12px 0 -4px #8a5b43;
+}
+.casa-grande-cuerpo::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 15% -3% 0;
+    background: #b77d5b;
+}
+.casa-grande-cuerpo::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 17%;
+    border-top: 4px solid #8a5b43;
+    box-shadow: 0 5px 0 #17100d;
+}
+.casa-grande-tejado {
+    z-index: 4;
+    top: 0;
+    width: 108%;
+    height: 34%;
+    border: 0;
+    border-radius: 0;
+    background: #8a5b43;
+    clip-path: polygon(0 72%, 50% 0, 100% 72%, 99% 88%, 50% 17%, 1% 88%);
+    filter: drop-shadow(0 0 2px #17100d);
+}
+.casa-grande-puerta {
+    z-index: 5;
+    width: 15%;
+    height: 47%;
+    border: 4px solid #8a5b43;
+    outline: 2px solid #b77d5b;
+    background: #8a5b43;
+    box-shadow: inset 0 0 0 3px #b77d5b;
+}
+.casa-grande-puerta::after {
+    content: "";
+    position: absolute;
+    right: 9%;
+    top: 49%;
+    width: 6%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #c58b68;
 }
 
 /* Rediseño de la cabañita exterior: fachada a dos aguas y detalles de madera. */
@@ -1993,8 +2069,8 @@ button:focus-visible {
 .zona-clic-mansion {
     left:50%;
     bottom:14%;
-    width:clamp(210px,54%,490px);
-    aspect-ratio:1.72;
+    width:clamp(200px,48%,450px);
+    aspect-ratio:1.85;
     transform:translateX(-50%);
     z-index:7;
 }
