@@ -77,7 +77,7 @@ function interactuarConCuenco() {
     document.querySelector(".llave-cobre-decorativa")?.classList.add("oculta");
     const llave = document.getElementById("llave-cobre-suelta");
     llave.classList.remove("oculta");
-    llave.classList.add("llave-cayendo");
+    requestAnimationFrame(() => llave.classList.add("llave-cayendo"));
     llaveCobreEnSuelo = true;
     mensaje.textContent = "El cuervo baja a comer. La llave de cobre cae del nido al suelo.";
 }
