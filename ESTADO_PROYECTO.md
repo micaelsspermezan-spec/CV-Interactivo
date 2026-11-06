@@ -181,6 +181,8 @@ El historial se agrupa por fecha. Cada fecha debe tener un único encabezado; la
 
 ### 6 de noviembre de 2026
 
+- **Rediseño del currículum:** nueva presentación editorial en tono marfil dentro del panel oscuro. Se reorganizaron la identidad y los datos de contacto, el perfil personal, la formación, la experiencia, los idiomas, las competencias y los intereses. Se mantiene el desbloqueo progresivo de los tres fragmentos y no se modifica la lógica de inventario ni de puzles.
+
 - **Paredes interiores:** las paredes interiores 2, 3 y 4 adoptaron madera marrón plana, marco negro y juntas decorativas. La mesa de la pared izquierda reutiliza el estilo del escritorio. La puerta trasera se amplió hasta la base de la escena.
 - **Elementos de la cabañita y recibidor:** la llave de cobre reutiliza la silueta CSS de la llave de hierro con color cobrizo. Se añadió una viñeta oscura a las perspectivas interiores y al recibidor. El saco de pienso se redibujó con CSS y contorno negro.
 - **Exteriores de la mansión:** las cuatro perspectivas reutilizan el fondo ultramarino casi negro y la viñeta de iluminación, manteniendo sus objetos e interacciones.
