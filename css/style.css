@@ -1861,7 +1861,6 @@ button:focus-visible {
 .contenedor-mansion-exterior,.contenedor-cabanita-exterior { position:absolute; inset:0; z-index:2; }
 .contenedor-mansion-exterior { container-type:inline-size; }
 .contenedor-cabanita-exterior { container-type:inline-size; }
-/* Los edificios actúan como contenedores para sus elementos internos. */
 
 /* Edificios pequeños y elementos asociados mantienen proporción interna. */
 .arte-caseta-mansion,.arte-detras-mansion { overflow:hidden; }
