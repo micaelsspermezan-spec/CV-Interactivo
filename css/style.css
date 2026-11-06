@@ -1544,32 +1544,13 @@ button:focus-visible {
 
 /* Fachada exterior de la mansión: versión reducida del recibidor. */
 .casa-grande-cuerpo {
+    position: absolute;
     z-index: 2;
-    inset: 20% 0 0;
+    inset: 19% 0 0;
     isolation: isolate;
     border: 4px solid #17100d;
-    background:
-        linear-gradient(#8a5b43, #8a5b43) 4% 31% / 15% 34% no-repeat,
-        linear-gradient(#080923, #080923) 5% 34% / 13% 28% no-repeat,
-        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 5% 34% / 13% 28% no-repeat,
-        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 5% 34% / 13% 28% no-repeat,
-        linear-gradient(#8a5b43, #8a5b43) 24% 31% / 15% 34% no-repeat,
-        linear-gradient(#080923, #080923) 25% 34% / 13% 28% no-repeat,
-        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 25% 34% / 13% 28% no-repeat,
-        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 25% 34% / 13% 28% no-repeat,
-        linear-gradient(#8a5b43, #8a5b43) 61% 31% / 15% 34% no-repeat,
-        linear-gradient(#080923, #080923) 62% 34% / 13% 28% no-repeat,
-        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 62% 34% / 13% 28% no-repeat,
-        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 62% 34% / 13% 28% no-repeat,
-        linear-gradient(#8a5b43, #8a5b43) 81% 31% / 15% 34% no-repeat,
-        linear-gradient(#080923, #080923) 82% 34% / 13% 28% no-repeat,
-        linear-gradient(90deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 82% 34% / 13% 28% no-repeat,
-        linear-gradient(0deg, transparent 46%, #8a5b43 46% 54%, transparent 54%) 82% 34% / 13% 28% no-repeat,
-        linear-gradient(#8a5b43, #8a5b43) 17% 25% / 2.5% 72% no-repeat,
-        linear-gradient(#8a5b43, #8a5b43) 80.5% 25% / 2.5% 72% no-repeat,
-        #b77d5b;
-    clip-path: polygon(0 18%, 50% 0, 100% 18%, 100% 100%, 0 100%);
-    box-shadow: 0 12px 0 -4px #8a5b43;
+    background: #b77d5b;
+    clip-path: polygon(0 27%, 50% 0, 100% 27%, 100% 100%, 0 100%);
 }
 .casa-grande-cuerpo::after {
     content: "";
@@ -1580,16 +1561,50 @@ button:focus-visible {
     border-top: 4px solid #8a5b43;
     box-shadow: 0 5px 0 #17100d;
 }
-.casa-grande-tejado {
+.ventana-casa-grande {
+    position: absolute;
     z-index: 4;
-    top: 0;
-    width: 108%;
-    height: 34%;
-    border: 0;
-    border-radius: 0;
+    top: 39%;
+    width: 13%;
+    height: 23%;
+    box-sizing: border-box;
+    border: 5px solid #8a5b43;
+    background: #080923;
+    box-shadow: inset 0 0 0 2px #17100d;
+}
+.ventana-casa-grande::before,
+.ventana-casa-grande::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
     background: #8a5b43;
-    clip-path: polygon(0 72%, 50% 0, 100% 72%, 99% 88%, 50% 17%, 1% 88%);
-    filter: drop-shadow(0 0 2px #17100d);
+}
+.ventana-casa-grande::before {
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 2px);
+    width: 4px;
+}
+.ventana-casa-grande::after {
+    left: 0;
+    right: 0;
+    top: calc(50% - 2px);
+    height: 4px;
+}
+.ventana-casa-grande-1 { left: 5%; }
+.ventana-casa-grande-2 { left: 25%; }
+.ventana-casa-grande-3 { right: 25%; }
+.ventana-casa-grande-4 { right: 5%; }
+
+.casa-grande-tejado {
+    z-index: 1;
+    top: -1%;
+    width: 108%;
+    height: 43%;
+    border: 4px solid #17100d;
+    border-radius: 0;
+    background: #493126;
+    clip-path: polygon(0 74%, 50% 0, 100% 74%, 100% 100%, 0 100%);
 }
 .casa-grande-puerta {
     z-index: 5;
