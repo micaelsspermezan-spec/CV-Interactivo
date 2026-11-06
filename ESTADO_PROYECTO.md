@@ -499,3 +499,9 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Los cráneos de cabra y alce que se recogen en el exterior usan el mismo dibujo que aparece después en los slots de la pared.
 - Los óvalos marrones con borde negro de la pared siguen siendo los slots/sujeta-trofeos existentes y no forman parte del dibujo de los cráneos.
 - Se conservan los IDs, posiciones, botones, accesibilidad, recogida, inventario y lógica del puzle. No se añaden imágenes, recursos externos ni dependencias.
+
+## Ajuste de proporciones de los cráneos (6 de noviembre de 2026)
+
+- Se amplía la silueta del cráneo de ciervo y se aumenta ligeramente su cornamenta.
+- Se agranda moderadamente el cráneo de alce y se abren sus astas hacia los lados mediante una inclinación hacia fuera, para darles más amplitud visual.
+- No cambian los cráneos de cabra, los slots/sujeta-trofeos ni la lógica de interacción.
