@@ -184,37 +184,47 @@
     <section id="panel-cv" class="oculta">
 
         <div id="cabecera-cv">
-
             <h2>Mi currículum</h2>
-
-            <button id="cerrar-cv" class="boton-cerrar">
-                Cerrar ×
-            </button>
-
+            <button id="cerrar-cv" class="boton-cerrar">Cerrar ×</button>
         </div>
 
         <div id="contenido-cv">
 
-            <!-- CABECERA: permanece visible desde el principio -->
-            <header id="datos-personales-cv">
+            <!-- La identidad permanece visible desde el principio. -->
+            <header id="datos-personales-cv" class="cv-identidad">
+                <div class="cv-identidad-superior">
+                    <p class="cv-sello">PERFIL · TECNOLOGÍA Y CREATIVIDAD</p>
+                    <p class="cv-ubicacion">Ciudad Real, España</p>
+                </div>
                 <h1>Micael Samuel Barbuta Spermezan</h1>
-                <p>Nacionalidad: Rumana | +34 614 61 77 83 | micaelsspermezan@gmail.com</p>
-                <p>Ciudad Real, España</p>
-                <p>LinkedIn: Micael Samuel Barbuta Spermezan | Instagram: micaelsamuelbs</p>
+                <p class="cv-titular">Estudiante de Sistemas Microinformáticos y Redes</p>
+                <div class="cv-contacto" aria-label="Datos de contacto">
+                    <p class="cv-contacto-item"><span>Teléfono</span> +34 614 61 77 83</p>
+                    <p class="cv-contacto-item"><span>Correo</span> micaelsspermezan@gmail.com</p>
+                    <p class="cv-contacto-item"><span>LinkedIn</span> Micael Samuel Barbuta Spermezan</p>
+                    <p class="cv-contacto-item"><span>Instagram</span> @micaelsamuelbs</p>
+                </div>
             </header>
 
             <!-- PIEZA 1: perfil y formación -->
             <section class="fragmento-cv" data-pieza-cv="1">
-                <h3>Sobre mí</h3>
-                <p>Estudiante de Sistemas Microinformáticos y Redes, con interés en la informática, la programación y el desarrollo de videojuegos. Actualmente estoy ampliando mis conocimientos de Python y de los sistemas informáticos. También me interesan la biología y la ciencia en general.</p>
+                <div class="cv-seccion-cabecera">
+                    <span class="cv-numero-seccion">01</span>
+                    <h3>Sobre mí</h3>
+                </div>
+                <p class="cv-perfil">Soy una persona curiosa y creativa, interesada en comprender cómo funcionan las cosas y en explorar distintas formas de aplicar la tecnología. Me gusta combinar el pensamiento lógico con la creatividad visual, cuidar los detalles y desarrollar las ideas hasta conseguir resultados coherentes y bien construidos. Actualmente estoy formándome en Sistemas Microinformáticos y Redes y ampliando mis conocimientos de programación.</p>
+                <p class="cv-perfil">También me interesan el dibujo, el diseño, la biología y la ciencia en general; disfruto aprendiendo sobre temas diferentes y conectando ideas de distintos ámbitos.</p>
 
-                <h3>Educación y formación</h3>
-                <article>
-                    <p>2025–2027 · Ciudad Real, España</p>
+                <div class="cv-seccion-cabecera">
+                    <span class="cv-numero-seccion">02</span>
+                    <h3>Educación y formación</h3>
+                </div>
+                <article class="cv-hito">
+                    <p class="cv-fecha">2025–2027 · Ciudad Real, España</p>
                     <h4>Técnico en Sistemas Microinformáticos y Redes</h4>
                     <p>IES Maestre de Calatrava</p>
                 </article>
-                <article>
+                <article class="cv-hito">
                     <h4>Educación Secundaria Obligatoria (ESO)</h4>
                     <p>IES Juan de Ávila</p>
                 </article>
@@ -222,10 +232,14 @@
 
             <!-- PIEZA 2: experiencia e idiomas -->
             <section class="fragmento-cv" data-pieza-cv="2">
-                <h3>Experiencia laboral</h3>
-                <article>
-                    <p>07/05/2026–26/05/2026 · Ciudad Real, España</p>
-                    <h4>Prácticas formativas (100 horas) · Inmobiliaria La Mayor</h4>
+                <div class="cv-seccion-cabecera">
+                    <span class="cv-numero-seccion">03</span>
+                    <h3>Experiencia</h3>
+                </div>
+                <article class="cv-hito">
+                    <p class="cv-fecha">07/05/2026–26/05/2026 · Ciudad Real, España</p>
+                    <h4>Prácticas formativas · Inmobiliaria La Mayor</h4>
+                    <p class="cv-contexto">100 horas</p>
                     <ul>
                         <li>Realización de fotografías de inmuebles.</li>
                         <li>Creación de diseños y contenido visual con Canva.</li>
@@ -233,31 +247,59 @@
                     </ul>
                 </article>
 
-                <h3>Competencias de idiomas</h3>
-                <p><strong>Lenguas maternas:</strong> español y rumano.</p>
-                <p><strong>Otro idioma:</strong> inglés (C1).</p>
+                <div class="cv-seccion-cabecera">
+                    <span class="cv-numero-seccion">04</span>
+                    <h3>Idiomas</h3>
+                </div>
+                <div class="cv-datos-idiomas">
+                    <p><strong>Español</strong><span>Lengua materna</span></p>
+                    <p><strong>Rumano</strong><span>Lengua materna</span></p>
+                    <p><strong>Inglés</strong><span>Nivel C1</span></p>
+                </div>
             </section>
 
             <!-- PIEZA 3: competencias digitales e intereses -->
             <section class="fragmento-cv" data-pieza-cv="3">
-                <h3>Competencias digitales</h3>
-                <ul>
-                    <li>Montaje y mantenimiento de equipos informáticos.</li>
-                    <li>Instalación y configuración de sistemas operativos.</li>
-                    <li>Configuración y administración de redes locales.</li>
-                    <li>Administración de usuarios y permisos.</li>
-                    <li>Configuración de servicios de red.</li>
-                    <li>Seguridad informática y resolución de incidencias.</li>
-                    <li>Programación básica con Python.</li>
-                    <li>Ofimática y creación de contenido visual con Canva.</li>
-                </ul>
+                <div class="cv-seccion-cabecera">
+                    <span class="cv-numero-seccion">05</span>
+                    <h3>Competencias digitales</h3>
+                </div>
+                <div class="cv-grupo-competencias">
+                    <h4>Sistemas y soporte</h4>
+                    <div class="cv-etiquetas">
+                        <span>Montaje y mantenimiento de equipos</span>
+                        <span>Instalación y configuración de sistemas operativos</span>
+                        <span>Redes locales</span>
+                        <span>Usuarios y permisos</span>
+                        <span>Servicios de red</span>
+                        <span>Seguridad informática</span>
+                        <span>Resolución de incidencias</span>
+                    </div>
+                </div>
+                <div class="cv-grupo-competencias">
+                    <h4>Programación y herramientas</h4>
+                    <div class="cv-etiquetas">
+                        <span>Python básico</span>
+                        <span>Ofimática</span>
+                        <span>Canva y creación de contenido visual</span>
+                    </div>
+                </div>
 
-                <h3>Aficiones e intereses</h3>
-                <p>Dibujo y diseño | Programación y desarrollo de videojuegos | Ciencia, tecnología y divulgación científica.</p>
+                <div class="cv-seccion-cabecera">
+                    <span class="cv-numero-seccion">06</span>
+                    <h3>Intereses</h3>
+                </div>
+                <div class="cv-etiquetas cv-etiquetas-intereses">
+                    <span>Dibujo y diseño</span>
+                    <span>Programación</span>
+                    <span>Desarrollo de videojuegos</span>
+                    <span>Biología y ciencia</span>
+                    <span>Tecnología</span>
+                    <span>Divulgación científica</span>
+                </div>
             </section>
 
         </div>
-
     </section>
 
 
