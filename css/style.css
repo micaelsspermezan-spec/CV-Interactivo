@@ -969,24 +969,69 @@ button:focus-visible {
     left:calc(50% - 145px);
     bottom:10%;
     z-index:5;
-    width:48px;
-    height:62px;
+    width:58px;
+    height:72px;
     padding:0;
-    overflow:hidden;
+    overflow:visible;
     font-size:0;
-    border:3px solid #9b8250;
-    border-radius:7px 7px 4px 4px;
-    background:#9b8250;
+    border:3px solid #17100d;
+    border-radius:15px 15px 8px 8px;
+    background:#b99a62;
+    clip-path:polygon(17% 16%, 34% 12%, 40% 0, 60% 0, 66% 12%, 83% 16%, 100% 30%, 92% 100%, 8% 100%, 0 30%);
+    filter:drop-shadow(2px 3px 0 #17100d);
 }
 .saco-pienso-interactivo::before {
     content:"";
     position:absolute;
-    top:5px;
-    left:8px;
-    right:8px;
-    height:7px;
-    border-bottom:3px solid #59402b;
-    border-radius:50%;
+    top:4px;
+    left:19px;
+    width:14px;
+    height:13px;
+    border:3px solid #17100d;
+    border-bottom:0;
+    border-radius:45% 45% 0 0;
+    background:#9b8250;
+}
+.saco-pienso-interactivo::after {
+    content:"PIENSO";
+    position:absolute;
+    left:7px;
+    right:7px;
+    top:31px;
+    padding:4px 0;
+    color:#17100d;
+    background:#d8c18b;
+    border:2px solid #17100d;
+    font-size:7px;
+    font-weight:900;
+    line-height:1;
+    text-align:center;
+    letter-spacing:.3px;
+}
+
+/* Viñeta oscura en los bordes, compartida por las perspectivas interiores
+   de la cabañita y el recibidor de la mansión. No bloquea interacciones. */
+#vista-pared-1,
+#vista-pared-2,
+#vista-pared-3,
+#vista-pared-4,
+#vista-mansion-recibidor {
+    isolation: isolate;
+}
+#vista-pared-1::after,
+#vista-pared-2::after,
+#vista-pared-3::after,
+#vista-pared-4::after,
+#vista-mansion-recibidor::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:4;
+    pointer-events:none;
+    background:radial-gradient(ellipse at center,
+        rgba(0,0,0,0) 48%,
+        rgba(0,0,0,.16) 72%,
+        rgba(0,0,0,.58) 100%);
 }
 
 .vista-mansion { background:#20272a; }
