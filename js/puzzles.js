@@ -320,7 +320,7 @@ function actualizarSlotsTrofeos() {
 
         const craneo = document.createElement("span");
         craneo.classList.add("icono-craneo", objeto);
-        craneo.textContent = "💀";
+        craneo.innerHTML = "<span class=\"craneo-asta craneo-asta-izq\"></span><span class=\"craneo-asta craneo-asta-der\"></span><span class=\"craneo-hueso\"></span><span class=\"craneo-ojo craneo-ojo-izq\"></span><span class=\"craneo-ojo craneo-ojo-der\"></span><span class=\"craneo-nariz\"></span>";
         elemento.setAttribute(
             "aria-label",
             `Cráneo de ${objeto.replace("craneo-", "")}`
