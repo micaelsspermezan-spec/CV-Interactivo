@@ -567,3 +567,9 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Los árboles genéricos sustituyen los decorativos anteriores y aparecen en las cuatro vistas exteriores de la cabañita y en las tres vistas de bosque/fondo de la mansión. No se añaden al recibidor de la mansión ni a las cuatro paredes interiores de la cabañita.
 - En Exterior · Bosque izquierdo se mantienen los tres árboles especiales del puzle y se añaden árboles genéricos a los laterales y al fondo. Los árboles no son interactivos y no cambian la lógica de navegación ni de los puzles.
 - Todo el diseño está construido con HTML y CSS, sin imágenes, recursos externos ni dependencias.
+
+## Primera reorganización de la hoja de estilos (6 de noviembre de 2026)
+
+- Se adelantan los bloques de inventario, panel del currículum, etiqueta WIP, equipamiento y aviso de finalización para situarlos justo después de los estilos generales de interfaz y escena.
+- Se conserva el contenido de las reglas y sus valores; esta primera pasada es de organización, no de rediseño visual.
+- Los estilos de adaptación a pantallas pequeñas permanecen al final para mantener juntas las reglas responsivas.
