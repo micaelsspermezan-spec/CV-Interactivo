@@ -1571,13 +1571,6 @@ button:focus-visible {
     clip-path: polygon(0 18%, 50% 0, 100% 18%, 100% 100%, 0 100%);
     box-shadow: 0 12px 0 -4px #8a5b43;
 }
-.casa-grande-cuerpo::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 15% -3% 0;
-    background: #b77d5b;
-}
 .casa-grande-cuerpo::after {
     content: "";
     position: absolute;
