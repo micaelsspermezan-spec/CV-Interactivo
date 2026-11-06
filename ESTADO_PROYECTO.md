@@ -492,3 +492,10 @@ Estas normas son obligatorias para cualquier persona o asistente que colabore en
 - Las cuatro perspectivas exteriores de la mansión reutilizan el fondo ambiental general de `#escena`, igual que las cuatro perspectivas exteriores de la cabaña. Se elimina el fondo gris sólido específico que tenía la mansión.
 - La viñeta radial oscura de los bordes se extiende a las cuatro vistas de la mansión: Recibidor, Bosque izquierdo, Bosque derecho y Detrás. El centro queda más claro y la capa no bloquea clics.
 - Se conservan las composiciones, objetos, posiciones e interacciones particulares de cada perspectiva. No se modifica HTML ni JavaScript.
+
+## Rediseño CSS de los cráneos de trofeo (6 de noviembre de 2026)
+
+- Se sustituyen los emojis de los tres trofeos por cráneos dibujados con HTML y CSS: silueta de hueso marfil, ojos y nariz negros, y cornamentas color carne/beige diferenciadas para cabra, ciervo y alce.
+- Los cráneos de cabra y alce que se recogen en el exterior usan el mismo dibujo que aparece después en los slots de la pared.
+- Los óvalos marrones con borde negro de la pared siguen siendo los slots/sujeta-trofeos existentes y no forman parte del dibujo de los cráneos.
+- Se conservan los IDs, posiciones, botones, accesibilidad, recogida, inventario y lógica del puzle. No se añaden imágenes, recursos externos ni dependencias.
