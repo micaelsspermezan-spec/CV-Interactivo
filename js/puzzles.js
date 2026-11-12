@@ -455,9 +455,6 @@ document.querySelectorAll(".slot-trofeo").forEach(elemento => {
     });
 });
 
-
-actualizarSlotsTrofeos();
-
 // Interacciones de los slots de caballos y del buzón.
 document.getElementById("slot-caballo-izquierdo")
     .addEventListener("click", () => interactuarConSlotCaballo("izquierdo"));
@@ -489,8 +486,6 @@ document.getElementById("caballo-plateado-suelto")
         document.getElementById("mensaje-escena").textContent =
             "Has recogido un caballito plateado.";
     });
-
-actualizarSlotsCaballos();
 
 // Un único listener gestiona la cancelación de selección de ambos puzles.
 const escena = document.getElementById("escena");
