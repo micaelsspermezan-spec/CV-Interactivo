@@ -14,6 +14,14 @@ El trabajo se realiza desde Visual Studio Code y el repositorio oficial es \`mic
 
 ## 2. Estado actual del proyecto
 
+### Evaluación y etapa actual de desarrollo
+
+- **Calificación de la entrega:** 9,5/10. El profesor valoró positivamente la idea y la base del proyecto, y señaló que conviene darle otra vuelta porque puede resultar algo complicado. La recomendación fue conservar la idea principal y desarrollarla más.
+- **Etapa actual:** la entrega ya está calificada. El trabajo continúa sin presión de entrega y a ritmo tranquilo, con mejoras progresivas hasta dejar el proyecto bien terminado.
+- **Prioridades:** simplificar lo que resulte confuso, mejorar la claridad y facilidad de uso, pulir los detalles visuales y mantener el código ordenado y fácil de mantener. También se pueden abordar mejoras pequeñas; no hace falta que cada cambio sea grande.
+- **Criterio general:** conservar la identidad y la idea original del proyecto, pero revisar con calma los aspectos que puedan hacerlo más sencillo de entender y utilizar. Estas mejoras no implican ampliar automáticamente el alcance con nuevas zonas o puzles.
+
+
 ### Escenarios y navegación
 
 - **Cabañita:** cuatro paredes interiores. La frontal contiene el escritorio, el cofre y elementos del CV; la izquierda contiene el puzle de los caballos; la trasera tiene la puerta de salida; la derecha contiene el puzle de los trofeos.
@@ -165,6 +173,13 @@ No editar simultáneamente el mismo archivo en local y directamente en GitHub si
 
 ## 8. Historial de cambios
 
+### 12 de noviembre de 2026
+
+- **Limpieza de puzzles.js:** se unificaron los dos listeners de clic sobre #escena en uno solo, conservando la cancelación de selección de trofeos y caballos al pulsar fuera de sus slots. También se ordenaron los comentarios y la numeración de secciones.
+- **Limpieza de inventory.js:** se centralizó en TIPOS_EQUIPABLES la lista de tipos que pueden equiparse. Las tres comprobaciones existentes reutilizan ahora esa constante, evitando repetir la misma lista sin alterar el comportamiento.
+- **Limpieza de main.js:** se creó registrarRecogidaPiezaCV() para reutilizar la lógica común de recogida de las tres piezas del currículum. Se conservaron sus descripciones, mensajes y comportamiento, y se corrigió la numeración de secciones.
+
+
 El historial se agrupa por fecha. Cada fecha debe tener un único encabezado; las distintas tareas realizadas ese día se documentan como apartados dentro de ese bloque.
 
 ### 4 de noviembre de 2026
@@ -180,6 +195,8 @@ El historial se agrupa por fecha. Cada fecha debe tener un único encabezado; la
 - **Organización CSS:** se agruparon los estilos de edificios y elementos asociados. El cambio fue de estructura y presentación del código, sin modificar la lógica JavaScript ni la navegación.
 
 ### 6 de noviembre de 2026
+
+- **Actualización de recursos publicados:** se añadieron directivas de caché en index.html y se ajustó cargar-escena.js para solicitar las escenas sin caché y renovar la URL de los scripts al cargarlos. Esto ayuda a que el navegador detecte los cambios recientes al recargar; no equivale a borrar físicamente toda la caché del navegador.
 
 - **Rediseño del currículum:** nueva presentación editorial en tono marfil dentro del panel oscuro. Se reorganizaron la identidad y los datos de contacto, el perfil personal, la formación, la experiencia, los idiomas, las competencias y los intereses. Se mantiene el desbloqueo progresivo de los tres fragmentos y no se modifica la lógica de inventario ni de puzles.
 
