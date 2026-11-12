@@ -153,7 +153,7 @@ document.getElementById("llave-hierro").addEventListener("click", () => {
 
 
 /* ==========================================
-   8. COFRE DEL ESCRITORIO
+   7. COFRE DEL ESCRITORIO
    ========================================== */
 
 document.getElementById("cofre-escritorio").addEventListener("click", interactuarConCofre);
@@ -179,74 +179,54 @@ document.getElementById("llave-cobre-suelta").addEventListener("click", recogerL
 
 
 /* ==========================================
-   9. PIEZA DE CURRÍCULUM
+   8. PIEZAS DEL CURRÍCULUM
    ========================================== */
 
-document.getElementById("pieza-cv-1-3").addEventListener("click", () => {
+function registrarRecogidaPiezaCV(numero, descripcion, mensaje) {
 
-    añadirObjeto(
-        "pieza-cv-1-3",
-        "📄 Pieza de CV 1/3",
-        "Fragmento de currículum",
-        "Información sobre mi perfil y formación.",
-        "pieza-cv"
-    );
+    const id = `pieza-cv-${numero}-3`;
 
-    document.getElementById("pieza-cv-1-3")
-        .classList.add("oculta");
+    document.getElementById(id).addEventListener("click", () => {
 
-    // Revelar el fragmento correspondiente dentro del currículum.
-    desbloquearPiezaCV(1);
+        añadirObjeto(
+            id,
+            `📄 Pieza de CV ${numero}/3`,
+            "Fragmento de currículum",
+            descripcion,
+            "pieza-cv"
+        );
 
-    mensajeEscena.textContent =
-        "Has recuperado la primera pieza del currículum.";
-});
+        document.getElementById(id)
+            .classList.add("oculta");
 
+        // Revelar el fragmento correspondiente dentro del currículum.
+        desbloquearPiezaCV(numero);
 
-// Recoger la segunda pieza: experiencia laboral e idiomas.
-document.getElementById("pieza-cv-2-3").addEventListener("click", () => {
+        mensajeEscena.textContent = mensaje;
+    });
+}
 
-    añadirObjeto(
-        "pieza-cv-2-3",
-        "📄 Pieza de CV 2/3",
-        "Fragmento de currículum",
-        "Información sobre mi experiencia laboral y mis competencias de idiomas.",
-        "pieza-cv"
-    );
+registrarRecogidaPiezaCV(
+    1,
+    "Información sobre mi perfil y formación.",
+    "Has recuperado la primera pieza del currículum."
+);
 
-    document.getElementById("pieza-cv-2-3")
-        .classList.add("oculta");
+registrarRecogidaPiezaCV(
+    2,
+    "Información sobre mi experiencia laboral y mis competencias de idiomas.",
+    "Has recuperado la segunda pieza del currículum."
+);
 
-    desbloquearPiezaCV(2);
-
-    mensajeEscena.textContent =
-        "Has recuperado la segunda pieza del currículum.";
-});
-
-
-// Recoger la tercera pieza: competencias digitales e intereses.
-document.getElementById("pieza-cv-3-3").addEventListener("click", () => {
-
-    añadirObjeto(
-        "pieza-cv-3-3",
-        "📄 Pieza de CV 3/3",
-        "Fragmento de currículum",
-        "Información sobre mis competencias digitales y mis aficiones e intereses.",
-        "pieza-cv"
-    );
-
-    document.getElementById("pieza-cv-3-3")
-        .classList.add("oculta");
-
-    desbloquearPiezaCV(3);
-
-    mensajeEscena.textContent =
-        "Has recuperado la tercera pieza del currículum.";
-});
+registrarRecogidaPiezaCV(
+    3,
+    "Información sobre mis competencias digitales y mis aficiones e intereses.",
+    "Has recuperado la tercera pieza del currículum."
+);
 
 
 /* ==========================================
-   10. DESBLOQUEO DE FRAGMENTOS DEL CV
+   9. DESBLOQUEO DE FRAGMENTOS DEL CV
    ========================================== */
 
 function desbloquearPiezaCV(numeroPieza) {
@@ -262,7 +242,7 @@ function desbloquearPiezaCV(numeroPieza) {
 
 
 /* ==========================================
-   11. DETECCIÓN DE CLICS EXTERIORES
+   10. DETECCIÓN DE CLICS EXTERIORES
    ========================================== */
 
 document.addEventListener("click", evento => {
@@ -314,7 +294,7 @@ document.addEventListener("click", evento => {
 
 
 /* ==========================================
-   12. ONDA VISUAL DEL PUNTERO
+   11. ONDA VISUAL DEL PUNTERO
    ========================================== */
 
 // La onda acompaña las pulsaciones de ratón y pantalla táctil sin interceptarlas.
