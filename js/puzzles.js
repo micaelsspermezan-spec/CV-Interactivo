@@ -426,7 +426,11 @@ function recogerCraneoTrofeo(id, nombre, descripcion, elemento) {
 }
 
 
-// Recoger los dos cráneos que comienzan fuera de la pared.
+/* ========================================
+   5. REGISTRO DE EVENTOS
+   ======================================== */
+
+// Recogida de los cráneos y selección de los slots de trofeos.
 document.getElementById("craneo-cabra-suelto").addEventListener("click", evento => {
     recogerCraneoTrofeo(
         "craneo-cabra",
@@ -454,11 +458,7 @@ document.querySelectorAll(".slot-trofeo").forEach(elemento => {
 
 actualizarSlotsTrofeos();
 
-
-
-
-
-// Registrar las interacciones de la pared y del buzón.
+// Interacciones de los slots de caballos y del buzón.
 document.getElementById("slot-caballo-izquierdo")
     .addEventListener("click", () => interactuarConSlotCaballo("izquierdo"));
 
@@ -492,7 +492,6 @@ document.getElementById("caballo-plateado-suelto")
 
 actualizarSlotsCaballos();
 
-
 // Un único listener gestiona la cancelación de selección de ambos puzles.
 const escena = document.getElementById("escena");
 escena.addEventListener("click", evento => {
@@ -504,3 +503,12 @@ escena.addEventListener("click", evento => {
         cancelarSeleccionCaballo();
     }
 });
+
+
+/* ========================================
+   6. INICIALIZACIÓN VISUAL
+   ======================================== */
+
+// Dibujar la disposición inicial de los trofeos y los caballos.
+actualizarSlotsTrofeos();
+actualizarSlotsCaballos();
