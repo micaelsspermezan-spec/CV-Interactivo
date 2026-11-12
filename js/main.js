@@ -106,80 +106,7 @@ document.getElementById("cerrar-inventario").addEventListener("click", () => {
 
 
 /* ==========================================
-   5. PÓSTER DEL CURRÍCULUM
-   ========================================== */
-
-document.getElementById("poster-cv").addEventListener("click", () => {
-
-    añadirObjeto(
-        "curriculum",
-        "📜 Currículum",
-        "Documento",
-        "Documento que contendría mi formación y experiencia.",
-        "documento"
-    );
-
-    document.getElementById("poster-cv")
-        .classList.add("oculta");
-
-    botonVerCV.classList.remove("oculta");
-
-    mensajeEscena.textContent =
-        "Has encontrado un curriculum vacío.";
-});
-
-
-/* ==========================================
-   6. LLAVE DE HIERRO
-   ========================================== */
-
-document.getElementById("llave-hierro").addEventListener("click", () => {
-
-    añadirObjeto(
-        "llave-hierro",
-        "🗝️ Llave de hierro",
-        "Llave",
-        "Llave vieja y desgastada. Mayormente roída por el óxido.",
-        "llave"
-    );
-
-    document.getElementById("llave-hierro")
-        .classList.add("oculta");
-
-    if (obtenerObjetoEquipado()?.id !== "llave-hierro") {
-        mensajeEscena.textContent = "Has encontrado una llave de hierro.";
-    }
-});
-
-
-/* ==========================================
-   7. COFRE DEL ESCRITORIO
-   ========================================== */
-
-document.getElementById("cofre-escritorio").addEventListener("click", interactuarConCofre);
-
-document.getElementById("saco-pienso").addEventListener("click", () => {
-    const objeto = añadirObjeto(
-        "saco-pienso",
-        "Saco de pienso",
-        "Alimento",
-        "Pequeño saco de pienso para perros.",
-        "herramienta"
-    );
-    if (!objeto) return;
-    document.getElementById("saco-pienso").classList.add("oculta");
-    if (obtenerObjetoEquipado()?.id !== "saco-pienso") {
-        mensajeEscena.textContent = "Has recogido pienso para perros.";
-    }
-});
-
-document.getElementById("cuervo-mansion").addEventListener("click", interactuarConCuervo);
-document.getElementById("cuenco-perro").addEventListener("click", interactuarConCuenco);
-document.getElementById("llave-cobre-suelta").addEventListener("click", recogerLlaveCobre);
-
-
-/* ==========================================
-   8. PIEZAS DEL CURRÍCULUM
+   5. FUNCIÓN COMÚN: RECOGIDA DE PIEZAS DEL CV
    ========================================== */
 
 function registrarRecogidaPiezaCV(numero, descripcion, mensaje) {
@@ -206,23 +133,113 @@ function registrarRecogidaPiezaCV(numero, descripcion, mensaje) {
     });
 }
 
+
+/* ==========================================
+   6. CABAÑITA — PARED FRONTAL
+   ========================================== */
+
+// Póster del currículum.
+document.getElementById("poster-cv").addEventListener("click", () => {
+
+    añadirObjeto(
+        "curriculum",
+        "📜 Currículum",
+        "Documento",
+        "Documento que contendría mi formación y experiencia.",
+        "documento"
+    );
+
+    document.getElementById("poster-cv")
+        .classList.add("oculta");
+
+    botonVerCV.classList.remove("oculta");
+
+    mensajeEscena.textContent =
+        "Has encontrado un curriculum vacío.";
+});
+
+
+// Llave de hierro.
+document.getElementById("llave-hierro").addEventListener("click", () => {
+
+    añadirObjeto(
+        "llave-hierro",
+        "🗝️ Llave de hierro",
+        "Llave",
+        "Llave vieja y desgastada. Mayormente roída por el óxido.",
+        "llave"
+    );
+
+    document.getElementById("llave-hierro")
+        .classList.add("oculta");
+
+    if (obtenerObjetoEquipado()?.id !== "llave-hierro") {
+        mensajeEscena.textContent = "Has encontrado una llave de hierro.";
+    }
+});
+
+
+// Cofre del escritorio.
+document.getElementById("cofre-escritorio").addEventListener("click", interactuarConCofre);
+
+
+// Pieza 1 del currículum.
 registrarRecogidaPiezaCV(
     1,
     "Información sobre mi perfil y formación.",
     "Has recuperado la primera pieza del currículum."
 );
 
+
+/* ==========================================
+   7. CABAÑITA — PARED IZQUIERDA
+   ========================================== */
+
+// Saco de pienso.
+document.getElementById("saco-pienso").addEventListener("click", () => {
+    const objeto = añadirObjeto(
+        "saco-pienso",
+        "Saco de pienso",
+        "Alimento",
+        "Pequeño saco de pienso para perros.",
+        "herramienta"
+    );
+    if (!objeto) return;
+    document.getElementById("saco-pienso").classList.add("oculta");
+    if (obtenerObjetoEquipado()?.id !== "saco-pienso") {
+        mensajeEscena.textContent = "Has recogido pienso para perros.";
+    }
+});
+
+
+// Pieza 2 del currículum.
 registrarRecogidaPiezaCV(
     2,
     "Información sobre mi experiencia laboral y mis competencias de idiomas.",
     "Has recuperado la segunda pieza del currículum."
 );
 
+
+/* ==========================================
+   8. CABAÑITA — PARED DERECHA
+   ========================================== */
+
+// Pieza 3 del currículum.
 registrarRecogidaPiezaCV(
     3,
     "Información sobre mis competencias digitales y mis aficiones e intereses.",
     "Has recuperado la tercera pieza del currículum."
 );
+
+
+/* ==========================================
+   9. MANSIÓN — RECIBIDOR
+   ========================================== */
+
+// Cuervo, cuenco y llave de cobre.
+document.getElementById("cuervo-mansion").addEventListener("click", interactuarConCuervo);
+document.getElementById("cuenco-perro").addEventListener("click", interactuarConCuenco);
+document.getElementById("llave-cobre-suelta").addEventListener("click", recogerLlaveCobre);
 
 
 /* ==========================================
