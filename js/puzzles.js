@@ -102,7 +102,7 @@ function recogerLlaveCobre() {
 
 
 /* ========================================
-   2. PUZLE DE LOS CABALLOS
+   3. PUZLE DE LOS CABALLOS
    ======================================== */
 
 // Cada slot contiene el ID de un objeto de escenario o null si está vacío.
@@ -281,7 +281,7 @@ function abrirBuzonOxidado() {
 
 
 /* ========================================
-   3. PUZLE DE LOS TROFEOS — PIEZA 3
+   4. PUZLE DE LOS TROFEOS — PIEZA 3
    ======================================== */
 
 // Los cráneos que ya están en la pared se mueven como los caballitos.
@@ -452,22 +452,10 @@ document.querySelectorAll(".slot-trofeo").forEach(elemento => {
 });
 
 
-// Pulsar fuera de los slots cancela la selección, como en el puzle de caballos.
-const escenaTrofeos = document.getElementById("escena");
-escenaTrofeos.addEventListener("click", evento => {
-    if (evento.target.closest(".slot-trofeo")) return;
-    cancelarSeleccionTrofeo();
-});
-
 actualizarSlotsTrofeos();
 
 
-// Cualquier clic de la escena que no sea sobre un slot cancela la selección.
-const escenaCaballos = document.getElementById("escena");
-escenaCaballos.addEventListener("click", (evento) => {
-    if (evento.target.closest(".slot-caballo")) return;
-    cancelarSeleccionCaballo();
-});
+
 
 
 // Registrar las interacciones de la pared y del buzón.
@@ -503,3 +491,16 @@ document.getElementById("caballo-plateado-suelto")
     });
 
 actualizarSlotsCaballos();
+
+
+// Un único listener gestiona la cancelación de selección de ambos puzles.
+const escena = document.getElementById("escena");
+escena.addEventListener("click", evento => {
+    if (!evento.target.closest(".slot-trofeo")) {
+        cancelarSeleccionTrofeo();
+    }
+
+    if (!evento.target.closest(".slot-caballo")) {
+        cancelarSeleccionCaballo();
+    }
+});
