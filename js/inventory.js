@@ -18,7 +18,7 @@ const TIPOS_EQUIPABLES = ["llave", "herramienta", "pieza"];
 
 
 /* ==========================================
-   DATOS DE LOS FRAGMENTOS DEL CURRÍCULUM
+   2. DATOS DE LOS FRAGMENTOS DEL CURRÍCULUM
    Añadir aquí los datos de cada nueva pieza.
    ========================================== */
 
@@ -62,7 +62,7 @@ function obtenerPiezasCVRecogidas() {
 }
 
 /* ==========================================
-   CONTADOR Y AVISO DE CURRÍCULUM COMPLETO
+   3. GESTIÓN DEL CURRÍCULUM
    ========================================== */
 
 let mensajeFinalizacionMostrado = false;
@@ -122,30 +122,8 @@ function actualizarDescripcionCurriculum() {
 
 
 /* ==========================================
-   2. AÑADIR OBJETOS
+   4. AÑADIR Y RETIRAR OBJETOS
    ========================================== */
-
-let temporizadorMensajeEquipado = null;
-
-
-function mostrarMensajeEquipado(objeto) {
-
-    const mensaje = document.getElementById("mensaje-escena");
-    const texto = `Objeto equipado: ${objeto.nombre}`;
-
-    clearTimeout(temporizadorMensajeEquipado);
-    mensaje.textContent = texto;
-
-    temporizadorMensajeEquipado = setTimeout(() => {
-
-        // No borrar un mensaje posterior de otra interacción.
-        if (mensaje.textContent === texto) {
-            mensaje.textContent = "";
-        }
-
-    }, 2500);
-}
-
 
 function añadirObjeto(id, nombre, categoria, descripcion, tipo) {
 
@@ -211,7 +189,7 @@ function retirarObjetoInventario(id) {
 
 
 /* ==========================================
-   3. ACTUALIZAR INVENTARIO VISUAL
+   5. ACTUALIZAR INVENTARIO VISUAL
    ========================================== */
 
 function actualizarInventario() {
@@ -332,7 +310,7 @@ function actualizarInventario() {
 
 
 /* ==========================================
-   4. SELECCIÓN DE OBJETOS
+   6. SELECCIÓN DE OBJETOS
    ========================================== */
 
 function marcarObjetoAgotado(id) {
@@ -386,8 +364,30 @@ function deseleccionarObjeto() {
 
 
 /* ==========================================
-   5. EQUIPAMIENTO
+   7. EQUIPAMIENTO
    ========================================== */
+
+let temporizadorMensajeEquipado = null;
+
+
+function mostrarMensajeEquipado(objeto) {
+
+    const mensaje = document.getElementById("mensaje-escena");
+    const texto = `Objeto equipado: ${objeto.nombre}`;
+
+    clearTimeout(temporizadorMensajeEquipado);
+    mensaje.textContent = texto;
+
+    temporizadorMensajeEquipado = setTimeout(() => {
+
+        // No borrar un mensaje posterior de otra interacción.
+        if (mensaje.textContent === texto) {
+            mensaje.textContent = "";
+        }
+
+    }, 2500);
+}
+
 
 function equiparObjeto(objeto) {
 
@@ -438,7 +438,7 @@ function obtenerObjetoEquipado() {
 
 
 /* ==========================================
-   6. ACTUALIZAR RANURA Y MENÚ
+   8. ACTUALIZAR RANURA Y MENÚ
    ========================================== */
 
 function actualizarRanura() {
@@ -466,7 +466,7 @@ function actualizarRanura() {
 
 
 /* ==========================================
-   7. ABRIR INVENTARIO DESDE EQUIPAMIENTO
+   9. GESTIÓN DEL MENÚ DE EQUIPAMIENTO
    ========================================== */
 
 function abrirInventarioParaEquipamiento() {
@@ -481,35 +481,8 @@ function abrirInventarioParaEquipamiento() {
 }
 
 
-// Pulsar la ranura.
-document.getElementById("ranura-equipada").addEventListener("click", () => {
-
-    if (objetoEquipado) {
-
-        // Si hay un objeto equipado, mostrar el menú.
-        document.getElementById("menu-equipamiento")
-            .classList.toggle("oculta");
-
-    } else {
-
-        // Si está vacía, abrir directamente el inventario.
-        abrirInventarioParaEquipamiento();
-    }
-});
-
-
-// Sustituir objeto equipado.
-document.getElementById("sustituir-equipamiento")
-    .addEventListener("click", evento => {
-
-        evento.stopPropagation();
-
-        abrirInventarioParaEquipamiento();
-    });
-
-
 /* ==========================================
-   8. FICHA DEL OBJETO SELECCIONADO
+   10. FICHA DEL OBJETO SELECCIONADO
    ========================================== */
 
 function mostrarDetalleObjeto(objeto) {
@@ -653,8 +626,35 @@ function mostrarDetalleObjeto(objeto) {
 
 
 /* ==========================================
-   9. DESELECCIÓN DENTRO DEL INVENTARIO
+   11. REGISTRO DE EVENTOS
    ========================================== */
+
+// Pulsar la ranura.
+document.getElementById("ranura-equipada").addEventListener("click", () => {
+
+    if (objetoEquipado) {
+
+        // Si hay un objeto equipado, mostrar el menú.
+        document.getElementById("menu-equipamiento")
+            .classList.toggle("oculta");
+
+    } else {
+
+        // Si está vacía, abrir directamente el inventario.
+        abrirInventarioParaEquipamiento();
+    }
+});
+
+
+// Sustituir objeto equipado.
+document.getElementById("sustituir-equipamiento")
+    .addEventListener("click", evento => {
+
+        evento.stopPropagation();
+
+        abrirInventarioParaEquipamiento();
+    });
+
 
 document.getElementById("inventario").addEventListener("click", evento => {
 
@@ -689,6 +689,11 @@ document.getElementById("inventario").addEventListener("click", evento => {
     }
 
 }, true);
+
+
+/* ==========================================
+   12. INICIALIZACIÓN DEL INVENTARIO
+   ========================================== */
 
 // Mostrar el contador inicial aunque todavía no se haya recogido ningún objeto.
 actualizarInventario();
