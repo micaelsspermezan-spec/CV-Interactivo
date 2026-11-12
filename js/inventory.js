@@ -284,6 +284,12 @@ function actualizarInventario() {
                     seleccionarObjeto(pieza);
                 });
 
+                botonPieza.addEventListener("dblclick", evento => {
+                    evento.preventDefault();
+                    evento.stopPropagation();
+                    alternarEquipamientoPorDobleClic(pieza);
+                });
+
                 submenu.appendChild(botonPieza);
             });
 
@@ -307,6 +313,12 @@ function actualizarInventario() {
 
         elemento.addEventListener("click", () => {
             seleccionarObjeto(objeto);
+        });
+
+        elemento.addEventListener("dblclick", evento => {
+            evento.preventDefault();
+            evento.stopPropagation();
+            alternarEquipamientoPorDobleClic(objeto);
         });
 
         lista.appendChild(elemento);
@@ -398,6 +410,25 @@ function desequiparObjeto() {
     if (objetoSeleccionado) {
         mostrarDetalleObjeto(objetoSeleccionado);
     }
+}
+
+
+// El doble clic equipa, sustituye o desequipa directamente desde la lista.
+function alternarEquipamientoPorDobleClic(objeto) {
+
+    const tiposEquipables = ["llave", "herramienta", "pieza"];
+
+    if (!tiposEquipables.includes(objeto.tipo) || objeto.agotado) {
+        return;
+    }
+
+    if (objetoEquipado && objetoEquipado.id === objeto.id) {
+        desequiparObjeto();
+        return;
+    }
+
+    equiparObjeto(objeto);
+    mostrarMensajeEquipado(objeto);
 }
 
 
