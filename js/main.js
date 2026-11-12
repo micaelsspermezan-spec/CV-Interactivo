@@ -311,3 +311,26 @@ document.addEventListener("click", evento => {
         panelCV.classList.add("oculta");
     }
 });
+
+
+/* ==========================================
+   12. ONDA VISUAL DEL PUNTERO
+   ========================================== */
+
+// La onda acompaña las pulsaciones de ratón y pantalla táctil sin interceptarlas.
+document.addEventListener("pointerdown", evento => {
+
+    // Evitar ondas con el botón secundario o botones auxiliares.
+    if (evento.button !== 0) return;
+
+    const onda = document.createElement("span");
+    onda.classList.add("onda-clic");
+    onda.style.left = evento.clientX + "px";
+    onda.style.top = evento.clientY + "px";
+
+    document.body.appendChild(onda);
+
+    onda.addEventListener("animationend", () => {
+        onda.remove();
+    }, { once: true });
+});
