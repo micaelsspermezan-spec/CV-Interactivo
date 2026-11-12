@@ -243,7 +243,7 @@ document.getElementById("llave-cobre-suelta").addEventListener("click", recogerL
 
 
 /* ==========================================
-   9. DESBLOQUEO DE FRAGMENTOS DEL CV
+   10. DESBLOQUEO DE FRAGMENTOS DEL CV
    ========================================== */
 
 function desbloquearPiezaCV(numeroPieza) {
@@ -259,7 +259,7 @@ function desbloquearPiezaCV(numeroPieza) {
 
 
 /* ==========================================
-   10. DETECCIÓN DE CLICS EXTERIORES
+   11. DETECCIÓN DE CLICS EXTERIORES
    ========================================== */
 
 document.addEventListener("click", evento => {
@@ -311,7 +311,7 @@ document.addEventListener("click", evento => {
 
 
 /* ==========================================
-   11. ONDA VISUAL DEL PUNTERO
+   12. ONDA VISUAL DEL PUNTERO
    ========================================== */
 
 // La onda acompaña las pulsaciones de ratón y pantalla táctil sin interceptarlas.
