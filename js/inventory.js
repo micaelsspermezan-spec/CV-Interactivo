@@ -13,6 +13,9 @@ const objetosInventario = [];
 let objetoSeleccionado = null;
 let objetoEquipado = null;
 
+// Tipos de objetos que pueden ocupar la ranura de equipamiento.
+const TIPOS_EQUIPABLES = ["llave", "herramienta", "pieza"];
+
 
 /* ==========================================
    DATOS DE LOS FRAGMENTOS DEL CURRÍCULUM
@@ -167,9 +170,7 @@ function añadirObjeto(id, nombre, categoria, descripcion, tipo) {
     comprobarCurriculumCompleto();
 
     // Si la ranura está vacía, equipar automáticamente los objetos utilizables.
-    const tiposEquipables = ["llave", "herramienta", "pieza"];
-
-    if (!objetoEquipado && tiposEquipables.includes(tipo)) {
+    if (!objetoEquipado && TIPOS_EQUIPABLES.includes(tipo)) {
         equiparObjeto(nuevoObjeto);
         mostrarMensajeEquipado(nuevoObjeto);
     }
@@ -416,9 +417,7 @@ function desequiparObjeto() {
 // El doble clic equipa, sustituye o desequipa directamente desde la lista.
 function alternarEquipamientoPorDobleClic(objeto) {
 
-    const tiposEquipables = ["llave", "herramienta", "pieza"];
-
-    if (!tiposEquipables.includes(objeto.tipo) || objeto.agotado) {
+    if (!TIPOS_EQUIPABLES.includes(objeto.tipo) || objeto.agotado) {
         return;
     }
 
@@ -614,7 +613,7 @@ function mostrarDetalleObjeto(objeto) {
 
     // Solo los objetos utilizables pueden equiparse.
     if (
-        ["llave", "herramienta", "pieza"].includes(objeto.tipo) &&
+        TIPOS_EQUIPABLES.includes(objeto.tipo) &&
         !objeto.agotado
     ) {
 
