@@ -950,243 +950,8 @@ button:focus-visible {
    OBJETOS INTERACTIVOS: CABALLOS Y TROFEOS
    ========================================== */
 
-/* Slots interactivos del puzle de los caballos. */
-.slot-caballo {
-    position: absolute;
-    top: 31%;
-    z-index: 2;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 88px;
-    height: 92px;
-    margin: 0;
-    padding: 6px;
-
-    background: rgba(15, 19, 23, 0.55);
-    border: 3px solid;
-    border-radius: 8px;
-
-    pointer-events: auto;
-}
-
-#slot-caballo-izquierdo {
-    top: 53%;
-    left: 37%;
-    transform: translateX(-50%);
-    border-color: var(--dorado);
-    box-shadow: inset 0 0 12px rgba(197, 160, 75, 0.12);
-}
-
-#slot-caballo-derecho {
-    top: 53%;
-    left: 63%;
-    transform: translateX(-50%);
-    border-color: #b9c2c8;
-    box-shadow: inset 0 0 12px rgba(185, 194, 200, 0.12);
-}
-
-/* Los slots quedan fuera del arte decorativo para recibir los clics. */
-
-
-.slot-caballo .icono-caballo {
-    pointer-events: none;
-}
-
-.caballo-suelto {
-    position: absolute;
-    z-index: 6;
-    left: 50%;
-    bottom: 19%;
-    transform: translateX(-50%);
-    padding: 4px 12px;
-    border: 2px solid #b9c2c8;
-    border-radius: 8px;
-    background: rgba(15, 19, 23, 0.82);
-    color: #c5cdd2;
-    font-size: 58px;
-    line-height: 1;
-    cursor: pointer;
-    text-shadow: 0 0 10px rgba(197, 205, 210, 0.35);
-}
-
-.caballo-suelto:hover {
-    background: rgba(36, 67, 75, 0.9);
-}
-
-.slot-caballo:hover {
-    background: rgba(36, 67, 75, 0.75);
-}
-
-.slot-caballo.seleccionado {
-    outline: 3px solid var(--cian);
-    outline-offset: 5px;
-    box-shadow: 0 0 16px rgba(72, 207, 224, 0.45);
-}
-
-.icono-caballo {
-    display: block;
-    font-size: 62px;
-    line-height: 1;
-}
-
-.caballo-dorado {
-    color: #c5a04b;
-    transform: scaleX(-1);
-    text-shadow: 0 0 10px rgba(197, 160, 75, 0.35);
-}
-
-.caballo-plateado {
-    color: #c5cdd2;
-    text-shadow: 0 0 10px rgba(197, 205, 210, 0.35);
-}
-.slot-trofeo {
-    position: absolute;
-    z-index: 8;
-    width: 86px;
-    height: 100px;
-    padding: 0;
-    border: 3px solid rgba(10,12,14,.85);
-    border-radius: 48%;
-    background: rgba(5,7,9,.48);
-    color: #d0c4a7;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-}
-/* Pieza 3: aparece debajo del trofeo central al resolver el mecanismo. */
-.pieza-cv-trofeos {
-    position: absolute;
-    z-index: 12;
-    left: 50%;
-    top: calc(43% + 112px);
-    transform: translateX(-50%);
-    white-space: nowrap;
-}
-
-.slot-trofeo:hover { background: rgba(36,67,75,.75); }
-.slot-trofeo.seleccionado {
-    outline: 3px solid var(--cian);
-    outline-offset: 5px;
-    box-shadow: 0 0 16px rgba(72,207,224,.45);
-}
-/* Cráneos de trofeo dibujados con CSS: hueso marfil, cuernos color carne y rasgos negros. */
-.icono-craneo {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    --hueso-craneo: #f5f1e8;
-    --cuerno-craneo: #ead9a6;
-    --negro-craneo: #080807;
-}
-.craneo-hueso {
-    position: absolute;
-    z-index: 2;
-    left: 31%;
-    top: 34%;
-    width: 38%;
-    height: 53%;
-    background: var(--hueso-craneo);
-    clip-path: polygon(15% 0, 85% 0, 100% 22%, 91% 69%, 72% 100%, 28% 100%, 9% 69%, 0 22%);
-    border-radius: 42% 42% 35% 35%;
-}
-.craneo-hueso::before {
-    content: "";
-    position: absolute;
-    left: 9%;
-    top: 40%;
-    width: 82%;
-    height: 58%;
-    background: var(--hueso-craneo);
-    border-radius: 30% 30% 45% 45%;
-}
-.craneo-ojo {
-    position: absolute;
-    z-index: 3;
-    top: 52%;
-    width: 16%;
-    height: 23%;
-    border-radius: 45%;
-    background: var(--negro-craneo);
-}
-.craneo-ojo-izq { left: 31%; }
-.craneo-ojo-der { right: 31%; }
-.craneo-nariz {
-    position: absolute;
-    z-index: 4;
-    left: 44%;
-    top: 76%;
-    width: 12%;
-    height: 13%;
-    border-radius: 45% 45% 60% 60%;
-    background: var(--negro-craneo);
-}
-.craneo-asta {
-    position: absolute;
-    z-index: 1;
-    top: 3%;
-    height: 48%;
-    background: var(--cuerno-craneo);
-}
-.craneo-asta-izq { left: 1%; }
-.craneo-asta-der { right: 1%; transform: scaleX(-1); }
-.craneo-cabra .craneo-asta {
-    top: 21%;
-    width: 31%;
-    height: 25%;
-    clip-path: polygon(42% 100%, 28% 67%, 0 45%, 13% 23%, 43% 42%, 57% 0, 78% 4%, 72% 53%, 100% 82%, 88% 100%);
-}
-.craneo-ciervo .craneo-asta {
-    width: 54%;
-    height: 57%;
-    clip-path: polygon(42% 100%, 27% 75%, 7% 70%, 0 54%, 19% 54%, 4% 31%, 15% 19%, 32% 48%, 36% 0, 49% 0, 51% 50%, 72% 24%, 85% 31%, 66% 61%, 100% 56%, 100% 73%, 60% 82%, 54% 100%);
-}
-.craneo-ciervo .craneo-hueso { left: 28%; width: 44%; top: 31%; height: 59%; }
-.craneo-ciervo .craneo-ojo { top: 51%; }
-.craneo-ciervo .craneo-nariz { top: 79%; }
-.craneo-alce .craneo-asta {
-    top: 0;
-    width: 70%;
-    height: 70%;
-    clip-path: polygon(42% 100%, 28% 82%, 10% 78%, 0 60%, 15% 54%, 0 38%, 8% 23%, 25% 43%, 23% 12%, 37% 0, 47% 10%, 43% 43%, 62% 21%, 76% 27%, 61% 51%, 91% 43%, 100% 57%, 82% 73%, 100% 83%, 91% 98%, 58% 86%, 53% 100%);
-}
-.craneo-alce .craneo-hueso { left: 34%; width: 32%; top: 39%; height: 49%; }
-.craneo-alce .craneo-ojo { top: 56%; }
-.craneo-alce .craneo-nariz { top: 78%; }
-.trofeo-izquierdo { left: 22%; top: 25%; }
-.trofeo-central { left: 50%; top: 43%; transform: translateX(-50%); }
-.trofeo-derecho { right: 22%; top: 25%; }
-
-.craneo-recogible {
-    position: absolute;
-    z-index: 9;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    border: 2px solid #9b8e72;
-    border-radius: 50%;
-    background: rgba(15,19,23,.88);
-    color: #d0c4a7;
-    font-size: 30px;
-    line-height: 1;
-    cursor: pointer;
-}
-.craneo-recogible:hover { background: rgba(36,67,75,.9); }
-.craneo-cabra-suelto {
-    left: calc(48% + 82px);
-    bottom: calc(13% + 48px);
-}
-.craneo-alce-suelto {
-    left: 50%;
-    bottom: 42%;
-    transform: translateX(-50%);
-    z-index: 10;
-}
-
+/* CABAÑITA INTERIOR — PARED 1: póster, llave, cofre y pieza 1 */
 /* Los botones reales se dibujan como objetos, sin perder sus eventos ni sus IDs. */
 #poster-cv {
     position: absolute;
@@ -1333,12 +1098,8 @@ button:focus-visible {
     z-index: 6;
 }
 
-#pieza-cv-2-3 {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 8;
-}
+
+/* CABAÑITA INTERIOR — PARED 2: saco de pienso y mesa */
 .arte-caballo .mesita-caballo { width:180px; height:20px; top:56%; }
 .arte-caballo .mesita-caballo::before,
 .arte-caballo .mesita-caballo::after {
@@ -1396,6 +1157,257 @@ button:focus-visible {
     letter-spacing:.3px;
 }
 
+
+
+/* CABAÑITA INTERIOR — PARED 2: slots de los caballos */
+/* Slots interactivos del puzle de los caballos. */
+.slot-caballo {
+    position: absolute;
+    top: 31%;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 88px;
+    height: 92px;
+    margin: 0;
+    padding: 6px;
+
+    background: rgba(15, 19, 23, 0.55);
+    border: 3px solid;
+    border-radius: 8px;
+
+    pointer-events: auto;
+}
+
+#slot-caballo-izquierdo {
+    top: 53%;
+    left: 37%;
+    transform: translateX(-50%);
+    border-color: var(--dorado);
+    box-shadow: inset 0 0 12px rgba(197, 160, 75, 0.12);
+}
+
+#slot-caballo-derecho {
+    top: 53%;
+    left: 63%;
+    transform: translateX(-50%);
+    border-color: #b9c2c8;
+    box-shadow: inset 0 0 12px rgba(185, 194, 200, 0.12);
+}
+
+/* Los slots quedan fuera del arte decorativo para recibir los clics. */
+
+
+.slot-caballo .icono-caballo {
+    pointer-events: none;
+}
+
+.caballo-suelto {
+    position: absolute;
+    z-index: 6;
+    left: 50%;
+    bottom: 19%;
+    transform: translateX(-50%);
+    padding: 4px 12px;
+    border: 2px solid #b9c2c8;
+    border-radius: 8px;
+    background: rgba(15, 19, 23, 0.82);
+    color: #c5cdd2;
+    font-size: 58px;
+    line-height: 1;
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(197, 205, 210, 0.35);
+}
+
+.caballo-suelto:hover {
+    background: rgba(36, 67, 75, 0.9);
+}
+
+.slot-caballo:hover {
+    background: rgba(36, 67, 75, 0.75);
+}
+
+.slot-caballo.seleccionado {
+    outline: 3px solid var(--cian);
+    outline-offset: 5px;
+    box-shadow: 0 0 16px rgba(72, 207, 224, 0.45);
+}
+
+.icono-caballo {
+    display: block;
+    font-size: 62px;
+    line-height: 1;
+}
+
+.caballo-dorado {
+    color: #c5a04b;
+    transform: scaleX(-1);
+    text-shadow: 0 0 10px rgba(197, 160, 75, 0.35);
+}
+
+.caballo-plateado {
+    color: #c5cdd2;
+    text-shadow: 0 0 10px rgba(197, 205, 210, 0.35);
+}
+
+/* Pieza 2: aparece al completar el puzle de los caballos. */
+#pieza-cv-2-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 8;
+}
+
+/* CABAÑITA INTERIOR — PARED 4: slots y cráneos de los trofeos */
+.slot-trofeo {
+    position: absolute;
+    z-index: 8;
+    width: 86px;
+    height: 100px;
+    padding: 0;
+    border: 3px solid rgba(10,12,14,.85);
+    border-radius: 48%;
+    background: rgba(5,7,9,.48);
+    color: #d0c4a7;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+.slot-trofeo:hover { background: rgba(36,67,75,.75); }
+.slot-trofeo.seleccionado {
+    outline: 3px solid var(--cian);
+    outline-offset: 5px;
+    box-shadow: 0 0 16px rgba(72,207,224,.45);
+}
+/* Cráneos de trofeo dibujados con CSS: hueso marfil, cuernos color carne y rasgos negros. */
+.icono-craneo {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    --hueso-craneo: #f5f1e8;
+    --cuerno-craneo: #ead9a6;
+    --negro-craneo: #080807;
+}
+.craneo-hueso {
+    position: absolute;
+    z-index: 2;
+    left: 31%;
+    top: 34%;
+    width: 38%;
+    height: 53%;
+    background: var(--hueso-craneo);
+    clip-path: polygon(15% 0, 85% 0, 100% 22%, 91% 69%, 72% 100%, 28% 100%, 9% 69%, 0 22%);
+    border-radius: 42% 42% 35% 35%;
+}
+.craneo-hueso::before {
+    content: "";
+    position: absolute;
+    left: 9%;
+    top: 40%;
+    width: 82%;
+    height: 58%;
+    background: var(--hueso-craneo);
+    border-radius: 30% 30% 45% 45%;
+}
+.craneo-ojo {
+    position: absolute;
+    z-index: 3;
+    top: 52%;
+    width: 16%;
+    height: 23%;
+    border-radius: 45%;
+    background: var(--negro-craneo);
+}
+.craneo-ojo-izq { left: 31%; }
+.craneo-ojo-der { right: 31%; }
+.craneo-nariz {
+    position: absolute;
+    z-index: 4;
+    left: 44%;
+    top: 76%;
+    width: 12%;
+    height: 13%;
+    border-radius: 45% 45% 60% 60%;
+    background: var(--negro-craneo);
+}
+.craneo-asta {
+    position: absolute;
+    z-index: 1;
+    top: 3%;
+    height: 48%;
+    background: var(--cuerno-craneo);
+}
+.craneo-asta-izq { left: 1%; }
+.craneo-asta-der { right: 1%; transform: scaleX(-1); }
+.craneo-cabra .craneo-asta {
+    top: 21%;
+    width: 31%;
+    height: 25%;
+    clip-path: polygon(42% 100%, 28% 67%, 0 45%, 13% 23%, 43% 42%, 57% 0, 78% 4%, 72% 53%, 100% 82%, 88% 100%);
+}
+.craneo-ciervo .craneo-asta {
+    width: 54%;
+    height: 57%;
+    clip-path: polygon(42% 100%, 27% 75%, 7% 70%, 0 54%, 19% 54%, 4% 31%, 15% 19%, 32% 48%, 36% 0, 49% 0, 51% 50%, 72% 24%, 85% 31%, 66% 61%, 100% 56%, 100% 73%, 60% 82%, 54% 100%);
+}
+.craneo-ciervo .craneo-hueso { left: 28%; width: 44%; top: 31%; height: 59%; }
+.craneo-ciervo .craneo-ojo { top: 51%; }
+.craneo-ciervo .craneo-nariz { top: 79%; }
+.craneo-alce .craneo-asta {
+    top: 0;
+    width: 70%;
+    height: 70%;
+    clip-path: polygon(42% 100%, 28% 82%, 10% 78%, 0 60%, 15% 54%, 0 38%, 8% 23%, 25% 43%, 23% 12%, 37% 0, 47% 10%, 43% 43%, 62% 21%, 76% 27%, 61% 51%, 91% 43%, 100% 57%, 82% 73%, 100% 83%, 91% 98%, 58% 86%, 53% 100%);
+}
+.craneo-alce .craneo-hueso { left: 34%; width: 32%; top: 39%; height: 49%; }
+.craneo-alce .craneo-ojo { top: 56%; }
+.craneo-alce .craneo-nariz { top: 78%; }
+.trofeo-izquierdo { left: 22%; top: 25%; }
+.trofeo-central { left: 50%; top: 43%; transform: translateX(-50%); }
+.trofeo-derecho { right: 22%; top: 25%; }
+
+.craneo-recogible {
+    position: absolute;
+    z-index: 9;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 2px solid #9b8e72;
+    border-radius: 50%;
+    background: rgba(15,19,23,.88);
+    color: #d0c4a7;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+.craneo-recogible:hover { background: rgba(36,67,75,.9); }
+.craneo-cabra-suelto {
+    left: calc(48% + 82px);
+    bottom: calc(13% + 48px);
+}
+.craneo-alce-suelto {
+    left: 50%;
+    bottom: 42%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+
+/* Pieza 3: aparece debajo del trofeo central al resolver el mecanismo. */
+/* Pieza 3: aparece debajo del trofeo central al resolver el mecanismo. */
+.pieza-cv-trofeos {
+    position: absolute;
+    z-index: 12;
+    left: 50%;
+    top: calc(43% + 112px);
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
 
 /* ==========================================
    PAREDES INTERIORES Y ELEMENTOS DE LA CABAÑITA
