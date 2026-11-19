@@ -1,4 +1,4 @@
-/* Carga la escena inicial antes de ejecutar los módulos de la aplicación. */
+/* Carga las escenas HTML y, después, los módulos JavaScript en orden. */
 async function cargarEscenaInicial() {
     const contenedor = document.getElementById('contenido-escena');
     try {
