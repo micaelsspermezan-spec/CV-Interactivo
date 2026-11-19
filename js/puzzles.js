@@ -285,7 +285,7 @@ function abrirBuzonOxidado() {
    ======================================== */
 
 // Los cráneos que ya están en la pared se mueven como los caballitos.
-// Los slots se detectan en el HTML para poder ampliar el mecanismo más adelante.
+// Los slots se obtienen del HTML y su posición determina el orden de los trofeos.
 const slotsTrofeos = [...document.querySelectorAll(".slot-trofeo")];
 const ordenTrofeosCorrecto = ["craneo-cabra", "craneo-ciervo", "craneo-alce"];
 const posicionesTrofeos = Object.fromEntries(
