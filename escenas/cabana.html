@@ -1,4 +1,8 @@
-            <!-- Perspectiva 1: conserva los objetos actuales -->
+            <!-- ========================================
+                 INTERIOR DE LA CABAÑITA
+                 ======================================== -->
+
+            <!-- Pared frontal — escritorio y cofre -->
             <div id="vista-pared-1" class="vista-pared">
                 <div class="arte-pared arte-escritorio" aria-hidden="true">
                     <div class="estructura-pared-cabana"></div>
@@ -32,7 +36,7 @@
                 </div>
             </div>
 
-            <!-- Perspectivas provisionales sin objetos todavía -->
+            <!-- Pared izquierda — puzle de caballos -->
             <div id="vista-pared-2" class="vista-pared oculta">
                 <div class="arte-pared arte-caballo" aria-hidden="true">
                     <div class="escritorio-cabana"></div>
@@ -49,6 +53,7 @@
                     📄 Pieza de CV 2
                 </button>
             </div>
+            <!-- Pared trasera — salida al exterior -->
             <div id="vista-pared-3" class="vista-pared oculta">
                 <div class="arte-pared arte-puerta-interior" aria-hidden="true">
                     <div class="puerta-interior-marco">
@@ -63,6 +68,7 @@
                     Salir al exterior
                 </button>
             </div>
+            <!-- Pared derecha — puzle de trofeos -->
             <div id="vista-pared-4" class="vista-pared oculta">
                 <div class="arte-pared arte-trofeos" aria-hidden="true">
                     <div class="mini-mansion">
@@ -85,10 +91,35 @@
                 </button>
             </div>
 
-            <!-- Zona exterior: cuatro perspectivas independientes de la cabaña -->
+            <!-- ========================================
+                 EXTERIOR DE LA CABAÑITA Y LA MANSIÓN
+                 ======================================== -->
+
+            <!-- Frente — entrada de la mansión -->
             <div id="vista-exterior-frente" class="vista-pared vista-exterior oculta">
                 <div class="arte-pared arte-casa-grande" aria-hidden="true">
-                    <div class="grupo-arboles-genericos arboles-exterior-frente" aria-hidden="true"><div class="arbol-generico arbol-frente-izq"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div><div class="arbol-generico arbol-frente-der"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div></div>
+                    <div class="grupo-arboles-genericos arboles-exterior-frente" aria-hidden="true">
+                        <div class="arbol-generico arbol-frente-izq">
+                            <span class="tronco-arbol">
+                        </span>
+                        <span class="copa-pino copa-pino-superior">
+                    </span>
+                    <span class="copa-pino copa-pino-central">
+                </span>
+                <span class="copa-pino copa-pino-inferior">
+            </span>
+        </div>
+        <div class="arbol-generico arbol-frente-der">
+            <span class="tronco-arbol">
+        </span>
+        <span class="copa-pino copa-pino-superior">
+    </span>
+    <span class="copa-pino copa-pino-central">
+</span>
+<span class="copa-pino copa-pino-inferior">
+</span>
+</div>
+</div>
                     <div class="contenedor-mansion-exterior">
                         <div class="edificio-casa-grande">
                             <div class="casa-grande-tejado"></div>
@@ -108,18 +139,102 @@
                 <button id="puerta-entrada-mansion" class="objeto-escena puerta-interactiva entrada-mansion zona-clic-transparente zona-clic-mansion" type="button" aria-label="Entrar al recibidor de la mansión">Entrar al recibidor</button>
             </div>
 
+            <!-- Izquierda — bosque y árboles especiales -->
             <div id="vista-exterior-izquierda" class="vista-pared vista-exterior oculta">
                 <div class="arte-pared arte-arboles" aria-hidden="true">
-                    <div class="grupo-arboles-genericos arboles-exterior-izquierda" aria-hidden="true"><div class="arbol-generico arbol-izq-ext-1"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div><div class="arbol-generico arbol-izq-ext-2"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div><div class="arbol-generico arbol-izq-ext-3"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div><div class="arbol-generico arbol-izq-ext-4"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div></div>
+                    <div class="grupo-arboles-genericos arboles-exterior-izquierda" aria-hidden="true">
+                        <div class="arbol-generico arbol-izq-ext-1">
+                            <span class="tronco-arbol">
+                        </span>
+                        <span class="copa-pino copa-pino-superior">
+                    </span>
+                    <span class="copa-pino copa-pino-central">
+                </span>
+                <span class="copa-pino copa-pino-inferior">
+            </span>
+        </div>
+        <div class="arbol-generico arbol-izq-ext-2">
+            <span class="tronco-arbol">
+        </span>
+        <span class="copa-pino copa-pino-superior">
+    </span>
+    <span class="copa-pino copa-pino-central">
+</span>
+<span class="copa-pino copa-pino-inferior">
+</span>
+</div>
+<div class="arbol-generico arbol-izq-ext-3">
+<span class="tronco-arbol">
+</span>
+<span class="copa-pino copa-pino-superior">
+</span>
+<span class="copa-pino copa-pino-central">
+</span>
+<span class="copa-pino copa-pino-inferior">
+</span>
+</div>
+<div class="arbol-generico arbol-izq-ext-4">
+<span class="tronco-arbol">
+</span>
+<span class="copa-pino copa-pino-superior">
+</span>
+<span class="copa-pino copa-pino-central">
+</span>
+<span class="copa-pino copa-pino-inferior">
+</span>
+</div>
+</div>
                     <div class="arbol-especial arbol-frondoso"><span class="tronco-arbol"></span><span class="hoja-circulo hoja-circulo-1"></span><span class="hoja-circulo hoja-circulo-2"></span><span class="hoja-circulo hoja-circulo-3"></span><span class="hoja-circulo hoja-circulo-4"></span><span class="hoja-trebol hoja-trebol-1"></span><span class="hoja-trebol hoja-trebol-2"></span></div>
                     <div class="arbol-especial arbol-mediano"><span class="tronco-arbol"></span><span class="hoja-circulo hoja-circulo-1"></span><span class="hoja-circulo hoja-circulo-2"></span><span class="hoja-circulo hoja-circulo-3"></span><span class="hoja-circulo hoja-circulo-4"></span><span class="hoja-trebol hoja-trebol-1"></span><span class="hoja-trebol hoja-trebol-2"></span></div>
                     <div class="arbol-especial arbol-calvo"><span class="tronco-arbol"></span><span class="rama-arbol rama-arbol-izq"></span><span class="rama-arbol rama-arbol-der"></span></div>
                 </div>
             </div>
 
+            <!-- Detrás — regreso a la cabañita y cráneo de alce -->
             <div id="vista-exterior-detras" class="vista-pared vista-exterior oculta">
                 <div class="arte-pared arte-cabanita" aria-hidden="true">
-                    <div class="grupo-arboles-genericos arboles-exterior-detras" aria-hidden="true"><div class="arbol-generico arbol-detras-izq"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div><div class="arbol-generico arbol-detras-der"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div><div class="arbol-generico arbol-detras-izq-interior"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div><div class="arbol-generico arbol-detras-der-interior"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div></div>
+                    <div class="grupo-arboles-genericos arboles-exterior-detras" aria-hidden="true">
+                        <div class="arbol-generico arbol-detras-izq">
+                            <span class="tronco-arbol">
+                        </span>
+                        <span class="copa-pino copa-pino-superior">
+                    </span>
+                    <span class="copa-pino copa-pino-central">
+                </span>
+                <span class="copa-pino copa-pino-inferior">
+            </span>
+        </div>
+        <div class="arbol-generico arbol-detras-der">
+            <span class="tronco-arbol">
+        </span>
+        <span class="copa-pino copa-pino-superior">
+    </span>
+    <span class="copa-pino copa-pino-central">
+</span>
+<span class="copa-pino copa-pino-inferior">
+</span>
+</div>
+<div class="arbol-generico arbol-detras-izq-interior">
+<span class="tronco-arbol">
+</span>
+<span class="copa-pino copa-pino-superior">
+</span>
+<span class="copa-pino copa-pino-central">
+</span>
+<span class="copa-pino copa-pino-inferior">
+</span>
+</div>
+<div class="arbol-generico arbol-detras-der-interior">
+<span class="tronco-arbol">
+</span>
+<span class="copa-pino copa-pino-superior">
+</span>
+<span class="copa-pino copa-pino-central">
+</span>
+<span class="copa-pino copa-pino-inferior">
+</span>
+</div>
+</div>
                     <div class="contenedor-cabanita-exterior">
                         <div class="edificio-cabanita">
                             <div class="cabanita-tejado"></div>
@@ -134,9 +249,31 @@
                 <button id="craneo-alce-suelto" class="objeto-escena craneo-recogible craneo-alce-suelto" type="button" aria-label="Recoger cráneo de alce"><span class="icono-craneo craneo-alce"><span class="craneo-asta craneo-asta-izq"></span><span class="craneo-asta craneo-asta-der"></span><span class="craneo-hueso"></span><span class="craneo-ojo craneo-ojo-izq"></span><span class="craneo-ojo craneo-ojo-der"></span><span class="craneo-nariz"></span></span></button>
             </div>
 
+            <!-- Derecha — buzón y caballito -->
             <div id="vista-exterior-derecha" class="vista-pared vista-exterior oculta">
                 <div class="arte-pared arte-buzon" aria-hidden="true">
-                    <div class="grupo-arboles-genericos arboles-exterior-derecha" aria-hidden="true"><div class="arbol-generico arbol-derecha-izq"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div><div class="arbol-generico arbol-derecha-der"><span class="tronco-arbol"></span><span class="copa-pino copa-pino-superior"></span><span class="copa-pino copa-pino-central"></span><span class="copa-pino copa-pino-inferior"></span></div></div>
+                    <div class="grupo-arboles-genericos arboles-exterior-derecha" aria-hidden="true">
+                        <div class="arbol-generico arbol-derecha-izq">
+                            <span class="tronco-arbol">
+                        </span>
+                        <span class="copa-pino copa-pino-superior">
+                    </span>
+                    <span class="copa-pino copa-pino-central">
+                </span>
+                <span class="copa-pino copa-pino-inferior">
+            </span>
+        </div>
+        <div class="arbol-generico arbol-derecha-der">
+            <span class="tronco-arbol">
+        </span>
+        <span class="copa-pino copa-pino-superior">
+    </span>
+    <span class="copa-pino copa-pino-central">
+</span>
+<span class="copa-pino copa-pino-inferior">
+</span>
+</div>
+</div>
                     <button id="buzon-oxidado" class="buzon-oxidado" type="button"
                         aria-label="Abrir buzón oxidado"><span></span></button>
                 </div>
