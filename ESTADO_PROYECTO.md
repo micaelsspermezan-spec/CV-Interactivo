@@ -173,6 +173,14 @@ No editar simultáneamente el mismo archivo en local y directamente en GitHub si
 
 ## 8. Historial de cambios
 
+### 19 de noviembre de 2026
+
+- **Revisión y reorganización de HTML:** se revisaron `index.html`, `escenas/cabana.html` y `escenas/mansion.html`. Se ordenaron los comentarios y bloques por zona y perspectiva, se uniformó la indentación y se dividieron estructuras HTML largas para facilitar su lectura.
+- **Semántica y accesibilidad:** `index.html` conserva una única región `main`; el menú inicial pasa a ser una sección y la navegación de perspectivas utiliza `nav`. Se añadieron nombres accesibles a la escena y al panel del CV, y se vinculó el inventario con su encabezado. En las escenas, el botón del buzón dejó de estar dentro de un contenedor `aria-hidden`, y la llave de cobre recibió una etiqueta accesible.
+- **Verificación estática:** se comprobaron el equilibrio de etiquetas, la ausencia de IDs duplicados y que los 34 botones tengan `type="button"`. No se realizaron pruebas funcionales en navegador.
+
+### 12 de noviembre de 2026
+
 ### 12 de noviembre de 2026
 
 - **Limpieza de puzzles.js:** se unificaron los dos listeners de clic sobre #escena en uno solo, conservando la cancelación de selección de trofeos y caballos al pulsar fuera de sus slots. También se ordenaron los comentarios y la numeración de secciones.
