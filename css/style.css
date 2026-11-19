@@ -1226,10 +1226,6 @@ button:focus-visible {
     background: rgba(36, 67, 75, 0.9);
 }
 
-.slot-caballo:hover {
-    background: rgba(36, 67, 75, 0.75);
-}
-
 .slot-caballo.seleccionado {
     outline: 3px solid var(--cian);
     outline-offset: 5px;
@@ -1292,6 +1288,7 @@ button:focus-visible {
     --hueso-craneo: #f5f1e8;
     --cuerno-craneo: #ead9a6;
     --negro-craneo: #080807;
+    transition: filter .2s ease;
 }
 .craneo-hueso {
     position: absolute;
@@ -2024,7 +2021,7 @@ button:focus-visible {
     border: 3px solid #765044;
     border-radius: 25px 25px 4px 4px;
     background: #554238;
-    box-shadow: 0 55px 0 -23px #60432c;
+    box-shadow: none;
 
     pointer-events: auto;
 }
@@ -2406,14 +2403,6 @@ button:focus-visible {
     pointer-events: none;
 }
 
-.buzon-oxidado {
-    box-shadow: none;
-}
-
-.buzon-mansion-fondo {
-    box-shadow: none;
-}
-
 .arte-detras-mansion::before {
     content: "";
     position: absolute;
@@ -2505,20 +2494,6 @@ button:focus-visible {
     box-shadow: none;
     filter: drop-shadow(0 0 3px rgba(255, 232, 178, .95))
             drop-shadow(0 0 9px rgba(255, 196, 92, .7));
-}
-
-/* Brillo cálido aplicado solo al dibujo del cráneo.
-   Los botones conservan siempre su círculo, fondo y borde originales. */
-.icono-craneo {
-    transition: filter .2s ease;
-}
-
-.slot-trofeo:hover {
-    background: rgba(36,67,75,.75);
-}
-
-.craneo-recogible:hover {
-    background: rgba(36,67,75,.9);
 }
 
 .slot-trofeo:hover .icono-craneo,
