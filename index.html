@@ -22,10 +22,10 @@
     </div>
 
     <!-- ========================================
-         3. MENÚ PRINCIPAL
+         2. MENÚ PRINCIPAL
          ======================================== -->
 
-    <main id="inicio" class="pantalla">
+    <section id="inicio" class="pantalla">
 
         <div class="contenido-inicio">
 
@@ -46,11 +46,11 @@
 
         </div>
 
-    </main>
+    </section>
 
 
     <!-- ========================================
-         4. ZONA DE EXPLORACIÓN
+         3. ZONA DE EXPLORACIÓN
          ======================================== -->
 
     <main id="exploracion" class="pantalla oculta">
@@ -97,7 +97,7 @@
 
         <!-- ESCENA PRINCIPAL -->
 
-        <section id="escena">
+        <section id="escena" aria-label="Escena de exploración">
 
             <!-- Botón para salir de vistas ampliadas -->
             <button type="button" id="volver" class="oculta">
@@ -105,11 +105,11 @@
             </button>
 
             <!-- Navegación provisional entre las cuatro paredes -->
-            <div id="navegacion-perspectivas" aria-label="Cambiar de perspectiva">
+            <nav id="navegacion-perspectivas" aria-label="Cambiar de perspectiva">
                 <button id="perspectiva-anterior" type="button" aria-label="Ver pared anterior">←</button>
                 <span id="indicador-perspectiva" aria-live="polite">Pared frontal</span>
                 <button id="perspectiva-siguiente" type="button" aria-label="Ver pared siguiente">→</button>
-            </div>
+            </nav>
 
             <!-- Las perspectivas se cargan desde escenas/cabana.html -->
             <div id="contenido-escena"></div>
@@ -118,7 +118,7 @@
 
 
         <!-- ========================================
-             5. INVENTARIO DEL JUGADOR
+             4. INVENTARIO DEL JUGADOR
              ======================================== -->
 
         <aside id="inventario" class="oculta">
@@ -181,10 +181,10 @@
 
 
     <!-- ========================================
-         6. PANEL DEL CURRÍCULUM
+         5. PANEL DEL CURRÍCULUM
          ======================================== -->
 
-    <section id="panel-cv" class="oculta">
+    <section id="panel-cv" class="oculta" aria-label="Currículum">
 
         <div id="cabecera-cv">
             <h2>Mi currículum</h2>
@@ -201,7 +201,7 @@
                 </div>
                 <h1>Micael Samuel Barbuta Spermezan</h1>
                 <p class="cv-titular">Estudiante de Sistemas Microinformáticos y Redes</p>
-                <div class="cv-contacto" aria-label="Datos de contacto">
+                <div class="cv-contacto" role="group" aria-label="Datos de contacto">
                     <p class="cv-contacto-item"><span>Teléfono</span> +34 614 61 77 83</p>
                     <p class="cv-contacto-item"><span>Correo</span> micaelsspermezan@gmail.com</p>
                     <p class="cv-contacto-item"><span>LinkedIn</span> Micael Samuel Barbuta Spermezan</p>
@@ -307,7 +307,7 @@
 
 
     <!-- ========================================
-         7. CARGA DE JAVASCRIPT
+         6. CARGA DE JAVASCRIPT
          ======================================== -->
 
     <script src="js/cargar-escena.js"></script>
