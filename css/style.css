@@ -297,7 +297,7 @@ button:focus-visible {
     color: var(--dorado-claro);
 }
 
-/* Referencias provisionales visibles en las perspectivas exteriores. */
+/* Textos descriptivos visibles en las perspectivas exteriores. */
 .referencia-exterior {
     position: absolute;
     pointer-events: none;
@@ -943,10 +943,6 @@ button:focus-visible {
 
 
 /* ==========================================
-   OBJETOS INTERACTIVOS Y TROFEOS
-   ========================================== */
-
-/* ==========================================
    OBJETOS INTERACTIVOS: CABALLOS Y TROFEOS
    ========================================== */
 
@@ -1395,7 +1391,6 @@ button:focus-visible {
 }
 
 
-/* Pieza 3: aparece debajo del trofeo central al resolver el mecanismo. */
 /* Pieza 3: aparece debajo del trofeo central al resolver el mecanismo. */
 .pieza-cv-trofeos {
     position: absolute;
@@ -2038,9 +2033,6 @@ button:focus-visible {
     border-color: var(--dorado);
     background: #6b5740;
 }
-
-/* ==========================================
-   ========================================== */
 
 /* ==========================================
    ELEMENTOS EXTERIORES Y MANSIÓN
