@@ -181,8 +181,6 @@ No editar simultáneamente el mismo archivo en local y directamente en GitHub si
 
 ### 12 de noviembre de 2026
 
-### 12 de noviembre de 2026
-
 - **Limpieza de puzzles.js:** se unificaron los dos listeners de clic sobre #escena en uno solo, conservando la cancelación de selección de trofeos y caballos al pulsar fuera de sus slots. También se ordenaron los comentarios y la numeración de secciones.
 - **Limpieza de inventory.js:** se centralizó en TIPOS_EQUIPABLES la lista de tipos que pueden equiparse. Las tres comprobaciones existentes reutilizan ahora esa constante, evitando repetir la misma lista sin alterar el comportamiento.
 - **Limpieza de main.js:** se creó registrarRecogidaPiezaCV() para reutilizar la lógica común de recogida de las tres piezas del currículum. Se conservaron sus descripciones, mensajes y comportamiento, y se corrigió la numeración de secciones.
