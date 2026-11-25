@@ -1,0 +1,25 @@
+# Dependencias (si usas npm / yarn / pnpm)
+node_modules/
+
+# Carpetas de compilación o producción
+dist/
+build/
+.parcel-cache/
+
+# Variables de entorno y claves secretas
+.env
+.env.local
+.env.*.local
+
+# Registros de errores (logs)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editores de código
+.vscode/
+.idea/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
