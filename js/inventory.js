@@ -641,6 +641,21 @@ function mostrarDetalleObjeto(objeto) {
 // Pulsar la ranura.
 document.getElementById("ranura-equipada").addEventListener("click", () => {
 
+    const inventarioAbierto = !document.getElementById("inventario")
+        .classList.contains("oculta");
+
+    // Equipar el objeto seleccionado desde el inventario abierto.
+    if (
+        inventarioAbierto &&
+        objetoSeleccionado &&
+        TIPOS_EQUIPABLES.includes(objetoSeleccionado.tipo) &&
+        !objetoSeleccionado.agotado
+    ) {
+        equiparObjeto(objetoSeleccionado);
+        mostrarMensajeEquipado(objetoSeleccionado);
+        return;
+    }
+
     if (objetoEquipado) {
 
         // Si hay un objeto equipado, mostrar el menú.
