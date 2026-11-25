@@ -1,156 +1,94 @@
-CV INTERACTIVO — MICAEL SAMUEL
-=================================
+# CV interactivo — Micael Samuel
 
-WEB OFICIAL DEL CURRÍCULUM:
-https://micaelsspermezan-spec.github.io/CV-Interactivo/
+Web oficial: https://micaelsspermezan-spec.github.io/CV-Interactivo/
 
+¡Bienvenido a mi currículum interactivo! Se trata de una pequeña aventura point-and-click con elementos de escape room. Explora los escenarios, encuentra objetos, descubre pistas y resuelve mecanismos para reunir las tres piezas del currículum.
 
-¡Bienvenido a mi currículum interactivo!
-
-Este proyecto se trata de una pequeña aventura point and click con elementos de escape room.
-
-El objetivo es juntar las tres piezas del currículum para completarlo, repartidas por diferentes escenarios.
-Para conseguirlas tendrás que explorar, encontrar objetos, descubrir pistas (algo crípticas) y resolver algunos mecanismos.
-
-La inspiración principal de hacerlo interactivo viene de la página de Bruno Simon, mezclada con la ambientación (en progreso) y los puzles de Silent Hill.
-
-Más abajo tienes una guía con las soluciones, por si te atascas.
+La idea combina la interactividad de páginas como la de Bruno Simon con una ambientación inspirada en Silent Hill.
 
 ¡Espero que disfrutes la experiencia!
 
-Si tienes cualquier problema o duda, puedes mandarme un mensaje por papas o correo. 
+## Controles
 
-
-
-CONTROLES:
----------
-- Pulsa los botones superiores con flechas para cambiar de perspectiva.
-- Pulsa los objetos y elementos interactivos para examinarlos, recogerlos o cambiarlos de lugar.
+- Utiliza las flechas de la parte superior para cambiar de perspectiva.
+- Haz clic en objetos y elementos interactivos para examinarlos, recogerlos o utilizarlos.
 - Abre el inventario para consultar los objetos encontrados.
-- Puedes consultar el estado del Curriculum desde el inventario o menú.
-- Selecciona "equipar objeto" sobre un objeto del inventario para equiparlo.
-- Algunos mecanismos requieren tener equipado el objeto adecuado.
-- Utiliza las puertas y los edificios interactivos para desplazarte entre las distintas zonas.
-- En algunos puzles tendrás que seleccionar elementos de la escena y después pulsar otra posición para moverlos o intercambiarlos.
+- El currículum puede consultarse desde el inventario.
+- Puedes equipar un objeto desde el botón de su ficha o mediante doble clic.
+- También puedes seleccionar un objeto equipable del inventario abierto y pulsar la ranura de equipamiento para equiparlo o sustituir el que ya esté colocado.
+- Algunos mecanismos requieren que tengas equipado un objeto concreto.
+- Utiliza puertas y edificios interactivos para desplazarte entre las zonas.
+- En ciertos puzles puedes seleccionar elementos y después pulsar otra posición para moverlos o intercambiarlos.
 
+## Zonas
 
-ZONAS PRINCIPALES:
------------------
+- **Cabañita:** contiene el escritorio y el cofre, además de los mecanismos de los caballos y los trofeos.
+- **Exterior:** conecta la cabañita con la mansión y contiene objetos y pistas.
+- **Mansión:** cuenta con varias perspectivas exteriores. Su interior no está disponible en esta versión.
 
-Cabaña: aquí encontrarás el escritorio con cofre y los puzles de los caballos y los trofeos.
+## Seguridad y privacidad
 
-Exterior: está a medio camino de la cabaña y la mansión, busca objetos que puedan servirte para resolver los mecanismos.
+El código fuente puede consultarse en el repositorio de GitHub. Este proyecto es una página web estática hecha con HTML, CSS y JavaScript; no necesita instalar ni ejecutar programas o archivos .exe.
 
-Mansión: momentaneamente solo el porche.
+No se incorporan dependencias ni servicios externos para el funcionamiento de la experiencia. El navegador carga los archivos del propio proyecto para mostrar los escenarios y gestionar las interacciones.
 
+## Guía de soluciones
 
+<details>
+<summary><strong>Puzle 1 — El cuervo y el cofre</strong></summary>
 
-SEGURIDAD Y PRIVACIDAD
-----------------------
-El código fuente está disponible en mi repositorio de GitHub para su consulta.
-No se han añadido dependencias externas ni servicios de terceros para el
-funcionamiento del juego. Se recomienda acceder mediante el enlace
-oficial del repositorio o de GitHub Pages.
+**Objetivo:** conseguir la llave de cobre del cuervo y usarla para abrir el cofre del escritorio.
 
-Este proyecto es una página web estática compuesta por HTML, CSS y JavaScript.
-No requiere descargar ni ejecutar instaladores, aplicaciones o archivos .exe.
-El navegador carga los archivos del propio proyecto para mostrar las escenas
-y gestionar las interacciones.
+**Pistas:** el cuervo está demasiado alto. En el recibidor de la mansión hay un cuenco de perro y, en la cabañita, un saco de pienso.
 
+**Solución:**
+1. Recoge el saco de pienso en la cabañita.
+2. Ve al recibidor de la mansión y equipa el saco.
+3. Pulsa el cuenco para dejar la comida.
+4. El cuervo se acercará y dejará caer la llave de cobre.
+5. Recoge la llave, regresa al escritorio y equípala.
+6. Pulsa el cofre para abrirlo y obtener la Pieza 1.
 
+</details>
 
-SOLUCIONES DE LOS PUZLES
-========================
+<details>
+<summary><strong>Puzle 2 — Los dos caballitos</strong></summary>
 
+**Objetivo:** colocar las figuras de ajedrez enfrentadas en la disposición correcta.
 
-PUZLE 1 — EL CUERVO Y EL COFRE
-------------------------------
+**Solución:**
+1. Recoge la llave de hierro del escritorio.
+2. Ve al exterior y abre el buzón oxidado con la llave equipada.
+3. Recoge el caballito plateado que aparece.
+4. Regresa a la pared izquierda de la cabañita.
+5. Coloca el caballito plateado en uno de los slots y mueve o intercambia las figuras hasta conseguir la disposición correcta:
 
-OBJETIVO:
-Conseguir la llave de cobre que guarda el cuervo y utilizarla para abrir el cofre del escritorio.
+- **Izquierda:** caballito dorado.
+- **Derecha:** caballito plateado.
 
-PISTAS:
+Al resolverlo aparecerá la Pieza 2.
 
-"El cuervo está demasiado alto para alcanzarlo."
-En el porche de la mansión encontrarás un cuenco de perro.
-Hay un saco de pienso en la cabañita.
+</details>
 
-SOLUCIÓN:
+<details>
+<summary><strong>Puzle 3 — Los trofeos de caza</strong></summary>
 
-Recoge el saco de pienso en la pared izquierda de la cabañita.
-Dirígete al recibidor de la mansión.
-Equipa el saco de pienso desde el inventario.
-Pulsa el cuenco del perro para dejar la comida.
-El cuervo se acercará a comer y dejará caer la llave de cobre.
-Recoge la llave del suelo.
-Regresa a la vista del escritorio de la cabañita.
-Equipa la llave de cobre y pulsa el cofre.
-Consigue la primera pieza del CV
+**Objetivo:** completar la colección de cráneos de la pared derecha de la cabañita.
 
+**Pistas:** hay tres posiciones en la pared. Observa los árboles del bosque izquierdo del exterior de la cabañita: su tamaño y aspecto ayudan a deducir el orden.
 
+**Solución:**
+1. Ve al bosque izquierdo de la mansión y recoge el cráneo de cabra.
+2. Busca y recoge el cráneo de alce en el exterior, sobre la cabañita.
+3. Regresa a la pared derecha de la cabañita.
+4. Coloca los trofeos y muévelos o intercámbialos hasta conseguir el orden correcto, de izquierda a derecha:
 
-PUZLE 2 — LOS DOS CABALLITOS
-----------------------------
+- Cabra.
+- Ciervo.
+- Alce.
 
-OBJETIVO:
-Colocar los dos caballitos de ajedrez mirándose frente a frente.
+Al resolverlo aparecerá la Pieza 3.
 
-PISTAS:
+</details>
 
-En la pared izquierda de la cabañita encontrarás un caballito dorado.
-Al lado del mismo se encuentra otro slot de su mismo color al cual se puede mover.
-No basta con tener las dos figuras, tambiñen hay que colocarlas correctamente.
-
-SOLUCIÓN:
-
-Agarra la llave de hierro que se encuentra sobre el escritorio.
-Dirígete al exterior y localiza el buzón oxidado.
-Equipa la llave de hierro y abre el buzón.
-Recoge el caballito plateado que aparece en su interior.
-Vuelve a la pared izquierda de la cabañita.
-Equipa el caballito plateado desde el inventario.
-Pulsa un slot libre para colocarlo.
-Selecciona cualquiera de los dos y pulsa sobre el otro para intercambiar sus posiciones
-
-La disposición correcta es:
-
-IZQUIERDA: Caballito dorado.
-DERECHA: Caballito plateado.
-
-Aparecerá la segunda pieza con contenido para el CV
-
-
-
-PUZLE 3 — LOS TROFEOS DE CAZA
------------------------------
-
-OBJETIVO:
-Completar la colección de cráneos de la pared derecha de la cabañita.
-
-PISTAS:
-
-Hay tres posiciones para colocar los trofeos de caza.
-Hay dos dibujitos en las esquinas de la vista simbolizando la cabaña y la mansión
-Algunos cráneos están repartidos por los exteriores de la mansión y la cabañita.
-En el Exterior de la cabaña, observa los árboles del bosque izquierdo: su tamaño y aspecto sirven como referencia para deducir el orden de los animales.
-
-SOLUCIÓN:
-
-Dirígete a la vista izquierda de la mansión y recoge el cráneo de cabra.
-Busca el cráneo de alce en el exterior, encima de la cabaña
-Regresa a la pared derecha de la cabañita y equipate uno de los trofeos.
-Haz click sobre cualquiera de los slots libres para colocarlo.
-Repite los pasos con el trofeo que quede
-Selecciona un trofeo pulsándolo y después pulsa otra posición para intercambiarlo.
-
-EL ORDEN CORRECTO, DE IZQUIERDA A DERECHA, ES:
-
-Cabra.
-
-Ciervo.
-
-Alce.
-
-Al final aparecerá la tercera pieza con información del CV
-
-¡Gracias por jugar y por dedicar un rato a éste mi pequeño proyecto!
+¡Gracias por jugar y dedicar un rato a este pequeño proyecto!
