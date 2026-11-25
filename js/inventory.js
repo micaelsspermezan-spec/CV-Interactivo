@@ -25,7 +25,8 @@ const TIPOS_EQUIPABLES = ["llave", "herramienta", "pieza"];
 const datosPiezasCV = {
     "pieza-cv-1-3": {
         datos: [
-            "Estudiante de Sistemas Microinformáticos y Redes, con interés en la informática, la programación y el desarrollo de videojuegos. Actualmente estoy ampliando mis conocimientos de Python y de los sistemas informáticos. También me interesan la biología y la ciencia en general.",
+            "Perfil: persona curiosa y creativa, interesada en entender cómo funcionan las cosas, experimentar con ideas y combinar la parte lógica, técnica y creativa.",
+            "Intereses personales: dibujo, diseño, modelado 3D y ciencia. Actualmente estudia Sistemas Microinformáticos y Redes y aprende programación.",
             "2025–2027 · Técnico en Sistemas Microinformáticos y Redes · IES Maestre de Calatrava, Ciudad Real.",
             "Educación Secundaria Obligatoria (ESO) · IES Juan de Ávila."
         ]
@@ -33,18 +34,19 @@ const datosPiezasCV = {
 
     "pieza-cv-2-3": {
         datos: [
-            "Prácticas formativas de 100 horas en Inmobiliaria La Mayor, Ciudad Real, del 7 al 26 de mayo de 2026.",
-            "Realización de fotografías de inmuebles, creación de diseños y contenido visual con Canva y colaboración en la gestión de las redes sociales de la empresa.",
-            "Lenguas maternas: español y rumano. Inglés: nivel C1."
+            "Prácticas formativas · Inmobiliaria La Mayor · Ciudad Real · 100 horas · 07/05/2026–26/05/2026.",
+            "Realización de fotografías de inmuebles.",
+            "Creación de diseños y contenido visual con Canva.",
+            "Colaboración en la gestión de las redes sociales de la empresa.",
+            "Español: lengua materna. Rumano: lengua materna. Inglés: nivel C1."
         ]
     },
 
     "pieza-cv-3-3": {
         datos: [
-            "Montaje y mantenimiento de equipos informáticos; instalación y configuración de sistemas operativos; configuración y administración de redes locales.",
-            "Administración de usuarios y permisos; configuración de servicios de red; seguridad informática y resolución de incidencias.",
-            "Programación básica con Python; ofimática y creación de contenido visual con Canva.",
-            "Aficiones e intereses: dibujo y diseño, programación y desarrollo de videojuegos, ciencia, tecnología y divulgación científica."
+            "Sistemas y soporte: montaje y mantenimiento de equipos; instalación y configuración de sistemas operativos; redes locales; usuarios y permisos; servicios de red; seguridad informática y resolución de incidencias.",
+            "Programación y herramientas: Python básico; ofimática; Canva y creación de contenido visual.",
+            "Intereses: dibujo y diseño; programación; desarrollo de videojuegos; biología y ciencia; tecnología; divulgación científica."
         ]
     }
 };
@@ -343,6 +345,13 @@ function seleccionarObjeto(objeto) {
 
 function plegarGrupoPiezasCV() {
     menuPiezasCVAbierto = false;
+
+    // Ocultar también el submenú visible sin reconstruir el inventario.
+    const submenu = document.querySelector(".submenu-piezas-cv");
+
+    if (submenu) {
+        submenu.classList.add("oculta");
+    }
 }
 
 
