@@ -2806,3 +2806,21 @@ button:focus-visible {
    FIN DE LA HOJA DE ESTILOS
    ========================================== */
 
+
+
+/* Escenario virtual: limita y centra el arte de las perspectivas. */
+#contenido-escena {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1000px;
+    height: 600px;
+    transform: translate(-50%, -50%) scale(var(--escala-escenario, 1));
+    transform-origin: center center;
+}
+
+#contenido-escena > .vista-pared,
+#contenido-escena > [id^="vista-"] {
+    width: 100%;
+    height: 100%;
+}
