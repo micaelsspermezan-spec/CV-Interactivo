@@ -2824,3 +2824,55 @@ button:focus-visible {
     width: 100%;
     height: 100%;
 }
+
+
+/* Ajustes de encuadre y escala para pantallas móviles. */
+@media (max-width: 650px) {
+    #inicio {
+        min-height: 100dvh;
+        padding-top: max(90px, 12dvh);
+        justify-content: flex-start;
+    }
+
+    .contenido-inicio {
+        width: 100%;
+        text-align: center;
+    }
+
+    #inicio h1 {
+        width: 100%;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .cabecera-exploracion {
+        padding-top: 45px;
+    }
+
+    .cabecera-exploracion h1 {
+        text-align: center;
+    }
+
+    #escena {
+        height: 70dvh;
+        min-height: 0;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 650px) and (orientation: landscape) {
+    #exploracion {
+        padding: 8px 12px 12px;
+    }
+
+    .cabecera-exploracion {
+        min-height: 48px;
+        padding-top: 32px;
+    }
+
+    #escena {
+        height: min(76dvh, calc(100dvh - 105px));
+        min-height: 0;
+        margin-top: 8px;
+    }
+}
