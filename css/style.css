@@ -2876,3 +2876,27 @@ button:focus-visible {
         margin-top: 8px;
     }
 }
+
+
+/* Legibilidad de textos y mayor aprovechamiento del espacio en móvil. */
+@media (max-width: 650px) {
+    .referencia-exterior h2 {
+        font-size: calc(1.5rem / var(--escala-escenario, 1));
+    }
+
+    .referencia-exterior p {
+        font-size: calc(1rem / var(--escala-escenario, 1));
+        line-height: 1.5;
+    }
+
+    #mensaje-escena {
+        font-size: calc(0.95rem / var(--escala-escenario, 1));
+        line-height: 1.45;
+    }
+}
+
+@media (max-width: 650px) and (orientation: landscape) {
+    #escena {
+        height: min(84dvh, calc(100dvh - 82px));
+    }
+}
