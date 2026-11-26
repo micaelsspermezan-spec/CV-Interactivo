@@ -3,17 +3,22 @@ async function cargarEscenaInicial() {
     const contenedor = document.getElementById('contenido-escena');
     const marco = document.getElementById('escena');
 
-    // Ajusta el escenario virtual al espacio disponible, sin deformar el arte.
+    // Recalcula la escala cuando la escena adquiere tamaño o cambia la ventana.
     function ajustarEscenario() {
         if (!marco || !contenedor) return;
         const espacioAncho = marco.clientWidth;
         const espacioAlto = marco.clientHeight;
-        const escala = Math.min(espacioAncho / 1000, espacioAlto / 600, 1);
+        if (!espacioAncho || !espacioAlto) return;
+        const escala = Math.min(espacioAncho / 1000, espacioAlto / 600, 1.35);
         contenedor.style.setProperty('--escala-escenario', escala);
     }
 
-    ajustarEscenario();
     window.addEventListener('resize', ajustarEscenario);
+    if (marco && typeof ResizeObserver !== 'undefined') {
+        const observador = new ResizeObserver(ajustarEscenario);
+        observador.observe(marco);
+    }
+    ajustarEscenario();
     try {
         const [respuestaCabana, respuestaMansion] = await Promise.all([
             fetch('escenas/cabana.html', { cache: 'no-store' }),
@@ -28,6 +33,7 @@ async function cargarEscenaInicial() {
             respuestaMansion.text()
         ]);
         contenedor.innerHTML = htmlCabana + htmlMansion;
+        ajustarEscenario();
         const scripts = ['js/inventory.js', 'js/puzzles.js', 'js/navigation.js', 'js/main.js'];
         for (const ruta of scripts) {
             await new Promise((resolve, reject) => {
