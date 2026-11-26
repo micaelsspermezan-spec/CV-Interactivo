@@ -1,6 +1,19 @@
 /* Carga las escenas HTML y, después, los módulos JavaScript en orden. */
 async function cargarEscenaInicial() {
     const contenedor = document.getElementById('contenido-escena');
+    const marco = document.getElementById('escena');
+
+    // Ajusta el escenario virtual al espacio disponible, sin deformar el arte.
+    function ajustarEscenario() {
+        if (!marco || !contenedor) return;
+        const espacioAncho = marco.clientWidth;
+        const espacioAlto = marco.clientHeight;
+        const escala = Math.min(espacioAncho / 1000, espacioAlto / 600, 1);
+        contenedor.style.setProperty('--escala-escenario', escala);
+    }
+
+    ajustarEscenario();
+    window.addEventListener('resize', ajustarEscenario);
     try {
         const [respuestaCabana, respuestaMansion] = await Promise.all([
             fetch('escenas/cabana.html', { cache: 'no-store' }),
